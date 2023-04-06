@@ -21,20 +21,35 @@
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```yaml
+flutter_widgetz: ^0.0.1
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomScaffold(
+      body: SpacedColumn(
+        children: <Widget>[
+          const CustomPlaceholder(
+            text: 'Hi There',
+          ),
+          CustomElevatedButton(
+            onPressed: () {},
+            text: 'A Button',
+          ),
+        ],
+      ),
+    );
+  }
+}
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+The generated documentation has a great overview of all that is available.
