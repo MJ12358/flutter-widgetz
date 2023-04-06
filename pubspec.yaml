@@ -1,0 +1,17 @@
+name: flutter_widgetz
+description: A set of Flutter widgets I use in various projects.
+version: 0.0.1
+repository: https://github.com/mj12358/flutter-widgetz
+
+environment:
+  sdk: ">=2.19.6 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  dart_lintz: ^1.0.0
+  flutter_test:
+    sdk: flutter
