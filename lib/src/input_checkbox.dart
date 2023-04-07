@@ -15,7 +15,7 @@ class CustomInputCheckbox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onChanged(value),
+      onTap: () => onChanged(!value),
       child: InputDecorator(
         textAlign: TextAlign.left,
         decoration: InputDecoration(
