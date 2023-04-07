@@ -7,16 +7,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      body: SpacedColumn(
-        children: <Widget>[
-          const CustomPlaceholder(
-            text: 'Hi There',
-          ),
-          CustomElevatedButton(
-            onPressed: () {},
-            text: 'A Button',
-          ),
-        ],
+      body: CustomBody(
+        child: SpacedColumn(
+          children: <Widget>[
+            const CustomPlaceholder(
+              text: 'Hi There',
+            ),
+            CustomElevatedButton(
+              onPressed: () {},
+              text: 'A Button',
+            ),
+          ],
+        ),
       ),
     );
   }

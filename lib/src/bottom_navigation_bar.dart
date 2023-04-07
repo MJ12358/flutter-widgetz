@@ -1,5 +1,7 @@
 part of flutter_widgetz;
 
+/// A wrapper for [BottomNavigationBar] that
+/// handles the `currentIndex` for you.
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({
     Key? key,

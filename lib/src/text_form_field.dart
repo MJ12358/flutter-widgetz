@@ -1,5 +1,7 @@
 part of flutter_widgetz;
 
+/// A [TextFormField] with a single [TextInputFormatter].
+/// Utilizing [showError] to show [errorText].
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     Key? key,

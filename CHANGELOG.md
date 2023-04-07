@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 0.0.4
+
+- Add more comments.
+- Allow more user defined params.
+
 ## 0.0.3
 
 - Hotfix checkbox onChanged.

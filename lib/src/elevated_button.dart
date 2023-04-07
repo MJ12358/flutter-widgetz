@@ -1,5 +1,7 @@
 part of flutter_widgetz;
 
+/// An [ElevatedButton] that utilizes the
+/// full width of its container.
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton({
     Key? key,

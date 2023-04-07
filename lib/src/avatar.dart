@@ -1,23 +1,29 @@
 part of flutter_widgetz;
 
+/// Uses `CircleAvatar` while dumping image errors.
+///
+/// Images are show via `foregroundImage`.
 class CustomAvatar extends StatelessWidget {
   const CustomAvatar({
     Key? key,
-    this.image,
+    this.assetImage,
+    this.networkImage,
     this.radius,
   }) : super(key: key);
 
-  final String? image;
+  final String? assetImage;
+  final String? networkImage;
   final double? radius;
 
-  bool get hasImage => image != null;
+  bool get hasImage => hasAssetImage || hasNetworkImage;
+  bool get hasAssetImage => assetImage != null;
+  bool get hasNetworkImage => networkImage != null;
 
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
       backgroundColor: hasImage ? null : Colors.transparent,
-      // TODO: determine what to do here (asset/network), (background/foreground)
-      foregroundImage: hasImage ? NetworkImage(image!) : null,
+      foregroundImage: _getImage(),
       onForegroundImageError: (_, __) {},
       radius: radius,
       child: hasImage
@@ -26,5 +32,15 @@ class CustomAvatar extends StatelessWidget {
               child: Icon(Icons.person),
             ),
     );
+  }
+
+  ImageProvider? _getImage() {
+    if (hasAssetImage) {
+      return AssetImage(assetImage!);
+    } else if (hasNetworkImage) {
+      return NetworkImage(networkImage!);
+    } else {
+      return null;
+    }
   }
 }

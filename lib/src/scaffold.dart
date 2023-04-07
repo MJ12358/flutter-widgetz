@@ -1,5 +1,6 @@
 part of flutter_widgetz;
 
+/// A [Scaffold] wrapped in [Semantics].
 class CustomScaffold extends StatelessWidget {
   const CustomScaffold({
     Key? key,
@@ -10,10 +11,19 @@ class CustomScaffold extends StatelessWidget {
     this.semanticLabel,
   }) : super(key: key);
 
+  /// An app bar to display at the top of the scaffold.
   final AppBar? appBar;
+
+  /// A panel displayed to the side of the [body].
   final Widget? drawer;
+
+  /// A button displayed floating above [body].
   final Widget? floatingActionButton;
+
+  /// The primary content of the scaffold.
   final Widget? body;
+
+  /// Creates a semantic annotation.
   final String? semanticLabel;
 
   @override

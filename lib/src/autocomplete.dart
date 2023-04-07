@@ -1,5 +1,9 @@
 part of flutter_widgetz;
 
+/// Wraps `RawAutocomplete` with `LayoutBuilder`
+/// in order to prevent the width from overflowing the screen.
+///
+/// This should solve https://github.com/flutter/flutter/issues/78746
 class CustomAutocomplete<T extends Object> extends StatelessWidget {
   const CustomAutocomplete({
     Key? key,
@@ -102,11 +106,6 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
   }
 }
 
-/// The auto complete options
-///
-/// This is just a copy of Flutter's own
-///   autocomplete widget with a modification
-///   to prevent the width from overflowing the screen
 class _AutocompleteOptions<T extends Object> extends StatelessWidget {
   const _AutocompleteOptions({
     Key? key,

@@ -1,16 +1,23 @@
 part of flutter_widgetz;
 
+/// Wraps a [Checkbox] with an [InputDecorator] and [InkWell]
+/// to provide a fully clickable input.
 class CustomInputCheckbox extends StatelessWidget {
   const CustomInputCheckbox({
     Key? key,
-    required this.labelText,
-    required this.value,
     required this.onChanged,
+    required this.value,
+    this.labelText,
   }) : super(key: key);
 
-  final String labelText;
-  final bool value;
+  /// Called when the value of the checkbox changed.
   final ValueChanged<bool> onChanged;
+
+  /// Whether this checkbox is checked.
+  final bool value;
+
+  /// Optional text that describes the input field.
+  final String? labelText;
 
   @override
   Widget build(BuildContext context) {

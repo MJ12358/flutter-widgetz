@@ -1,5 +1,6 @@
 part of flutter_widgetz;
 
+/// Spaces [children] with the given spacing.
 class SpacedColumn extends StatelessWidget {
   const SpacedColumn({
     Key? key,

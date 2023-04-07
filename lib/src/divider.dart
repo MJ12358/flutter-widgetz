@@ -1,5 +1,7 @@
 part of flutter_widgetz;
 
+/// A [Divider] that places a [child]
+/// between two dividers.
 class CustomDivider extends StatelessWidget {
   const CustomDivider({
     Key? key,

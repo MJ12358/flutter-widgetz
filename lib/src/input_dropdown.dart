@@ -1,23 +1,37 @@
 part of flutter_widgetz;
 
+/// Wraps a [DropdownButton] in an [InputDecorator].
 class CustomInputDropdown<T extends Object> extends StatelessWidget {
   const CustomInputDropdown({
     Key? key,
     required this.items,
-    required this.labelText,
     required this.onChanged,
     required this.displayStringForItem,
     this.isDense = true,
+    this.labelText,
     this.prefixIcon,
     this.value,
   }) : super(key: key);
 
+  /// The list of items the user can select.
   final Iterable<T> items;
-  final String labelText;
+
+  /// Called when the user selects an item.
   final ValueChanged<T> onChanged;
+
+  /// The string that is displayed for each item.
   final Function(T) displayStringForItem;
+
+  /// Optional text that describes the input field.
+  final String? labelText;
+
+  /// Reduce the widgets height.
   final bool isDense;
+
+  /// An icon that appears before the editable part of the text field.
   final IconData? prefixIcon;
+
+  /// The value of the currently selected [DropdownMenuItem].
   final T? value;
 
   @override

@@ -1,5 +1,7 @@
 part of flutter_widgetz;
 
+/// A color picker that represents
+/// all [MaterialColor] via a [GridView].
 class CustomColorPicker extends StatefulWidget {
   CustomColorPicker({
     Key? key,

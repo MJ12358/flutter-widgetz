@@ -13,10 +13,20 @@ class CustomBody extends StatelessWidget {
     required this.child,
   }) : super(key: key);
 
+  /// Empty space to inscribe inside the `Container`.
   final EdgeInsets? padding;
+
+  /// How the scroll view should respond to user input.
   final ScrollPhysics? physics;
+
+  /// A function that's called when the user has dragged
+  /// far enough to demonstrate that they want the app to refresh
   final AsyncCallback? onRefresh;
+
+  /// Called to veto attempts by the user to dismiss the enclosing [ModalRoute].
   final AsyncValueGetter<bool>? onWillPop;
+
+  /// The [child] contained by the container.
   final Widget child;
 
   static Future<void> _defaultOnRefresh() async {}

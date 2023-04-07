@@ -1,5 +1,6 @@
 part of flutter_widgetz;
 
+/// Spaces [children] with the given spacing.
 class SpacedRow extends StatelessWidget {
   const SpacedRow({
     Key? key,
