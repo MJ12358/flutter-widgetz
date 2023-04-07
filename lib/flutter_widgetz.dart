@@ -1,11 +1,13 @@
 library flutter_widgetz;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 
 part 'src/autocomplete.dart';
 part 'src/avatar.dart';
+part 'src/body.dart';
 part 'src/bottom_navigation_bar.dart';
 part 'src/color_picker.dart';
 part 'src/divider.dart';

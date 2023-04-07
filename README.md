@@ -4,6 +4,7 @@
 
 - CustomAutocomplete
 - CustomAvatar
+- CustomBody
 - CustomBottomNavigationBar
 - CustomColorPicker
 - CustomDivider
@@ -22,7 +23,7 @@
 ## Getting started
 
 ```yaml
-flutter_widgetz: ^0.0.1
+flutter_widgetz: ^0.0.2
 ```
 
 ## Usage
@@ -52,4 +53,4 @@ class MyApp extends StatelessWidget {
 
 ## Additional information
 
-The generated documentation has a great overview of all that is available.
+The [generated documentation](https://pub.dev/documentation/flutter_widgetz/latest) has a great overview of all that is available.

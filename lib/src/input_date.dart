@@ -9,7 +9,7 @@ class CustomInputDate extends StatelessWidget {
     this.firstDate,
     this.labelText,
     this.lastDate,
-    this.prefixIcon,
+    this.prefixIcon = Icons.date_range,
     this.showError = false,
     this.value,
   }) : super(key: key);
@@ -20,7 +20,7 @@ class CustomInputDate extends StatelessWidget {
   final DateTime? firstDate;
   final String? labelText;
   final DateTime? lastDate;
-  final IconData? prefixIcon;
+  final IconData prefixIcon;
   final bool showError;
   final DateTime? value;
 

@@ -3,17 +3,21 @@ part of flutter_widgetz;
 class CustomSearchBar extends StatefulWidget {
   const CustomSearchBar({
     Key? key,
-    required this.isVisible,
     required this.searchValue,
     required this.onClear,
     required this.onChanged,
+    this.autofocus = false,
+    this.isVisible = true,
+    this.keyboardType = TextInputType.text,
     this.labelText = 'Search',
   }) : super(key: key);
 
-  final bool isVisible;
   final String searchValue;
   final VoidCallback onClear;
   final ValueChanged<String> onChanged;
+  final bool autofocus;
+  final bool isVisible;
+  final TextInputType keyboardType;
   final String labelText;
 
   @override
@@ -43,11 +47,12 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
     }
 
     return Padding(
+      // TODO: to use padding or not to use padding
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: TextFormField(
-        autofocus: true,
+        autofocus: widget.autofocus,
         controller: _controller,
-        keyboardType: TextInputType.text,
+        keyboardType: widget.keyboardType,
         textInputAction: TextInputAction.search,
         decoration: InputDecoration(
           labelText: widget.labelText,
