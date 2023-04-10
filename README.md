@@ -20,12 +20,6 @@
 - SpacedRow
 - CustomTextFormField
 
-## Getting started
-
-```yaml
-flutter_widgetz: ^0.0.2
-```
-
 ## Usage
 
 ```dart

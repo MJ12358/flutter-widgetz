@@ -1,8 +1,11 @@
 part of flutter_widgetz;
 
+/// {@template flutter_widgetz.CustomColorPicker}
 /// A color picker that represents
 /// all [MaterialColor] via a [GridView].
+/// {@endtemplate}
 class CustomColorPicker extends StatefulWidget {
+  /// {@macro flutter_widgetz.CustomColorPicker}
   CustomColorPicker({
     Key? key,
     required this.onTap,

@@ -1,10 +1,13 @@
 part of flutter_widgetz;
 
+/// {@template flutter_widgetz.CustomAutocomplete}
 /// Wraps `RawAutocomplete` with `LayoutBuilder`
 /// in order to prevent the width from overflowing the screen.
 ///
 /// This should solve https://github.com/flutter/flutter/issues/78746
+/// {@endtemplate}
 class CustomAutocomplete<T extends Object> extends StatelessWidget {
+  /// {@macro flutter_widgetz.CustomAutocomplete}
   const CustomAutocomplete({
     Key? key,
     required this.onChanged,

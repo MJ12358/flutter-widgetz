@@ -1,8 +1,11 @@
 part of flutter_widgetz;
 
+/// {@template flutter_widgetz.CustomInputCheckbox}
 /// Wraps a [Checkbox] with an [InputDecorator] and [InkWell]
 /// to provide a fully clickable input.
+/// {@endtemplate}
 class CustomInputCheckbox extends StatelessWidget {
+  /// {@macro flutter_widgetz.CustomInputCheckbox}
   const CustomInputCheckbox({
     Key? key,
     required this.onChanged,

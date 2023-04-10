@@ -1,7 +1,10 @@
 part of flutter_widgetz;
 
+/// {@template flutter_widgetz.SpacedRow}
 /// Spaces [children] with the given spacing.
+/// {@endtemplate}
 class SpacedRow extends StatelessWidget {
+  /// {@macro flutter_widgetz.SpacedRow}
   const SpacedRow({
     Key? key,
     required this.children,

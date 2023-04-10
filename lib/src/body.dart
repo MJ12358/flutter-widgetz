@@ -1,9 +1,12 @@
 part of flutter_widgetz;
 
+/// {@template flutter_widgetz.CustomBody}
 /// Wraps child in a safe area, layout builder and single child scroll view.
 ///
 /// Using a constrained box with the parents height and infinity width.
+/// {@endtemplate}
 class CustomBody extends StatelessWidget {
+  /// {@macro flutter_widgetz.CustomBody}
   const CustomBody({
     Key? key,
     this.padding,

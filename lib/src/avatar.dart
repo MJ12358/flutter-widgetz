@@ -1,9 +1,12 @@
 part of flutter_widgetz;
 
+/// {@template flutter_widgetz.CustomAvatar}
 /// Uses `CircleAvatar` while dumping image errors.
 ///
 /// Images are show via `foregroundImage`.
+/// {@endtemplate}
 class CustomAvatar extends StatelessWidget {
+  /// {@macro flutter_widgetz.CustomAvatar}
   const CustomAvatar({
     Key? key,
     this.assetImage,

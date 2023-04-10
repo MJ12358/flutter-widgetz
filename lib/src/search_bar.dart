@@ -1,6 +1,10 @@
 part of flutter_widgetz;
 
+/// {@template flutter_widgetz.CustomSearchBar}
+/// A [TextFormField] made to appear like a search bar.
+/// {@endtemplate}
 class CustomSearchBar extends StatefulWidget {
+  /// {@macro flutter_widgetz.CustomSearchBar}
   const CustomSearchBar({
     Key? key,
     required this.onChanged,
@@ -9,6 +13,7 @@ class CustomSearchBar extends StatefulWidget {
     this.keyboardType = TextInputType.text,
     this.labelText = 'Search',
     this.onClear,
+    this.padding = EdgeInsets.zero,
     this.value = '',
   }) : super(key: key);
 
@@ -18,6 +23,7 @@ class CustomSearchBar extends StatefulWidget {
   final TextInputType keyboardType;
   final String labelText;
   final VoidCallback? onClear;
+  final EdgeInsets padding;
   final String value;
 
   @override
@@ -46,17 +52,20 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
       return const SizedBox();
     }
 
-    return TextFormField(
-      autofocus: widget.autofocus,
-      controller: _controller,
-      keyboardType: widget.keyboardType,
-      textInputAction: TextInputAction.search,
-      decoration: InputDecoration(
-        labelText: widget.labelText,
-        prefixIcon: const Icon(Icons.search),
-        suffixIcon: _getSuffix(),
+    return Padding(
+      padding: widget.padding,
+      child: TextFormField(
+        autofocus: widget.autofocus,
+        controller: _controller,
+        keyboardType: widget.keyboardType,
+        textInputAction: TextInputAction.search,
+        decoration: InputDecoration(
+          labelText: widget.labelText,
+          prefixIcon: const Icon(Icons.search),
+          suffixIcon: _getSuffix(),
+        ),
+        onChanged: widget.onChanged,
       ),
-      onChanged: widget.onChanged,
     );
   }
 

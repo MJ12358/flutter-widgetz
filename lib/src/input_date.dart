@@ -1,8 +1,11 @@
 part of flutter_widgetz;
 
+/// {@template flutter_widgetz.CustomInputDate}
 /// Wraps a call to [showDatePicker] in
 /// an [InputDecorator] and [InkWell].
+/// {@endtemplate}
 class CustomInputDate extends StatelessWidget {
+  /// {@macro flutter_widgetz.CustomInputDate}
   const CustomInputDate({
     Key? key,
     required this.onChanged,

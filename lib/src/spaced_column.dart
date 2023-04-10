@@ -1,7 +1,10 @@
 part of flutter_widgetz;
 
+/// {@template flutter_widgetz.SpacedColumn}
 /// Spaces [children] with the given spacing.
+/// {@endtemplate}
 class SpacedColumn extends StatelessWidget {
+  /// {@macro flutter_widgetz.SpacedColumn}
   const SpacedColumn({
     Key? key,
     required this.children,

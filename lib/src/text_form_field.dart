@@ -1,8 +1,11 @@
 part of flutter_widgetz;
 
+/// {@template flutter_widgetz.CustomTextFormField}
 /// A [TextFormField] with a single [TextInputFormatter].
 /// Utilizing [showError] to show [errorText].
+/// {@endtemplate}
 class CustomTextFormField extends StatelessWidget {
+  /// {@macro flutter_widgetz.CustomTextFormField}
   const CustomTextFormField({
     Key? key,
     this.autofocus = false,

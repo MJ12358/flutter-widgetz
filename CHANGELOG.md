@@ -1,5 +1,11 @@
 # Flutter Widgetz
 
+## 0.0.5
+
+- Add more comments.
+- Add padding options to search bar.
+- Add more params to scaffold.
+
 ## 0.0.4
 
 - Add more comments.

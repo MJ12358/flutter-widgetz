@@ -1,12 +1,16 @@
 part of flutter_widgetz;
 
-/// A placeholder that display an image and text.
+/// {@template flutter_widgetz.CustomPlaceholder}
+/// A placeholder that displays an image above some text.
+/// {@endtemplate}
 class CustomPlaceholder extends StatelessWidget {
+  /// {@macro flutter_widgetz.CustomPlaceholder}
   const CustomPlaceholder({
     Key? key,
     required this.text,
     this.assetImage,
     this.networkImage,
+    this.mainAxisAlignment = MainAxisAlignment.center,
   }) : super(key: key);
 
   /// The text of this placeholder.
@@ -18,6 +22,9 @@ class CustomPlaceholder extends StatelessWidget {
   /// The network image for this placeholder.
   final String? networkImage;
 
+  /// How the children should be placed along the main axis in a flex layout.
+  final MainAxisAlignment mainAxisAlignment;
+
   bool get hasAssetImage => assetImage != null;
   bool get hasNetworkImage => networkImage != null;
 
@@ -25,6 +32,7 @@ class CustomPlaceholder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
+        mainAxisAlignment: mainAxisAlignment,
         children: <Widget>[
           _getImage(context),
           Padding(

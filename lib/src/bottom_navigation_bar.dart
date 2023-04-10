@@ -1,8 +1,11 @@
 part of flutter_widgetz;
 
+/// {@template flutter_widgetz.CustomBottomNavigationBar}
 /// A wrapper for [BottomNavigationBar] that
 /// handles the `currentIndex` for you.
+/// {@endtemplate}
 class CustomBottomNavigationBar extends StatefulWidget {
+  /// {@macro flutter_widgetz.CustomBottomNavigationBar}
   const CustomBottomNavigationBar({
     Key? key,
     required this.items,

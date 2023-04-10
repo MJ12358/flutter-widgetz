@@ -1,8 +1,11 @@
 part of flutter_widgetz;
 
-/// A [Divider] that places a [child]
+/// {@template flutter_widgetz.CustomDivider}
+/// This widget places a [child]
 /// between two dividers.
+/// {@endtemplate}
 class CustomDivider extends StatelessWidget {
+  /// {@macro flutter_widgetz.CustomDivider}
   const CustomDivider({
     Key? key,
     this.child,

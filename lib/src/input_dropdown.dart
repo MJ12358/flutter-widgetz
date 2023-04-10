@@ -1,7 +1,10 @@
 part of flutter_widgetz;
 
+/// {@template flutter_widgetz.CustomInputDropdown}
 /// Wraps a [DropdownButton] in an [InputDecorator].
+/// {@endtemplate}
 class CustomInputDropdown<T extends Object> extends StatelessWidget {
+  /// {@macro flutter_widgetz.CustomInputDropdown}
   const CustomInputDropdown({
     Key? key,
     required this.items,

@@ -1,7 +1,10 @@
 part of flutter_widgetz;
 
+/// {@template flutter_widgetz.CustomSimpleDialogOption}
 /// A [SimpleDialogOption] with built in padding.
+/// {@endtemplate}
 class CustomSimpleDialogOption extends StatelessWidget {
+  /// {@macro flutter_widgetz.CustomSimpleDialogOption}
   const CustomSimpleDialogOption({
     Key? key,
     required this.child,

@@ -1,8 +1,11 @@
 part of flutter_widgetz;
 
+/// {@template flutter_widgetz.CustomElevatedButton}
 /// An [ElevatedButton] that utilizes the
 /// full width of its container.
+/// {@endtemplate}
 class CustomElevatedButton extends StatelessWidget {
+  /// {@macro flutter_widgetz.CustomElevatedButton}
   const CustomElevatedButton({
     Key? key,
     required this.onPressed,
