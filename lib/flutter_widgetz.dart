@@ -1,5 +1,7 @@
 library flutter_widgetz;
 
+import 'dart:math' as math;
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -16,6 +18,7 @@ part 'src/input_checkbox.dart';
 part 'src/input_date.dart';
 part 'src/input_dropdown.dart';
 part 'src/placeholder.dart';
+part 'src/rating_bar.dart';
 part 'src/scaffold.dart';
 part 'src/search_bar.dart';
 part 'src/simple_dialog_option.dart';

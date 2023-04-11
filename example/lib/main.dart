@@ -29,6 +29,19 @@ class _MyApp extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Hello World!'),
       ),
+      bottomNavigationBar: CustomBottomNavigationBar(
+        onTap: (_) {},
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            label: 'Home',
+            icon: Icon(Icons.home),
+          ),
+          BottomNavigationBarItem(
+            label: 'Settings',
+            icon: Icon(Icons.settings),
+          ),
+        ],
+      ),
       body: CustomBody(
         padding: const EdgeInsets.all(20),
         child: SpacedColumn(
@@ -37,8 +50,9 @@ class _MyApp extends StatelessWidget {
             const CustomPlaceholder(
               text: 'Hi There',
             ),
-            CustomRatingBar(
-              onChanged: (_) {},
+            const RatingBar(
+              onChanged: print,
+              value: 3.5,
             ),
             CustomElevatedButton(
               onPressed: () {},

@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 0.0.6
+
+- Add rating bar.
+
 ## 0.0.5
 
 - Add more comments.

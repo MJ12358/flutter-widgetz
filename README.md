@@ -16,6 +16,7 @@
 - CustomScaffold
 - CustomSearchBar
 - CustomSimpleDialogOption
+- RatingBar
 - SpacedColumn
 - SpacedRow
 - CustomTextFormField
