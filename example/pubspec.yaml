@@ -1,0 +1,24 @@
+name: flutter_widgetz_example
+description: flutter_widgetz example app.
+publish_to: "none"
+
+version: 0.0.1+1
+
+environment:
+  sdk: ">=2.19.6 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_widgetz:
+    # When depending on this package from a real application you should use:
+    #   flutter_widgetz: ^x.y.z
+    path: ../
+
+dev_dependencies:
+  dart_lintz: ^1.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
