@@ -13,6 +13,7 @@ import 'package:flutter_widgetz_example/pages/elevated_button_page.dart';
 import 'package:flutter_widgetz_example/pages/placeholder_page.dart';
 import 'package:flutter_widgetz_example/pages/radio_page.dart';
 import 'package:flutter_widgetz_example/pages/rating_page.dart';
+import 'package:flutter_widgetz_example/pages/scaffold_page.dart';
 import 'package:flutter_widgetz_example/pages/search_bar_page.dart';
 import 'package:flutter_widgetz_example/pages/slider_page.dart';
 
@@ -31,6 +32,7 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.radio, RadioPage(), 'Radios'),
   PageInfo(Icons.star, RatingPage(), 'Ratings'),
   PageInfo(Icons.search, SearchBarPage(), 'Search Bar'),
+  PageInfo(Icons.scale, ScaffoldPage(), 'Scaffold'),
   PageInfo(Icons.tune, SliderPage(), 'Sliders'),
 ];
 

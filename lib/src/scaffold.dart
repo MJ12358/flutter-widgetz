@@ -83,22 +83,26 @@ class CustomScaffold extends StatelessWidget {
         drawer: drawer,
         floatingActionButton: floatingActionButton,
         floatingActionButtonLocation: floatingActionButtonLocation,
-        body: WillPopScope(
-          onWillPop: () => _onWillPop(context),
-          child: SafeArea(
-            bottom: bottom,
-            left: left,
-            right: right,
-            top: top,
-            child: RefreshIndicator(
-              onRefresh: onRefresh ?? _defaultOnRefresh,
-              notificationPredicate: (_) => _canRefresh,
-              child: Padding(
-                padding: padding,
-                child: body,
+        body: Builder(
+          builder: (BuildContext context) {
+            return WillPopScope(
+              onWillPop: () => _onWillPop(context),
+              child: SafeArea(
+                bottom: bottom,
+                left: left,
+                right: right,
+                top: top,
+                child: RefreshIndicator(
+                  onRefresh: onRefresh ?? _defaultOnRefresh,
+                  notificationPredicate: (_) => _canRefresh,
+                  child: Padding(
+                    padding: padding,
+                    child: body,
+                  ),
+                ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ),
     );

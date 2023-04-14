@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 1.0.1
+
+- Hotfix scaffold context.
+
 ## 1.0.0
 
 - Initial release!
