@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 1.0.0
+
+- Initial release!
+
 ## 0.0.6
 
 - Add rating bar.

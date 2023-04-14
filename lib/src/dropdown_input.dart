@@ -1,15 +1,16 @@
+
 part of flutter_widgetz;
 
-/// {@template flutter_widgetz.CustomInputDropdown}
+/// {@template flutter_widgetz.DropdownInput}
 /// Wraps a [DropdownButton] in an [InputDecorator].
 /// {@endtemplate}
-class CustomInputDropdown<T extends Object> extends StatelessWidget {
-  /// {@macro flutter_widgetz.CustomInputDropdown}
-  const CustomInputDropdown({
+class DropdownInput<T extends Object> extends StatefulWidget {
+  /// {@macro flutter_widgetz.DropdownInput}
+  const DropdownInput({
     Key? key,
     required this.items,
     required this.onChanged,
-    required this.displayStringForItem,
+    this.displayStringForItem = _defaultStringForItem,
     this.isDense = true,
     this.labelText,
     this.prefixIcon,
@@ -23,7 +24,7 @@ class CustomInputDropdown<T extends Object> extends StatelessWidget {
   final ValueChanged<T> onChanged;
 
   /// The string that is displayed for each item.
-  final Function(T) displayStringForItem;
+  final String Function(T) displayStringForItem;
 
   /// Optional text that describes the input field.
   final String? labelText;
@@ -37,22 +38,35 @@ class CustomInputDropdown<T extends Object> extends StatelessWidget {
   /// The value of the currently selected [DropdownMenuItem].
   final T? value;
 
+  static String _defaultStringForItem(Object? item) {
+    return item?.toString() ?? '';
+  }
+
+  @override
+  State<DropdownInput<T>> createState() => _DropdownInputState<T>();
+}
+
+class _DropdownInputState<T extends Object> extends State<DropdownInput<T>> {
+  late T? _value;
+
+  @override
+  void initState() {
+    super.initState();
+    _value = widget.value;
+  }
+
   @override
   Widget build(BuildContext context) {
     return InputDecorator(
       decoration: InputDecoration(
-        labelText: labelText,
-        prefixIcon: Icon(prefixIcon),
+        labelText: widget.labelText,
+        prefixIcon: widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<T>(
-          value: value,
-          isDense: isDense,
-          onChanged: (T? v) {
-            if (v != null) {
-              onChanged(v);
-            }
-          },
+          value: _value,
+          isDense: widget.isDense,
+          onChanged: _handleChange,
           items: _getItems(),
         ),
       ),
@@ -60,13 +74,23 @@ class CustomInputDropdown<T extends Object> extends StatelessWidget {
   }
 
   List<DropdownMenuItem<T>> _getItems() {
-    return items.map(
+    return widget.items.map(
       (T item) {
         return DropdownMenuItem<T>(
           value: item,
-          child: Text(displayStringForItem(item)),
+          child: Text(widget.displayStringForItem(item)),
         );
       },
     ).toList();
+  }
+
+  void _handleChange(T? value) {
+    if (value == null) {
+      return;
+    }
+    setState(() {
+      _value = value;
+    });
+    widget.onChanged(value);
   }
 }

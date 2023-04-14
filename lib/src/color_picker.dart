@@ -1,12 +1,12 @@
 part of flutter_widgetz;
 
-/// {@template flutter_widgetz.CustomColorPicker}
+/// {@template flutter_widgetz.ColorPicker}
 /// A color picker that represents
 /// all [MaterialColor] via a [GridView].
 /// {@endtemplate}
-class CustomColorPicker extends StatefulWidget {
-  /// {@macro flutter_widgetz.CustomColorPicker}
-  CustomColorPicker({
+class ColorPicker extends StatefulWidget {
+  /// {@macro flutter_widgetz.ColorPicker}
+  ColorPicker({
     Key? key,
     required this.onTap,
     this.title = 'Choose Color',
@@ -17,68 +17,70 @@ class CustomColorPicker extends StatefulWidget {
         Colors.primaries.map((MaterialColor color) => color.shade500).toList();
   }
 
-  /// Callback when a color is tapped
-  final void Function(Color) onTap;
+  /// Callback when a color is tapped.
+  final ValueChanged<Color> onTap;
 
-  /// A title shown above the picker
+  /// A title shown above the picker.
   final String title;
 
-  /// The initial color for the picker
+  /// The initial color for the picker.
   final Color? initialColor;
 
-  /// A list of Colors to display
+  /// A list of Colors to display.
   ///
-  /// Defaults to `Colors.primaries`
+  /// Defaults to `Colors.primaries`.
   late final List<Color> colors;
 
   @override
-  State<CustomColorPicker> createState() => _CustomColorPickerState();
+  State<ColorPicker> createState() => _ColorPickerState();
 }
 
-class _CustomColorPickerState extends State<CustomColorPicker> {
-  Color? selectedColor;
+class _ColorPickerState extends State<ColorPicker> {
+  Color? _selectedColor;
 
   @override
   void initState() {
     super.initState();
-    selectedColor = widget.initialColor;
+    _selectedColor = widget.initialColor;
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(widget.title),
-        ),
-        Expanded(
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverToBoxAdapter(
           child: Container(
-            padding: const EdgeInsets.all(20.0),
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 75.0,
-                crossAxisSpacing: 10.0,
-                mainAxisSpacing: 10.0,
-              ),
-              itemCount: widget.colors.length,
-              itemBuilder: (BuildContext context, int index) {
-                return _Dot(
-                  color: widget.colors[index],
-                  isSelected: widget.colors[index] == selectedColor,
-                  onTap: (Color color) {
-                    setState(() {
-                      selectedColor = color;
-                    });
-                    widget.onTap(color);
-                  },
-                );
-              },
+            padding: const EdgeInsets.all(8.0),
+            child: Text(widget.title),
+          ),
+        ),
+        SliverPadding(
+          padding: const EdgeInsets.all(16.0),
+          sliver: SliverGrid.builder(
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 75.0,
+              crossAxisSpacing: 10.0,
+              mainAxisSpacing: 10.0,
             ),
+            itemCount: widget.colors.length,
+            itemBuilder: (_, int index) {
+              return _Dot(
+                color: widget.colors[index],
+                isSelected: widget.colors[index] == _selectedColor,
+                onTap: _handleTap,
+              );
+            },
           ),
         ),
       ],
     );
+  }
+
+  void _handleTap(Color color) {
+    setState(() {
+      _selectedColor = color;
+    });
+    widget.onTap(color);
   }
 }
 
@@ -97,6 +99,7 @@ class _Dot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      customBorder: const CircleBorder(),
       onTap: () => onTap(color),
       child: Container(
         height: 50.0,

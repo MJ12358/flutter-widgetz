@@ -2,49 +2,29 @@
 
 ## Features
 
-- CustomAutocomplete
-- CustomAvatar
-- CustomBody
-- CustomBottomNavigationBar
-- CustomColorPicker
-- CustomDivider
-- CustomElevatedButton
-- CustomInputCheckbox
-- CustomInputDate
-- CustomInputDropdown
-- CustomPlaceholder
-- CustomScaffold
-- CustomSearchBar
-- CustomSimpleDialogOption
+- Accordion
+- Alert
+- Autocomplete
+- Avatar
+- BottomNavigationBar
+- CheckboxGroup
+- CheckboxInput
+- ColorPicker
+- CounterInput
+- DateInput
+- Divider
+- ElevatedButton
+- Placeholder
+- RadioGroup
 - RatingBar
+- Scaffold
+- SearchBar
+- SimpleDialogOption
+- SingleChildScrollView
+- Slider
 - SpacedColumn
 - SpacedRow
-- CustomTextFormField
-
-## Usage
-
-```dart
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomScaffold(
-      body: SpacedColumn(
-        children: <Widget>[
-          const CustomPlaceholder(
-            text: 'Hi There',
-          ),
-          CustomElevatedButton(
-            onPressed: () {},
-            text: 'A Button',
-          ),
-        ],
-      ),
-    );
-  }
-}
-```
+- TextFormField
 
 ## Additional information
 

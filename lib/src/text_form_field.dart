@@ -8,6 +8,7 @@ class CustomTextFormField extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomTextFormField}
   const CustomTextFormField({
     Key? key,
+    this.autoFillHint,
     this.autofocus = false,
     this.controller,
     this.errorText,
@@ -29,6 +30,7 @@ class CustomTextFormField extends StatelessWidget {
     this.onChanged,
   }) : super(key: key);
 
+  final String? autoFillHint;
   final bool autofocus;
   final TextEditingController? controller;
   final String? errorText;
@@ -53,6 +55,7 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       autofocus: autofocus,
+      autofillHints: autoFillHint != null ? <String>[autoFillHint!] : null,
       controller: controller,
       focusNode: focusNode,
       initialValue: initialValue,

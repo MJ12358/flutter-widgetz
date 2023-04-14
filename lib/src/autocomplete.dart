@@ -1,7 +1,7 @@
 part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomAutocomplete}
-/// Wraps `RawAutocomplete` with `LayoutBuilder`
+/// Wraps [RawAutocomplete] with [LayoutBuilder]
 /// in order to prevent the width from overflowing the screen.
 ///
 /// This should solve https://github.com/flutter/flutter/issues/78746
@@ -13,8 +13,8 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
     required this.onChanged,
     required this.onSelected,
     required this.optionsBuilder,
-    required this.displayStringForOption,
     this.autofocus = false,
+    this.displayStringForOption = _defaultStringForOption,
     this.errorText,
     this.initialValue = '',
     this.keyboardType = TextInputType.text,
@@ -25,7 +25,11 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
     this.textInputAction,
   }) : super(key: key);
 
+  final ValueChanged<String> onChanged;
+  final ValueChanged<T> onSelected;
+  final List<T> Function(String) optionsBuilder;
   final bool autofocus;
+  final AutocompleteOptionToString<T> displayStringForOption;
   final String? errorText;
   final String initialValue;
   final TextInputType? keyboardType;
@@ -34,10 +38,10 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
   final bool showError;
   final TextCapitalization textCapitalization;
   final TextInputAction? textInputAction;
-  final ValueChanged<String> onChanged;
-  final ValueChanged<T> onSelected;
-  final List<T> Function(String) optionsBuilder;
-  final AutocompleteOptionToString<T> displayStringForOption;
+
+  static String _defaultStringForOption(Object? option) {
+    return option?.toString() ?? '';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -112,16 +116,16 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
 class _AutocompleteOptions<T extends Object> extends StatelessWidget {
   const _AutocompleteOptions({
     Key? key,
-    required this.onSelected,
-    required this.options,
     required this.constraints,
     required this.displayStringForOption,
+    required this.onSelected,
+    required this.options,
   }) : super(key: key);
 
-  final ValueChanged<T> onSelected;
-  final Iterable<T> options;
   final BoxConstraints constraints;
   final AutocompleteOptionToString<T> displayStringForOption;
+  final ValueChanged<T> onSelected;
+  final Iterable<T> options;
 
   @override
   Widget build(BuildContext context) {

@@ -10,27 +10,55 @@ class CustomElevatedButton extends StatelessWidget {
     Key? key,
     required this.onPressed,
     required this.text,
+    this.color,
   }) : super(key: key);
 
+  /// Called when the button is tapped or otherwise activated.
   final VoidCallback? onPressed;
+
+  /// The button's label.
   final String text;
+
+  /// The button's color.
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        child: Text(
-          text.toUpperCase(),
-          style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                // TODO: this should be black OR white based on primary color
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1.5,
-              ),
+    return ElevatedButtonTheme(
+      data: ElevatedButtonThemeData(
+        style: _getStyle(context),
+      ),
+      child: SizedBox(
+        width: double.infinity,
+        child: ElevatedButton(
+          onPressed: onPressed,
+          child: Text(
+            text.toUpperCase(),
+          ),
         ),
       ),
+    );
+  }
+
+  ButtonStyle _getStyle(BuildContext context) {
+    final ButtonStyle? style = Theme.of(context).elevatedButtonTheme.style;
+
+    // when elevated button style is set by ThemeData, copyWith
+    if (style != null) {
+      return style.copyWith(
+        backgroundColor: MaterialStateProperty.resolveWith((_) {
+          return color;
+        }),
+        foregroundColor: MaterialStateProperty.resolveWith((_) {
+          return color?.blackOrWhite;
+        }),
+      );
+    }
+
+    // otherwise convert to simple values
+    return ElevatedButton.styleFrom(
+      backgroundColor: color,
+      foregroundColor: color?.blackOrWhite,
     );
   }
 }

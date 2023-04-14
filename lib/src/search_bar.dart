@@ -1,11 +1,11 @@
 part of flutter_widgetz;
 
-/// {@template flutter_widgetz.CustomSearchBar}
+/// {@template flutter_widgetz.SearchBar}
 /// A [TextFormField] made to appear like a search bar.
 /// {@endtemplate}
-class CustomSearchBar extends StatefulWidget {
-  /// {@macro flutter_widgetz.CustomSearchBar}
-  const CustomSearchBar({
+class SearchBar extends StatefulWidget {
+  /// {@macro flutter_widgetz.SearchBar}
+  const SearchBar({
     Key? key,
     required this.onChanged,
     this.autofocus = false,
@@ -27,10 +27,10 @@ class CustomSearchBar extends StatefulWidget {
   final String value;
 
   @override
-  State<CustomSearchBar> createState() => _CustomSearchBarState();
+  State<SearchBar> createState() => _SearchBarState();
 }
 
-class _CustomSearchBarState extends State<CustomSearchBar> {
+class _SearchBarState extends State<SearchBar> {
   late final TextEditingController _controller;
 
   @override
@@ -76,7 +76,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
     return InkWell(
       child: const Icon(Icons.close),
       onTap: () {
-        widget.onClear!();
+        widget.onClear?.call();
         _controller.clear();
       },
     );

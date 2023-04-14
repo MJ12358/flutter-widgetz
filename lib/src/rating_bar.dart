@@ -9,8 +9,7 @@ class RatingBar extends StatefulWidget {
     Key? key,
     required this.onChanged,
     this.color,
-    this.minRating = 0,
-    this.maxRating = 5,
+    this.max = 5,
     this.size = 40.0,
     this.unratedColor,
     this.value = 0,
@@ -22,11 +21,8 @@ class RatingBar extends StatefulWidget {
   /// The color of the stars.
   final Color? color;
 
-  /// Sets the minimum rating.
-  final int minRating;
-
   /// Sets the maximum rating.
-  final int maxRating;
+  final int max;
 
   /// The size of each star.
   final double size;
@@ -55,7 +51,7 @@ class _RatingBarState extends State<RatingBar> {
     return Material(
       child: Wrap(
         children: List<Widget>.generate(
-          widget.maxRating,
+          widget.max,
           (int index) => _buildRating(context, index),
         ),
       ),

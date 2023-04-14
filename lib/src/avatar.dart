@@ -1,7 +1,7 @@
 part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomAvatar}
-/// Uses `CircleAvatar` while dumping image errors.
+/// Uses [CircleAvatar] while dumping image errors.
 ///
 /// Images are show via `foregroundImage`.
 /// {@endtemplate}
@@ -27,13 +27,9 @@ class CustomAvatar extends StatelessWidget {
     return CircleAvatar(
       backgroundColor: hasImage ? null : Colors.transparent,
       foregroundImage: _getImage(),
-      onForegroundImageError: (_, __) {},
+      onForegroundImageError: hasImage ? (_, __) {} : null,
       radius: radius,
-      child: hasImage
-          ? const SizedBox()
-          : const Center(
-              child: Icon(Icons.person),
-            ),
+      child: _getChild(),
     );
   }
 
@@ -45,5 +41,13 @@ class CustomAvatar extends StatelessWidget {
     } else {
       return null;
     }
+  }
+
+  Widget _getChild() {
+    return hasImage
+        ? const SizedBox()
+        : const Center(
+            child: Icon(Icons.person),
+          );
   }
 }

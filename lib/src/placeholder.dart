@@ -9,6 +9,7 @@ class CustomPlaceholder extends StatelessWidget {
     Key? key,
     required this.text,
     this.assetImage,
+    this.child,
     this.networkImage,
     this.mainAxisAlignment = MainAxisAlignment.center,
   }) : super(key: key);
@@ -18,6 +19,9 @@ class CustomPlaceholder extends StatelessWidget {
 
   /// The asset image for this placeholder.
   final String? assetImage;
+
+  /// A widget to be used above the text.
+  final Widget? child;
 
   /// The network image for this placeholder.
   final String? networkImage;
@@ -34,7 +38,7 @@ class CustomPlaceholder extends StatelessWidget {
       child: Column(
         mainAxisAlignment: mainAxisAlignment,
         children: <Widget>[
-          _getImage(context),
+          _getChild(context),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
@@ -48,21 +52,30 @@ class CustomPlaceholder extends StatelessWidget {
     );
   }
 
-  Widget _getImage(BuildContext context) {
+  Widget _getChild(BuildContext context) {
     final double height = MediaQuery.of(context).size.height / 4;
+
+    if (child != null) {
+      return SizedBox(
+        height: height,
+        child: child,
+      );
+    }
 
     if (hasAssetImage) {
       return Image.asset(
         assetImage!,
         height: height,
       );
-    } else if (hasNetworkImage) {
+    }
+
+    if (hasNetworkImage) {
       return Image.network(
         networkImage!,
         height: height,
       );
-    } else {
-      return const SizedBox();
     }
+
+    return const SizedBox();
   }
 }
