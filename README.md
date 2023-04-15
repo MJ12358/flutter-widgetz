@@ -13,7 +13,9 @@
 - CounterInput
 - DateInput
 - Divider
+- Drawer
 - ElevatedButton
+- FloatingActionButton
 - Placeholder
 - RadioGroup
 - RatingBar

@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 1.1.0
+
+- Add drawer and floating action button.
+
 ## 1.0.1
 
 - Hotfix scaffold context.
