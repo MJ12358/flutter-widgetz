@@ -6,12 +6,16 @@ class ScaffoldPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomElevatedButton(
-      onPressed: () => Navigator.push(
-        context,
-        MaterialPageRoute<dynamic>(builder: (_) => const _TestPage()),
-      ),
-      text: 'Tap to push a page',
+    return SpacedColumn(
+      children: <Widget>[
+        CustomElevatedButton(
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute<dynamic>(builder: (_) => const _TestPage()),
+          ),
+          text: 'Push Page',
+        ),
+      ],
     );
   }
 }

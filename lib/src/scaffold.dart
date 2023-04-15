@@ -22,8 +22,8 @@ class CustomScaffold extends StatelessWidget {
     this.onWillPop,
     this.padding = EdgeInsets.zero,
     this.right = true,
-    this.top = true,
     this.semanticLabel,
+    this.top = true,
   }) : super(key: key);
 
   /// The primary content of the scaffold.
@@ -63,11 +63,11 @@ class CustomScaffold extends StatelessWidget {
   /// Whether to avoid system intrusions on the right.
   final bool right;
 
-  /// Whether to avoid system intrusions on the right.
-  final bool top;
-
   /// Creates a semantic annotation.
   final String? semanticLabel;
+
+  /// Whether to avoid system intrusions on the right.
+  final bool top;
 
   static Future<void> _defaultOnRefresh() async {}
 

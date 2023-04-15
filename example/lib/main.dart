@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz_example/app.dart';
 
-/// To run the example app, clone the repo!
+/// To run the example app, clone/fork the repo!
 
 void main() {
   runApp(const _Main());

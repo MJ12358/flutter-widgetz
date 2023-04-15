@@ -26,7 +26,7 @@ class CustomSingleChildScrollView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
+      builder: (_, BoxConstraints constraints) {
         return SingleChildScrollView(
           physics: physics,
           child: ConstrainedBox(

@@ -98,39 +98,25 @@ class _Drawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        children: <Widget>[
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-            ),
-            child: const Text(
-              'Flutter Widgetz!',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
-            ),
-          ),
-          ListView.builder(
-            padding: EdgeInsets.zero,
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: _pages.length,
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                leading: Icon(_pages[index].icon),
-                title: Text(_pages[index].title),
-                onTap: () {
-                  controller.jumpToPage(index);
-                  Navigator.pop(context);
-                },
-              );
-            },
-          ),
-        ],
+    return CustomDrawer(
+      header: const Text(
+        'Flutter Widgetz!',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 24,
+        ),
       ),
+      itemCount: _pages.length,
+      itemBuilder: (BuildContext context, int index) {
+        return ListTile(
+          leading: Icon(_pages[index].icon),
+          title: Text(_pages[index].title),
+          onTap: () {
+            controller.jumpToPage(index);
+            Navigator.pop(context);
+          },
+        );
+      },
     );
   }
 }

@@ -1,4 +1,3 @@
-
 part of flutter_widgetz;
 
 /// {@template flutter_widgetz.DropdownInput}

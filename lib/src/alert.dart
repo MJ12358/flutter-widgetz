@@ -16,12 +16,25 @@ class Alert extends StatefulWidget {
     this.padding = const EdgeInsets.all(8.0),
   }) : super(key: key);
 
+  /// The widget show inside the alert.
   final Widget child;
+
+  /// The icon used to close the alert.
   final IconData closeIcon;
+
+  /// The color of the alert.
   final Color color;
+
+  /// The icon shown to the left of the [child].
   final IconData icon;
+
+  /// Determines if this alert is visible.
   final bool isVisible;
+
+  /// A function called when the close icon is pressed.
   final VoidCallback? onClose;
+
+  /// The [child] is placed inside this padding.
   final EdgeInsets padding;
 
   /// {@macro flutter_widgetz.Alert}
