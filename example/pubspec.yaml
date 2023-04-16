@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_themez: ^1.0.8
   flutter_widgetz:
     # When depending on this package from a real application you should use:
     #   flutter_widgetz: ^x.y.z

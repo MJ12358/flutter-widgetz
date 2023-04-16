@@ -22,6 +22,10 @@ class AlertPage extends StatelessWidget {
           Alert.warning(
             child: const Text('Warning'),
           ),
+          const Alert(
+            color: Colors.yellow,
+            child: Text('Yellow'),
+          ),
         ],
       ),
     );

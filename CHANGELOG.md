@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 1.2.1
+
+- Fix elevated button text color.
+
 ## 1.2.0
 
 - Add save button.

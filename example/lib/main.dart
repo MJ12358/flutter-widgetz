@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_themez/flutter_themez.dart';
 import 'package:flutter_widgetz_example/app.dart';
 
 /// To run the example app, clone/fork the repo!
@@ -12,12 +13,12 @@ class _Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FlutterThemez theme = FlutterThemez();
+
     return MaterialApp(
       title: 'Flutter Widgetz Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: const App(),
+      theme: theme.dark(),
     );
   }
 }
