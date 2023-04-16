@@ -26,6 +26,7 @@ part 'src/floating_action_button.dart';
 part 'src/placeholder.dart';
 part 'src/radio_group.dart';
 part 'src/rating_bar.dart';
+part 'src/save_button.dart';
 part 'src/scaffold.dart';
 part 'src/search_bar.dart';
 part 'src/simple_dialog_option.dart';

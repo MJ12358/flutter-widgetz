@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 1.2.0
+
+- Add save button.
+
 ## 1.1.0
 
 - Add drawer and floating action button.
