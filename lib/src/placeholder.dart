@@ -34,20 +34,23 @@ class CustomPlaceholder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: mainAxisAlignment,
-        children: <Widget>[
-          _getChild(context),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Text(
-              text,
-              style: Theme.of(context).textTheme.titleMedium,
-              textAlign: TextAlign.center,
+    return Theme(
+      data: _getTheme(context),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: mainAxisAlignment,
+          children: <Widget>[
+            _getChild(context),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                text,
+                style: Theme.of(context).textTheme.titleMedium,
+                textAlign: TextAlign.center,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -77,5 +80,15 @@ class CustomPlaceholder extends StatelessWidget {
     }
 
     return const SizedBox();
+  }
+
+  ThemeData _getTheme(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
+    return theme.copyWith(
+      iconTheme: theme.iconTheme.copyWith(
+        color: theme.scaffoldBackgroundColor.blackOrWhite,
+      ),
+    );
   }
 }

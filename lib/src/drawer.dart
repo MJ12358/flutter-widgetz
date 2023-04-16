@@ -47,7 +47,7 @@ class CustomDrawer extends StatelessWidget {
 
     return DrawerHeader(
       decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor,
+        color: Theme.of(context).colorScheme.primary,
       ),
       child: header,
     );

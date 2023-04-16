@@ -12,6 +12,7 @@ class Accordion extends StatefulWidget {
     this.isOpen = false,
     this.onTap,
     this.title = '',
+    this.titlePadding = const EdgeInsets.all(8.0),
   }) : super(key: key);
 
   /// The content displayed when the accordion is open.
@@ -28,6 +29,9 @@ class Accordion extends StatefulWidget {
 
   /// The text to display in the header.
   final String title;
+
+  /// The padding around the title.
+  final EdgeInsets titlePadding;
 
   @override
   State<Accordion> createState() => _AccordionState();
@@ -77,20 +81,30 @@ class _AccordionState extends State<Accordion> with TickerProviderStateMixin {
       children: <Widget>[
         InkWell(
           onTap: _handleTap,
-          child: Row(
-            children: <Widget>[
-              AnimatedRotation(
-                turns: _isOpen ? 0.25 : 0,
-                duration: widget.duration,
-                child: const Icon(Icons.keyboard_arrow_right),
-              ),
-              Expanded(
-                child: Text(
-                  widget.title,
-                  style: Theme.of(context).textTheme.labelLarge,
+          child: Padding(
+            padding: widget.titlePadding,
+            child: Row(
+              children: <Widget>[
+                AnimatedRotation(
+                  turns: _isOpen ? 0.25 : 0,
+                  duration: widget.duration,
+                  child: Icon(
+                    Icons.keyboard_arrow_right,
+                    color:
+                        Theme.of(context).scaffoldBackgroundColor.blackOrWhite,
+                  ),
                 ),
-              ),
-            ],
+                Expanded(
+                  child: Text(
+                    widget.title,
+                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.5,
+                        ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         SizeTransition(

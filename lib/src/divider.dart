@@ -28,11 +28,8 @@ class CustomDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DividerTheme(
-      data: Theme.of(context).dividerTheme.copyWith(
-            color: color,
-            thickness: thickness,
-          ),
+    return Theme(
+      data: _getTheme(context),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -48,6 +45,20 @@ class CustomDivider extends StatelessWidget {
             child: Divider(),
           ),
         ],
+      ),
+    );
+  }
+
+  ThemeData _getTheme(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
+    return theme.copyWith(
+      dividerTheme: theme.dividerTheme.copyWith(
+        color: color,
+        thickness: thickness,
+      ),
+      iconTheme: theme.iconTheme.copyWith(
+        color: theme.scaffoldBackgroundColor.blackOrWhite,
       ),
     );
   }

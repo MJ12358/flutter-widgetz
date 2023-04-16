@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 1.2.2
+
+- Revise theming.
+
 ## 1.2.1
 
 - Fix elevated button text color.

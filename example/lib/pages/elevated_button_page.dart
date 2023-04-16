@@ -25,6 +25,11 @@ class ElevatedButtonPage extends StatelessWidget {
             text: 'Button Three',
             color: Colors.yellow,
           ),
+          CustomElevatedButton(
+            onPressed: () => print('button four pressed'),
+            text: 'Button Four',
+            color: Theme.of(context).scaffoldBackgroundColor,
+          ),
         ],
       ),
     );

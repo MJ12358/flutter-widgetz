@@ -7,22 +7,22 @@ class RatingBar extends StatefulWidget {
   /// {@macro flutter_widgetz.RatingBar}
   const RatingBar({
     Key? key,
-    required this.onChanged,
     this.color,
     this.max = 5,
+    this.onChanged,
     this.size = 40.0,
     this.unratedColor,
     this.value = 0,
   }) : super(key: key);
-
-  /// Called when the current rating is updated.
-  final ValueChanged<num> onChanged;
 
   /// The color of the stars.
   final Color? color;
 
   /// Sets the maximum rating.
   final int max;
+
+  /// Called when the current rating is updated.
+  final ValueChanged<num>? onChanged;
 
   /// The size of each star.
   final double size;
@@ -59,7 +59,7 @@ class _RatingBarState extends State<RatingBar> {
   }
 
   Widget _buildRating(BuildContext context, int index) {
-    final Color _color = widget.color ?? Theme.of(context).primaryColor;
+    final Color _color = widget.color ?? Theme.of(context).colorScheme.primary;
     final Color _unratedColor =
         widget.unratedColor ?? Theme.of(context).disabledColor;
     final Widget _widget;
@@ -89,7 +89,7 @@ class _RatingBarState extends State<RatingBar> {
         setState(() {
           _value = _result;
         });
-        widget.onChanged(_result);
+        widget.onChanged?.call(_result);
       },
       child: _widget,
     );

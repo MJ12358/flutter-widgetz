@@ -19,8 +19,13 @@ class DividerPage extends StatelessWidget {
           ),
           CustomDivider(
             thickness: 4,
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).colorScheme.primary,
             child: const Icon(Icons.abc),
+          ),
+          CustomDivider(
+            thickness: 10,
+            color: Theme.of(context).colorScheme.secondary,
+            child: const Icon(Icons.textsms_sharp),
           ),
         ],
       ),
