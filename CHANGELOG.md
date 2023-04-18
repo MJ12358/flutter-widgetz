@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 1.3.1
+
+- Add padding to sliver list and grid.
+- Add more docs and comments.
+
 ## 1.3.0
 
 - Add `CustomSliverList` widget.

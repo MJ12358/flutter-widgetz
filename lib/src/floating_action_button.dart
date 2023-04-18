@@ -18,6 +18,7 @@ class CustomFloatingActionButton extends StatefulWidget {
     this.mini = false,
     this.shape,
     this.shouldAnimate = false,
+    this.tooltip,
   }) : super(key: key);
 
   /// The callback that is called when the button is tapped.
@@ -40,6 +41,9 @@ class CustomFloatingActionButton extends StatefulWidget {
 
   /// Determines if the button should animate.
   final bool shouldAnimate;
+
+  /// Text that describes the action that will occur when the button is pressed.
+  final String? tooltip;
 
   @override
   State<CustomFloatingActionButton> createState() =>
@@ -90,6 +94,7 @@ class _CustomFloatingActionButtonState extends State<CustomFloatingActionButton>
       mini: widget.mini,
       onPressed: widget.onPressed,
       shape: widget.shape,
+      tooltip: widget.tooltip,
       child: Icon(widget.icon),
     );
   }
