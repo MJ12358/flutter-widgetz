@@ -32,6 +32,7 @@ part 'src/search_bar.dart';
 part 'src/simple_dialog_option.dart';
 part 'src/single_child_scroll_view.dart';
 part 'src/slider.dart';
+part 'src/sliver_list.dart';
 part 'src/spaced_column.dart';
 part 'src/spaced_row.dart';
 part 'src/text_form_field.dart';

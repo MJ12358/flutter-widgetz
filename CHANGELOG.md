@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 1.3.0
+
+- Add `CustomSliverList` widget.
+
 ## 1.2.2
 
 - Revise theming.

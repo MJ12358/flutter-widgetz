@@ -25,6 +25,7 @@
 - SimpleDialogOption
 - SingleChildScrollView
 - Slider
+- SliverList
 - SpacedColumn
 - SpacedRow
 - TextFormField
