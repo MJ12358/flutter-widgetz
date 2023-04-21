@@ -10,7 +10,6 @@ class ColorPickerPage extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: SpacedColumn(
         children: <Widget>[
-          // ColorPicker(onTap: print),
           CustomElevatedButton(
             onPressed: () => showDialog(
               context: context,
@@ -20,7 +19,27 @@ class ColorPickerPage extends StatelessWidget {
                 );
               },
             ),
-            text: 'Dialog',
+            text: 'Simple Dialog',
+          ),
+          CustomElevatedButton(
+            onPressed: () => showDialog(
+              context: context,
+              builder: (_) {
+                return AlertDialog(
+                  content: ColorPicker(onTap: print),
+                );
+              },
+            ),
+            text: 'Alert Dialog',
+          ),
+          CustomElevatedButton(
+            onPressed: () => showGeneralDialog(
+              context: context,
+              pageBuilder: (_, __, ___) {
+                return ColorPicker(onTap: print);
+              },
+            ),
+            text: 'General Dialog',
           ),
           CustomElevatedButton(
             onPressed: () => showModalBottomSheet(

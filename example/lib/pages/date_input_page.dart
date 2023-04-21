@@ -11,16 +11,16 @@ class DateInputPage extends StatelessWidget {
       child: SpacedColumn(
         children: <Widget>[
           const DateInput(
-            labelText: 'Date Input 1',
+            labelText: 'Date Input One',
             onChanged: print,
           ),
           DateInput(
-            labelText: 'Date Input 2',
+            labelText: 'Date Input Two Formatted',
             onChanged: print,
             displayStringForDate: (DateTime? v) => v?.toIso8601String() ?? '',
           ),
           DateInput(
-            labelText: 'Date Input 3',
+            labelText: 'Date Input Three Initial Value',
             onChanged: print,
             value: DateTime.now(),
           ),

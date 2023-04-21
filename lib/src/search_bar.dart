@@ -17,13 +17,28 @@ class SearchBar extends StatefulWidget {
     this.value = '',
   }) : super(key: key);
 
+  /// Called when the value of the search bar changes.
   final ValueChanged<String> onChanged;
+
+  /// Determines whether to auto focus this input.
   final bool autofocus;
+
+  /// Determines whether to show this input.
   final bool isVisible;
+
+  /// The type of information for which to optimize the text input control.
   final TextInputType keyboardType;
+
+  /// Optional text that describes the input field.
   final String labelText;
+
+  /// Called when clearing the input.
   final VoidCallback? onClear;
+
+  /// The amount of space by which to inset the child.
   final EdgeInsets padding;
+
+  /// The text value of this input.
   final String value;
 
   @override

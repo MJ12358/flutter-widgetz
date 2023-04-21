@@ -15,8 +15,18 @@ class DropdownInputPage extends StatelessWidget {
             items: <String>['1', '2', '3'],
             onChanged: print,
           ),
-          DropdownInput<BoxFit>(
+          const DropdownInput<BoxFit>(
             labelText: 'Dropdown Two',
+            items: <BoxFit>[
+              BoxFit.contain,
+              BoxFit.cover,
+              BoxFit.fill,
+            ],
+            onChanged: print,
+            prefixIcon: Icons.gif_outlined,
+          ),
+          DropdownInput<BoxFit>(
+            labelText: 'Dropdown Three Formatted',
             items: const <BoxFit>[
               BoxFit.contain,
               BoxFit.cover,
@@ -27,7 +37,7 @@ class DropdownInputPage extends StatelessWidget {
             prefixIcon: Icons.gif_box,
           ),
           DropdownInput<BoxFit>(
-            labelText: 'Dropdown Three',
+            labelText: 'Dropdown Four Initial Value',
             items: const <BoxFit>[
               BoxFit.contain,
               BoxFit.cover,

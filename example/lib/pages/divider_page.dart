@@ -15,7 +15,7 @@ class DividerPage extends StatelessWidget {
           ),
           const CustomDivider(
             thickness: 4,
-            child: Text('Divider 2'),
+            child: Text('Divider Two'),
           ),
           CustomDivider(
             thickness: 4,

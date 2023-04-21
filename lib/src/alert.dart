@@ -22,7 +22,7 @@ class Alert extends StatefulWidget {
   /// The icon used to close the alert.
   final IconData closeIcon;
 
-  /// The color of the alert.
+  /// The color of the alert. Defaults to a light grey.
   final Color color;
 
   /// The icon shown to the left of the [child].
@@ -38,6 +38,8 @@ class Alert extends StatefulWidget {
   final EdgeInsets padding;
 
   /// {@macro flutter_widgetz.Alert}
+  ///
+  /// A warning uses [Icons.warning] and a yellow color.
   factory Alert.warning({
     required Widget child,
     VoidCallback? onClose,
@@ -51,6 +53,8 @@ class Alert extends StatefulWidget {
   }
 
   /// {@macro flutter_widgetz.Alert}
+  ///
+  /// An error uses [Icons.block] and a red color.
   factory Alert.error({
     required Widget child,
     VoidCallback? onClose,
@@ -64,6 +68,8 @@ class Alert extends StatefulWidget {
   }
 
   /// {@macro flutter_widgetz.Alert}
+  ///
+  /// Offline uses [Icons.wifi] and a dark grey color.
   factory Alert.offline({
     required Widget child,
     VoidCallback? onClose,

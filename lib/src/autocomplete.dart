@@ -20,23 +20,53 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     this.labelText,
     this.prefixIcon,
+    this.scrollPadding = const EdgeInsets.all(200.0),
     this.showError = false,
     this.textCapitalization = TextCapitalization.none,
     this.textInputAction,
   }) : super(key: key);
 
+  /// Called when the value of the input changes.
   final ValueChanged<String> onChanged;
+
+  /// Called when a selection is made.
   final ValueChanged<T> onSelected;
+
+  /// A function that returns the current selectable
+  /// options objects given the current [TextEditingValue.text].
   final List<T> Function(String) optionsBuilder;
+
+  /// Determines whether to auto focus this input.
   final bool autofocus;
+
+  /// Returns the string to display in the field when the option is selected.
   final AutocompleteOptionToString<T> displayStringForOption;
+
+  /// The text shown when there is an error.
   final String? errorText;
+
+  /// The initial value of this input.
   final String initialValue;
+
+  /// The type of information for which to optimize the text input control.
   final TextInputType? keyboardType;
+
+  /// An optional label for this input.
   final String? labelText;
+
+  /// An icon that appears before the editable part of the text field.
   final IconData? prefixIcon;
+
+  /// Used to allow the input enough room for the dropdown.
+  final EdgeInsets scrollPadding;
+
+  /// Determines if an error should be displayed.
   final bool showError;
+
+  /// Determines whether to show an uppercase or lowercase keyboard.
   final TextCapitalization textCapitalization;
+
+  /// An action the user has requested the text input control to perform.
   final TextInputAction? textInputAction;
 
   static String _defaultStringForOption(Object? option) {
@@ -64,8 +94,7 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
               keyboardType: keyboardType,
               labelText: labelText,
               prefixIcon: prefixIcon,
-              // a hack to force the input enough room for the dropdown
-              scrollPadding: const EdgeInsets.only(bottom: 200.0),
+              scrollPadding: scrollPadding,
               showError: showError,
               textCapitalization: textCapitalization,
               textInputAction: textInputAction,

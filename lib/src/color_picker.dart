@@ -46,33 +46,39 @@ class _ColorPickerState extends State<ColorPicker> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: <Widget>[
-        SliverToBoxAdapter(
-          child: Container(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(widget.title),
-          ),
-        ),
-        SliverPadding(
-          padding: const EdgeInsets.all(16.0),
-          sliver: SliverGrid.builder(
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 75.0,
-              crossAxisSpacing: 10.0,
-              mainAxisSpacing: 10.0,
+    return Material(
+      child: SizedBox(
+        width: double.maxFinite,
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverToBoxAdapter(
+              child: Container(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(widget.title),
+              ),
             ),
-            itemCount: widget.colors.length,
-            itemBuilder: (_, int index) {
-              return _Dot(
-                color: widget.colors[index],
-                isSelected: widget.colors[index] == _selectedColor,
-                onTap: _handleTap,
-              );
-            },
-          ),
+            SliverPadding(
+              padding: const EdgeInsets.all(16.0),
+              sliver: SliverGrid.builder(
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 75.0,
+                  crossAxisSpacing: 10.0,
+                  mainAxisSpacing: 10.0,
+                ),
+                itemCount: widget.colors.length,
+                itemBuilder: (_, int index) {
+                  final Color color = widget.colors[index];
+                  return _Dot(
+                    color: color,
+                    isSelected: color == _selectedColor,
+                    onTap: _handleTap,
+                  );
+                },
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 

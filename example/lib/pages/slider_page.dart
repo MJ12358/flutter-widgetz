@@ -23,7 +23,7 @@ class SliderPage extends StatelessWidget {
             max: 10,
           ),
           CustomSlider(
-            labelText: 'Slider Three',
+            labelText: 'Slider Three (int value)',
             onChanged: print,
             value: 2,
             divisions: 5,
@@ -31,7 +31,7 @@ class SliderPage extends StatelessWidget {
             prefixIcon: Icons.abc,
           ),
           CustomSlider(
-            labelText: 'Slider Four',
+            labelText: 'Slider Four (double value)',
             onChanged: print,
             value: 2.5,
             divisions: 10,

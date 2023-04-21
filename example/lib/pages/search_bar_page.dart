@@ -11,9 +11,11 @@ class SearchBarPage extends StatelessWidget {
       child: SpacedColumn(
         children: <Widget>[
           const SearchBar(
+            labelText: 'Search Bar One',
             onChanged: print,
           ),
           SearchBar(
+            labelText: 'Search Bar Two (with onClear)',
             onChanged: print,
             onClear: () {},
           ),

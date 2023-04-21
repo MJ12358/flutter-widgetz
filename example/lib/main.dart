@@ -34,7 +34,7 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.gamepad, ElevatedButtonPage(), 'Elevated Buttons'),
   PageInfo(Icons.business, PlaceholderPage(), 'Placeholders'),
   PageInfo(Icons.radio, RadioPage(), 'Radios'),
-  PageInfo(Icons.star, RatingPage(), 'Ratings'),
+  PageInfo(Icons.star, RatingPage(), 'Rating Bar'),
   PageInfo(Icons.search, SearchBarPage(), 'Search Bar'),
   PageInfo(Icons.scale, ScaffoldPage(), 'Scaffold'),
   PageInfo(Icons.tune, SliderPage(), 'Sliders'),

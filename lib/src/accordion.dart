@@ -13,6 +13,7 @@ class Accordion extends StatefulWidget {
     this.onTap,
     this.title = '',
     this.titlePadding = const EdgeInsets.all(8.0),
+    this.titleStyle,
   }) : super(key: key);
 
   /// The content displayed when the accordion is open.
@@ -32,6 +33,9 @@ class Accordion extends StatefulWidget {
 
   /// The padding around the title.
   final EdgeInsets titlePadding;
+
+  /// The text style of the title.
+  final TextStyle? titleStyle;
 
   @override
   State<Accordion> createState() => _AccordionState();
@@ -97,10 +101,11 @@ class _AccordionState extends State<Accordion> with TickerProviderStateMixin {
                 Expanded(
                   child: Text(
                     widget.title,
-                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1.5,
-                        ),
+                    style: widget.titleStyle ??
+                        Theme.of(context).textTheme.labelLarge?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1.5,
+                            ),
                   ),
                 ),
               ],

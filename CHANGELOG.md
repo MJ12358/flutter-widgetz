@@ -1,5 +1,13 @@
 # Flutter Widgetz
 
+## 1.3.2
+
+- Add `hintText` to `CustomTextFormField`.
+- Add `scrollPadding` to `CustomAutocomplete`.
+- Add `titleStyle` to `Accordion`.
+- Add `titleStyle` to `SpacedRow`.
+- Add more docs.
+
 ## 1.3.1
 
 - Add padding to sliver list and grid.

@@ -12,14 +12,14 @@ class PlaceholderPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           CustomPlaceholder(
-            text: 'Placeholder One',
+            text: 'Placeholder One (No Image)',
           ),
           CustomPlaceholder(
-            text: 'Placeholder Two',
+            text: 'Placeholder Two (Image)',
             networkImage: 'https://loremflickr.com/640/360',
           ),
           CustomPlaceholder(
-            text: 'Placeholder Three',
+            text: 'Placeholder Three (Icon)',
             child: Icon(Icons.abc),
           ),
         ],

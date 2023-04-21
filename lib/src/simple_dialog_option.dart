@@ -15,8 +15,13 @@ class CustomSimpleDialogOption extends StatelessWidget {
     ),
   }) : super(key: key);
 
+  /// The widget below this widget in the tree.
   final Widget child;
+
+  /// The callback that is called when this option is selected.
   final VoidCallback onPressed;
+
+  /// The amount of space to surround the [child] with.
   final EdgeInsets padding;
 
   @override

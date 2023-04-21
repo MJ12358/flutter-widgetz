@@ -11,12 +11,12 @@ class AccordionPage extends StatelessWidget {
       child: SpacedColumn(
         children: <Widget>[
           const Accordion(
-            title: 'Accordion 1',
+            title: 'Accordion One',
             child: Text('Some text you want to show/hide.'),
           ),
           Accordion(
             isOpen: true,
-            title: 'Accordion 2',
+            title: 'Accordion Two',
             child: Column(
               children: const <Widget>[
                 Text('Row one'),
@@ -26,7 +26,7 @@ class AccordionPage extends StatelessWidget {
           ),
           Accordion(
             onTap: print,
-            title: 'Accordion 3',
+            title: 'Accordion Three',
             child: Container(
               color: Theme.of(context).colorScheme.primary,
               child: Row(

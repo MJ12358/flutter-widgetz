@@ -11,18 +11,19 @@ class RadioPage extends StatelessWidget {
       child: SpacedColumn(
         children: <Widget>[
           const RadioGroup<String>(
-            labelText: 'Radio Group One',
+            labelText: 'Radio Group One (String)',
             items: <String>['1', '2', '3'],
             onChanged: print,
           ),
           const RadioGroup<BoxFit>(
-            labelText: 'Radio Group Two',
+            labelText: 'Radio Group Two (Enum)',
             items: <BoxFit>[BoxFit.contain, BoxFit.cover, BoxFit.fill],
             onChanged: print,
             prefixIcon: Icons.gif_box,
+            initialValue: BoxFit.contain,
           ),
           RadioGroup<BoxFit>(
-            labelText: 'Radio Group Two',
+            labelText: 'Radio Group Two (Enum with Formatter)',
             items: const <BoxFit>[BoxFit.contain, BoxFit.cover, BoxFit.fill],
             onChanged: print,
             prefixIcon: Icons.account_box,

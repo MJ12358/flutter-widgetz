@@ -6,16 +6,24 @@ class ScaffoldPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SpacedColumn(
-      children: <Widget>[
-        CustomElevatedButton(
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute<dynamic>(builder: (_) => const _TestPage()),
+    return CustomSingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
+      child: SpacedColumn(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const Text(
+            'Everything here is inside a '
+            '"CustomScaffold" via the "MaterialApp".',
           ),
-          text: 'Push Page',
-        ),
-      ],
+          CustomElevatedButton(
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute<dynamic>(builder: (_) => const _TestPage()),
+            ),
+            text: 'Push Page',
+          ),
+        ],
+      ),
     );
   }
 }

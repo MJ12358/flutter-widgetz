@@ -30,7 +30,8 @@ class _SliverListPageState extends State<SliverListPage> {
           child: Container(
             color: Theme.of(context).colorScheme.primary,
             height: 75,
-            child: const Text('A Builder List!'),
+            padding: const EdgeInsets.all(16.0),
+            child: const Text('Sliver Builder'),
           ),
         ),
         CustomSliverList.builder(
@@ -45,7 +46,8 @@ class _SliverListPageState extends State<SliverListPage> {
           child: Container(
             color: Theme.of(context).colorScheme.primary,
             height: 75,
-            child: const Text('A Separated List!'),
+            padding: const EdgeInsets.all(16.0),
+            child: const Text('Sliver Separated'),
           ),
         ),
         CustomSliverList.separated(

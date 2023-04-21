@@ -11,19 +11,19 @@ class CounterInputPage extends StatelessWidget {
       child: SpacedColumn(
         children: <Widget>[
           CounterInput(
-            labelText: 'Counter 1',
+            labelText: 'Counter One',
             onChanged: print,
             value: 5,
           ),
           CounterInput(
-            labelText: 'Counter 2',
+            labelText: 'Counter Two',
             onChanged: print,
             value: 1,
             errorText: 'There is an error',
             showError: true,
           ),
           CounterInput(
-            labelText: 'Counter 3',
+            labelText: 'Counter Three',
             onChanged: print,
             value: 10,
             decrementIcon: Icons.remove,

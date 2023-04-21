@@ -16,7 +16,7 @@ class CustomDrawer extends StatelessWidget {
   final int itemCount;
 
   /// Called to build children for the sliver.
-  final Widget Function(BuildContext, int) itemBuilder;
+  final IndexedWidgetBuilder itemBuilder;
 
   /// A widget to be placed inside the drawer header.
   final Widget? header;

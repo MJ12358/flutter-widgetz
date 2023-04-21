@@ -11,13 +11,23 @@ class CheckboxPage extends StatelessWidget {
       child: SpacedColumn(
         children: <Widget>[
           const CheckboxGroup<String>(
-            labelText: 'String Group',
+            labelText: 'Checkbox Group One (String)',
             items: <String>['1', '2', '3'],
             onChanged: print,
             initialValues: <String>['1', '2'],
           ),
+          const CheckboxGroup<BoxFit>(
+            labelText: 'Checkbox Groupt Two (Enum)',
+            items: <BoxFit>[
+              BoxFit.contain,
+              BoxFit.cover,
+              BoxFit.fill,
+            ],
+            onChanged: print,
+            initialValues: <BoxFit>[BoxFit.cover],
+          ),
           CheckboxGroup<BoxFit>(
-            labelText: 'Enum Group',
+            labelText: 'Checkbox Groupt Three (Enum with Formatter)',
             items: const <BoxFit>[
               BoxFit.contain,
               BoxFit.cover,

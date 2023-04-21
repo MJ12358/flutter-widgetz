@@ -12,8 +12,13 @@ class SpacedColumn extends StatelessWidget {
     this.spacing = 20.0,
   }) : super(key: key);
 
+  /// Creates a vertical array of children.
   final List<Widget> children;
+
+  /// How the children should be placed along the main axis.
   final MainAxisAlignment mainAxisAlignment;
+
+  /// The spacing between the children.
   final double spacing;
 
   @override
@@ -24,19 +29,21 @@ class SpacedColumn extends StatelessWidget {
 
     return Column(
       mainAxisAlignment: mainAxisAlignment,
-      children: _formatChildren(),
+      children: _getChildren(),
     );
   }
 
-  List<Widget> _formatChildren() {
+  List<Widget> _getChildren() {
     final List<Widget> result = <Widget>[];
 
     for (int i = 0; i < children.length; i++) {
+      final Widget child = children[i];
+
       if (i != children.length - 1) {
-        result.add(children[i]);
+        result.add(child);
         result.add(SizedBox(height: spacing));
       } else {
-        result.add(children[i]);
+        result.add(child);
       }
     }
 
