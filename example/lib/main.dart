@@ -17,6 +17,7 @@ import 'package:flutter_widgetz_example/pages/rating_page.dart';
 import 'package:flutter_widgetz_example/pages/scaffold_page.dart';
 import 'package:flutter_widgetz_example/pages/search_bar_page.dart';
 import 'package:flutter_widgetz_example/pages/slider_page.dart';
+import 'package:flutter_widgetz_example/pages/sliver_grid_page.dart';
 import 'package:flutter_widgetz_example/pages/sliver_list_page.dart';
 
 /// To run the example app, clone/fork the repo!
@@ -38,6 +39,7 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.search, SearchBarPage(), 'Search Bar'),
   PageInfo(Icons.scale, ScaffoldPage(), 'Scaffold'),
   PageInfo(Icons.tune, SliderPage(), 'Sliders'),
+  PageInfo(Icons.grid_4x4, SliverGridPage(), 'Sliver Grid'),
   PageInfo(Icons.list, SliverListPage(), 'Sliver List'),
 ];
 

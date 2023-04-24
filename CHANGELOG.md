@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 1.3.3
+
+- Add count factory to sliver grid.
+
 ## 1.3.2
 
 - Add `hintText` to `CustomTextFormField`.

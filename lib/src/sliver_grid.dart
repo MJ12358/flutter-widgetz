@@ -41,6 +41,29 @@ class CustomSliverGrid extends StatelessWidget {
     );
   }
 
+  /// {@macro flutter_widgetz.CustomSliverGrid}
+  factory CustomSliverGrid.count({
+    required List<Widget> children,
+    required int crossAxisCount,
+    double childAspectRatio = 1.0,
+    double crossAxisSpacing = 0.0,
+    double mainAxisSpacing = 0.0,
+    EdgeInsets? padding,
+  }) {
+    return CustomSliverGrid._(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: crossAxisCount,
+        childAspectRatio: childAspectRatio,
+        crossAxisSpacing: crossAxisSpacing,
+        mainAxisSpacing: mainAxisSpacing,
+      ),
+      delegate: SliverChildListDelegate(
+        children,
+      ),
+      padding: padding,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SliverPadding(
