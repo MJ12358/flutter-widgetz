@@ -12,6 +12,7 @@ class CustomPlaceholder extends StatelessWidget {
     this.child,
     this.networkImage,
     this.mainAxisAlignment = MainAxisAlignment.center,
+    this.padding = const EdgeInsets.all(20.0),
   }) : super(key: key);
 
   /// The text of this placeholder.
@@ -29,6 +30,9 @@ class CustomPlaceholder extends StatelessWidget {
   /// How the children should be placed along the main axis in a flex layout.
   final MainAxisAlignment mainAxisAlignment;
 
+  /// The padding around the [text].
+  final EdgeInsets padding;
+
   bool get hasAssetImage => assetImage != null;
   bool get hasNetworkImage => networkImage != null;
 
@@ -42,7 +46,7 @@ class CustomPlaceholder extends StatelessWidget {
           children: <Widget>[
             _getChild(context),
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: padding,
               child: Text(
                 text,
                 style: Theme.of(context).textTheme.titleMedium,

@@ -24,6 +24,7 @@ part 'src/elevated_button.dart';
 part 'src/extensions.dart';
 part 'src/floating_action_button.dart';
 part 'src/placeholder.dart';
+part 'src/popup_menu_item.dart';
 part 'src/radio_group.dart';
 part 'src/rating_bar.dart';
 part 'src/save_button.dart';

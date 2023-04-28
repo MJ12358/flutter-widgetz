@@ -1,5 +1,11 @@
 # Flutter Widgetz
 
+## 1.3.4
+
+- Add `CustomPopupMenuItem`.
+- Add icon param to `CustomAvatar`.
+- Add padding param to `CustomPlaceholder`.
+
 ## 1.3.3
 
 - Add count factory to sliver grid.

@@ -10,12 +10,21 @@ class CustomAvatar extends StatelessWidget {
   const CustomAvatar({
     Key? key,
     this.assetImage,
+    this.icon = Icons.person,
     this.networkImage,
     this.radius,
   }) : super(key: key);
 
+  /// The foreground asset image of the circle.
   final String? assetImage;
+
+  /// The icon to display when no image is present.
+  final IconData icon;
+
+  /// The foreground network image of the circle.
   final String? networkImage;
+
+  /// The size of the avatar, expressed as the radius (half the diameter).
   final double? radius;
 
   bool get hasImage => hasAssetImage || hasNetworkImage;
@@ -44,10 +53,12 @@ class CustomAvatar extends StatelessWidget {
   }
 
   Widget _getChild() {
-    return hasImage
-        ? const SizedBox()
-        : const Center(
-            child: Icon(Icons.person),
-          );
+    if (hasImage) {
+      return const SizedBox();
+    } else {
+      return Center(
+        child: Icon(icon),
+      );
+    }
   }
 }

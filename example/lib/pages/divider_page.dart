@@ -27,6 +27,19 @@ class DividerPage extends StatelessWidget {
             color: Theme.of(context).colorScheme.secondary,
             child: const Icon(Icons.textsms_sharp),
           ),
+          CustomDivider(
+            child: Column(
+              children: <Widget>[
+                const Text('Title'),
+                Row(
+                  children: const <Widget>[
+                    Text('One'),
+                    Text('Two'),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
