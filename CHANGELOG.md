@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 1.3.5
+
+- Refactor SimpleDialogOption and PopupMenuItem.
+
 ## 1.3.4
 
 - Add `CustomPopupMenuItem`.

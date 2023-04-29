@@ -8,6 +8,7 @@ import 'package:flutter_widgetz_example/pages/checkbox_page.dart';
 import 'package:flutter_widgetz_example/pages/color_picker_page.dart';
 import 'package:flutter_widgetz_example/pages/counter_input_page.dart';
 import 'package:flutter_widgetz_example/pages/date_input_page.dart';
+import 'package:flutter_widgetz_example/pages/dialogs_page.dart';
 import 'package:flutter_widgetz_example/pages/divider_page.dart';
 import 'package:flutter_widgetz_example/pages/dropdown_input_page.dart';
 import 'package:flutter_widgetz_example/pages/elevated_button_page.dart';
@@ -22,39 +23,18 @@ import 'package:flutter_widgetz_example/pages/sliver_list_page.dart';
 
 /// To run the example app, clone/fork the repo!
 
-const List<PageInfo> _pages = <PageInfo>[
-  PageInfo(Icons.account_tree, AccordionPage(), 'Accordions'),
-  PageInfo(Icons.notifications, AlertPage(), 'Alerts'),
-  PageInfo(Icons.person, AvatarPage(), 'Avatars'),
-  PageInfo(Icons.check_box, CheckboxPage(), 'Checkboxes'),
-  PageInfo(Icons.color_lens, ColorPickerPage(), 'Color Picker'),
-  PageInfo(Icons.numbers, CounterInputPage(), 'Counter Input'),
-  PageInfo(Icons.date_range, DateInputPage(), 'Date Input'),
-  PageInfo(Icons.space_bar, DividerPage(), 'Dividers'),
-  PageInfo(Icons.arrow_drop_down, DropdownInputPage(), 'Dropdown Input'),
-  PageInfo(Icons.gamepad, ElevatedButtonPage(), 'Elevated Buttons'),
-  PageInfo(Icons.business, PlaceholderPage(), 'Placeholders'),
-  PageInfo(Icons.radio, RadioPage(), 'Radios'),
-  PageInfo(Icons.star, RatingPage(), 'Rating Bar'),
-  PageInfo(Icons.search, SearchBarPage(), 'Search Bar'),
-  PageInfo(Icons.scale, ScaffoldPage(), 'Scaffold'),
-  PageInfo(Icons.tune, SliderPage(), 'Sliders'),
-  PageInfo(Icons.grid_4x4, SliverGridPage(), 'Sliver Grid'),
-  PageInfo(Icons.list, SliverListPage(), 'Sliver List'),
-];
-
 void main() {
-  runApp(const _Main());
+  runApp(const Main());
 }
 
-class _Main extends StatefulWidget {
-  const _Main({Key? key}) : super(key: key);
+class Main extends StatefulWidget {
+  const Main({Key? key}) : super(key: key);
 
   @override
-  State<_Main> createState() => _MainState();
+  State<Main> createState() => MainState();
 }
 
-class _MainState extends State<_Main> {
+class MainState extends State<Main> {
   late final PageController _controller;
   late PageInfo _currentPage;
   late bool _isDark;
@@ -145,3 +125,25 @@ class PageInfo {
   final Widget page;
   final String title;
 }
+
+const List<PageInfo> _pages = <PageInfo>[
+  PageInfo(Icons.account_tree, AccordionPage(), 'Accordions'),
+  PageInfo(Icons.notifications, AlertPage(), 'Alerts'),
+  PageInfo(Icons.person, AvatarPage(), 'Avatars'),
+  PageInfo(Icons.check_box, CheckboxPage(), 'Checkboxes'),
+  PageInfo(Icons.color_lens, ColorPickerPage(), 'Color Picker'),
+  PageInfo(Icons.numbers, CounterInputPage(), 'Counter Input'),
+  PageInfo(Icons.date_range, DateInputPage(), 'Date Input'),
+  PageInfo(Icons.dialpad_outlined, DialogsPage(), 'Dialogs'),
+  PageInfo(Icons.space_bar, DividerPage(), 'Dividers'),
+  PageInfo(Icons.arrow_drop_down, DropdownInputPage(), 'Dropdown Input'),
+  PageInfo(Icons.gamepad, ElevatedButtonPage(), 'Elevated Buttons'),
+  PageInfo(Icons.business, PlaceholderPage(), 'Placeholders'),
+  PageInfo(Icons.radio, RadioPage(), 'Radios'),
+  PageInfo(Icons.star, RatingPage(), 'Rating Bar'),
+  PageInfo(Icons.search, SearchBarPage(), 'Search Bar'),
+  PageInfo(Icons.scale, ScaffoldPage(), 'Scaffold'),
+  PageInfo(Icons.tune, SliderPage(), 'Sliders'),
+  PageInfo(Icons.grid_4x4, SliverGridPage(), 'Sliver Grid'),
+  PageInfo(Icons.list, SliverListPage(), 'Sliver List'),
+];
