@@ -81,7 +81,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.3.5"
+    version: "1.3.6"
   js:
     dependency: transitive
     description:

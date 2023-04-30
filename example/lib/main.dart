@@ -13,6 +13,7 @@ import 'package:flutter_widgetz_example/pages/divider_page.dart';
 import 'package:flutter_widgetz_example/pages/dropdown_input_page.dart';
 import 'package:flutter_widgetz_example/pages/elevated_button_page.dart';
 import 'package:flutter_widgetz_example/pages/placeholder_page.dart';
+import 'package:flutter_widgetz_example/pages/popup_menu_page.dart';
 import 'package:flutter_widgetz_example/pages/radio_page.dart';
 import 'package:flutter_widgetz_example/pages/rating_page.dart';
 import 'package:flutter_widgetz_example/pages/scaffold_page.dart';
@@ -139,6 +140,7 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.arrow_drop_down, DropdownInputPage(), 'Dropdown Input'),
   PageInfo(Icons.gamepad, ElevatedButtonPage(), 'Elevated Buttons'),
   PageInfo(Icons.business, PlaceholderPage(), 'Placeholders'),
+  PageInfo(Icons.phonelink_setup_sharp, PopupMenuPage(), 'Popup Menu'),
   PageInfo(Icons.radio, RadioPage(), 'Radios'),
   PageInfo(Icons.star, RatingPage(), 'Rating Bar'),
   PageInfo(Icons.search, SearchBarPage(), 'Search Bar'),

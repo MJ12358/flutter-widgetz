@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 1.3.6
+
+- Add checked and icon factories to PopupMenuItem.
+- Add checked, icon and tile factories to SimpleDialogOption.
+
 ## 1.3.5
 
 - Refactor SimpleDialogOption and PopupMenuItem.

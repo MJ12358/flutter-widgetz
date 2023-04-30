@@ -11,12 +11,24 @@ class DialogsPage extends StatelessWidget {
       child: SpacedColumn(
         children: <Widget>[
           CustomElevatedButton(
-            text: 'Default Dialog',
+            text: 'Default',
             onPressed: () => _showDefaultDialog(context),
           ),
           CustomElevatedButton(
-            text: 'Custom Dialog',
+            text: 'Custom',
             onPressed: () => _showCustomDialog(context),
+          ),
+          CustomElevatedButton(
+            text: 'Custom Icon',
+            onPressed: () => _showCustomIconDialog(context),
+          ),
+          CustomElevatedButton(
+            text: 'Custom Checked',
+            onPressed: () => _showCustomCheckedDialog(context),
+          ),
+          CustomElevatedButton(
+            text: 'Custom All',
+            onPressed: () => _showCustomAllDialog(context),
           ),
         ],
       ),
@@ -34,7 +46,7 @@ class DialogsPage extends StatelessWidget {
               onPressed: () {},
             ),
             SimpleDialogOption(
-              child: const Text('two'),
+              child: const Text('Two'),
               onPressed: () {},
             ),
           ],
@@ -54,8 +66,89 @@ class DialogsPage extends StatelessWidget {
               onPressed: () {},
             ),
             CustomSimpleDialogOption(
-              child: const Text('two'),
+              child: const Text('Two'),
               onPressed: () {},
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showCustomIconDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return SimpleDialog(
+          children: <Widget>[
+            CustomSimpleDialogOption.icon(
+              text: 'One',
+              icon: Icons.abc,
+              onPressed: () {},
+            ),
+            CustomSimpleDialogOption.icon(
+              text: 'Two',
+              icon: Icons.yard,
+              onPressed: () {},
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showCustomCheckedDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return SimpleDialog(
+          children: <Widget>[
+            CustomSimpleDialogOption.checked(
+              text: 'One',
+              checked: false,
+              onPressed: () {},
+            ),
+            CustomSimpleDialogOption.checked(
+              text: 'Two',
+              onPressed: () {},
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showCustomAllDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return SimpleDialog(
+          children: <Widget>[
+            CustomSimpleDialogOption(
+              child: const Text('Custom'),
+              onPressed: () {},
+            ),
+            CustomSimpleDialogOption.checked(
+              text: 'Checked false',
+              checked: false,
+              onPressed: () {},
+            ),
+            CustomSimpleDialogOption.checked(
+              text: 'Checked true',
+              onPressed: () {},
+            ),
+            CustomSimpleDialogOption.icon(
+              text: 'Icon One',
+              icon: Icons.abc,
+              onPressed: () {},
+            ),
+            CustomSimpleDialogOption.icon(
+              text: 'Icon Two',
+              icon: Icons.yard,
+              onPressed: () {},
+            ),
+            CustomSimpleDialogOption.tile(
+              child: const Text('Tile one'),
             ),
           ],
         );
