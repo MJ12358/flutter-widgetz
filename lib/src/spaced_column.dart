@@ -8,15 +8,23 @@ class SpacedColumn extends StatelessWidget {
   const SpacedColumn({
     Key? key,
     required this.children,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
     this.mainAxisAlignment = MainAxisAlignment.start,
+    this.mainAxisSize = MainAxisSize.max,
     this.spacing = 20.0,
   }) : super(key: key);
 
   /// Creates a vertical array of children.
   final List<Widget> children;
 
+  /// How the children should be placed along the cross axis.
+  final CrossAxisAlignment crossAxisAlignment;
+
   /// How the children should be placed along the main axis.
   final MainAxisAlignment mainAxisAlignment;
+
+  /// How much space should be occupied in the main axis.
+  final MainAxisSize mainAxisSize;
 
   /// The spacing between the children.
   final double spacing;
@@ -28,7 +36,9 @@ class SpacedColumn extends StatelessWidget {
     }
 
     return Column(
+      crossAxisAlignment: crossAxisAlignment,
       mainAxisAlignment: mainAxisAlignment,
+      mainAxisSize: mainAxisSize,
       children: _getChildren(),
     );
   }

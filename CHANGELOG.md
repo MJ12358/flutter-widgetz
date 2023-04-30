@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 1.3.7
+
+- Add more params to SpacedColumn.
+
 ## 1.3.6
 
 - Add checked and icon factories to PopupMenuItem.
