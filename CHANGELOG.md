@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 1.3.9
+
+- Add more params to SearchBar.
+- Use Flutter duration constant.
+
 ## 1.3.8
 
 - Increase tap target of dropdown input.

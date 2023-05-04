@@ -8,7 +8,7 @@ class Accordion extends StatefulWidget {
   const Accordion({
     Key? key,
     this.child = const SizedBox(),
-    this.duration = const Duration(milliseconds: 300),
+    this.duration = kThemeChangeDuration,
     this.isOpen = false,
     this.onTap,
     this.title = '',
