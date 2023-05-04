@@ -14,17 +14,6 @@ class ColorPickerPage extends StatelessWidget {
             onPressed: () => showDialog(
               context: context,
               builder: (_) {
-                return SimpleDialog(
-                  children: <Widget>[ColorPicker(onTap: print)],
-                );
-              },
-            ),
-            text: 'Simple Dialog',
-          ),
-          CustomElevatedButton(
-            onPressed: () => showDialog(
-              context: context,
-              builder: (_) {
                 return AlertDialog(
                   content: ColorPicker(onTap: print),
                 );

@@ -10,6 +10,7 @@ class CheckboxInput extends StatefulWidget {
     Key? key,
     required this.onChanged,
     required this.value,
+    this.child = const Text(''),
     this.labelText,
   }) : super(key: key);
 
@@ -18,6 +19,9 @@ class CheckboxInput extends StatefulWidget {
 
   /// Whether this checkbox is checked.
   final bool value;
+
+  /// The widget below this widget in the tree.
+  final Widget child;
 
   /// Optional text that describes the input field.
   final String? labelText;
@@ -48,6 +52,7 @@ class _CheckboxInputState extends State<CheckboxInput> {
             onChanged: _handleCheckboxTap,
           ),
         ),
+        child: widget.child,
       ),
     );
   }

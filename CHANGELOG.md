@@ -1,27 +1,32 @@
 # Flutter Widgetz
 
+## 1.3.10
+
+- Increase tap target of `CheckboxInput`.
+- Add more params to `ColorPicker` and adjust contrast.
+
 ## 1.3.9
 
-- Add more params to SearchBar.
+- Add more params to `SearchBar`.
 - Use Flutter duration constant.
 
 ## 1.3.8
 
-- Increase tap target of dropdown input.
-- Add a param to scaffold.
+- Increase tap target of `DropdownInput`.
+- Add a param to `CustomScaffold`.
 
 ## 1.3.7
 
-- Add more params to SpacedColumn.
+- Add more params to `SpacedColumn`.
 
 ## 1.3.6
 
-- Add checked and icon factories to PopupMenuItem.
-- Add checked, icon and tile factories to SimpleDialogOption.
+- Add checked and icon factories to `PopupMenuItem`.
+- Add checked, icon and tile factories to `SimpleDialogOption`.
 
 ## 1.3.5
 
-- Refactor SimpleDialogOption and PopupMenuItem.
+- Refactor `SimpleDialogOption` and `PopupMenuItem`.
 
 ## 1.3.4
 

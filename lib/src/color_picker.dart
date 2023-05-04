@@ -9,9 +9,11 @@ class ColorPicker extends StatefulWidget {
   ColorPicker({
     Key? key,
     required this.onTap,
-    this.title = 'Choose Color',
-    this.initialColor,
     List<Color>? colors,
+    this.initialColor,
+    this.padding = const EdgeInsets.all(16.0),
+    this.title = 'Choose Color',
+    this.titleStyle,
   }) : super(key: key) {
     this.colors = colors ??
         Colors.primaries.map((MaterialColor color) => color.shade500).toList();
@@ -20,16 +22,22 @@ class ColorPicker extends StatefulWidget {
   /// Callback when a color is tapped.
   final ValueChanged<Color> onTap;
 
-  /// A title shown above the picker.
-  final String title;
-
-  /// The initial color for the picker.
-  final Color? initialColor;
-
   /// A list of Colors to display.
   ///
   /// Defaults to `Colors.primaries`.
   late final List<Color> colors;
+
+  /// The initial color for the picker.
+  final Color? initialColor;
+
+  /// Empty space to inscribe inside the picker;
+  final EdgeInsets padding;
+
+  /// A title shown above the picker.
+  final String title;
+
+  /// The style to use for the [title].
+  final TextStyle? titleStyle;
 
   @override
   State<ColorPicker> createState() => _ColorPickerState();
@@ -53,12 +61,16 @@ class _ColorPickerState extends State<ColorPicker> {
           slivers: <Widget>[
             SliverToBoxAdapter(
               child: Container(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(widget.title),
+                padding: widget.padding.copyWith(bottom: 0.0),
+                child: Text(
+                  widget.title,
+                  style: widget.titleStyle ??
+                      Theme.of(context).textTheme.titleMedium,
+                ),
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.all(16.0),
+              padding: widget.padding,
               sliver: SliverGrid.builder(
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 75.0,
@@ -117,9 +129,9 @@ class _Dot extends StatelessWidget {
         ),
         child: Center(
           child: isSelected
-              ? const Icon(
+              ? Icon(
                   Icons.check,
-                  color: Colors.white,
+                  color: color.blackOrWhite,
                 )
               : const SizedBox(),
         ),
