@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 1.3.8
+
+- Increase tap target of dropdown input.
+- Add a param to scaffold.
+
 ## 1.3.7
 
 - Add more params to SpacedColumn.

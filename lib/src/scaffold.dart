@@ -21,6 +21,7 @@ class CustomScaffold extends StatelessWidget {
     this.onRefresh,
     this.onWillPop,
     this.padding = EdgeInsets.zero,
+    this.resizeToAvoidBottomInset = true,
     this.right = true,
     this.semanticLabel,
     this.top = true,
@@ -60,6 +61,9 @@ class CustomScaffold extends StatelessWidget {
   /// Empty space around the [body].
   final EdgeInsets padding;
 
+  /// If true the [body] and floating widgets avoid the onscreen keyboard.
+  final bool resizeToAvoidBottomInset;
+
   /// Whether to avoid system intrusions on the right.
   final bool right;
 
@@ -83,6 +87,7 @@ class CustomScaffold extends StatelessWidget {
         drawer: drawer,
         floatingActionButton: floatingActionButton,
         floatingActionButtonLocation: floatingActionButtonLocation,
+        resizeToAvoidBottomInset: resizeToAvoidBottomInset,
         body: Builder(
           builder: (BuildContext context) {
             return WillPopScope(

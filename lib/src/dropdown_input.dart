@@ -56,19 +56,15 @@ class _DropdownInputState<T extends Object> extends State<DropdownInput<T>> {
 
   @override
   Widget build(BuildContext context) {
-    return InputDecorator(
+    return DropdownButtonFormField<T>(
+      isDense: widget.isDense,
       decoration: InputDecoration(
         labelText: widget.labelText,
         prefixIcon: widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
       ),
-      child: DropdownButtonHideUnderline(
-        child: DropdownButton<T>(
-          value: _value,
-          isDense: widget.isDense,
-          onChanged: _handleChange,
-          items: _getItems(),
-        ),
-      ),
+      items: _getItems(),
+      onChanged: _handleChange,
+      value: _value,
     );
   }
 
