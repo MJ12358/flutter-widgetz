@@ -26,6 +26,14 @@ class AlertPage extends StatelessWidget {
             color: Colors.yellow,
             child: Text('Yellow'),
           ),
+          Link.underline(
+            'Underline',
+            onTap: () => print('underline'),
+          ),
+          Link.text(
+            'Text',
+            onTap: () => print('text'),
+          )
         ],
       ),
     );

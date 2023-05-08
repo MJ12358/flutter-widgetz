@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 1.3.11
+
+- Add `ReorderableListView.separated`.
+- Add `Link`.
+
 ## 1.3.10
 
 - Increase tap target of `CheckboxInput`.
