@@ -16,7 +16,7 @@ class Alert extends StatefulWidget {
     this.padding = const EdgeInsets.all(8.0),
   }) : super(key: key);
 
-  /// The widget show inside the alert.
+  /// The widget shown inside the alert.
   final Widget child;
 
   /// The icon used to close the alert.

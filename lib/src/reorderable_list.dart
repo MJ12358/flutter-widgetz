@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomReorderableListView}
 /// Wraps [ReorderableListView] to allow a separator.
+///
+/// Inspired by: https://github.com/flutter/flutter/issues/76706
 /// {@endtemplate}
 class CustomReorderableListView extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomReorderableListView}

@@ -4,6 +4,7 @@ import 'package:flutter_widgetz/flutter_widgetz.dart';
 import 'package:flutter_widgetz_example/pages/accordion_page.dart';
 import 'package:flutter_widgetz_example/pages/alert_page.dart';
 import 'package:flutter_widgetz_example/pages/avatar_page.dart';
+import 'package:flutter_widgetz_example/pages/carousel_page.dart';
 import 'package:flutter_widgetz_example/pages/checkbox_page.dart';
 import 'package:flutter_widgetz_example/pages/color_picker_page.dart';
 import 'package:flutter_widgetz_example/pages/counter_input_page.dart';
@@ -132,6 +133,7 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.account_tree, AccordionPage(), 'Accordions'),
   PageInfo(Icons.notifications, AlertPage(), 'Alerts'),
   PageInfo(Icons.person, AvatarPage(), 'Avatars'),
+  PageInfo(Icons.roundabout_left, CarouselPage(), 'Carousel'),
   PageInfo(Icons.check_box, CheckboxPage(), 'Checkboxes'),
   PageInfo(Icons.color_lens, ColorPickerPage(), 'Color Picker'),
   PageInfo(Icons.numbers, CounterInputPage(), 'Counter Input'),

@@ -1,9 +1,11 @@
 library flutter_widgetz;
 
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 
@@ -12,6 +14,7 @@ part 'src/alert.dart';
 part 'src/autocomplete.dart';
 part 'src/avatar.dart';
 part 'src/bottom_navigation_bar.dart';
+part 'src/carousel.dart';
 part 'src/checkbox_group.dart';
 part 'src/checkbox_input.dart';
 part 'src/color_picker.dart';

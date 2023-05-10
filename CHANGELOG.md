@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 1.3.12
+
+- Add `Carousel`.
+
 ## 1.3.11
 
 - Add `ReorderableListView.separated`.
