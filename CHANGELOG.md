@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 3.1.0
+
+- Update dependency constraints.
+
 ## 3.0.0
 
 - Update to Material 3.
