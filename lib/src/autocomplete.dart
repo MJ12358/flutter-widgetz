@@ -9,7 +9,7 @@ part of flutter_widgetz;
 class CustomAutocomplete<T extends Object> extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomAutocomplete}
   const CustomAutocomplete({
-    Key? key,
+    super.key,
     required this.onChanged,
     required this.onSelected,
     required this.optionsBuilder,
@@ -24,7 +24,7 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
     this.showError = false,
     this.textCapitalization = TextCapitalization.none,
     this.textInputAction,
-  }) : super(key: key);
+  });
 
   /// Called when the value of the input changes.
   final ValueChanged<String> onChanged;

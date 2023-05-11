@@ -6,7 +6,7 @@ part of flutter_widgetz;
 class CheckboxGroup<T extends Object> extends StatefulWidget {
   /// {@macro flutter_widgetz.CheckboxGroup}
   const CheckboxGroup({
-    Key? key,
+    super.key,
     required this.items,
     required this.onChanged,
     this.border = InputBorder.none,
@@ -15,7 +15,7 @@ class CheckboxGroup<T extends Object> extends StatefulWidget {
     this.initialValues,
     this.labelText,
     this.prefixIcon,
-  }) : super(key: key);
+  });
 
   /// The list of items the user can select.
   final Iterable<T> items;

@@ -8,11 +8,11 @@ part of flutter_widgetz;
 class CustomSingleChildScrollView extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomSingleChildScrollView}
   const CustomSingleChildScrollView({
-    Key? key,
+    super.key,
     required this.child,
     this.padding = EdgeInsets.zero,
     this.physics,
-  }) : super(key: key);
+  });
 
   /// The [child] contained by the container.
   final Widget child;

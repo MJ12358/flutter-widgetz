@@ -7,7 +7,7 @@ part of flutter_widgetz;
 class DateInput extends StatefulWidget {
   /// {@macro flutter_widgetz.DateInput}
   const DateInput({
-    Key? key,
+    super.key,
     required this.onChanged,
     this.displayStringForDate = _defaultStringForDate,
     this.errorText,
@@ -17,7 +17,7 @@ class DateInput extends StatefulWidget {
     this.prefixIcon = Icons.date_range,
     this.showError = false,
     this.value,
-  }) : super(key: key);
+  });
 
   /// Called whenever the value changes.
   final ValueChanged<DateTime> onChanged;
@@ -88,10 +88,10 @@ class _DateInputState extends State<DateInput> {
       firstDate: widget.firstDate ?? DateTime.now(),
       lastDate:
           widget.lastDate ?? DateTime.now().add(const Duration(days: 365)),
-    ).then(_handleChange);
+    ).then(_onChange);
   }
 
-  void _handleChange(DateTime? value) {
+  void _onChange(DateTime? value) {
     if (value == null) {
       return;
     }

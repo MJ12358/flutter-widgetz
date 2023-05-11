@@ -5,62 +5,48 @@ part of flutter_widgetz;
 /// way that is similar to [ListView].
 /// {@endtemplate}
 class CustomSliverList extends StatelessWidget {
-  /// {@macro flutter_wigetz.CustomSliverList}
-  const CustomSliverList._({
-    Key? key,
-    required this.delegate,
-    EdgeInsets? padding,
-  })  : padding = padding ?? EdgeInsets.zero,
-        super(key: key);
-
   /// Creates a sliver that places box children in a linear array.
   final SliverChildDelegate delegate;
 
   /// The amount of space by which to inset the children.
   final EdgeInsets padding;
 
-  /// {@macro flutter_widgetz.CustomSliverList}
-  factory CustomSliverList.builder({
-    required int itemCount,
-    required IndexedWidgetBuilder itemBuilder,
-    EdgeInsets? padding,
-  }) {
-    return CustomSliverList._(
-      delegate: SliverChildBuilderDelegate(
-        itemBuilder,
-        childCount: itemCount,
-      ),
-      padding: padding,
-    );
-  }
+  static const EdgeInsets _defaultPadding = EdgeInsets.zero;
 
   /// {@macro flutter_widgetz.CustomSliverList}
-  factory CustomSliverList.separated({
+  CustomSliverList.builder({
+    super.key,
+    required int itemCount,
+    required IndexedWidgetBuilder itemBuilder,
+    this.padding = _defaultPadding,
+  }) : delegate = SliverChildBuilderDelegate(
+          itemBuilder,
+          childCount: itemCount,
+        );
+
+  /// {@macro flutter_widgetz.CustomSliverList}
+  CustomSliverList.separated({
+    super.key,
     required int itemCount,
     required IndexedWidgetBuilder itemBuilder,
     required IndexedWidgetBuilder separatorBuilder,
-    EdgeInsets? padding,
-  }) {
-    return CustomSliverList._(
-      delegate: SliverChildBuilderDelegate(
-        (BuildContext context, int index) {
-          final int itemIndex = index ~/ 2;
-          final Widget widget;
-          if (index.isEven) {
-            widget = itemBuilder(context, itemIndex);
-          } else {
-            widget = separatorBuilder(context, itemIndex);
-          }
-          return widget;
-        },
-        childCount: _computeActualChildCount(itemCount),
-        semanticIndexCallback: (_, int index) {
-          return index.isEven ? index ~/ 2 : null;
-        },
-      ),
-      padding: padding,
-    );
-  }
+    this.padding = _defaultPadding,
+  }) : delegate = SliverChildBuilderDelegate(
+          (BuildContext context, int index) {
+            final int itemIndex = index ~/ 2;
+            final Widget widget;
+            if (index.isEven) {
+              widget = itemBuilder(context, itemIndex);
+            } else {
+              widget = separatorBuilder(context, itemIndex);
+            }
+            return widget;
+          },
+          childCount: _computeActualChildCount(itemCount),
+          semanticIndexCallback: (_, int index) {
+            return index.isEven ? index ~/ 2 : null;
+          },
+        );
 
   @override
   Widget build(BuildContext context) {

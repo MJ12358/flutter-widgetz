@@ -6,14 +6,14 @@ part of flutter_widgetz;
 class RatingBar extends StatefulWidget {
   /// {@macro flutter_widgetz.RatingBar}
   const RatingBar({
-    Key? key,
+    super.key,
     this.color,
     this.max = 5,
     this.onChanged,
     this.size = 40.0,
     this.unratedColor,
     this.value = 0,
-  }) : super(key: key);
+  });
 
   /// The color of the stars.
   final Color? color;

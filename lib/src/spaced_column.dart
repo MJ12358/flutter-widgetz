@@ -6,13 +6,13 @@ part of flutter_widgetz;
 class SpacedColumn extends StatelessWidget {
   /// {@macro flutter_widgetz.SpacedColumn}
   const SpacedColumn({
-    Key? key,
+    super.key,
     required this.children,
     this.crossAxisAlignment = CrossAxisAlignment.center,
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.mainAxisSize = MainAxisSize.max,
     this.spacing = 20.0,
-  }) : super(key: key);
+  });
 
   /// Creates a vertical array of children.
   final List<Widget> children;

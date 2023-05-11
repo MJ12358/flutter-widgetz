@@ -7,11 +7,11 @@ part of flutter_widgetz;
 class CustomElevatedButton extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomElevatedButton}
   const CustomElevatedButton({
-    Key? key,
+    super.key,
     required this.text,
     this.color,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   /// Called when the button is tapped or otherwise activated.
   final VoidCallback? onPressed;

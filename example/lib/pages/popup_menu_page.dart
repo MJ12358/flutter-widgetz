@@ -44,9 +44,9 @@ class _PopupMenuPageState extends State<PopupMenuPage> {
             ),
             const PopupMenuDivider(),
             CustomPopupMenuItem<int>.checked(
+              checked: _value == 4,
               text: 'Custom Checked',
               value: 4,
-              checked: _value == 4,
             ),
             const PopupMenuDivider(),
             CustomPopupMenuItem<int>.icon(

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
@@ -149,6 +151,7 @@ class DialogsPage extends StatelessWidget {
             ),
             CustomSimpleDialogOption.tile(
               child: const Text('Tile one'),
+              onPressed: () => print('tile one'),
             ),
           ],
         );

@@ -7,14 +7,14 @@ part of flutter_widgetz;
 class ColorPicker extends StatefulWidget {
   /// {@macro flutter_widgetz.ColorPicker}
   ColorPicker({
-    Key? key,
+    super.key,
     required this.onTap,
     List<Color>? colors,
     this.initialColor,
     this.padding = const EdgeInsets.all(16.0),
     this.title = 'Choose Color',
     this.titleStyle,
-  }) : super(key: key) {
+  }) {
     this.colors = colors ??
         Colors.primaries.map((MaterialColor color) => color.shade500).toList();
   }
@@ -24,7 +24,7 @@ class ColorPicker extends StatefulWidget {
 
   /// A list of Colors to display.
   ///
-  /// Defaults to `Colors.primaries`.
+  /// Defaults to [Colors.primaries].
   late final List<Color> colors;
 
   /// The initial color for the picker.
@@ -83,7 +83,7 @@ class _ColorPickerState extends State<ColorPicker> {
                   return _Dot(
                     color: color,
                     isSelected: color == _selectedColor,
-                    onTap: _handleTap,
+                    onTap: _onTap,
                   );
                 },
               ),
@@ -94,7 +94,7 @@ class _ColorPickerState extends State<ColorPicker> {
     );
   }
 
-  void _handleTap(Color color) {
+  void _onTap(Color color) {
     setState(() {
       _selectedColor = color;
     });

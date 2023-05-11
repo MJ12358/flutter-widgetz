@@ -6,11 +6,13 @@ class AvatarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomSingleChildScrollView(
-      padding: EdgeInsets.all(16.0),
-      child: CustomAvatar(
-        networkImage: 'https://loremflickr.com/640/360',
-        radius: 50,
+    return CustomSingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
+      child: Center(
+        child: CustomAvatar.network(
+          'https://loremflickr.com/640/360',
+          radius: 50,
+        ),
       ),
     );
   }

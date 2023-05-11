@@ -6,7 +6,7 @@ part of flutter_widgetz;
 class CustomSlider extends StatefulWidget {
   /// {@macro flutter_widgetz.CustomSlider}
   const CustomSlider({
-    Key? key,
+    super.key,
     required this.onChanged,
     required this.value,
     this.divisions,
@@ -15,7 +15,7 @@ class CustomSlider extends StatefulWidget {
     this.min = 0.0,
     this.prefixIcon,
     this.suffixIcon,
-  }) : super(key: key);
+  });
 
   /// Called when the user is done selecting a new value for the slider.
   final ValueChanged<num> onChanged;
@@ -66,7 +66,7 @@ class _CustomSliderState extends State<CustomSlider> {
       child: Slider.adaptive(
         divisions: widget.divisions,
         label: _value.toString(),
-        onChanged: _handleChanged,
+        onChanged: _onChanged,
         onChangeEnd: widget.onChanged,
         max: widget.max,
         min: widget.min,
@@ -75,7 +75,7 @@ class _CustomSliderState extends State<CustomSlider> {
     );
   }
 
-  void _handleChanged(double value) {
+  void _onChanged(double value) {
     setState(() {
       _value = _value is int ? value.toInt() : value;
     });

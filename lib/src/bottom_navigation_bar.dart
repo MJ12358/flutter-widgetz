@@ -7,13 +7,13 @@ part of flutter_widgetz;
 class CustomBottomNavigationBar extends StatefulWidget {
   /// {@macro flutter_widgetz.CustomBottomNavigationBar}
   const CustomBottomNavigationBar({
-    Key? key,
+    super.key,
     required this.items,
     required this.onTap,
     this.backgroundColor,
     this.elevation,
     this.type = BottomNavigationBarType.fixed,
-  }) : super(key: key);
+  });
 
   /// Defines the appearance of the button items that are
   /// arranged within the bottom navigation bar.
@@ -46,13 +46,15 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       currentIndex: _currentIndex,
       elevation: widget.elevation,
       items: widget.items,
-      onTap: (int value) {
-        setState(() {
-          _currentIndex = value;
-        });
-        widget.onTap(value);
-      },
+      onTap: _onTap,
       type: widget.type,
     );
+  }
+
+  void _onTap(int value) {
+    setState(() {
+      _currentIndex = value;
+    });
+    widget.onTap(value);
   }
 }

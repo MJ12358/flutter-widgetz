@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 2.0.0
+
+- Refactor widgets to conform to standards.
+
 ## 1.3.12
 
 - Add `Carousel`.

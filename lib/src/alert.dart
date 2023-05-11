@@ -6,15 +6,15 @@ part of flutter_widgetz;
 class Alert extends StatefulWidget {
   /// {@macro flutter_widgetz.Alert}
   const Alert({
-    Key? key,
+    super.key,
     this.child = const SizedBox(),
-    this.closeIcon = Icons.close,
-    this.color = const Color(0xFF717171),
-    this.icon = Icons.person,
-    this.isVisible = true,
+    this.closeIcon = _defaultCloseIcon,
+    this.color = _defaultColor,
+    this.icon = _defaultIcon,
+    this.isVisible = _defaultIsVisible,
     this.onClose,
-    this.padding = const EdgeInsets.all(8.0),
-  }) : super(key: key);
+    this.padding = _defaultPadding,
+  });
 
   /// The widget shown inside the alert.
   final Widget child;
@@ -37,50 +37,50 @@ class Alert extends StatefulWidget {
   /// The [child] is placed inside this padding.
   final EdgeInsets padding;
 
+  static const IconData _defaultCloseIcon = Icons.close;
+  static const Color _defaultColor = Color(0xFF717171);
+  static const IconData _defaultIcon = Icons.person;
+  static const bool _defaultIsVisible = true;
+  static const EdgeInsets _defaultPadding = EdgeInsets.all(8.0);
+
   /// {@macro flutter_widgetz.Alert}
   ///
   /// A warning uses [Icons.warning] and a yellow color.
-  factory Alert.warning({
-    required Widget child,
-    VoidCallback? onClose,
-  }) {
-    return Alert(
-      color: const Color(0xFFF89038),
-      icon: Icons.warning,
-      onClose: onClose,
-      child: child,
-    );
-  }
+  const Alert.warning({
+    super.key,
+    required this.child,
+    this.closeIcon = _defaultCloseIcon,
+    this.isVisible = _defaultIsVisible,
+    this.onClose,
+    this.padding = _defaultPadding,
+  })  : color = const Color(0xFFF89038),
+        icon = Icons.warning;
 
   /// {@macro flutter_widgetz.Alert}
   ///
   /// An error uses [Icons.block] and a red color.
-  factory Alert.error({
-    required Widget child,
-    VoidCallback? onClose,
-  }) {
-    return Alert(
-      color: const Color(0xFFEA001E),
-      icon: Icons.block,
-      onClose: onClose,
-      child: child,
-    );
-  }
+  const Alert.error({
+    super.key,
+    required this.child,
+    this.closeIcon = _defaultCloseIcon,
+    this.isVisible = _defaultIsVisible,
+    this.onClose,
+    this.padding = _defaultPadding,
+  })  : color = const Color(0xFFEA001E),
+        icon = Icons.block;
 
   /// {@macro flutter_widgetz.Alert}
   ///
   /// Offline uses [Icons.wifi] and a dark grey color.
-  factory Alert.offline({
-    required Widget child,
-    VoidCallback? onClose,
-  }) {
-    return Alert(
-      color: const Color(0xFF444444),
-      icon: Icons.wifi,
-      onClose: onClose,
-      child: child,
-    );
-  }
+  const Alert.offline({
+    super.key,
+    required this.child,
+    this.closeIcon = _defaultCloseIcon,
+    this.isVisible = _defaultIsVisible,
+    this.onClose,
+    this.padding = _defaultPadding,
+  })  : color = const Color(0xFF444444),
+        icon = Icons.wifi;
 
   @override
   State<Alert> createState() => _AlertState();

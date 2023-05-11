@@ -44,6 +44,8 @@ class Carousel extends StatefulWidget {
   static const Duration _defaultTransitionDuration = Duration(seconds: 1);
 
   /// {@macro flutter_widgetz.Carousel}
+  ///
+  /// Uses [SliverChildListDelegate].
   Carousel.count({
     super.key,
     required List<Widget> children,
@@ -61,6 +63,8 @@ class Carousel extends StatefulWidget {
         );
 
   /// {@macro flutter_widgetz.Carousel}
+  ///
+  /// Uses [SliverChildBuilderDelegate].
   Carousel.builder({
     super.key,
     required int itemCount,

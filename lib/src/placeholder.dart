@@ -6,26 +6,18 @@ part of flutter_widgetz;
 class CustomPlaceholder extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomPlaceholder}
   const CustomPlaceholder({
-    Key? key,
-    required this.text,
-    this.assetImage,
+    super.key,
+    this.text,
     this.child,
-    this.networkImage,
-    this.mainAxisAlignment = MainAxisAlignment.center,
-    this.padding = const EdgeInsets.all(20.0),
-  }) : super(key: key);
+    this.mainAxisAlignment = _defaultAlignment,
+    this.padding = _defaultPadding,
+  });
 
   /// The text of this placeholder.
-  final String text;
-
-  /// The asset image for this placeholder.
-  final String? assetImage;
+  final String? text;
 
   /// A widget to be used above the text.
   final Widget? child;
-
-  /// The network image for this placeholder.
-  final String? networkImage;
 
   /// How the children should be placed along the main axis in a flex layout.
   final MainAxisAlignment mainAxisAlignment;
@@ -33,8 +25,30 @@ class CustomPlaceholder extends StatelessWidget {
   /// The padding around the [text].
   final EdgeInsets padding;
 
-  bool get hasAssetImage => assetImage != null;
-  bool get hasNetworkImage => networkImage != null;
+  static const MainAxisAlignment _defaultAlignment = MainAxisAlignment.center;
+  static const EdgeInsets _defaultPadding = EdgeInsets.all(20.0);
+
+  /// {@macro flutter_widgetz.CustomPlaceholder}
+  ///
+  /// Uses [Image.asset].
+  CustomPlaceholder.asset(
+    String name, {
+    super.key,
+    this.text,
+    this.mainAxisAlignment = _defaultAlignment,
+    this.padding = _defaultPadding,
+  }) : child = Image.asset(name);
+
+  /// {@macro flutter_widgetz.CustomPlaceholder}
+  ///
+  /// Uses [Image.network].
+  CustomPlaceholder.network(
+    String source, {
+    super.key,
+    this.text,
+    this.mainAxisAlignment = _defaultAlignment,
+    this.padding = _defaultPadding,
+  }) : child = Image.network(source);
 
   @override
   Widget build(BuildContext context) {
@@ -45,14 +59,7 @@ class CustomPlaceholder extends StatelessWidget {
           mainAxisAlignment: mainAxisAlignment,
           children: <Widget>[
             _getChild(context),
-            Padding(
-              padding: padding,
-              child: Text(
-                text,
-                style: Theme.of(context).textTheme.titleMedium,
-                textAlign: TextAlign.center,
-              ),
-            ),
+            _getText(context),
           ],
         ),
       ),
@@ -60,30 +67,29 @@ class CustomPlaceholder extends StatelessWidget {
   }
 
   Widget _getChild(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height / 4;
-
-    if (child != null) {
-      return SizedBox(
-        height: height,
-        child: child,
-      );
+    if (child == null) {
+      return const SizedBox();
     }
 
-    if (hasAssetImage) {
-      return Image.asset(
-        assetImage!,
-        height: height,
-      );
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 4,
+      child: child,
+    );
+  }
+
+  Widget _getText(BuildContext context) {
+    if (text == null) {
+      return const SizedBox();
     }
 
-    if (hasNetworkImage) {
-      return Image.network(
-        networkImage!,
-        height: height,
-      );
-    }
-
-    return const SizedBox();
+    return Padding(
+      padding: padding,
+      child: Text(
+        text!,
+        style: Theme.of(context).textTheme.titleMedium,
+        textAlign: TextAlign.center,
+      ),
+    );
   }
 
   ThemeData _getTheme(BuildContext context) {

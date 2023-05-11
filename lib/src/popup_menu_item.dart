@@ -21,46 +21,37 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
   });
 
   /// A [PopupMenuItem] with a checkmark.
-  factory CustomPopupMenuItem.checked({
+  CustomPopupMenuItem.checked({
+    super.key,
     required String text,
-    bool checked = true,
-    bool enabled = true,
-    VoidCallback? onTap,
-    T? value,
-  }) {
-    return CustomPopupMenuItem<T>(
-      enabled: enabled,
-      onTap: onTap,
-      padding: EdgeInsets.zero,
-      value: value,
-      child: ListTile(
-        leading: AnimatedOpacity(
-          opacity: checked ? 1.0 : 0.15,
-          duration: kThemeChangeDuration,
-          child: const Icon(Icons.done),
-        ),
-        title: Text(text),
-      ),
-    );
-  }
+    bool checked = false,
+    super.enabled = true,
+    super.onTap,
+    super.value,
+  }) : super(
+          padding: EdgeInsets.zero,
+          child: ListTile(
+            leading: AnimatedOpacity(
+              opacity: checked ? 1.0 : 0.15,
+              duration: kThemeChangeDuration,
+              child: const Icon(Icons.done),
+            ),
+            title: Text(text),
+          ),
+        );
 
   /// A [PopupMenuItem] with an icon.
-  factory CustomPopupMenuItem.icon({
+  CustomPopupMenuItem.icon({
+    super.key,
     required String text,
     required IconData icon,
-    bool enabled = true,
-    VoidCallback? onTap,
-    T? value,
-  }) {
-    return CustomPopupMenuItem<T>(
-      enabled: enabled,
-      onTap: onTap,
-      padding: EdgeInsets.zero,
-      value: value,
-      child: ListTile(
-        leading: Icon(icon),
-        title: Text(text),
-      ),
-    );
-  }
+    super.onTap,
+    super.value,
+  }) : super(
+          padding: EdgeInsets.zero,
+          child: ListTile(
+            leading: Icon(icon),
+            title: Text(text),
+          ),
+        );
 }

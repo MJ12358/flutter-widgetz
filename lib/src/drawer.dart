@@ -6,11 +6,11 @@ part of flutter_widgetz;
 class CustomDrawer extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomDrawer}
   const CustomDrawer({
-    Key? key,
+    super.key,
     required this.itemCount,
     required this.itemBuilder,
     this.header,
-  }) : super(key: key);
+  });
 
   /// The total number of children this delegate can provide.
   final int itemCount;

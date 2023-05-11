@@ -6,7 +6,7 @@ part of flutter_widgetz;
 class DropdownInput<T extends Object> extends StatefulWidget {
   /// {@macro flutter_widgetz.DropdownInput}
   const DropdownInput({
-    Key? key,
+    super.key,
     required this.items,
     required this.onChanged,
     this.displayStringForItem = _defaultStringForItem,
@@ -14,7 +14,7 @@ class DropdownInput<T extends Object> extends StatefulWidget {
     this.labelText,
     this.prefixIcon,
     this.value,
-  }) : super(key: key);
+  });
 
   /// The list of items the user can select.
   final Iterable<T> items;
@@ -63,7 +63,7 @@ class _DropdownInputState<T extends Object> extends State<DropdownInput<T>> {
         prefixIcon: widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
       ),
       items: _getItems(),
-      onChanged: _handleChange,
+      onChanged: _onChange,
       value: _value,
     );
   }
@@ -79,7 +79,7 @@ class _DropdownInputState<T extends Object> extends State<DropdownInput<T>> {
     ).toList();
   }
 
-  void _handleChange(T? value) {
+  void _onChange(T? value) {
     if (value == null) {
       return;
     }

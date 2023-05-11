@@ -5,15 +5,6 @@ part of flutter_widgetz;
 /// way that is similar to [GridView].
 /// {@endtemplate}
 class CustomSliverGrid extends StatelessWidget {
-  /// {@macro flutter_widgetz.CustomSliverGrid}
-  const CustomSliverGrid._({
-    Key? key,
-    required this.delegate,
-    required this.gridDelegate,
-    EdgeInsets? padding,
-  })  : padding = padding ?? EdgeInsets.zero,
-        super(key: key);
-
   /// Creates a sliver that places multiple box
   /// children in a two dimensional arrangement.
   final SliverChildDelegate delegate;
@@ -24,45 +15,38 @@ class CustomSliverGrid extends StatelessWidget {
   /// The amount of space by which to inset the children.
   final EdgeInsets padding;
 
-  /// {@macro flutter_widgetz.CustomSliverGrid}
-  factory CustomSliverGrid.builder({
-    required SliverGridDelegate gridDelegate,
-    required int itemCount,
-    required IndexedWidgetBuilder itemBuilder,
-    EdgeInsets? padding,
-  }) {
-    return CustomSliverGrid._(
-      gridDelegate: gridDelegate,
-      delegate: SliverChildBuilderDelegate(
-        itemBuilder,
-        childCount: itemCount,
-      ),
-      padding: padding,
-    );
-  }
+  static const EdgeInsets _defaultPadding = EdgeInsets.zero;
 
   /// {@macro flutter_widgetz.CustomSliverGrid}
-  factory CustomSliverGrid.count({
+  CustomSliverGrid.builder({
+    super.key,
+    required this.gridDelegate,
+    required int itemCount,
+    required IndexedWidgetBuilder itemBuilder,
+    this.padding = _defaultPadding,
+  }) : delegate = SliverChildBuilderDelegate(
+          itemBuilder,
+          childCount: itemCount,
+        );
+
+  /// {@macro flutter_widgetz.CustomSliverGrid}
+  CustomSliverGrid.count({
+    super.key,
     required List<Widget> children,
     required int crossAxisCount,
     double childAspectRatio = 1.0,
     double crossAxisSpacing = 0.0,
     double mainAxisSpacing = 0.0,
-    EdgeInsets? padding,
-  }) {
-    return CustomSliverGrid._(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossAxisCount,
-        childAspectRatio: childAspectRatio,
-        crossAxisSpacing: crossAxisSpacing,
-        mainAxisSpacing: mainAxisSpacing,
-      ),
-      delegate: SliverChildListDelegate(
-        children,
-      ),
-      padding: padding,
-    );
-  }
+    this.padding = _defaultPadding,
+  })  : gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: crossAxisCount,
+          childAspectRatio: childAspectRatio,
+          crossAxisSpacing: crossAxisSpacing,
+          mainAxisSpacing: mainAxisSpacing,
+        ),
+        delegate = SliverChildListDelegate(
+          children,
+        );
 
   @override
   Widget build(BuildContext context) {

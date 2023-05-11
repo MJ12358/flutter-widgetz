@@ -26,7 +26,7 @@ class DropdownInputPage extends StatelessWidget {
             prefixIcon: Icons.gif_outlined,
           ),
           DropdownInput<BoxFit>(
-            labelText: 'Dropdown Three Formatted',
+            labelText: 'Dropdown Three (Formatted)',
             items: const <BoxFit>[
               BoxFit.contain,
               BoxFit.cover,
@@ -37,7 +37,7 @@ class DropdownInputPage extends StatelessWidget {
             prefixIcon: Icons.gif_box,
           ),
           DropdownInput<BoxFit>(
-            labelText: 'Dropdown Four Initial Value',
+            labelText: 'Dropdown Four (Initial Value)',
             items: const <BoxFit>[
               BoxFit.contain,
               BoxFit.cover,

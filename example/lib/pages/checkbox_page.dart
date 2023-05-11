@@ -17,7 +17,7 @@ class CheckboxPage extends StatelessWidget {
             initialValues: <String>['1', '2'],
           ),
           const CheckboxGroup<BoxFit>(
-            labelText: 'Checkbox Groupt Two (Enum)',
+            labelText: 'Checkbox Group Two (Enum)',
             items: <BoxFit>[
               BoxFit.contain,
               BoxFit.cover,
@@ -27,7 +27,7 @@ class CheckboxPage extends StatelessWidget {
             initialValues: <BoxFit>[BoxFit.cover],
           ),
           CheckboxGroup<BoxFit>(
-            labelText: 'Checkbox Groupt Three (Enum with Formatter)',
+            labelText: 'Checkbox Group Three (Enum with Formatter)',
             items: const <BoxFit>[
               BoxFit.contain,
               BoxFit.cover,
@@ -38,7 +38,7 @@ class CheckboxPage extends StatelessWidget {
             initialValues: const <BoxFit>[BoxFit.cover],
           ),
           const CheckboxInput(
-            labelText: 'Checkbox Input',
+            labelText: 'Checkbox Input One',
             onChanged: print,
             value: true,
           ),
@@ -49,7 +49,7 @@ class CheckboxPage extends StatelessWidget {
             textInputAction: TextInputAction.next,
           ),
           const CheckboxInput(
-            labelText: 'Checkbox Input',
+            labelText: 'Checkbox Input Two',
             onChanged: print,
             value: false,
           ),

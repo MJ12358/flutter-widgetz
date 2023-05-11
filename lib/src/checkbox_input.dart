@@ -7,12 +7,12 @@ part of flutter_widgetz;
 class CheckboxInput extends StatefulWidget {
   /// {@macro flutter_widgetz.CheckboxInput}
   const CheckboxInput({
-    Key? key,
+    super.key,
     required this.onChanged,
     required this.value,
     this.child = const Text(''),
     this.labelText,
-  }) : super(key: key);
+  });
 
   /// Called when the value of the checkbox changed.
   final ValueChanged<bool> onChanged;
@@ -42,14 +42,14 @@ class _CheckboxInputState extends State<CheckboxInput> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: _handleInputTap,
+      onTap: _onInputTap,
       child: InputDecorator(
         textAlign: TextAlign.left,
         decoration: InputDecoration(
           labelText: widget.labelText,
           prefixIcon: Checkbox(
             value: _value,
-            onChanged: _handleCheckboxTap,
+            onChanged: _onCheckboxTap,
           ),
         ),
         child: widget.child,
@@ -57,7 +57,7 @@ class _CheckboxInputState extends State<CheckboxInput> {
     );
   }
 
-  void _handleCheckboxTap(bool? value) {
+  void _onCheckboxTap(bool? value) {
     if (value == null) {
       return;
     }
@@ -67,7 +67,7 @@ class _CheckboxInputState extends State<CheckboxInput> {
     widget.onChanged(_value);
   }
 
-  void _handleInputTap() {
+  void _onInputTap() {
     setState(() {
       _value = !_value;
     });

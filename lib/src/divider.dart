@@ -7,12 +7,12 @@ part of flutter_widgetz;
 class CustomDivider extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomDivider}
   const CustomDivider({
-    Key? key,
+    super.key,
     this.child,
     this.color,
     this.spacing = 8.0,
     this.thickness,
-  }) : super(key: key);
+  });
 
   /// The widget to be displayed between the dividers.
   final Widget? child;

@@ -6,19 +6,22 @@ class PlaceholderPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomSingleChildScrollView(
-      padding: EdgeInsets.all(16.0),
+    return CustomSingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
       child: SpacedColumn(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          CustomPlaceholder(
+          const CustomPlaceholder(
             text: 'Placeholder One (No Image)',
           ),
-          CustomPlaceholder(
-            text: 'Placeholder Two (Image)',
-            networkImage: 'https://loremflickr.com/640/360',
+          CustomPlaceholder.network(
+            'https://loremflickr.com/640/360',
           ),
-          CustomPlaceholder(
+          CustomPlaceholder.network(
+            'https://loremflickr.com/640/360',
+            text: 'Placeholder Two (Image)',
+          ),
+          const CustomPlaceholder(
             text: 'Placeholder Three (Icon)',
             child: Icon(Icons.abc),
           ),

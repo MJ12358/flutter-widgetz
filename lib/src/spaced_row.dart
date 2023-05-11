@@ -6,14 +6,14 @@ part of flutter_widgetz;
 class SpacedRow extends StatelessWidget {
   /// {@macro flutter_widgetz.SpacedRow}
   const SpacedRow({
-    Key? key,
+    super.key,
     required this.children,
     this.crossAxisAlignment = CrossAxisAlignment.start,
     this.mainAxisAlignment = MainAxisAlignment.spaceEvenly,
     this.spacing = 20.0,
     this.title,
     this.titleStyle,
-  }) : super(key: key);
+  });
 
   /// Creates a horizontal array of children.
   final List<Widget> children;

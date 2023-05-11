@@ -9,13 +9,13 @@ part of flutter_widgetz;
 class SaveButton extends StatelessWidget {
   /// {@macro flutter_widgetz.SaveButton}
   const SaveButton({
-    Key? key,
+    super.key,
     this.duration = const Duration(milliseconds: 500),
     this.isSaving = false,
     this.onPressed,
     this.progressIndicator = const CircularProgressIndicator(),
     this.text = 'Save',
-  }) : super(key: key);
+  });
 
   /// The duration of the transition.
   final Duration duration;

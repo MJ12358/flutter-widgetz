@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
@@ -6,34 +8,26 @@ class AlertPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomSingleChildScrollView(
-      padding: const EdgeInsets.all(16.0),
+    return const CustomSingleChildScrollView(
+      padding: EdgeInsets.all(16.0),
       child: SpacedColumn(
         children: <Widget>[
-          const Alert(
+          Alert(
             child: Text('Default'),
           ),
           Alert.error(
-            child: const Text('Error'),
+            child: Text('Error'),
           ),
           Alert.offline(
-            child: const Text('Offline'),
+            child: Text('Offline'),
           ),
           Alert.warning(
-            child: const Text('Warning'),
+            child: Text('Warning'),
           ),
-          const Alert(
+          Alert(
             color: Colors.yellow,
             child: Text('Yellow'),
           ),
-          Link.underline(
-            'Underline',
-            onTap: () => print('underline'),
-          ),
-          Link.text(
-            'Text',
-            onTap: () => print('text'),
-          )
         ],
       ),
     );

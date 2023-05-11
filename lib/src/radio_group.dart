@@ -6,7 +6,7 @@ part of flutter_widgetz;
 class RadioGroup<T extends Object> extends StatefulWidget {
   /// {@macro flutter_widgetz.RadioGroup}
   const RadioGroup({
-    Key? key,
+    super.key,
     required this.items,
     required this.onChanged,
     this.border = InputBorder.none,
@@ -15,7 +15,7 @@ class RadioGroup<T extends Object> extends StatefulWidget {
     this.initialValue,
     this.labelText,
     this.prefixIcon,
-  }) : super(key: key);
+  });
 
   /// The list of items the user can select.
   final Iterable<T> items;
@@ -78,14 +78,14 @@ class _RadioGroupState<T extends Object> extends State<RadioGroup<T>> {
       return RadioListTile<T>(
         controlAffinity: widget.controlAffinity,
         groupValue: _value,
-        onChanged: _handleTap,
+        onChanged: _onTap,
         title: Text(widget.displayStringForItem(e)),
         value: e,
       );
     }).toList();
   }
 
-  void _handleTap(T? value) {
+  void _onTap(T? value) {
     if (value == null) {
       return;
     }

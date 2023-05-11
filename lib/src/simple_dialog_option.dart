@@ -17,52 +17,46 @@ class CustomSimpleDialogOption extends SimpleDialogOption {
   });
 
   /// A [SimpleDialogOption] with a checkmark.
-  factory CustomSimpleDialogOption.checked({
+  CustomSimpleDialogOption.checked({
+    super.key,
     required String text,
     bool checked = true,
-    VoidCallback? onPressed,
-  }) {
-    return CustomSimpleDialogOption(
-      onPressed: onPressed,
-      padding: EdgeInsets.zero,
-      child: ListTile(
-        leading: AnimatedOpacity(
-          opacity: checked ? 1.0 : 0.15,
-          duration: kThemeChangeDuration,
-          child: const Icon(Icons.done),
-        ),
-        title: Text(text),
-      ),
-    );
-  }
+    super.onPressed,
+  }) : super(
+          padding: EdgeInsets.zero,
+          child: ListTile(
+            leading: AnimatedOpacity(
+              opacity: checked ? 1.0 : 0.15,
+              duration: kThemeChangeDuration,
+              child: const Icon(Icons.done),
+            ),
+            title: Text(text),
+          ),
+        );
 
   /// A [SimpleDialogOption] with an icon.
-  factory CustomSimpleDialogOption.icon({
+  CustomSimpleDialogOption.icon({
+    super.key,
     required String text,
     required IconData icon,
-    VoidCallback? onPressed,
-  }) {
-    return CustomSimpleDialogOption(
-      onPressed: onPressed,
-      padding: EdgeInsets.zero,
-      child: ListTile(
-        leading: Icon(icon),
-        title: Text(text),
-      ),
-    );
-  }
+    super.onPressed,
+  }) : super(
+          padding: EdgeInsets.zero,
+          child: ListTile(
+            leading: Icon(icon),
+            title: Text(text),
+          ),
+        );
 
   /// A [SimpleDialogOption] that wraps the child in a [ListTile].
-  factory CustomSimpleDialogOption.tile({
+  CustomSimpleDialogOption.tile({
+    super.key,
     required Widget child,
-    VoidCallback? onPressed,
-  }) {
-    return CustomSimpleDialogOption(
-      onPressed: onPressed,
-      padding: EdgeInsets.zero,
-      child: ListTile(
-        title: child,
-      ),
-    );
-  }
+    super.onPressed,
+  }) : super(
+          padding: EdgeInsets.zero,
+          child: ListTile(
+            title: child,
+          ),
+        );
 }

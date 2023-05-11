@@ -9,7 +9,7 @@ part of flutter_widgetz;
 class CustomScaffold extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomScaffold}
   const CustomScaffold({
-    Key? key,
+    super.key,
     required this.body,
     this.appBar,
     this.bottom = true,
@@ -25,7 +25,7 @@ class CustomScaffold extends StatelessWidget {
     this.right = true,
     this.semanticLabel,
     this.top = true,
-  }) : super(key: key);
+  });
 
   /// The primary content of the scaffold.
   final Widget body;

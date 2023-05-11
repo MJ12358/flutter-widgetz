@@ -6,7 +6,7 @@ part of flutter_widgetz;
 class SearchBar extends StatefulWidget {
   /// {@macro flutter_widgetz.SearchBar}
   const SearchBar({
-    Key? key,
+    super.key,
     required this.onChanged,
     this.alignment = Alignment.topCenter,
     this.autofocus = false,
@@ -18,7 +18,7 @@ class SearchBar extends StatefulWidget {
     this.padding = EdgeInsets.zero,
     this.prefixIcon = Icons.search,
     this.value = '',
-  }) : super(key: key);
+  });
 
   /// Called when the value of the search bar changes.
   final ValueChanged<String> onChanged;

@@ -6,7 +6,7 @@ part of flutter_widgetz;
 class CounterInput extends StatefulWidget {
   /// {@macro flutter_widgetz.CounterInput}
   const CounterInput({
-    Key? key,
+    super.key,
     required this.onChanged,
     required this.value,
     this.decrementIcon = Icons.remove_circle,
@@ -14,7 +14,7 @@ class CounterInput extends StatefulWidget {
     this.incrementIcon = Icons.add_circle,
     this.labelText,
     this.showError = false,
-  }) : super(key: key);
+  });
 
   /// Called whenever the value changes.
   final ValueChanged<int> onChanged;
@@ -58,11 +58,11 @@ class _CounterInputState extends State<CounterInput> {
         labelText: widget.labelText,
         prefixIcon: InkWell(
           child: Icon(widget.decrementIcon),
-          onTap: () => _handleTap(--_value),
+          onTap: () => _onTap(--_value),
         ),
         suffixIcon: InkWell(
           child: Icon(widget.incrementIcon),
-          onTap: () => _handleTap(++_value),
+          onTap: () => _onTap(++_value),
         ),
       ),
       child: Text(
@@ -73,7 +73,7 @@ class _CounterInputState extends State<CounterInput> {
     );
   }
 
-  void _handleTap(int value) {
+  void _onTap(int value) {
     setState(() {
       _value = value;
     });

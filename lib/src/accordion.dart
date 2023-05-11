@@ -6,7 +6,7 @@ part of flutter_widgetz;
 class Accordion extends StatefulWidget {
   /// {@macro flutter_widgetz.Accordion}
   const Accordion({
-    Key? key,
+    super.key,
     this.child = const SizedBox(),
     this.duration = kThemeChangeDuration,
     this.isOpen = false,
@@ -14,7 +14,7 @@ class Accordion extends StatefulWidget {
     this.title = '',
     this.titlePadding = const EdgeInsets.all(8.0),
     this.titleStyle,
-  }) : super(key: key);
+  });
 
   /// The content displayed when the accordion is open.
   final Widget child;

@@ -7,7 +7,7 @@ part of flutter_widgetz;
 class CustomTextFormField extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomTextFormField}
   const CustomTextFormField({
-    Key? key,
+    super.key,
     this.autofillHint,
     this.autofocus = false,
     this.controller,
@@ -29,7 +29,7 @@ class CustomTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.textCapitalization = TextCapitalization.none,
     this.textInputAction,
-  }) : super(key: key);
+  });
 
   /// Determines what the input field expects.
   final String? autofillHint;

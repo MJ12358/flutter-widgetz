@@ -10,7 +10,7 @@ part of flutter_widgetz;
 class CustomFloatingActionButton extends StatefulWidget {
   /// {@macro flutter_widgetz.CustomFloatingActionButton}
   const CustomFloatingActionButton({
-    Key? key,
+    super.key,
     required this.onPressed,
     this.duration = const Duration(seconds: 1),
     this.heroTag,
@@ -19,7 +19,7 @@ class CustomFloatingActionButton extends StatefulWidget {
     this.shape,
     this.shouldAnimate = false,
     this.tooltip,
-  }) : super(key: key);
+  });
 
   /// The callback that is called when the button is tapped.
   final VoidCallback onPressed;
