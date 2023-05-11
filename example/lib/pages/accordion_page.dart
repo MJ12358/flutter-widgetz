@@ -14,11 +14,11 @@ class AccordionPage extends StatelessWidget {
             title: 'Accordion One',
             child: Text('Some text you want to show/hide.'),
           ),
-          Accordion(
+          const Accordion(
             isOpen: true,
             title: 'Accordion Two',
             child: Column(
-              children: const <Widget>[
+              children: <Widget>[
                 Text('Row one'),
                 Text('Row two'),
               ],
@@ -29,9 +29,9 @@ class AccordionPage extends StatelessWidget {
             title: 'Accordion Three',
             child: Container(
               color: Theme.of(context).colorScheme.primary,
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const <Widget>[
+                children: <Widget>[
                   Text('1'),
                   Text('2'),
                 ],

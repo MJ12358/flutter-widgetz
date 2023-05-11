@@ -24,10 +24,13 @@ class _SearchBarPageState extends State<SearchBarPage> {
       child: SpacedColumn(
         children: <Widget>[
           const SearchBar(
+            hintText: 'Default (for reference)',
+          ),
+          const CustomSearchBar(
             labelText: 'Search Bar One',
             onChanged: print,
           ),
-          SearchBar(
+          CustomSearchBar(
             labelText: 'Search Bar Two (with onClear)',
             onChanged: print,
             onClear: () {},
@@ -38,7 +41,7 @@ class _SearchBarPageState extends State<SearchBarPage> {
               _isVisible = !_isVisible;
             }),
           ),
-          SearchBar(
+          CustomSearchBar(
             labelText: 'Search Bar Three',
             onChanged: print,
             isVisible: _isVisible,

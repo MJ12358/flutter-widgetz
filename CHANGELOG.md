@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 3.0.0
+
+- Update to Material 3.
+
 ## 2.0.0
 
 - Refactor widgets to conform to standards.
