@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class SliverListPage extends StatefulWidget {
-  const SliverListPage({Key? key}) : super(key: key);
+  const SliverListPage({super.key});
 
   @override
   State<SliverListPage> createState() => _SliverListPageState();

@@ -6,15 +6,20 @@
 - Alert
 - Autocomplete
 - Avatar
+- AvatarGroup
+- Badge
 - BottomNavigationBar
+- Button
 - CheckboxGroup
 - CheckboxInput
 - ColorPicker
 - CounterInput
 - DateInput
+- DateRangeInput
 - Divider
 - Drawer
 - DropdownInput
+- DuelingPicklist
 - ElevatedButton
 - FloatingActionButton
 - Link
@@ -34,6 +39,7 @@
 - SpacedColumn
 - SpacedRow
 - TextFormField
+- TimeInput
 
 ## Additional information
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class DropdownInputPage extends StatelessWidget {
-  const DropdownInputPage({Key? key}) : super(key: key);
+  const DropdownInputPage({super.key});
 
   @override
   Widget build(BuildContext context) {

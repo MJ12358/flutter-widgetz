@@ -12,6 +12,7 @@ class ColorPicker extends StatefulWidget {
     List<Color>? colors,
     this.initialColor,
     this.padding = const EdgeInsets.all(16.0),
+    this.shape = BoxShape.circle,
     this.title = 'Choose Color',
     this.titleStyle,
   }) {
@@ -32,6 +33,9 @@ class ColorPicker extends StatefulWidget {
 
   /// Empty space to inscribe inside the picker;
   final EdgeInsets padding;
+
+  /// The shape to fill the background.
+  final BoxShape shape;
 
   /// A title shown above the picker.
   final String title;
@@ -84,6 +88,7 @@ class _ColorPickerState extends State<ColorPicker> {
                     color: color,
                     isSelected: color == _selectedColor,
                     onTap: _onTap,
+                    shape: widget.shape,
                   );
                 },
               ),
@@ -104,27 +109,28 @@ class _ColorPickerState extends State<ColorPicker> {
 
 class _Dot extends StatelessWidget {
   const _Dot({
-    Key? key,
     required this.color,
     required this.isSelected,
     required this.onTap,
-  }) : super(key: key);
+    required this.shape,
+  });
 
   final Color color;
   final bool isSelected;
   final void Function(Color) onTap;
+  final BoxShape shape;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      customBorder: const CircleBorder(),
+      customBorder: Border.all(),
       onTap: () => onTap(color),
       child: Container(
         height: 50.0,
         width: 50.0,
         decoration: BoxDecoration(
           color: color,
-          shape: BoxShape.circle,
+          shape: shape,
           border: Border.all(),
         ),
         child: Center(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class PlaceholderPage extends StatelessWidget {
-  const PlaceholderPage({Key? key}) : super(key: key);
+  const PlaceholderPage({super.key});
 
   @override
   Widget build(BuildContext context) {

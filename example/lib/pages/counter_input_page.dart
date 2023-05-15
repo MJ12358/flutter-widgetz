@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class CounterInputPage extends StatelessWidget {
-  const CounterInputPage({Key? key}) : super(key: key);
+  const CounterInputPage({super.key});
 
   @override
   Widget build(BuildContext context) {

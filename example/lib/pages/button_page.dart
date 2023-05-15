@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
-class ElevatedButtonPage extends StatelessWidget {
-  const ElevatedButtonPage({Key? key}) : super(key: key);
+class ButtonPage extends StatelessWidget {
+  const ButtonPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +34,40 @@ class ElevatedButtonPage extends StatelessWidget {
             onPressed: () => print('button five pressed'),
             text: 'Button Five',
             color: Theme.of(context).colorScheme.onBackground,
+          ),
+          Button(
+            color: Colors.black,
+            onPressed: () => print('button'),
+            child: const Text('Button'),
+          ),
+          Button.brand(
+            onPressed: () => print('brand'),
+            child: const Text('Brand'),
+          ),
+          Button.destructive(
+            onPressed: () => print('destructive'),
+            child: const Text('Destructive'),
+          ),
+          Button.inverse(
+            onPressed: () => print('inverse'),
+            child: const Text('Inverse'),
+          ),
+          Button.neutral(
+            onPressed: () => print('neutral'),
+            child: const Text('Neutral'),
+          ),
+          Button.outline(
+            onPressed: () => print('outline1'),
+            child: const Text('Outline One'),
+          ),
+          Button.outline(
+            color: Colors.purple,
+            onPressed: () => print('outline2'),
+            child: const Text('Outline Two'),
+          ),
+          Button.success(
+            onPressed: () => print('success'),
+            child: const Text('Success'),
           ),
         ],
       ),

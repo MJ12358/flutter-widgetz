@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class CarouselPage extends StatelessWidget {
-  const CarouselPage({Key? key}) : super(key: key);
+  const CarouselPage({super.key});
 
   List<Widget> get _items {
     return List<Widget>.generate(5, (int i) {

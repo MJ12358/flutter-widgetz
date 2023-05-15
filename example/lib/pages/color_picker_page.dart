@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class ColorPickerPage extends StatelessWidget {
-  const ColorPickerPage({Key? key}) : super(key: key);
+  const ColorPickerPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,10 @@ class ColorPickerPage extends StatelessWidget {
               context: context,
               builder: (_) {
                 return AlertDialog(
-                  content: ColorPicker(onTap: print),
+                  content: ColorPicker(
+                    onTap: print,
+                    shape: BoxShape.rectangle,
+                  ),
                 );
               },
             ),
@@ -34,7 +37,10 @@ class ColorPickerPage extends StatelessWidget {
             onPressed: () => showModalBottomSheet(
               context: context,
               builder: (_) {
-                return ColorPicker(onTap: print);
+                return ColorPicker(
+                  onTap: print,
+                  shape: BoxShape.rectangle,
+                );
               },
             ),
             text: 'Bottom Sheet',

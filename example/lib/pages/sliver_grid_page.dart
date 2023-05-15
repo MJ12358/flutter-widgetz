@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class SliverGridPage extends StatefulWidget {
-  const SliverGridPage({Key? key}) : super(key: key);
+  const SliverGridPage({super.key});
 
   @override
   State<SliverGridPage> createState() => _SliverGridPageState();

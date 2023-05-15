@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class PopupMenuPage extends StatefulWidget {
-  const PopupMenuPage({Key? key}) : super(key: key);
+  const PopupMenuPage({super.key});
 
   @override
   State<PopupMenuPage> createState() => _PopupMenuPageState();

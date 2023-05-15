@@ -1,5 +1,16 @@
 # Flutter Widgetz
 
+## 3.2.0
+
+- Add `AvatarGroup`.
+- Add `CustomBadge`.
+- Add `CustomButton`.
+- Add `DateRangeInput`.
+- Add `DuelingPicklist`.
+- Add `TimeInput`.
+- Add shape param to `ColorPicker`.
+- Fix errorBuilder in Avatar factories.
+
 ## 3.1.0
 
 - Update dependency constraints.

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class AccordionPage extends StatelessWidget {
-  const AccordionPage({Key? key}) : super(key: key);
+  const AccordionPage({super.key});
 
   @override
   Widget build(BuildContext context) {

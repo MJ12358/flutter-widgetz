@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class ScaffoldPage extends StatelessWidget {
-  const ScaffoldPage({Key? key}) : super(key: key);
+  const ScaffoldPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class ScaffoldPage extends StatelessWidget {
 }
 
 class _TestPage extends StatelessWidget {
-  const _TestPage({Key? key}) : super(key: key);
+  const _TestPage();
 
   @override
   Widget build(BuildContext context) {

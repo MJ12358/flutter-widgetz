@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class DividerPage extends StatelessWidget {
-  const DividerPage({Key? key}) : super(key: key);
+  const DividerPage({super.key});
 
   @override
   Widget build(BuildContext context) {

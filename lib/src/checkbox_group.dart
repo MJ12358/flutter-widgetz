@@ -77,14 +77,14 @@ class _CheckboxGroupState<T extends Object> extends State<CheckboxGroup<T>> {
     return widget.items.map((T e) {
       return CheckboxListTile(
         controlAffinity: widget.controlAffinity,
-        onChanged: (_) => _handleTap(e),
+        onChanged: (_) => _onTap(e),
         title: Text(widget.displayStringForItem(e)),
         value: _values.contains(e),
       );
     }).toList();
   }
 
-  void _handleTap(T item) {
+  void _onTap(T item) {
     _values.contains(item) ? _values.remove(item) : _values.add(item);
     setState(() {
       _values = _values;

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class CheckboxPage extends StatelessWidget {
-  const CheckboxPage({Key? key}) : super(key: key);
+  const CheckboxPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -84,7 +84,7 @@ class _AccordionState extends State<Accordion> with TickerProviderStateMixin {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         InkWell(
-          onTap: _handleTap,
+          onTap: _onTap,
           child: Padding(
             padding: widget.titlePadding,
             child: Row(
@@ -124,7 +124,7 @@ class _AccordionState extends State<Accordion> with TickerProviderStateMixin {
     );
   }
 
-  void _handleTap() {
+  void _onTap() {
     setState(() {
       _isOpen = !_isOpen;
     });

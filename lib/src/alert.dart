@@ -45,19 +45,6 @@ class Alert extends StatefulWidget {
 
   /// {@macro flutter_widgetz.Alert}
   ///
-  /// A warning uses [Icons.warning] and a yellow color.
-  const Alert.warning({
-    super.key,
-    required this.child,
-    this.closeIcon = _defaultCloseIcon,
-    this.isVisible = _defaultIsVisible,
-    this.onClose,
-    this.padding = _defaultPadding,
-  })  : color = const Color(0xFFF89038),
-        icon = Icons.warning;
-
-  /// {@macro flutter_widgetz.Alert}
-  ///
   /// An error uses [Icons.block] and a red color.
   const Alert.error({
     super.key,
@@ -81,6 +68,19 @@ class Alert extends StatefulWidget {
     this.padding = _defaultPadding,
   })  : color = const Color(0xFF444444),
         icon = Icons.wifi;
+
+  /// {@macro flutter_widgetz.Alert}
+  ///
+  /// A warning uses [Icons.warning] and a yellow color.
+  const Alert.warning({
+    super.key,
+    required this.child,
+    this.closeIcon = _defaultCloseIcon,
+    this.isVisible = _defaultIsVisible,
+    this.onClose,
+    this.padding = _defaultPadding,
+  })  : color = const Color(0xFFF89038),
+        icon = Icons.warning;
 
   @override
   State<Alert> createState() => _AlertState();
@@ -122,7 +122,7 @@ class _AlertState extends State<Alert> {
           ),
           const Spacer(),
           GestureDetector(
-            onTap: _handleTap,
+            onTap: _onTap,
             child: Icon(
               widget.closeIcon,
               color: widget.color.blackOrWhite,
@@ -133,7 +133,7 @@ class _AlertState extends State<Alert> {
     );
   }
 
-  void _handleTap() {
+  void _onTap() {
     setState(() {
       _isVisible = !_isVisible;
     });

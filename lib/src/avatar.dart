@@ -9,9 +9,13 @@ class CustomAvatar extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomAvatar}
   const CustomAvatar({
     super.key,
+    this.color,
     this.icon = _defaultIcon,
     this.radius,
   }) : imageProvider = null;
+
+  /// The color with which to fill the circle.
+  final Color? color;
 
   /// The icon to display when no image is present.
   final IconData icon;
@@ -23,6 +27,14 @@ class CustomAvatar extends StatelessWidget {
   final double? radius;
 
   static const IconData _defaultIcon = Icons.person;
+  static void _defaultImageErrorHandler(Object o, StackTrace? s) {}
+  static Widget _defaultImageErrorWidgetHandler(
+    BuildContext c,
+    Object o,
+    StackTrace? s,
+  ) {
+    return const SizedBox();
+  }
 
   /// {@macro flutter_widgetz.CustomAvatar}
   ///
@@ -30,9 +42,13 @@ class CustomAvatar extends StatelessWidget {
   CustomAvatar.asset(
     String name, {
     super.key,
+    this.color,
     this.icon = _defaultIcon,
     this.radius,
-  }) : imageProvider = AssetImage(name);
+  }) : imageProvider = Image.asset(
+          name,
+          errorBuilder: _defaultImageErrorWidgetHandler,
+        ).image;
 
   /// {@macro flutter_widgetz.CustomAvatar}
   ///
@@ -40,30 +56,26 @@ class CustomAvatar extends StatelessWidget {
   CustomAvatar.network(
     String src, {
     super.key,
+    this.color,
     this.icon = _defaultIcon,
     this.radius,
-  }) : imageProvider = NetworkImage(src);
+  }) : imageProvider = Image.network(
+          src,
+          errorBuilder: _defaultImageErrorWidgetHandler,
+        ).image;
 
   bool get hasImage => imageProvider != null;
 
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      backgroundColor: hasImage ? null : Colors.transparent,
+      backgroundColor: hasImage ? null : color,
       foregroundImage: imageProvider,
-      onForegroundImageError: hasImage ? (_, __) {} : null,
+      onForegroundImageError: hasImage ? _defaultImageErrorHandler : null,
       radius: radius,
-      child: _getChild(),
-    );
-  }
-
-  Widget _getChild() {
-    if (hasImage) {
-      return const SizedBox();
-    } else {
-      return Center(
+      child: Center(
         child: Icon(icon),
-      );
-    }
+      ),
+    );
   }
 }

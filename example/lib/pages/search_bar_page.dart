@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class SearchBarPage extends StatefulWidget {
-  const SearchBarPage({Key? key}) : super(key: key);
+  const SearchBarPage({super.key});
 
   @override
   State<SearchBarPage> createState() => _SearchBarPageState();

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class AlertPage extends StatelessWidget {
-  const AlertPage({Key? key}) : super(key: key);
+  const AlertPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,8 @@ class AlertPage extends StatelessWidget {
           ),
           Alert(
             color: Colors.yellow,
-            child: Text('Yellow'),
+            icon: Icons.abc,
+            child: Text('Custom'),
           ),
         ],
       ),
