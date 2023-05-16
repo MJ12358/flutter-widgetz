@@ -12,10 +12,11 @@ class ColorPicker extends StatefulWidget {
     List<Color>? colors,
     this.initialColor,
     this.padding = const EdgeInsets.all(16.0),
-    this.shape = BoxShape.circle,
-    this.title = 'Choose Color',
+    BoxShape? shape,
+    String? title,
     this.titleStyle,
-  }) {
+  })  : shape = shape ?? BoxShape.circle,
+        title = title ?? 'Choose Color' {
     this.colors = colors ??
         Colors.primaries.map((MaterialColor color) => color.shade500).toList();
   }

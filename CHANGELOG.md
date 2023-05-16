@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 3.3.0
+
+- Add `ColorInput`.
+- Allow null for `ColorPicker.shape` and `ColorPicker.title`;
+
 ## 3.2.0
 
 - Add `AvatarGroup`.

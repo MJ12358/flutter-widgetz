@@ -20,6 +20,7 @@ part 'src/button.dart';
 part 'src/carousel.dart';
 part 'src/checkbox_group.dart';
 part 'src/checkbox_input.dart';
+part 'src/color_input.dart';
 part 'src/color_picker.dart';
 part 'src/counter_input.dart';
 part 'src/date_input.dart';

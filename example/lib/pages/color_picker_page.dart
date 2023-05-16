@@ -28,7 +28,7 @@ class ColorPickerPage extends StatelessWidget {
             onPressed: () => showGeneralDialog(
               context: context,
               pageBuilder: (_, __, ___) {
-                return ColorPicker(onTap: print);
+                return CustomScaffold(body: ColorPicker(onTap: print));
               },
             ),
             text: 'General Dialog',
@@ -44,6 +44,24 @@ class ColorPickerPage extends StatelessWidget {
               },
             ),
             text: 'Bottom Sheet',
+          ),
+          const ColorInput(
+            onChanged: print,
+          ),
+          const ColorInput(
+            labelText: 'Color (Initial Value)',
+            value: Colors.amber,
+          ),
+          ColorInput(
+            labelText: 'Color (Formatted)',
+            value: Colors.blue,
+            onChanged: print,
+            displayStringForColor: (Color? color) {
+              if (color == null) {
+                return '';
+              }
+              return Color(color.value).toString();
+            },
           ),
         ],
       ),

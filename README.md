@@ -12,6 +12,7 @@
 - Button
 - CheckboxGroup
 - CheckboxInput
+- ColorInput
 - ColorPicker
 - CounterInput
 - DateInput
