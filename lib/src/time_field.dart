@@ -1,19 +1,19 @@
 part of flutter_widgetz;
 
-/// {@template flutter_widgetz.TimeInput}
+/// {@template flutter_widgetz.TimeField}
 /// Wraps a call to [showTimePicker] in
 /// an [InputDecorator] and [InkWell].
 /// {@endtemplate}
-class TimeInput extends StatefulWidget {
-  /// {@macro flutter_widgetz.TimeInput}
-  const TimeInput({
+class TimeField extends StatefulWidget {
+  /// {@macro flutter_widgetz.TimeField}
+  const TimeField({
     super.key,
     required this.onChanged,
     this.displayStringForTime = _defaultStringForTime,
     this.errorText,
+    this.hasError = false,
     this.labelText,
     this.prefixIcon = Icons.timelapse,
-    this.showError = false,
     this.value,
   });
 
@@ -26,14 +26,14 @@ class TimeInput extends StatefulWidget {
   /// The text shown when there is an error.
   final String? errorText;
 
+  /// Determines if a error should be shown.
+  final bool hasError;
+
   /// Optional text that describes the input field.
   final String? labelText;
 
   /// An icon that appears before the editable part of the text field.
   final IconData prefixIcon;
-
-  /// Determines if a error should be shown.
-  final bool showError;
 
   /// The value of this input.
   final TimeOfDay? value;
@@ -43,10 +43,10 @@ class TimeInput extends StatefulWidget {
   }
 
   @override
-  State<TimeInput> createState() => _TimeInputState();
+  State<TimeField> createState() => _TimeFieldState();
 }
 
-class _TimeInputState extends State<TimeInput> {
+class _TimeFieldState extends State<TimeField> {
   TimeOfDay? _value;
 
   @override
@@ -61,7 +61,7 @@ class _TimeInputState extends State<TimeInput> {
       onTap: () => _showTimePicker(context),
       child: InputDecorator(
         decoration: InputDecoration(
-          errorText: widget.showError ? widget.errorText : null,
+          errorText: widget.hasError ? widget.errorText : null,
           labelText: widget.labelText,
           prefixIcon: Icon(widget.prefixIcon),
         ),

@@ -37,18 +37,18 @@ class CheckboxPage extends StatelessWidget {
             displayStringForItem: (BoxFit v) => v.name,
             initialValues: const <BoxFit>[BoxFit.cover],
           ),
-          const CheckboxInput(
+          const CheckboxField(
             labelText: 'Checkbox Input One',
             onChanged: print,
             value: true,
           ),
-          const CustomTextFormField(
+          const CustomTextField(
             labelText: 'Text Form Field (for reference)',
             initialValue: 'Testing',
             prefixIcon: Icons.abc,
             textInputAction: TextInputAction.next,
           ),
-          const CheckboxInput(
+          const CheckboxField(
             labelText: 'Checkbox Input Two',
             onChanged: print,
             value: false,

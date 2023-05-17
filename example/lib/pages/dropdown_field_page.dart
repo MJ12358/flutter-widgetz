@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
-class DropdownInputPage extends StatelessWidget {
-  const DropdownInputPage({super.key});
+class DropdownFieldPage extends StatelessWidget {
+  const DropdownFieldPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,12 +10,12 @@ class DropdownInputPage extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: SpacedColumn(
         children: <Widget>[
-          const DropdownInput<String>(
+          const DropdownField<String>(
             labelText: 'Dropdown One',
             items: <String>['1', '2', '3'],
             onChanged: print,
           ),
-          const DropdownInput<BoxFit>(
+          const DropdownField<BoxFit>(
             labelText: 'Dropdown Two',
             items: <BoxFit>[
               BoxFit.contain,
@@ -25,7 +25,7 @@ class DropdownInputPage extends StatelessWidget {
             onChanged: print,
             prefixIcon: Icons.gif_outlined,
           ),
-          DropdownInput<BoxFit>(
+          DropdownField<BoxFit>(
             labelText: 'Dropdown Three (Formatted)',
             items: const <BoxFit>[
               BoxFit.contain,
@@ -36,7 +36,7 @@ class DropdownInputPage extends StatelessWidget {
             displayStringForItem: (BoxFit v) => v.name,
             prefixIcon: Icons.gif_box,
           ),
-          DropdownInput<BoxFit>(
+          DropdownField<BoxFit>(
             labelText: 'Dropdown Four (Initial Value)',
             items: const <BoxFit>[
               BoxFit.contain,

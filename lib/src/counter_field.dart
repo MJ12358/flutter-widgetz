@@ -1,19 +1,19 @@
 part of flutter_widgetz;
 
-/// {@template flutter_widgetz.CounterInput}
+/// {@template flutter_widgetz.CounterField}
 /// The allows a user to increase or decrease a numerical value.
 /// {@endtemplate}
-class CounterInput extends StatefulWidget {
-  /// {@macro flutter_widgetz.CounterInput}
-  const CounterInput({
+class CounterField extends StatefulWidget {
+  /// {@macro flutter_widgetz.CounterField}
+  const CounterField({
     super.key,
     required this.onChanged,
     required this.value,
     this.decrementIcon = Icons.remove_circle,
     this.errorText = '',
+    this.hasError = false,
     this.incrementIcon = Icons.add_circle,
     this.labelText,
-    this.showError = false,
   });
 
   /// Called whenever the value changes.
@@ -28,20 +28,20 @@ class CounterInput extends StatefulWidget {
   /// Text show when there is an error.
   final String errorText;
 
+  /// Determines if an error is shown.
+  final bool hasError;
+
   /// The icon used in the increment position.
   final IconData incrementIcon;
 
   /// Optional text that describes the input field.
   final String? labelText;
 
-  /// Determines if an error is shown.
-  final bool showError;
-
   @override
-  State<CounterInput> createState() => _CounterInputState();
+  State<CounterField> createState() => _CounterFieldState();
 }
 
-class _CounterInputState extends State<CounterInput> {
+class _CounterFieldState extends State<CounterField> {
   late int _value;
 
   @override
@@ -54,7 +54,7 @@ class _CounterInputState extends State<CounterInput> {
   Widget build(BuildContext context) {
     return InputDecorator(
       decoration: InputDecoration(
-        errorText: widget.showError ? widget.errorText : null,
+        errorText: widget.hasError ? widget.errorText : null,
         labelText: widget.labelText,
         prefixIcon: InkWell(
           child: Icon(widget.decrementIcon),

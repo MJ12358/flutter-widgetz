@@ -1,12 +1,12 @@
 part of flutter_widgetz;
 
-/// {@template flutter_widgetz.ColorInput}
+/// {@template flutter_widgetz.ColorField}
 /// Wraps a call to [showModalBottomSheet]->[ColorPicker]
 /// in an [InputDecorator] and [InkWell].
 /// {@endtemplate}
-class ColorInput extends StatefulWidget {
-  /// {@macro flutter_widgetz.ColorInput}
-  const ColorInput({
+class ColorField extends StatefulWidget {
+  /// {@macro flutter_widgetz.ColorField}
+  const ColorField({
     super.key,
     this.colors,
     this.displayStringForColor = _defaultStringForColor,
@@ -49,10 +49,10 @@ class ColorInput extends StatefulWidget {
   }
 
   @override
-  State<ColorInput> createState() => _ColorInputState();
+  State<ColorField> createState() => _ColorFieldState();
 }
 
-class _ColorInputState extends State<ColorInput> {
+class _ColorFieldState extends State<ColorField> {
   Color? _value;
 
   @override

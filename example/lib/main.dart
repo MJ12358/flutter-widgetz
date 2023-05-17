@@ -9,11 +9,11 @@ import 'package:flutter_widgetz_example/pages/button_page.dart';
 import 'package:flutter_widgetz_example/pages/carousel_page.dart';
 import 'package:flutter_widgetz_example/pages/checkbox_page.dart';
 import 'package:flutter_widgetz_example/pages/color_picker_page.dart';
-import 'package:flutter_widgetz_example/pages/counter_input_page.dart';
-import 'package:flutter_widgetz_example/pages/date_input_page.dart';
+import 'package:flutter_widgetz_example/pages/counter_field_page.dart';
+import 'package:flutter_widgetz_example/pages/date_field_page.dart';
 import 'package:flutter_widgetz_example/pages/dialogs_page.dart';
 import 'package:flutter_widgetz_example/pages/divider_page.dart';
-import 'package:flutter_widgetz_example/pages/dropdown_input_page.dart';
+import 'package:flutter_widgetz_example/pages/dropdown_field_page.dart';
 import 'package:flutter_widgetz_example/pages/link_page.dart';
 import 'package:flutter_widgetz_example/pages/list_view_page.dart';
 import 'package:flutter_widgetz_example/pages/picklist_page.dart';
@@ -26,7 +26,7 @@ import 'package:flutter_widgetz_example/pages/search_bar_page.dart';
 import 'package:flutter_widgetz_example/pages/slider_page.dart';
 import 'package:flutter_widgetz_example/pages/sliver_grid_page.dart';
 import 'package:flutter_widgetz_example/pages/sliver_list_page.dart';
-import 'package:flutter_widgetz_example/pages/time_input_page.dart';
+import 'package:flutter_widgetz_example/pages/time_field_page.dart';
 
 /// To run the example app, clone/fork the repo!
 
@@ -154,11 +154,11 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.roundabout_left, CarouselPage(), 'Carousel'),
   PageInfo(Icons.check_box, CheckboxPage(), 'Checkboxes'),
   PageInfo(Icons.color_lens, ColorPickerPage(), 'Color Picker'),
-  PageInfo(Icons.numbers, CounterInputPage(), 'Counter Input'),
-  PageInfo(Icons.date_range, DateInputPage(), 'Date Input'),
+  PageInfo(Icons.numbers, CounterPage(), 'Counter Field'),
+  PageInfo(Icons.date_range, DateFieldPage(), 'Date Field'),
   PageInfo(Icons.dialpad_outlined, DialogsPage(), 'Dialogs'),
   PageInfo(Icons.space_bar, DividerPage(), 'Dividers'),
-  PageInfo(Icons.arrow_drop_down, DropdownInputPage(), 'Dropdown Input'),
+  PageInfo(Icons.arrow_drop_down, DropdownFieldPage(), 'Dropdown Field'),
   PageInfo(Icons.link, LinkPage(), 'Links'),
   PageInfo(Icons.list, ListViewPage(), 'List View'),
   PageInfo(Icons.price_check, PicklistPage(), 'Picklists'),
@@ -171,5 +171,5 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.tune, SliderPage(), 'Sliders'),
   PageInfo(Icons.grid_4x4, SliverGridPage(), 'Sliver Grid'),
   PageInfo(Icons.list, SliverListPage(), 'Sliver List'),
-  PageInfo(Icons.timelapse, TimeInputPage(), 'Time Input'),
+  PageInfo(Icons.timelapse, TimeFieldPage(), 'Time Field'),
 ];

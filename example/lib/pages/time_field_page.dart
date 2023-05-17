@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
-class TimeInputPage extends StatelessWidget {
-  const TimeInputPage({super.key});
+class TimeFieldPage extends StatelessWidget {
+  const TimeFieldPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,22 +10,22 @@ class TimeInputPage extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: SpacedColumn(
         children: <Widget>[
-          const TimeInput(
+          const TimeField(
             labelText: 'Time Input',
             onChanged: print,
           ),
-          const TimeInput(
+          const TimeField(
             errorText: 'Error',
             labelText: 'Time Input Error',
             onChanged: print,
-            showError: true,
+            hasError: true,
           ),
-          TimeInput(
+          TimeField(
             labelText: 'Time Input (Formatted)',
             onChanged: print,
             displayStringForTime: (TimeOfDay? v) => v?.format(context) ?? '',
           ),
-          TimeInput(
+          TimeField(
             labelText: 'Time Input (Initial Value)',
             onChanged: print,
             value: TimeOfDay.now(),

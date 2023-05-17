@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
-class CounterInputPage extends StatelessWidget {
-  const CounterInputPage({super.key});
+class CounterPage extends StatelessWidget {
+  const CounterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,19 +10,19 @@ class CounterInputPage extends StatelessWidget {
       padding: EdgeInsets.all(16.0),
       child: SpacedColumn(
         children: <Widget>[
-          CounterInput(
+          CounterField(
             labelText: 'Counter One',
             onChanged: print,
             value: 5,
           ),
-          CounterInput(
+          CounterField(
             labelText: 'Counter Two',
             onChanged: print,
             value: 1,
             errorText: 'There is an error',
-            showError: true,
+            hasError: true,
           ),
-          CounterInput(
+          CounterField(
             labelText: 'Counter Three',
             onChanged: print,
             value: 10,

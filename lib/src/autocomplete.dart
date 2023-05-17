@@ -16,12 +16,12 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
     this.autofocus = false,
     this.displayStringForOption = _defaultStringForOption,
     this.errorText,
+    this.hasError = false,
     this.initialValue = '',
     this.keyboardType = TextInputType.text,
     this.labelText,
     this.prefixIcon,
     this.scrollPadding = const EdgeInsets.all(200.0),
-    this.showError = false,
     this.textCapitalization = TextCapitalization.none,
     this.textInputAction,
   });
@@ -45,6 +45,9 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
   /// The text shown when there is an error.
   final String? errorText;
 
+  /// Determines if an error should be displayed.
+  final bool hasError;
+
   /// The initial value of this input.
   final String initialValue;
 
@@ -59,9 +62,6 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
 
   /// Used to allow the input enough room for the dropdown.
   final EdgeInsets scrollPadding;
-
-  /// Determines if an error should be displayed.
-  final bool showError;
 
   /// Determines whether to show an uppercase or lowercase keyboard.
   final TextCapitalization textCapitalization;
@@ -86,7 +86,7 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
             FocusNode focusNode,
             VoidCallback onFieldSubmitted,
           ) {
-            return CustomTextFormField(
+            return CustomTextField(
               autofocus: autofocus,
               controller: textEditingController,
               errorText: errorText,
@@ -95,7 +95,7 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
               labelText: labelText,
               prefixIcon: prefixIcon,
               scrollPadding: scrollPadding,
-              showError: showError,
+              hasError: hasError,
               textCapitalization: textCapitalization,
               textInputAction: textInputAction,
               onChanged: onChanged,

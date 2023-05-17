@@ -1,35 +1,38 @@
 part of flutter_widgetz;
 
-/// {@template flutter_widgetz.DateInput}
-/// Wraps a call to [showDatePicker] in
+/// {@template flutter_widgetz.DateRangeField}
+/// Wraps a call to [showDateRangePicker] in
 /// an [InputDecorator] and [InkWell].
 /// {@endtemplate}
-class DateInput extends StatefulWidget {
-  /// {@macro flutter_widgetz.DateInput}
-  const DateInput({
+class DateRangeField extends StatefulWidget {
+  /// {@macro flutter_widgetz.DateRangeField}
+  const DateRangeField({
     super.key,
     required this.onChanged,
-    this.displayStringForDate = _defaultStringForDate,
+    this.displayStringForDateRange = _defaultStringForDateRange,
     this.errorText,
     this.firstDate,
+    this.hasError = false,
     this.labelText,
     this.lastDate,
     this.prefixIcon = Icons.date_range,
-    this.showError = false,
     this.value,
   });
 
   /// Called whenever the value changes.
-  final ValueChanged<DateTime> onChanged;
+  final ValueChanged<DateTimeRange> onChanged;
 
   /// The string that is displayed in the input.
-  final String Function(DateTime?) displayStringForDate;
+  final String Function(DateTimeRange?) displayStringForDateRange;
 
   /// The text shown when there is an error.
   final String? errorText;
 
   /// The first date of the date picker.
   final DateTime? firstDate;
+
+  /// Determines if a error should be shown.
+  final bool hasError;
 
   /// Optional text that describes the input field.
   final String? labelText;
@@ -40,22 +43,19 @@ class DateInput extends StatefulWidget {
   /// An icon that appears before the editable part of the text field.
   final IconData prefixIcon;
 
-  /// Determines if a error should be shown.
-  final bool showError;
-
   /// The value of this input.
-  final DateTime? value;
+  final DateTimeRange? value;
 
-  static String _defaultStringForDate(DateTime? date) {
-    return date?.toString() ?? '';
+  static String _defaultStringForDateRange(DateTimeRange? dateRange) {
+    return dateRange?.toString() ?? '';
   }
 
   @override
-  State<DateInput> createState() => _DateInputState();
+  State<DateRangeField> createState() => _DateRangeFieldState();
 }
 
-class _DateInputState extends State<DateInput> {
-  DateTime? _value;
+class _DateRangeFieldState extends State<DateRangeField> {
+  DateTimeRange? _value;
 
   @override
   void initState() {
@@ -69,12 +69,12 @@ class _DateInputState extends State<DateInput> {
       onTap: () => _showDatePicker(context),
       child: InputDecorator(
         decoration: InputDecoration(
-          errorText: widget.showError ? widget.errorText : null,
+          errorText: widget.hasError ? widget.errorText : null,
           labelText: widget.labelText,
           prefixIcon: Icon(widget.prefixIcon),
         ),
         child: Text(
-          widget.displayStringForDate(_value),
+          widget.displayStringForDateRange(_value),
           style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
@@ -82,16 +82,16 @@ class _DateInputState extends State<DateInput> {
   }
 
   void _showDatePicker(BuildContext context) {
-    showDatePicker(
+    showDateRangePicker(
       context: context,
-      initialDate: _value ?? DateTime.now(),
+      initialDateRange: _value,
       firstDate: widget.firstDate ?? DateTime.now(),
       lastDate:
           widget.lastDate ?? DateTime.now().add(const Duration(days: 365)),
     ).then(_onChange);
   }
 
-  void _onChange(DateTime? value) {
+  void _onChange(DateTimeRange? value) {
     if (value == null) {
       return;
     }

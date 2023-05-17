@@ -45,14 +45,14 @@ class ColorPickerPage extends StatelessWidget {
             ),
             text: 'Bottom Sheet',
           ),
-          const ColorInput(
+          const ColorField(
             onChanged: print,
           ),
-          const ColorInput(
+          const ColorField(
             labelText: 'Color (Initial Value)',
             value: Colors.amber,
           ),
-          ColorInput(
+          ColorField(
             labelText: 'Color (Formatted)',
             value: Colors.blue,
             onChanged: print,

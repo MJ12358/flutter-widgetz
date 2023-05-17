@@ -1,18 +1,19 @@
 part of flutter_widgetz;
 
-/// {@template flutter_widgetz.CustomTextFormField}
+/// {@template flutter_widgetz.CustomTextField}
 /// A [TextFormField] with a single [TextInputFormatter].
-/// Utilizing [showError] to show [errorText].
+/// Utilizing [hasError] to show [errorText].
 /// {@endtemplate}
-class CustomTextFormField extends StatelessWidget {
-  /// {@macro flutter_widgetz.CustomTextFormField}
-  const CustomTextFormField({
+class CustomTextField extends StatelessWidget {
+  /// {@macro flutter_widgetz.CustomTextField}
+  const CustomTextField({
     super.key,
     this.autofillHint,
     this.autofocus = false,
     this.controller,
     this.errorText,
     this.focusNode,
+    this.hasError = false,
     this.helpText,
     this.hintText,
     this.initialValue,
@@ -25,7 +26,6 @@ class CustomTextFormField extends StatelessWidget {
     this.onChanged,
     this.prefixIcon,
     this.scrollPadding = const EdgeInsets.all(20.0),
-    this.showError = false,
     this.suffixIcon,
     this.textCapitalization = TextCapitalization.none,
     this.textInputAction,
@@ -45,6 +45,9 @@ class CustomTextFormField extends StatelessWidget {
 
   /// Used to obtain the keyboard focus and to handle keyboard events.
   final FocusNode? focusNode;
+
+  /// Determines if an error should be displayed.
+  final bool hasError;
 
   /// If given, shows a suffix icon and dialog with this string.
   final String? helpText;
@@ -82,9 +85,6 @@ class CustomTextFormField extends StatelessWidget {
   /// Configures padding when the input scrolls into view.
   final EdgeInsets scrollPadding;
 
-  /// Determines if an error should be displayed.
-  final bool showError;
-
   /// An icon that appers after the editable part of the text field.
   final Widget? suffixIcon;
 
@@ -112,7 +112,7 @@ class CustomTextFormField extends StatelessWidget {
       textCapitalization: textCapitalization,
       textInputAction: textInputAction,
       decoration: InputDecoration(
-        errorText: showError ? errorText : null,
+        errorText: hasError ? errorText : null,
         hintText: hintText,
         labelText: labelText,
         prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,

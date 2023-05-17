@@ -1,12 +1,12 @@
 part of flutter_widgetz;
 
-/// {@template flutter_widgetz.CheckboxInput}
+/// {@template flutter_widgetz.CheckboxField}
 /// Wraps a [Checkbox] with an [InputDecorator] and [InkWell]
 /// to provide a fully clickable input.
 /// {@endtemplate}
-class CheckboxInput extends StatefulWidget {
-  /// {@macro flutter_widgetz.CheckboxInput}
-  const CheckboxInput({
+class CheckboxField extends StatefulWidget {
+  /// {@macro flutter_widgetz.CheckboxField}
+  const CheckboxField({
     super.key,
     required this.onChanged,
     required this.value,
@@ -27,10 +27,10 @@ class CheckboxInput extends StatefulWidget {
   final String? labelText;
 
   @override
-  State<CheckboxInput> createState() => _CheckboxInputState();
+  State<CheckboxField> createState() => _CheckboxFieldState();
 }
 
-class _CheckboxInputState extends State<CheckboxInput> {
+class _CheckboxFieldState extends State<CheckboxField> {
   late bool _value;
 
   @override

@@ -1,11 +1,11 @@
 part of flutter_widgetz;
 
-/// {@template flutter_widgetz.DropdownInput}
+/// {@template flutter_widgetz.DropdownField}
 /// Wraps a [DropdownButton] in an [InputDecorator].
 /// {@endtemplate}
-class DropdownInput<T extends Object> extends StatefulWidget {
-  /// {@macro flutter_widgetz.DropdownInput}
-  const DropdownInput({
+class DropdownField<T extends Object> extends StatefulWidget {
+  /// {@macro flutter_widgetz.DropdownField}
+  const DropdownField({
     super.key,
     required this.items,
     required this.onChanged,
@@ -42,10 +42,10 @@ class DropdownInput<T extends Object> extends StatefulWidget {
   }
 
   @override
-  State<DropdownInput<T>> createState() => _DropdownInputState<T>();
+  State<DropdownField<T>> createState() => _DropdownFieldState<T>();
 }
 
-class _DropdownInputState<T extends Object> extends State<DropdownInput<T>> {
+class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
   late T? _value;
 
   @override

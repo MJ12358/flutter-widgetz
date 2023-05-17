@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 4.0.0
+
+- **BREAKING**: Change 'Input' naming to 'Field' to avoid conflicts and to better conform to standards.
+
 ## 3.3.0
 
 - Add `ColorInput`.
