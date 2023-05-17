@@ -11,22 +11,22 @@ class TimeFieldPage extends StatelessWidget {
       child: SpacedColumn(
         children: <Widget>[
           const TimeField(
-            labelText: 'Time Input',
+            labelText: 'Time Field',
             onChanged: print,
           ),
           const TimeField(
             errorText: 'Error',
-            labelText: 'Time Input Error',
+            labelText: 'Time Field Error',
             onChanged: print,
             hasError: true,
           ),
           TimeField(
-            labelText: 'Time Input (Formatted)',
+            labelText: 'Time Field (Formatted)',
             onChanged: print,
             displayStringForTime: (TimeOfDay? v) => v?.format(context) ?? '',
           ),
           TimeField(
-            labelText: 'Time Input (Initial Value)',
+            labelText: 'Time Field (Initial Value)',
             onChanged: print,
             value: TimeOfDay.now(),
           ),
