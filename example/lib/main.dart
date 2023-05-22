@@ -16,6 +16,7 @@ import 'package:flutter_widgetz_example/pages/divider_page.dart';
 import 'package:flutter_widgetz_example/pages/dropdown_field_page.dart';
 import 'package:flutter_widgetz_example/pages/link_page.dart';
 import 'package:flutter_widgetz_example/pages/list_view_page.dart';
+import 'package:flutter_widgetz_example/pages/orienatation_page.dart';
 import 'package:flutter_widgetz_example/pages/picklist_page.dart';
 import 'package:flutter_widgetz_example/pages/placeholder_page.dart';
 import 'package:flutter_widgetz_example/pages/popup_menu_page.dart';
@@ -161,6 +162,7 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.arrow_drop_down, DropdownFieldPage(), 'Dropdown Field'),
   PageInfo(Icons.link, LinkPage(), 'Links'),
   PageInfo(Icons.list, ListViewPage(), 'List View'),
+  PageInfo(Icons.landscape, OrientationPage(), 'Orientation'),
   PageInfo(Icons.price_check, PicklistPage(), 'Picklists'),
   PageInfo(Icons.business, PlaceholderPage(), 'Placeholders'),
   PageInfo(Icons.phonelink_setup_sharp, PopupMenuPage(), 'Popup Menu'),
