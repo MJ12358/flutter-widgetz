@@ -10,6 +10,7 @@ class DropdownField<T extends Object> extends StatefulWidget {
     required this.items,
     required this.onChanged,
     this.displayStringForItem = _defaultStringForItem,
+    this.icon,
     this.isDense = true,
     this.labelText,
     this.prefixIcon,
@@ -25,11 +26,14 @@ class DropdownField<T extends Object> extends StatefulWidget {
   /// The string that is displayed for each item.
   final String Function(T) displayStringForItem;
 
-  /// Optional text that describes the input field.
-  final String? labelText;
+  /// The drop-down button's icon.
+  final IconData? icon;
 
   /// Reduce the widgets height.
   final bool isDense;
+
+  /// Optional text that describes the input field.
+  final String? labelText;
 
   /// An icon that appears before the editable part of the text field.
   final IconData? prefixIcon;
@@ -57,8 +61,10 @@ class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<T>(
+      icon: widget.icon != null ? Icon(widget.icon) : null,
       isDense: widget.isDense,
       decoration: InputDecoration(
+        isDense: widget.isDense,
         labelText: widget.labelText,
         prefixIcon: widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
       ),

@@ -1,5 +1,14 @@
 # Flutter Widgetz
 
+## 4.2.0
+
+- Add icon param to `DropdownField`.
+- Fix DropdownField density.
+- Add mainAxisExtent param to `CustomSliverGrid.count`.
+- Add `CustomSliverGrid.extent` factory.
+- Add general constructors for `CustomSliverGrid` and `CustomSliverList`.
+- Add mainAxisSize to `SpacedRow`.
+
 ## 4.1.0
 
 - Add `CustomOrientationBuilder`.

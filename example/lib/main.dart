@@ -46,6 +46,7 @@ class MainState extends State<Main> {
   late final PageController _controller;
   late PageInfo _currentPage;
   late bool _isDark;
+  late bool _showMaterialGrid;
   late FlutterThemez _theme;
 
   @override
@@ -54,6 +55,7 @@ class MainState extends State<Main> {
     _controller = PageController();
     _currentPage = _pages[0];
     _isDark = false;
+    _showMaterialGrid = false;
     _theme = FlutterThemez();
   }
 
@@ -61,11 +63,16 @@ class MainState extends State<Main> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      debugShowMaterialGrid: _showMaterialGrid,
       title: 'Flutter Widgetz Example',
       home: CustomScaffold(
         appBar: AppBar(
           title: Text(_currentPage.title),
           actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.grid_3x3),
+              onPressed: _onShowMaterialGrid,
+            ),
             IconButton(
               icon: Icon(_isDark ? Icons.dark_mode : Icons.sunny),
               onPressed: _onDarkModeChanged,
@@ -114,6 +121,12 @@ class MainState extends State<Main> {
       theme: _isDark ? _theme.dark() : _theme.light(),
       // theme: _isDark ? ThemeData.dark() : ThemeData.light(),
     );
+  }
+
+  void _onShowMaterialGrid() {
+    setState(() {
+      _showMaterialGrid = !_showMaterialGrid;
+    });
   }
 
   void _onDarkModeChanged() {

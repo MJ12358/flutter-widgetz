@@ -5,6 +5,14 @@ part of flutter_widgetz;
 /// way that is similar to [GridView].
 /// {@endtemplate}
 class CustomSliverGrid extends StatelessWidget {
+  /// {@macro flutter_widgetz.CustomSliverGrid}
+  const CustomSliverGrid({
+    super.key,
+    required this.delegate,
+    required this.gridDelegate,
+    this.padding = _defaultPadding,
+  });
+
   /// Creates a sliver that places multiple box
   /// children in a two dimensional arrangement.
   final SliverChildDelegate delegate;
@@ -36,13 +44,36 @@ class CustomSliverGrid extends StatelessWidget {
     required int crossAxisCount,
     double childAspectRatio = 1.0,
     double crossAxisSpacing = 0.0,
+    double? mainAxisExtent,
     double mainAxisSpacing = 0.0,
     this.padding = _defaultPadding,
   })  : gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: crossAxisCount,
           childAspectRatio: childAspectRatio,
           crossAxisSpacing: crossAxisSpacing,
+          mainAxisExtent: mainAxisExtent,
           mainAxisSpacing: mainAxisSpacing,
+        ),
+        delegate = SliverChildListDelegate(
+          children,
+        );
+
+  /// {@macro flutter_widgetz.CustomSliverGrid}
+  CustomSliverGrid.extent({
+    super.key,
+    required List<Widget> children,
+    required double maxCrossAxisExtent,
+    double childAspectRatio = 1.0,
+    double crossAxisSpacing = 0.0,
+    double? mainAxisExtent,
+    double mainAxisSpacing = 0.0,
+    this.padding = _defaultPadding,
+  })  : gridDelegate = SliverGridDelegateWithMaxCrossAxisExtent(
+          childAspectRatio: childAspectRatio,
+          crossAxisSpacing: crossAxisSpacing,
+          mainAxisExtent: mainAxisExtent,
+          mainAxisSpacing: mainAxisSpacing,
+          maxCrossAxisExtent: maxCrossAxisExtent,
         ),
         delegate = SliverChildListDelegate(
           children,

@@ -5,6 +5,13 @@ part of flutter_widgetz;
 /// way that is similar to [ListView].
 /// {@endtemplate}
 class CustomSliverList extends StatelessWidget {
+  /// {@macro flutter_widgetz.CustomSliverList}
+  const CustomSliverList({
+    super.key,
+    required this.delegate,
+    this.padding = _defaultPadding,
+  });
+
   /// Creates a sliver that places box children in a linear array.
   final SliverChildDelegate delegate;
 
@@ -22,6 +29,15 @@ class CustomSliverList extends StatelessWidget {
   }) : delegate = SliverChildBuilderDelegate(
           itemBuilder,
           childCount: itemCount,
+        );
+
+  /// {@macro flutter_widgetz.CustomSliverList}
+  CustomSliverList.list({
+    super.key,
+    required List<Widget> children,
+    this.padding = _defaultPadding,
+  }) : delegate = SliverChildListDelegate(
+          children,
         );
 
   /// {@macro flutter_widgetz.CustomSliverList}

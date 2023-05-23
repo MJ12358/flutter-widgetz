@@ -8,47 +8,67 @@ class DropdownFieldPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomSingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
-      child: SpacedColumn(
-        children: <Widget>[
-          const DropdownField<String>(
-            labelText: 'Dropdown One',
-            items: <String>['1', '2', '3'],
-            onChanged: print,
-          ),
-          const DropdownField<BoxFit>(
-            labelText: 'Dropdown Two',
-            items: <BoxFit>[
-              BoxFit.contain,
-              BoxFit.cover,
-              BoxFit.fill,
+      child: CustomOrientationBuilder(
+        landscapeBuilder: (_) {
+          return const SpacedRow(
+            children: <Widget>[
+              DropdownField<String>(
+                labelText: 'Dropdown One',
+                items: <String>['1', '2', '3'],
+                onChanged: print,
+                prefixIcon: Icons.gif_box,
+              ),
+              CustomTextField(
+                labelText: 'Text Field (for reference)',
+                prefixIcon: Icons.abc,
+              ),
             ],
-            onChanged: print,
-            prefixIcon: Icons.gif_outlined,
-          ),
-          DropdownField<BoxFit>(
-            labelText: 'Dropdown Three (Formatted)',
-            items: const <BoxFit>[
-              BoxFit.contain,
-              BoxFit.cover,
-              BoxFit.fill,
+          );
+        },
+        portraitBuilder: (_) {
+          return SpacedColumn(
+            children: <Widget>[
+              const DropdownField<String>(
+                labelText: 'Dropdown One',
+                items: <String>['1', '2', '3'],
+                onChanged: print,
+              ),
+              const DropdownField<BoxFit>(
+                labelText: 'Dropdown Two',
+                items: <BoxFit>[
+                  BoxFit.contain,
+                  BoxFit.cover,
+                  BoxFit.fill,
+                ],
+                onChanged: print,
+                prefixIcon: Icons.gif_outlined,
+              ),
+              DropdownField<BoxFit>(
+                labelText: 'Dropdown Three (Formatted)',
+                items: const <BoxFit>[
+                  BoxFit.contain,
+                  BoxFit.cover,
+                  BoxFit.fill,
+                ],
+                onChanged: print,
+                displayStringForItem: (BoxFit v) => v.name,
+                prefixIcon: Icons.gif_box,
+              ),
+              DropdownField<BoxFit>(
+                labelText: 'Dropdown Four (Initial Value)',
+                items: const <BoxFit>[
+                  BoxFit.contain,
+                  BoxFit.cover,
+                  BoxFit.fill,
+                ],
+                onChanged: print,
+                displayStringForItem: (BoxFit v) => v.name,
+                prefixIcon: Icons.select_all,
+                value: BoxFit.fill,
+              ),
             ],
-            onChanged: print,
-            displayStringForItem: (BoxFit v) => v.name,
-            prefixIcon: Icons.gif_box,
-          ),
-          DropdownField<BoxFit>(
-            labelText: 'Dropdown Four (Initial Value)',
-            items: const <BoxFit>[
-              BoxFit.contain,
-              BoxFit.cover,
-              BoxFit.fill,
-            ],
-            onChanged: print,
-            displayStringForItem: (BoxFit v) => v.name,
-            prefixIcon: Icons.select_all,
-            value: BoxFit.fill,
-          ),
-        ],
+          );
+        },
       ),
     );
   }

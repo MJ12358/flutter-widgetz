@@ -8,52 +8,71 @@ class CheckboxPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomSingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
-      child: SpacedColumn(
-        children: <Widget>[
-          const CheckboxGroup<String>(
-            labelText: 'Checkbox Group One (String)',
-            items: <String>['1', '2', '3'],
-            onChanged: print,
-            initialValues: <String>['1', '2'],
-          ),
-          const CheckboxGroup<BoxFit>(
-            labelText: 'Checkbox Group Two (Enum)',
-            items: <BoxFit>[
-              BoxFit.contain,
-              BoxFit.cover,
-              BoxFit.fill,
+      child: CustomOrientationBuilder(
+        landscapeBuilder: (_) {
+          return const SpacedRow(
+            children: <Widget>[
+              CheckboxField(
+                labelText: 'Checkbox Field One',
+                onChanged: print,
+                value: true,
+              ),
+              CustomTextField(
+                labelText: 'Text Field (for reference)',
+                prefixIcon: Icons.gif_box,
+              ),
             ],
-            onChanged: print,
-            initialValues: <BoxFit>[BoxFit.cover],
-          ),
-          CheckboxGroup<BoxFit>(
-            labelText: 'Checkbox Group Three (Enum with Formatter)',
-            items: const <BoxFit>[
-              BoxFit.contain,
-              BoxFit.cover,
-              BoxFit.fill,
+          );
+        },
+        portraitBuilder: (_) {
+          return SpacedColumn(
+            children: <Widget>[
+              const CheckboxGroup<String>(
+                labelText: 'Checkbox Group One (String)',
+                items: <String>['1', '2', '3'],
+                onChanged: print,
+                initialValues: <String>['1', '2'],
+              ),
+              const CheckboxGroup<BoxFit>(
+                labelText: 'Checkbox Group Two (Enum)',
+                items: <BoxFit>[
+                  BoxFit.contain,
+                  BoxFit.cover,
+                  BoxFit.fill,
+                ],
+                onChanged: print,
+                initialValues: <BoxFit>[BoxFit.cover],
+              ),
+              CheckboxGroup<BoxFit>(
+                labelText: 'Checkbox Group Three (Enum with Formatter)',
+                items: const <BoxFit>[
+                  BoxFit.contain,
+                  BoxFit.cover,
+                  BoxFit.fill,
+                ],
+                onChanged: print,
+                displayStringForItem: (BoxFit v) => v.name,
+                initialValues: const <BoxFit>[BoxFit.cover],
+              ),
+              const CheckboxField(
+                labelText: 'Checkbox Field One',
+                onChanged: print,
+                value: true,
+              ),
+              const CustomTextField(
+                labelText: 'Text Field (for reference)',
+                initialValue: 'Testing',
+                prefixIcon: Icons.abc,
+                textInputAction: TextInputAction.next,
+              ),
+              const CheckboxField(
+                labelText: 'Checkbox Field Two',
+                onChanged: print,
+                value: false,
+              ),
             ],
-            onChanged: print,
-            displayStringForItem: (BoxFit v) => v.name,
-            initialValues: const <BoxFit>[BoxFit.cover],
-          ),
-          const CheckboxField(
-            labelText: 'Checkbox Field One',
-            onChanged: print,
-            value: true,
-          ),
-          const CustomTextField(
-            labelText: 'Text Field (for reference)',
-            initialValue: 'Testing',
-            prefixIcon: Icons.abc,
-            textInputAction: TextInputAction.next,
-          ),
-          const CheckboxField(
-            labelText: 'Checkbox Field Two',
-            onChanged: print,
-            value: false,
-          ),
-        ],
+          );
+        },
       ),
     );
   }

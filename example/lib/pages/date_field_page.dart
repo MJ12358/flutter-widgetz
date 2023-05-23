@@ -8,33 +8,52 @@ class DateFieldPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomSingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
-      child: SpacedColumn(
-        children: <Widget>[
-          const DateField(
-            labelText: 'Date Field',
-            onChanged: print,
-          ),
-          const DateField(
-            labelText: 'Date Field Error',
-            errorText: 'Error',
-            hasError: true,
-            onChanged: print,
-          ),
-          DateField(
-            labelText: 'Date Field (ISO8601 String)',
-            onChanged: print,
-            displayStringForDate: (DateTime? v) => v?.toIso8601String() ?? '',
-          ),
-          DateField(
-            labelText: 'Date Field (Initial Value)',
-            onChanged: print,
-            value: DateTime.now(),
-          ),
-          const DateRangeField(
-            labelText: 'Date Range',
-            onChanged: print,
-          ),
-        ],
+      child: CustomOrientationBuilder(
+        landscapeBuilder: (_) {
+          return const SpacedRow(
+            children: <Widget>[
+              DateField(
+                labelText: 'Date Field',
+                onChanged: print,
+              ),
+              CustomTextField(
+                labelText: 'Text Field (for reference)',
+                prefixIcon: Icons.date_range,
+              ),
+            ],
+          );
+        },
+        portraitBuilder: (_) {
+          return SpacedColumn(
+            children: <Widget>[
+              const DateField(
+                labelText: 'Date Field',
+                onChanged: print,
+              ),
+              const DateField(
+                labelText: 'Date Field Error',
+                errorText: 'Error',
+                hasError: true,
+                onChanged: print,
+              ),
+              DateField(
+                labelText: 'Date Field (ISO8601 String)',
+                onChanged: print,
+                displayStringForDate: (DateTime? v) =>
+                    v?.toIso8601String() ?? '',
+              ),
+              DateField(
+                labelText: 'Date Field (Initial Value)',
+                onChanged: print,
+                value: DateTime.now(),
+              ),
+              const DateRangeField(
+                labelText: 'Date Range',
+                onChanged: print,
+              ),
+            ],
+          );
+        },
       ),
     );
   }

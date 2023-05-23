@@ -8,8 +8,9 @@ class SpacedRow extends StatelessWidget {
   const SpacedRow({
     super.key,
     required this.children,
-    this.crossAxisAlignment = CrossAxisAlignment.start,
+    this.crossAxisAlignment = CrossAxisAlignment.end,
     this.mainAxisAlignment = MainAxisAlignment.spaceEvenly,
+    this.mainAxisSize = MainAxisSize.max,
     this.spacing = 20.0,
     this.title,
     this.titleStyle,
@@ -23,6 +24,9 @@ class SpacedRow extends StatelessWidget {
 
   /// How the children should be placed along the main axis.
   final MainAxisAlignment mainAxisAlignment;
+
+  /// How much space should be occupied in the main axis.
+  final MainAxisSize mainAxisSize;
 
   /// The spacing between the children.
   final double spacing;
@@ -49,6 +53,7 @@ class SpacedRow extends StatelessWidget {
         Row(
           crossAxisAlignment: crossAxisAlignment,
           mainAxisAlignment: mainAxisAlignment,
+          mainAxisSize: mainAxisSize,
           children: _getChildren(),
         ),
       ],
