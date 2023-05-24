@@ -21,6 +21,8 @@
 - Drawer
 - DropdownInput
 - DuelingPicklist
+- DurationField
+- DurationPicker
 - ElevatedButton
 - FloatingActionButton
 - Link

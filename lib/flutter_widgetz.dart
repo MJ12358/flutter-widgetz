@@ -29,6 +29,8 @@ part 'src/divider.dart';
 part 'src/drawer.dart';
 part 'src/dropdown_field.dart';
 part 'src/dueling_picklist.dart';
+part 'src/duration_field.dart';
+part 'src/duration_picker.dart';
 part 'src/elevated_button.dart';
 part 'src/extensions.dart';
 part 'src/floating_action_button.dart';

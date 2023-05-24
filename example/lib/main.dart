@@ -14,6 +14,7 @@ import 'package:flutter_widgetz_example/pages/date_field_page.dart';
 import 'package:flutter_widgetz_example/pages/dialogs_page.dart';
 import 'package:flutter_widgetz_example/pages/divider_page.dart';
 import 'package:flutter_widgetz_example/pages/dropdown_field_page.dart';
+import 'package:flutter_widgetz_example/pages/duration_picker_page.dart';
 import 'package:flutter_widgetz_example/pages/link_page.dart';
 import 'package:flutter_widgetz_example/pages/list_view_page.dart';
 import 'package:flutter_widgetz_example/pages/orienatation_page.dart';
@@ -173,6 +174,7 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.dialpad_outlined, DialogsPage(), 'Dialogs'),
   PageInfo(Icons.space_bar, DividerPage(), 'Dividers'),
   PageInfo(Icons.arrow_drop_down, DropdownFieldPage(), 'Dropdown Field'),
+  PageInfo(Icons.timelapse, DurationPickerPage(), 'Duration Picker'),
   PageInfo(Icons.link, LinkPage(), 'Links'),
   PageInfo(Icons.list, ListViewPage(), 'List View'),
   PageInfo(Icons.landscape, OrientationPage(), 'Orientation'),

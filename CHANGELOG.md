@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 4.3.0
+
+- Add `DurationField`.
+- Add `DurationPicker`.
+
 ## 4.2.0
 
 - Add icon param to `DropdownField`.
@@ -19,7 +24,7 @@
 
 ## 3.3.0
 
-- Add `ColorInput`.
+- Add `ColorField`.
 - Allow null for `ColorPicker.shape` and `ColorPicker.title`;
 
 ## 3.2.0
@@ -27,9 +32,9 @@
 - Add `AvatarGroup`.
 - Add `CustomBadge`.
 - Add `CustomButton`.
-- Add `DateRangeInput`.
+- Add `DateRangeField`.
 - Add `DuelingPicklist`.
-- Add `TimeInput`.
+- Add `TimeField`.
 - Add shape param to `ColorPicker`.
 - Fix errorBuilder in Avatar factories.
 
@@ -56,17 +61,17 @@
 
 ## 1.3.10
 
-- Increase tap target of `CheckboxInput`.
+- Increase tap target of `CheckboxField`.
 - Add more params to `ColorPicker` and adjust contrast.
 
 ## 1.3.9
 
-- Add more params to `SearchBar`.
+- Add more params to `CustomSearchBar`.
 - Use Flutter duration constant.
 
 ## 1.3.8
 
-- Increase tap target of `DropdownInput`.
+- Increase tap target of `DropdownField`.
 - Add a param to `CustomScaffold`.
 
 ## 1.3.7
@@ -75,12 +80,12 @@
 
 ## 1.3.6
 
-- Add checked and icon factories to `PopupMenuItem`.
-- Add checked, icon and tile factories to `SimpleDialogOption`.
+- Add checked and icon factories to `CustomPopupMenuItem`.
+- Add checked, icon and tile factories to `CustomSimpleDialogOption`.
 
 ## 1.3.5
 
-- Refactor `SimpleDialogOption` and `PopupMenuItem`.
+- Refactor `CustomSimpleDialogOption` and `CustomPopupMenuItem`.
 
 ## 1.3.4
 
@@ -94,10 +99,10 @@
 
 ## 1.3.2
 
-- Add `hintText` to `CustomTextFormField`.
-- Add `scrollPadding` to `CustomAutocomplete`.
-- Add `titleStyle` to `Accordion`.
-- Add `titleStyle` to `SpacedRow`.
+- Add hintText to `CustomTextField`.
+- Add scrollPadding to `CustomAutocomplete`.
+- Add titleStyle to `Accordion`.
+- Add titleStyle to `SpacedRow`.
 - Add more docs.
 
 ## 1.3.1
@@ -154,9 +159,9 @@
 
 ## 0.0.2
 
-- Add `CustomBody` widget.
+- Add `CustomScaffold` widget.
 - Allow more user params with `CustomSearchBar`.
-- Set default icon on `CustomInputDate`.
+- Set default icon on `DateField`.
 
 ## 0.0.1
 
