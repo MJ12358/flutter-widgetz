@@ -10,21 +10,25 @@ class RadioPage extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: SpacedColumn(
         children: <Widget>[
+          const CustomTextField(
+            labelText: 'Text Field (for reference)',
+            prefixIcon: Icons.timelapse,
+          ),
           const RadioGroup<String>(
             labelText: 'Radio Group One (String)',
             items: <String>['1', '2', '3'],
             onChanged: print,
+            prefixIcon: Icons.gif_box,
           ),
           const RadioGroup<BoxFit>(
             labelText: 'Radio Group Two (Enum)',
-            items: <BoxFit>[BoxFit.contain, BoxFit.cover, BoxFit.fill],
+            items: BoxFit.values,
             onChanged: print,
-            prefixIcon: Icons.gif_box,
             initialValue: BoxFit.contain,
           ),
           RadioGroup<BoxFit>(
             labelText: 'Radio Group Two (Enum with Formatter)',
-            items: const <BoxFit>[BoxFit.contain, BoxFit.cover, BoxFit.fill],
+            items: BoxFit.values,
             onChanged: print,
             prefixIcon: Icons.account_box,
             displayStringForItem: (BoxFit v) => v.name,

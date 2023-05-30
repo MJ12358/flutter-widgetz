@@ -47,19 +47,30 @@ class TimeField extends StatefulWidget {
 }
 
 class _TimeFieldState extends State<TimeField> {
+  late FocusNode _focusNode;
   TimeOfDay? _value;
 
   @override
   void initState() {
     super.initState();
+    _focusNode = FocusNode();
     _value = widget.value;
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      focusNode: _focusNode,
+      onFocusChange: _onFocusChange,
       onTap: () => _showTimePicker(context),
       child: InputDecorator(
+        isFocused: _focusNode.hasFocus,
         decoration: InputDecoration(
           errorText: widget.hasError ? widget.errorText : null,
           labelText: widget.labelText,
@@ -81,6 +92,7 @@ class _TimeFieldState extends State<TimeField> {
   }
 
   void _onChange(TimeOfDay? value) {
+    _onFocusChange(true);
     if (value == null) {
       return;
     }
@@ -88,5 +100,14 @@ class _TimeFieldState extends State<TimeField> {
       _value = value;
     });
     widget.onChanged(value);
+  }
+
+  void _onFocusChange(bool value) {
+    if (value) {
+      _focusNode.requestFocus();
+    } else {
+      _focusNode.unfocus();
+    }
+    setState(() {});
   }
 }

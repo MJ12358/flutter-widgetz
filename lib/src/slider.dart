@@ -46,38 +46,62 @@ class CustomSlider extends StatefulWidget {
 }
 
 class _CustomSliderState extends State<CustomSlider> {
+  late FocusNode _focusNode;
   late num _value;
 
   @override
   void initState() {
     super.initState();
+    _focusNode = FocusNode();
     _value = widget.value;
   }
 
   @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return InputDecorator(
-      decoration: InputDecoration(
-        border: InputBorder.none,
-        labelText: widget.labelText,
-        prefixIcon: widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
-        suffixIcon: widget.suffixIcon != null ? Icon(widget.suffixIcon) : null,
-      ),
-      child: Slider.adaptive(
-        divisions: widget.divisions,
-        label: _value.toString(),
-        onChanged: _onChanged,
-        onChangeEnd: widget.onChanged,
-        max: widget.max,
-        min: widget.min,
-        value: _value.toDouble(),
+    return Focus(
+      focusNode: _focusNode,
+      onFocusChange: _onFocusChange,
+      child: InputDecorator(
+        isFocused: _focusNode.hasFocus,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          labelText: widget.labelText,
+          prefixIcon:
+              widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
+          suffixIcon:
+              widget.suffixIcon != null ? Icon(widget.suffixIcon) : null,
+        ),
+        child: Slider.adaptive(
+          divisions: widget.divisions,
+          label: _value.toString(),
+          onChanged: _onChange,
+          onChangeEnd: widget.onChanged,
+          max: widget.max,
+          min: widget.min,
+          value: _value.toDouble(),
+        ),
       ),
     );
   }
 
-  void _onChanged(double value) {
+  void _onChange(double value) {
     setState(() {
       _value = _value is int ? value.toInt() : value;
     });
+  }
+
+  void _onFocusChange(bool value) {
+    if (value) {
+      _focusNode.requestFocus();
+    } else {
+      _focusNode.unfocus();
+    }
+    setState(() {});
   }
 }

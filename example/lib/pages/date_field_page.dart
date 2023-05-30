@@ -26,6 +26,10 @@ class DateFieldPage extends StatelessWidget {
         portraitBuilder: (_) {
           return SpacedColumn(
             children: <Widget>[
+              const CustomTextField(
+                labelText: 'Text Field (for reference)',
+                prefixIcon: Icons.calendar_month,
+              ),
               const DateField(
                 labelText: 'Date Field',
                 onChanged: print,

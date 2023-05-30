@@ -26,6 +26,10 @@ class TimeFieldPage extends StatelessWidget {
         portraitBuilder: (_) {
           return SpacedColumn(
             children: <Widget>[
+              const CustomTextField(
+                labelText: 'Text Field (for reference)',
+                prefixIcon: Icons.timelapse,
+              ),
               const TimeField(
                 labelText: 'Time Field',
                 onChanged: print,

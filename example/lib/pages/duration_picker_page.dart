@@ -31,6 +31,10 @@ class DurationPickerPage extends StatelessWidget {
                 snapToMins: 15,
                 onChanged: print,
               ),
+              const CustomTextField(
+                labelText: 'Text Field (for reference)',
+                prefixIcon: Icons.timelapse,
+              ),
               const DurationField(
                 labelText: 'Duration Field One',
                 onChanged: print,

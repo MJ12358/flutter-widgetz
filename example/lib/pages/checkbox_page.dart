@@ -27,32 +27,33 @@ class CheckboxPage extends StatelessWidget {
         portraitBuilder: (_) {
           return SpacedColumn(
             children: <Widget>[
+              const CustomTextField(
+                labelText: 'Text Field (for reference)',
+                prefixIcon: Icons.timelapse,
+              ),
               const CheckboxGroup<String>(
                 labelText: 'Checkbox Group One (String)',
                 items: <String>['1', '2', '3'],
                 onChanged: print,
                 initialValues: <String>['1', '2'],
+                prefixIcon: Icons.abc,
               ),
               const CheckboxGroup<BoxFit>(
                 labelText: 'Checkbox Group Two (Enum)',
-                items: <BoxFit>[
-                  BoxFit.contain,
-                  BoxFit.cover,
-                  BoxFit.fill,
-                ],
+                items: BoxFit.values,
                 onChanged: print,
                 initialValues: <BoxFit>[BoxFit.cover],
               ),
               CheckboxGroup<BoxFit>(
                 labelText: 'Checkbox Group Three (Enum with Formatter)',
-                items: const <BoxFit>[
-                  BoxFit.contain,
-                  BoxFit.cover,
-                  BoxFit.fill,
-                ],
+                items: BoxFit.values,
                 onChanged: print,
                 displayStringForItem: (BoxFit v) => v.name,
                 initialValues: const <BoxFit>[BoxFit.cover],
+              ),
+              const CustomTextField(
+                labelText: 'Text Field (for reference)',
+                prefixIcon: Icons.check_box,
               ),
               const CheckboxField(
                 labelText: 'Checkbox Field One',

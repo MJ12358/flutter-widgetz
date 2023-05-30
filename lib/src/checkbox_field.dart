@@ -31,19 +31,30 @@ class CheckboxField extends StatefulWidget {
 }
 
 class _CheckboxFieldState extends State<CheckboxField> {
+  late FocusNode _focusNode;
   late bool _value;
 
   @override
   void initState() {
     super.initState();
+    _focusNode = FocusNode();
     _value = widget.value;
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      focusNode: _focusNode,
+      onFocusChange: _onFocusChange,
       onTap: _onInputTap,
       child: InputDecorator(
+        isFocused: _focusNode.hasFocus,
         textAlign: TextAlign.left,
         decoration: InputDecoration(
           labelText: widget.labelText,
@@ -58,6 +69,7 @@ class _CheckboxFieldState extends State<CheckboxField> {
   }
 
   void _onCheckboxTap(bool? value) {
+    _onFocusChange(true);
     if (value == null) {
       return;
     }
@@ -68,9 +80,19 @@ class _CheckboxFieldState extends State<CheckboxField> {
   }
 
   void _onInputTap() {
+    _onFocusChange(true);
     setState(() {
       _value = !_value;
     });
     widget.onChanged(_value);
+  }
+
+  void _onFocusChange(bool value) {
+    if (value) {
+      _focusNode.requestFocus();
+    } else {
+      _focusNode.unfocus();
+    }
+    setState(() {});
   }
 }

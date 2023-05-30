@@ -50,25 +50,39 @@ class RadioGroup<T extends Object> extends StatefulWidget {
 }
 
 class _RadioGroupState<T extends Object> extends State<RadioGroup<T>> {
+  late FocusNode _focusNode;
   T? _value;
 
   @override
   void initState() {
     super.initState();
+    _focusNode = FocusNode();
     _value = widget.initialValue;
   }
 
   @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return InputDecorator(
-      decoration: InputDecoration(
-        border: widget.border,
-        labelText: widget.labelText,
-        prefixIcon: widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: _getChildren(),
+    return Focus(
+      focusNode: _focusNode,
+      onFocusChange: _onFocusChange,
+      child: InputDecorator(
+        isFocused: _focusNode.hasFocus,
+        decoration: InputDecoration(
+          border: widget.border,
+          labelText: widget.labelText,
+          prefixIcon:
+              widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: _getChildren(),
+        ),
       ),
     );
   }
@@ -86,6 +100,7 @@ class _RadioGroupState<T extends Object> extends State<RadioGroup<T>> {
   }
 
   void _onTap(T? value) {
+    _onFocusChange(true);
     if (value == null) {
       return;
     }
@@ -93,5 +108,14 @@ class _RadioGroupState<T extends Object> extends State<RadioGroup<T>> {
       _value = value;
     });
     widget.onChanged(value);
+  }
+
+  void _onFocusChange(bool value) {
+    if (value) {
+      _focusNode.requestFocus();
+    } else {
+      _focusNode.unfocus();
+    }
+    setState(() {});
   }
 }

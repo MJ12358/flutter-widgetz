@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 4.4.0
+
+- Add FocusNodes to Inputs.
+
 ## 4.3.0
 
 - Add `DurationField`.

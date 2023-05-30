@@ -55,19 +55,30 @@ class DateRangeField extends StatefulWidget {
 }
 
 class _DateRangeFieldState extends State<DateRangeField> {
+  late FocusNode _focusNode;
   DateTimeRange? _value;
 
   @override
   void initState() {
     super.initState();
+    _focusNode = FocusNode();
     _value = widget.value;
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      focusNode: _focusNode,
+      onFocusChange: _onFocusChange,
       onTap: () => _showDatePicker(context),
       child: InputDecorator(
+        isFocused: _focusNode.hasFocus,
         decoration: InputDecoration(
           errorText: widget.hasError ? widget.errorText : null,
           labelText: widget.labelText,
@@ -92,6 +103,7 @@ class _DateRangeFieldState extends State<DateRangeField> {
   }
 
   void _onChange(DateTimeRange? value) {
+    _onFocusChange(true);
     if (value == null) {
       return;
     }
@@ -99,5 +111,14 @@ class _DateRangeFieldState extends State<DateRangeField> {
       _value = value;
     });
     widget.onChanged(value);
+  }
+
+  void _onFocusChange(bool value) {
+    if (value) {
+      _focusNode.requestFocus();
+    } else {
+      _focusNode.unfocus();
+    }
+    setState(() {});
   }
 }

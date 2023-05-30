@@ -59,6 +59,10 @@ class ColorPickerPage extends StatelessWidget {
                 ),
                 text: 'Bottom Sheet',
               ),
+              const CustomTextField(
+                labelText: 'Text Field (for reference)',
+                prefixIcon: Icons.color_lens,
+              ),
               const ColorField(
                 onChanged: print,
               ),

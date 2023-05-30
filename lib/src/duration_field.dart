@@ -57,19 +57,30 @@ class DurationField extends StatefulWidget {
 }
 
 class _DurationFieldState extends State<DurationField> {
+  late FocusNode _focusNode;
   Duration? _value;
 
   @override
   void initState() {
     super.initState();
+    _focusNode = FocusNode();
     _value = widget.value;
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      focusNode: _focusNode,
+      onFocusChange: _onFocusChange,
       onTap: () => _showModal(context),
       child: InputDecorator(
+        isFocused: _focusNode.hasFocus,
         decoration: InputDecoration(
           labelText: widget.labelText,
           prefixIcon: Icon(widget.prefixIcon),
@@ -83,7 +94,7 @@ class _DurationFieldState extends State<DurationField> {
   }
 
   void _showModal(BuildContext context) {
-    showDialog(
+    showDialog<Duration>(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
@@ -98,19 +109,21 @@ class _DurationFieldState extends State<DurationField> {
             ),
           ],
           content: DurationPicker(
-            onChanged: _onChanged,
+            onChanged: _onChange,
             unit: widget.unit,
             duration: _value,
             snapToMins: widget.snapToMins,
           ),
         );
       },
-    );
+    ).then(_onChange);
   }
 
-  // ignore: use_setters_to_change_properties
-  void _onChanged(Duration duration) {
-    _value = duration;
+  void _onChange(Duration? value) {
+    _onFocusChange(true);
+    if (value != null) {
+      _value = value;
+    }
   }
 
   void _onAccept() {
@@ -119,13 +132,27 @@ class _DurationFieldState extends State<DurationField> {
       _value = value;
     });
     widget.onChanged?.call(value);
-    Navigator.of(context).pop();
+    _onPop();
   }
 
   void _onCancel() {
     setState(() {
       _value = widget.value;
     });
+    _onPop();
+  }
+
+  void _onPop() {
     Navigator.of(context).pop();
+    _onFocusChange(true);
+  }
+
+  void _onFocusChange(bool value) {
+    if (value) {
+      _focusNode.requestFocus();
+    } else {
+      _focusNode.unfocus();
+    }
+    setState(() {});
   }
 }

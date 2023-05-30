@@ -15,7 +15,7 @@ class DateField extends StatefulWidget {
     this.hasError = false,
     this.labelText,
     this.lastDate,
-    this.prefixIcon = Icons.date_range,
+    this.prefixIcon = Icons.calendar_month,
     this.value,
   });
 
@@ -55,19 +55,30 @@ class DateField extends StatefulWidget {
 }
 
 class _DateFieldState extends State<DateField> {
+  late FocusNode _focusNode;
   DateTime? _value;
 
   @override
   void initState() {
     super.initState();
+    _focusNode = FocusNode();
     _value = widget.value;
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      focusNode: _focusNode,
+      onFocusChange: _onFocusChange,
       onTap: () => _showDatePicker(context),
       child: InputDecorator(
+        isFocused: _focusNode.hasFocus,
         decoration: InputDecoration(
           errorText: widget.hasError ? widget.errorText : null,
           labelText: widget.labelText,
@@ -92,6 +103,7 @@ class _DateFieldState extends State<DateField> {
   }
 
   void _onChange(DateTime? value) {
+    _onFocusChange(true);
     if (value == null) {
       return;
     }
@@ -99,5 +111,14 @@ class _DateFieldState extends State<DateField> {
       _value = value;
     });
     widget.onChanged(value);
+  }
+
+  void _onFocusChange(bool value) {
+    if (value) {
+      _focusNode.requestFocus();
+    } else {
+      _focusNode.unfocus();
+    }
+    setState(() {});
   }
 }

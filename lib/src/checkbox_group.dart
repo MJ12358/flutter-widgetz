@@ -50,25 +50,39 @@ class CheckboxGroup<T extends Object> extends StatefulWidget {
 }
 
 class _CheckboxGroupState<T extends Object> extends State<CheckboxGroup<T>> {
+  late FocusNode _focusNode;
   late List<T> _values;
 
   @override
   void initState() {
     super.initState();
+    _focusNode = FocusNode();
     _values = widget.initialValues?.toList() ?? <T>[];
   }
 
   @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return InputDecorator(
-      decoration: InputDecoration(
-        border: widget.border,
-        labelText: widget.labelText,
-        prefixIcon: widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: _getChildren(),
+    return Focus(
+      focusNode: _focusNode,
+      onFocusChange: _onFocusChange,
+      child: InputDecorator(
+        isFocused: _focusNode.hasFocus,
+        decoration: InputDecoration(
+          border: widget.border,
+          labelText: widget.labelText,
+          prefixIcon:
+              widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: _getChildren(),
+        ),
       ),
     );
   }
@@ -85,10 +99,24 @@ class _CheckboxGroupState<T extends Object> extends State<CheckboxGroup<T>> {
   }
 
   void _onTap(T item) {
-    _values.contains(item) ? _values.remove(item) : _values.add(item);
+    _onFocusChange(true);
+    if (_values.contains(item)) {
+      _values.remove(item);
+    } else {
+      _values.add(item);
+    }
     setState(() {
       _values = _values;
     });
     widget.onChanged(_values);
+  }
+
+  void _onFocusChange(bool value) {
+    if (value) {
+      _focusNode.requestFocus();
+    } else {
+      _focusNode.unfocus();
+    }
+    setState(() {});
   }
 }

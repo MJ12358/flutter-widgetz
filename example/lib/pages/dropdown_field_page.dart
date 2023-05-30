@@ -28,6 +28,10 @@ class DropdownFieldPage extends StatelessWidget {
         portraitBuilder: (_) {
           return SpacedColumn(
             children: <Widget>[
+              const CustomTextField(
+                labelText: 'Text Field (for reference)',
+                prefixIcon: Icons.gif_box,
+              ),
               const DropdownField<String>(
                 labelText: 'Dropdown One',
                 items: <String>['1', '2', '3'],

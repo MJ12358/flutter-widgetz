@@ -53,19 +53,30 @@ class ColorField extends StatefulWidget {
 }
 
 class _ColorFieldState extends State<ColorField> {
+  late FocusNode _focusNode;
   Color? _value;
 
   @override
   void initState() {
     super.initState();
+    _focusNode = FocusNode();
     _value = widget.value;
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      focusNode: _focusNode,
+      onFocusChange: _onFocusChange,
       onTap: () => _showModal(context),
       child: InputDecorator(
+        isFocused: _focusNode.hasFocus,
         decoration: InputDecoration(
           labelText: widget.labelText,
           prefixIcon: Icon(widget.prefixIcon),
@@ -79,7 +90,7 @@ class _ColorFieldState extends State<ColorField> {
   }
 
   void _showModal(BuildContext context) {
-    showModalBottomSheet(
+    showModalBottomSheet<Color?>(
       context: context,
       builder: (BuildContext context) {
         return ColorPicker(
@@ -87,19 +98,30 @@ class _ColorFieldState extends State<ColorField> {
           initialColor: _value,
           shape: widget.pickerShape,
           title: widget.pickerTitle,
-          onTap: (Color color) {
-            _onChanged(color);
-            Navigator.of(context).pop();
-          },
+          onTap: _onChange,
         );
       },
-    );
+    ).then(_onChange);
   }
 
-  void _onChanged(Color color) {
+  void _onChange(Color? value) {
+    _onFocusChange(true);
+    if (value == null) {
+      return;
+    }
     setState(() {
-      _value = color;
+      _value = value;
     });
-    widget.onChanged?.call(color);
+    widget.onChanged?.call(value);
+    Navigator.of(context).pop();
+  }
+
+  void _onFocusChange(bool value) {
+    if (value) {
+      _focusNode.requestFocus();
+    } else {
+      _focusNode.unfocus();
+    }
+    setState(() {});
   }
 }

@@ -30,6 +30,10 @@ class SliderPage extends StatelessWidget {
             max: 5,
             prefixIcon: Icons.abc,
           ),
+          CustomTextField(
+            labelText: 'Text Field (for reference)',
+            prefixIcon: Icons.abc,
+          ),
           CustomSlider(
             labelText: 'Slider Four (double value)',
             onChanged: print,

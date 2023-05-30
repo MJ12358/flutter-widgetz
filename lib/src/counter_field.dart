@@ -42,41 +42,58 @@ class CounterField extends StatefulWidget {
 }
 
 class _CounterFieldState extends State<CounterField> {
+  late FocusNode _focusNode;
   late int _value;
 
   @override
   void initState() {
     super.initState();
+    _focusNode = FocusNode();
     _value = widget.value;
   }
 
   @override
   Widget build(BuildContext context) {
-    return InputDecorator(
-      decoration: InputDecoration(
-        errorText: widget.hasError ? widget.errorText : null,
-        labelText: widget.labelText,
-        prefixIcon: InkWell(
-          child: Icon(widget.decrementIcon),
-          onTap: () => _onTap(--_value),
+    return Focus(
+      focusNode: _focusNode,
+      onFocusChange: _onFocusChange,
+      child: InputDecorator(
+        isFocused: _focusNode.hasFocus,
+        decoration: InputDecoration(
+          errorText: widget.hasError ? widget.errorText : null,
+          labelText: widget.labelText,
+          prefixIcon: InkWell(
+            child: Icon(widget.decrementIcon),
+            onTap: () => _onTap(--_value),
+          ),
+          suffixIcon: InkWell(
+            child: Icon(widget.incrementIcon),
+            onTap: () => _onTap(++_value),
+          ),
         ),
-        suffixIcon: InkWell(
-          child: Icon(widget.incrementIcon),
-          onTap: () => _onTap(++_value),
+        child: Text(
+          _value.toString(),
+          style: Theme.of(context).textTheme.titleMedium,
+          textAlign: TextAlign.center,
         ),
-      ),
-      child: Text(
-        _value.toString(),
-        style: Theme.of(context).textTheme.titleMedium,
-        textAlign: TextAlign.center,
       ),
     );
   }
 
   void _onTap(int value) {
+    _onFocusChange(true);
     setState(() {
       _value = value;
     });
-    widget.onChanged(_value);
+    widget.onChanged(value);
+  }
+
+  void _onFocusChange(bool value) {
+    if (value) {
+      _focusNode.requestFocus();
+    } else {
+      _focusNode.unfocus();
+    }
+    setState(() {});
   }
 }
