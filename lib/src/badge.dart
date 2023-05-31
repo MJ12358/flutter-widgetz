@@ -68,10 +68,12 @@ class CustomBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return IconTheme(
-      data: Theme.of(context).iconTheme.copyWith(
-            color: Theme.of(context).scaffoldBackgroundColor.blackOrWhite,
-          ),
+      data: theme.iconTheme.copyWith(
+        color: theme.scaffoldBackgroundColor.blackOrWhite,
+      ),
       child: Badge(
         backgroundColor: color,
         label: label,

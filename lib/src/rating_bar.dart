@@ -59,9 +59,9 @@ class _RatingBarState extends State<RatingBar> {
   }
 
   Widget _buildRating(BuildContext context, int index) {
-    final Color _color = widget.color ?? Theme.of(context).colorScheme.primary;
-    final Color _unratedColor =
-        widget.unratedColor ?? Theme.of(context).disabledColor;
+    final ThemeData theme = Theme.of(context);
+    final Color _color = widget.color ?? theme.colorScheme.primary;
+    final Color _unratedColor = widget.unratedColor ?? theme.disabledColor;
     final Widget _widget;
 
     if (index >= _value) {

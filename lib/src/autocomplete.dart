@@ -158,6 +158,8 @@ class _AutocompleteOptions<T extends Object> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return Align(
       alignment: Alignment.topLeft,
       child: Material(
@@ -189,7 +191,7 @@ class _AutocompleteOptions<T extends Object> extends StatelessWidget {
                     }
 
                     return Container(
-                      color: highlight ? Theme.of(context).focusColor : null,
+                      color: highlight ? theme.focusColor : null,
                       padding: const EdgeInsets.all(16.0),
                       child: Text(displayStringForOption(option)),
                     );

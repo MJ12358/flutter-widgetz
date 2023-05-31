@@ -41,8 +41,9 @@ class CustomElevatedButton extends StatelessWidget {
   }
 
   ButtonStyle _getStyle(BuildContext context) {
-    final ButtonStyle? _style = Theme.of(context).elevatedButtonTheme.style;
-    final Color _primary = Theme.of(context).colorScheme.primary;
+    final ThemeData theme = Theme.of(context);
+    final ButtonStyle? _style = theme.elevatedButtonTheme.style;
+    final Color _primary = theme.colorScheme.primary;
 
     // when elevated button style is set by ThemeData, copyWith
     if (_style != null) {

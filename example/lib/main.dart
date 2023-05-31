@@ -9,6 +9,7 @@ import 'package:flutter_widgetz_example/pages/button_page.dart';
 import 'package:flutter_widgetz_example/pages/carousel_page.dart';
 import 'package:flutter_widgetz_example/pages/checkbox_page.dart';
 import 'package:flutter_widgetz_example/pages/color_picker_page.dart';
+import 'package:flutter_widgetz_example/pages/countdown_page.dart';
 import 'package:flutter_widgetz_example/pages/counter_field_page.dart';
 import 'package:flutter_widgetz_example/pages/date_field_page.dart';
 import 'package:flutter_widgetz_example/pages/dialogs_page.dart';
@@ -170,6 +171,7 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.check_box, CheckboxPage(), 'Checkboxes'),
   PageInfo(Icons.color_lens, ColorPickerPage(), 'Color Picker'),
   PageInfo(Icons.numbers, CounterPage(), 'Counter Field'),
+  PageInfo(Icons.downhill_skiing, CountdownPage(), 'Countdown'),
   PageInfo(Icons.date_range, DateFieldPage(), 'Date Field'),
   PageInfo(Icons.dialpad_outlined, DialogsPage(), 'Dialogs'),
   PageInfo(Icons.space_bar, DividerPage(), 'Dividers'),

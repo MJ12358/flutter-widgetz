@@ -7,7 +7,7 @@ const double _kPiByTwo = math.pi / 2;
 
 /// {@template flutter_widgetz.DurationPicker}
 /// A widget for picking durations.
-/// Inspired from the Material Design time picker widget.
+/// Inspired by the Material Design time picker widget.
 ///
 /// Modified from:
 /// https://github.com/juliansteenbakker/duration_picker
@@ -406,6 +406,8 @@ class _DialPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    final ThemeData theme = Theme.of(context);
+
     const double epsilon = .001;
     const double sweep = _kTwoPi - epsilon;
     const double startAngle = -math.pi / 2.0;
@@ -432,7 +434,7 @@ class _DialPainter extends CustomPainter {
     canvas.drawCircle(
       centerPoint,
       radius * 0.88,
-      Paint()..color = Theme.of(context).canvasColor,
+      Paint()..color = theme.canvasColor,
     );
 
     // Draw the handle that is used to drag
@@ -452,9 +454,7 @@ class _DialPainter extends CustomPainter {
       textAlign: TextAlign.center,
       text: TextSpan(
         text: '$secondaryUnits$units',
-        style: Theme.of(context)
-            .textTheme
-            .displayMedium!
+        style: theme.textTheme.displayMedium!
             .copyWith(fontSize: size.shortestSide * 0.15),
       ),
       textDirection: TextDirection.ltr,
@@ -471,7 +471,7 @@ class _DialPainter extends CustomPainter {
       textAlign: TextAlign.center,
       text: TextSpan(
         text: unit.string, //th: ${theta}',
-        style: Theme.of(context).textTheme.bodyMedium,
+        style: theme.textTheme.bodyMedium,
       ),
       textDirection: TextDirection.ltr,
     )..layout();

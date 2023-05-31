@@ -101,6 +101,8 @@ class _AlertState extends State<Alert> {
       return const SizedBox();
     }
 
+    final ThemeData theme = Theme.of(context);
+
     return Container(
       color: widget.color,
       padding: widget.padding,
@@ -115,9 +117,9 @@ class _AlertState extends State<Alert> {
             ),
           ),
           DefaultTextStyle.merge(
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: widget.color.blackOrWhite,
-                ),
+            style: theme.textTheme.bodyMedium?.copyWith(
+              color: widget.color.blackOrWhite,
+            ),
             child: widget.child,
           ),
           const Spacer(),

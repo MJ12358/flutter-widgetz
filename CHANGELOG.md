@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 4.5.0
+
+- Add `Countdown` widget.
+- Optimize ThemeData calls.
+
 ## 4.4.0
 
 - Add FocusNodes to Inputs.

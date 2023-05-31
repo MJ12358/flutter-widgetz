@@ -75,6 +75,8 @@ class _DurationFieldState extends State<DurationField> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return InkWell(
       focusNode: _focusNode,
       onFocusChange: _onFocusChange,
@@ -87,7 +89,7 @@ class _DurationFieldState extends State<DurationField> {
         ),
         child: Text(
           widget.displayStringForDuration(_value),
-          style: Theme.of(context).textTheme.titleMedium,
+          style: theme.textTheme.titleMedium,
         ),
       ),
     );

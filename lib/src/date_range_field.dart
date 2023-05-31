@@ -73,6 +73,8 @@ class _DateRangeFieldState extends State<DateRangeField> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return InkWell(
       focusNode: _focusNode,
       onFocusChange: _onFocusChange,
@@ -86,7 +88,7 @@ class _DateRangeFieldState extends State<DateRangeField> {
         ),
         child: Text(
           widget.displayStringForDateRange(_value),
-          style: Theme.of(context).textTheme.titleMedium,
+          style: theme.textTheme.titleMedium,
         ),
       ),
     );

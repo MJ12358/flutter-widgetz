@@ -191,11 +191,13 @@ class _Arrows extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return IconTheme(
-      data: Theme.of(context).iconTheme.copyWith(
-            color: Theme.of(context).scaffoldBackgroundColor.blackOrWhite,
-            size: _spacing,
-          ),
+      data: theme.iconTheme.copyWith(
+        color: theme.scaffoldBackgroundColor.blackOrWhite,
+        size: _spacing,
+      ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: spacing),
         child: Column(
@@ -250,6 +252,8 @@ class _PicklistState<T extends Object> extends State<_Picklist<T>> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -262,7 +266,7 @@ class _PicklistState<T extends Object> extends State<_Picklist<T>> {
             height: widget.height,
             decoration: BoxDecoration(
               border: Border.all(
-                color: Theme.of(context).scaffoldBackgroundColor.blackOrWhite,
+                color: theme.scaffoldBackgroundColor.blackOrWhite,
               ),
             ),
             child: ListView(

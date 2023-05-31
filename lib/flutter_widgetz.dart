@@ -22,6 +22,7 @@ part 'src/checkbox_field.dart';
 part 'src/checkbox_group.dart';
 part 'src/color_field.dart';
 part 'src/color_picker.dart';
+part 'src/countdown.dart';
 part 'src/counter_field.dart';
 part 'src/date_field.dart';
 part 'src/date_range_field.dart';

@@ -71,6 +71,8 @@ class _ColorFieldState extends State<ColorField> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return InkWell(
       focusNode: _focusNode,
       onFocusChange: _onFocusChange,
@@ -83,7 +85,7 @@ class _ColorFieldState extends State<ColorField> {
         ),
         child: Text(
           widget.displayStringForColor(_value),
-          style: Theme.of(context).textTheme.titleMedium,
+          style: theme.textTheme.titleMedium,
         ),
       ),
     );

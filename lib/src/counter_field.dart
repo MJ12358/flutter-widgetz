@@ -54,6 +54,8 @@ class _CounterFieldState extends State<CounterField> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return Focus(
       focusNode: _focusNode,
       onFocusChange: _onFocusChange,
@@ -73,7 +75,7 @@ class _CounterFieldState extends State<CounterField> {
         ),
         child: Text(
           _value.toString(),
-          style: Theme.of(context).textTheme.titleMedium,
+          style: theme.textTheme.titleMedium,
           textAlign: TextAlign.center,
         ),
       ),

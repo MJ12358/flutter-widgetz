@@ -65,6 +65,8 @@ class _TimeFieldState extends State<TimeField> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return InkWell(
       focusNode: _focusNode,
       onFocusChange: _onFocusChange,
@@ -78,7 +80,7 @@ class _TimeFieldState extends State<TimeField> {
         ),
         child: Text(
           widget.displayStringForTime(_value),
-          style: Theme.of(context).textTheme.titleMedium,
+          style: theme.textTheme.titleMedium,
         ),
       ),
     );

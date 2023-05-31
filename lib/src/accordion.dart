@@ -80,6 +80,8 @@ class _AccordionState extends State<Accordion> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -94,18 +96,17 @@ class _AccordionState extends State<Accordion> with TickerProviderStateMixin {
                   duration: widget.duration,
                   child: Icon(
                     Icons.keyboard_arrow_right,
-                    color:
-                        Theme.of(context).scaffoldBackgroundColor.blackOrWhite,
+                    color: theme.scaffoldBackgroundColor.blackOrWhite,
                   ),
                 ),
                 Expanded(
                   child: Text(
                     widget.title,
                     style: widget.titleStyle ??
-                        Theme.of(context).textTheme.labelLarge?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1.5,
-                            ),
+                        theme.textTheme.labelLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.5,
+                        ),
                   ),
                 ),
               ],
