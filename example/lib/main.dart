@@ -18,6 +18,7 @@ import 'package:flutter_widgetz_example/pages/dropdown_field_page.dart';
 import 'package:flutter_widgetz_example/pages/duration_picker_page.dart';
 import 'package:flutter_widgetz_example/pages/link_page.dart';
 import 'package:flutter_widgetz_example/pages/list_view_page.dart';
+import 'package:flutter_widgetz_example/pages/navigation_rail_page.dart';
 import 'package:flutter_widgetz_example/pages/orienatation_page.dart';
 import 'package:flutter_widgetz_example/pages/picklist_page.dart';
 import 'package:flutter_widgetz_example/pages/placeholder_page.dart';
@@ -103,11 +104,13 @@ class MainState extends State<Main> {
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               label: 'Home',
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.home_outlined),
+              activeIcon: Icon(Icons.home),
             ),
             BottomNavigationBarItem(
               label: 'Settings',
-              icon: Icon(Icons.settings),
+              icon: Icon(Icons.settings_outlined),
+              activeIcon: Icon(Icons.settings),
             ),
           ],
         ),
@@ -179,6 +182,7 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.timelapse, DurationPickerPage(), 'Duration Picker'),
   PageInfo(Icons.link, LinkPage(), 'Links'),
   PageInfo(Icons.list, ListViewPage(), 'List View'),
+  PageInfo(Icons.navigation, NavigationRailPage(), 'Navigation Rail'),
   PageInfo(Icons.landscape, OrientationPage(), 'Orientation'),
   PageInfo(Icons.price_check, PicklistPage(), 'Picklists'),
   PageInfo(Icons.business, PlaceholderPage(), 'Placeholders'),

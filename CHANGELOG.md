@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 4.6.0
+
+- Add `CustomLayoutBuilder`.
+- Add `CustomNavigationRail`.
+
 ## 4.5.0
 
 - Add `Countdown` widget.
