@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 5.0.0
+
+- Change spacing from a double to a widget in `SpacedRow` and `SpacedColumn`.
+
 ## 4.7.0
 
 - Add `CustomProgressIndicator`.
