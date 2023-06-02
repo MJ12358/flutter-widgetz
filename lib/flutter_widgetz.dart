@@ -41,6 +41,7 @@ part 'src/navigation_rail.dart';
 part 'src/orientation_builder.dart';
 part 'src/placeholder.dart';
 part 'src/popup_menu_item.dart';
+part 'src/progress_indicator.dart';
 part 'src/radio_group.dart';
 part 'src/rating_bar.dart';
 part 'src/reorderable_list.dart';

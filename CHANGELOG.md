@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 4.7.0
+
+- Add `CustomProgressIndicator`.
+
 ## 4.6.0
 
 - Add `CustomLayoutBuilder`.

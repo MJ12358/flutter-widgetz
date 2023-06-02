@@ -1,5 +1,7 @@
 # Flutter Widgetz
 
+![pub package](https://img.shields.io/pub/v/flutter_widgetz)
+
 ## Features
 
 - Accordion
@@ -31,6 +33,7 @@
 - OrientationBuilder
 - Placeholder
 - PopupMenuItem
+- ProgressIndicator
 - RadioGroup
 - RatingBar
 - ReorderableListView
