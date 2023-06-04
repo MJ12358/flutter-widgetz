@@ -11,7 +11,8 @@ class SpacedRow extends StatelessWidget {
     this.crossAxisAlignment = CrossAxisAlignment.end,
     this.mainAxisAlignment = MainAxisAlignment.spaceEvenly,
     this.mainAxisSize = MainAxisSize.max,
-    this.spacer = const SizedBox(width: 20.0),
+    this.spacing = 20.0,
+    this.spacer,
     this.title,
     this.titleStyle,
   });
@@ -28,8 +29,11 @@ class SpacedRow extends StatelessWidget {
   /// How much space should be occupied in the main axis.
   final MainAxisSize mainAxisSize;
 
+  /// The spacing between the children.
+  final double spacing;
+
   /// The spacer between the children.
-  final Widget spacer;
+  final Widget? spacer;
 
   /// An optional title to display above this row.
   final String? title;
@@ -64,13 +68,14 @@ class SpacedRow extends StatelessWidget {
 
   List<Widget> _getChildren() {
     final List<Widget> result = <Widget>[];
+    final Widget _spacer = spacer ?? SizedBox(width: spacing);
 
     for (int i = 0; i < children.length; i++) {
       final Widget child = children[i];
 
       if (i != children.length - 1) {
         result.add(Expanded(child: child));
-        result.add(spacer);
+        result.add(_spacer);
       } else {
         result.add(Expanded(child: child));
       }

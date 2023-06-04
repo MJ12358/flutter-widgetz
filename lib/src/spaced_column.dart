@@ -11,7 +11,8 @@ class SpacedColumn extends StatelessWidget {
     this.crossAxisAlignment = CrossAxisAlignment.center,
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.mainAxisSize = MainAxisSize.max,
-    this.spacer = const SizedBox(height: 20.0),
+    this.spacing = 20.0,
+    this.spacer,
   });
 
   /// Creates a vertical array of children.
@@ -26,8 +27,11 @@ class SpacedColumn extends StatelessWidget {
   /// How much space should be occupied in the main axis.
   final MainAxisSize mainAxisSize;
 
+  /// The spacing between the children.
+  final double spacing;
+
   /// The spacer between the children.
-  final Widget spacer;
+  final Widget? spacer;
 
   @override
   Widget build(BuildContext context) {
@@ -45,13 +49,14 @@ class SpacedColumn extends StatelessWidget {
 
   List<Widget> _getChildren() {
     final List<Widget> result = <Widget>[];
+    final Widget _spacer = spacer ?? SizedBox(height: spacing);
 
     for (int i = 0; i < children.length; i++) {
       final Widget child = children[i];
 
       if (i != children.length - 1) {
         result.add(child);
-        result.add(spacer);
+        result.add(_spacer);
       } else {
         result.add(child);
       }

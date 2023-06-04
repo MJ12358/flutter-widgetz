@@ -1,8 +1,8 @@
 # Flutter Widgetz
 
-## 5.0.0
+## 4.8.0
 
-- Change spacing from a double to a widget in `SpacedRow` and `SpacedColumn`.
+- Add spacer param to `SpacedColumn` and `SpacedRow`.
 
 ## 4.7.0
 
