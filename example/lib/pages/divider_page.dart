@@ -6,25 +6,30 @@ class DividerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return CustomSingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
-      child: SpacedColumn(
+      child: SpacedColumn.filtered(
+        spacing: 50.0,
         children: <Widget>[
           const CustomDivider(
             child: Text('Divider One'),
           ),
           const CustomDivider(
-            thickness: 4,
+            thickness: 4.0,
             child: Text('Divider Two'),
           ),
+          const SizedBox(),
+          const SizedBox(),
           CustomDivider(
-            thickness: 4,
-            color: Theme.of(context).colorScheme.primary,
+            thickness: 4.0,
+            color: theme.colorScheme.primary,
             child: const Icon(Icons.abc),
           ),
           CustomDivider(
-            thickness: 10,
-            color: Theme.of(context).colorScheme.secondary,
+            thickness: 10.0,
+            color: theme.colorScheme.secondary,
             child: const Icon(Icons.textsms_sharp),
           ),
           const CustomDivider(
@@ -40,6 +45,8 @@ class DividerPage extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(),
+          const SizedBox(),
         ],
       ),
     );

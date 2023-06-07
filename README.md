@@ -2,6 +2,8 @@
 
 ![pub package](https://img.shields.io/pub/v/flutter_widgetz)
 
+A set of [Flutter](https://flutter.dev) widgets I use in various projects.
+
 ## Features
 
 - Accordion

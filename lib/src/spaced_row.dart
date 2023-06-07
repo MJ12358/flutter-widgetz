@@ -8,10 +8,10 @@ class SpacedRow extends StatelessWidget {
   const SpacedRow({
     super.key,
     required this.children,
-    this.crossAxisAlignment = CrossAxisAlignment.end,
-    this.mainAxisAlignment = MainAxisAlignment.spaceEvenly,
-    this.mainAxisSize = MainAxisSize.max,
-    this.spacing = 20.0,
+    this.crossAxisAlignment = _defaultCrossAxisAlignment,
+    this.mainAxisAlignment = _defaultMainAxisAlignment,
+    this.mainAxisSize = _defaultMainAxisSize,
+    this.spacing = _defaultSpacing,
     this.spacer,
     this.title,
     this.titleStyle,
@@ -40,6 +40,44 @@ class SpacedRow extends StatelessWidget {
 
   /// The style to use for the title.
   final TextStyle? titleStyle;
+
+  static const CrossAxisAlignment _defaultCrossAxisAlignment =
+      CrossAxisAlignment.end;
+  static const MainAxisAlignment _defaultMainAxisAlignment =
+      MainAxisAlignment.spaceEvenly;
+  static const MainAxisSize _defaultMainAxisSize = MainAxisSize.max;
+  static const double _defaultSpacing = 20.0;
+
+  /// {@macro flutter_widgetz.SpacedRow}
+  ///
+  /// Filtered is used to filter out undesirable widgets.
+  /// This defaults to removing SizedBoxes with 0 height/width.
+  SpacedRow.filtered({
+    super.key,
+    required List<Widget> children,
+    bool Function(Widget)? filter,
+    this.crossAxisAlignment = _defaultCrossAxisAlignment,
+    this.mainAxisAlignment = _defaultMainAxisAlignment,
+    this.mainAxisSize = _defaultMainAxisSize,
+    this.spacing = _defaultSpacing,
+    this.spacer,
+    this.title,
+    this.titleStyle,
+  }) : children = children
+            .where(
+              filter ??
+                  (Widget e) {
+                    if (e is SizedBox) {
+                      if ((e.height ?? 0) > 0 && (e.width ?? 0) > 0) {
+                        return true;
+                      } else {
+                        return false;
+                      }
+                    }
+                    return true;
+                  },
+            )
+            .toList();
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 4.9.0
+
+- Add filtered constructor to `SpacedColumn` and `SpacedRow`.
+
 ## 4.8.0
 
 - Add spacer param to `SpacedColumn` and `SpacedRow`.

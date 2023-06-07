@@ -8,10 +8,10 @@ class SpacedColumn extends StatelessWidget {
   const SpacedColumn({
     super.key,
     required this.children,
-    this.crossAxisAlignment = CrossAxisAlignment.center,
-    this.mainAxisAlignment = MainAxisAlignment.start,
-    this.mainAxisSize = MainAxisSize.max,
-    this.spacing = 20.0,
+    this.crossAxisAlignment = _defaultCrossAxisAlignment,
+    this.mainAxisAlignment = _defaultMainAxisAlignment,
+    this.mainAxisSize = _defaultMainAxisSize,
+    this.spacing = _defaultSpacing,
     this.spacer,
   });
 
@@ -32,6 +32,42 @@ class SpacedColumn extends StatelessWidget {
 
   /// The spacer between the children.
   final Widget? spacer;
+
+  static const CrossAxisAlignment _defaultCrossAxisAlignment =
+      CrossAxisAlignment.center;
+  static const MainAxisAlignment _defaultMainAxisAlignment =
+      MainAxisAlignment.start;
+  static const MainAxisSize _defaultMainAxisSize = MainAxisSize.max;
+  static const double _defaultSpacing = 20.0;
+
+  /// {@macro flutter_widgetz.SpacedColumn}
+  ///
+  /// Filtered is used to filter out undesirable widgets.
+  /// This defaults to removing SizedBoxes with 0 height/width.
+  SpacedColumn.filtered({
+    super.key,
+    required List<Widget> children,
+    bool Function(Widget)? filter,
+    this.crossAxisAlignment = _defaultCrossAxisAlignment,
+    this.mainAxisAlignment = _defaultMainAxisAlignment,
+    this.mainAxisSize = _defaultMainAxisSize,
+    this.spacing = _defaultSpacing,
+    this.spacer,
+  }) : children = children
+            .where(
+              filter ??
+                  (Widget e) {
+                    if (e is SizedBox) {
+                      if ((e.height ?? 0) > 0 && (e.width ?? 0) > 0) {
+                        return true;
+                      } else {
+                        return false;
+                      }
+                    }
+                    return true;
+                  },
+            )
+            .toList();
 
   @override
   Widget build(BuildContext context) {
