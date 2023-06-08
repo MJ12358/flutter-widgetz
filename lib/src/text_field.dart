@@ -14,6 +14,7 @@ class CustomTextField extends StatelessWidget {
     this.errorText,
     this.focusNode,
     this.hasError = false,
+    this.help,
     this.helpText,
     this.hintText,
     this.initialValue,
@@ -24,6 +25,7 @@ class CustomTextField extends StatelessWidget {
     this.minLines,
     this.obscureText = false,
     this.onChanged,
+    this.onEditingComplete,
     this.prefixIcon,
     this.scrollPadding = const EdgeInsets.all(20.0),
     this.suffixIcon,
@@ -48,6 +50,9 @@ class CustomTextField extends StatelessWidget {
 
   /// Determines if an error should be displayed.
   final bool hasError;
+
+  /// If given, shows a suffix icon and dialog with this widget.
+  final Widget? help;
 
   /// If given, shows a suffix icon and dialog with this string.
   final String? helpText;
@@ -78,6 +83,10 @@ class CustomTextField extends StatelessWidget {
 
   /// Called when the value of the input changes.
   final ValueChanged<String>? onChanged;
+
+  /// Called when the user submits editable content
+  /// (e.g., user presses the "done" button on the keyboard).
+  final VoidCallback? onEditingComplete;
 
   /// An icon that appers before the editable part of the text field.
   final IconData? prefixIcon;
@@ -119,6 +128,8 @@ class CustomTextField extends StatelessWidget {
         suffixIcon: _getSuffixIcon(context),
       ),
       onChanged: onChanged,
+      onEditingComplete:
+          onEditingComplete ?? () => FocusScope.of(context).nextFocus(),
     );
   }
 
@@ -139,10 +150,11 @@ class CustomTextField extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    helpText!,
-                    textAlign: TextAlign.center,
-                  ),
+                  child: help ??
+                      Text(
+                        helpText!,
+                        textAlign: TextAlign.center,
+                      ),
                 ),
               ],
             );

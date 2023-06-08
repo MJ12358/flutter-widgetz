@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 4.9.1
+
+- Put Spaced Column/Row defaultFilter into own function.
+- Add onEditingComplete to `CustomTextField`.
+
 ## 4.9.0
 
 - Add filtered constructor to `SpacedColumn` and `SpacedRow`.

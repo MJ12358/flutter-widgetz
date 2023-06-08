@@ -35,10 +35,25 @@ class SpacedColumn extends StatelessWidget {
 
   static const CrossAxisAlignment _defaultCrossAxisAlignment =
       CrossAxisAlignment.center;
+
   static const MainAxisAlignment _defaultMainAxisAlignment =
       MainAxisAlignment.start;
+
   static const MainAxisSize _defaultMainAxisSize = MainAxisSize.max;
+
   static const double _defaultSpacing = 20.0;
+
+  // TODO: need to find the type of widget that is returned from "build"
+  // then determine its height and/or width
+  // as just checking for "SizedBox" does not achieve the required result
+  static bool _defaultFilter(Widget e) {
+    if (e is SizedBox) {
+      if ((e.height ?? 0) <= 0 && (e.width ?? 0) <= 0) {
+        return false;
+      }
+    }
+    return true;
+  }
 
   /// {@macro flutter_widgetz.SpacedColumn}
   ///
@@ -53,21 +68,7 @@ class SpacedColumn extends StatelessWidget {
     this.mainAxisSize = _defaultMainAxisSize,
     this.spacing = _defaultSpacing,
     this.spacer,
-  }) : children = children
-            .where(
-              filter ??
-                  (Widget e) {
-                    if (e is SizedBox) {
-                      if ((e.height ?? 0) > 0 && (e.width ?? 0) > 0) {
-                        return true;
-                      } else {
-                        return false;
-                      }
-                    }
-                    return true;
-                  },
-            )
-            .toList();
+  }) : children = children.where(filter ?? _defaultFilter).toList();
 
   @override
   Widget build(BuildContext context) {

@@ -45,10 +45,19 @@ class DividerPage extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(),
+          const _TestWidget(),
           const SizedBox(),
         ],
       ),
     );
+  }
+}
+
+class _TestWidget extends StatelessWidget {
+  const _TestWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox();
   }
 }
