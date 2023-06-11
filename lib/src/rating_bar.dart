@@ -98,10 +98,9 @@ class _RatingBarState extends State<RatingBar> {
 
 class _Star extends StatelessWidget {
   const _Star({
-    Key? key,
     required this.color,
     required this.size,
-  }) : super(key: key);
+  });
 
   final Color color;
   final double size;
@@ -121,11 +120,10 @@ class _Star extends StatelessWidget {
 
 class _HalfStar extends StatelessWidget {
   const _HalfStar({
-    Key? key,
     required this.color,
     required this.size,
     required this.unratedColor,
-  }) : super(key: key);
+  });
 
   final Color color;
   final double size;

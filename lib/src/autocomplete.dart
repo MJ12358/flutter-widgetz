@@ -144,12 +144,12 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
 
 class _AutocompleteOptions<T extends Object> extends StatelessWidget {
   const _AutocompleteOptions({
-    Key? key,
+    super.key,
     required this.constraints,
     required this.displayStringForOption,
     required this.onSelected,
     required this.options,
-  }) : super(key: key);
+  });
 
   final BoxConstraints constraints;
   final AutocompleteOptionToString<T> displayStringForOption;

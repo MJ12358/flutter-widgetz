@@ -1,6 +1,6 @@
 name: flutter_widgetz
 description: A set of Flutter widgets I use in various projects. Including date and checkbox inputs, bottom navigation bar, color picker, divider and more!
-version: 4.9.1
+version: 4.9.2
 repository: https://github.com/mj12358/flutter-widgetz
 
 environment:
@@ -12,6 +12,6 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
-  dart_lintz: ^1.1.0
+  dart_lintz: ^1.2.0
   flutter_test:
     sdk: flutter

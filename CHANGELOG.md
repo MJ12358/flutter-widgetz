@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 4.9.2
+
+- Make `CustomNavigationRail` scrollable.
+- Update lints.
+
 ## 4.9.1
 
 - Put Spaced Column/Row defaultFilter into own function.

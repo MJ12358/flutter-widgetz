@@ -72,19 +72,33 @@ class _CustomNavigationRailState extends State<CustomNavigationRail> {
 
   @override
   Widget build(BuildContext context) {
-    return NavigationRail(
-      backgroundColor: widget.backgroundColor,
-      destinations: widget.destinations,
-      elevation: widget.elevation,
-      extended: widget.extended,
-      indicatorColor: widget.indicatorColor,
-      indicatorShape: widget.indicatorShape,
-      labelType: widget.labelType,
-      leading: widget.leading,
-      onDestinationSelected: _onDestinationSelected,
-      selectedIndex: _selelectedIndex,
-      trailing: widget.trailing,
-      useIndicator: widget.useIndicator,
+    return LayoutBuilder(
+      builder: (_, BoxConstraints constraints) {
+        return SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: constraints.copyWith(
+              minHeight: constraints.maxHeight,
+              maxHeight: double.infinity,
+            ),
+            child: IntrinsicHeight(
+              child: NavigationRail(
+                backgroundColor: widget.backgroundColor,
+                destinations: widget.destinations,
+                elevation: widget.elevation,
+                extended: widget.extended,
+                indicatorColor: widget.indicatorColor,
+                indicatorShape: widget.indicatorShape,
+                labelType: widget.labelType,
+                leading: widget.leading,
+                onDestinationSelected: _onDestinationSelected,
+                selectedIndex: _selelectedIndex,
+                trailing: widget.trailing,
+                useIndicator: widget.useIndicator,
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 
