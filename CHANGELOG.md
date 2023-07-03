@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 4.9.3
+
+- Add `onChanged` to `CustomOrientationBuilder`.
+
 ## 4.9.2
 
 - Make `CustomNavigationRail` scrollable.

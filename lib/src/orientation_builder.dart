@@ -10,6 +10,7 @@ class CustomOrientationBuilder extends StatefulWidget {
     super.key,
     required this.landscapeBuilder,
     required this.portraitBuilder,
+    this.onChanged,
     this.onDispose,
   });
 
@@ -19,8 +20,11 @@ class CustomOrientationBuilder extends StatefulWidget {
   /// Builds a widget to be used in [Orientation.portrait].
   final WidgetBuilder portraitBuilder;
 
+  /// Called when the orientation has changed.
+  final ValueChanged<Orientation>? onChanged;
+
   /// Called when this widget is disposed of.
-  final void Function()? onDispose;
+  final VoidCallback? onDispose;
 
   static void _resetOnDispose() {
     SystemChrome.setPreferredOrientations(<DeviceOrientation>[]);
@@ -32,6 +36,7 @@ class CustomOrientationBuilder extends StatefulWidget {
   CustomOrientationBuilder.landscape({
     super.key,
     required WidgetBuilder builder,
+    this.onChanged,
   })  : landscapeBuilder = builder,
         portraitBuilder = builder,
         onDispose = _resetOnDispose {
@@ -47,6 +52,7 @@ class CustomOrientationBuilder extends StatefulWidget {
   CustomOrientationBuilder.portrait({
     super.key,
     required WidgetBuilder builder,
+    this.onChanged,
   })  : landscapeBuilder = builder,
         portraitBuilder = builder,
         onDispose = _resetOnDispose {
@@ -72,7 +78,11 @@ class _CustomOrientationBuilderState extends State<CustomOrientationBuilder> {
   Widget build(BuildContext context) {
     return OrientationBuilder(
       builder: (BuildContext context, _) {
-        switch (MediaQuery.of(context).orientation) {
+        final Orientation orientation = MediaQuery.of(context).orientation;
+
+        widget.onChanged?.call(orientation);
+
+        switch (orientation) {
           case Orientation.landscape:
             return widget.landscapeBuilder(context);
           case Orientation.portrait:
