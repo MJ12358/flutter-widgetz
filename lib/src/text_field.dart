@@ -128,8 +128,7 @@ class CustomTextField extends StatelessWidget {
         suffixIcon: _getSuffixIcon(context),
       ),
       onChanged: onChanged,
-      onEditingComplete:
-          onEditingComplete ?? () => FocusScope.of(context).nextFocus(),
+      onEditingComplete: onEditingComplete ?? () => _onFocus(context),
     );
   }
 
@@ -163,5 +162,20 @@ class CustomTextField extends StatelessWidget {
         child: const Icon(Icons.info),
       ),
     );
+  }
+
+  void _onFocus(BuildContext context) {
+    final FocusScopeNode node = FocusScope.of(context);
+    switch (textInputAction) {
+      case TextInputAction.next:
+        node.nextFocus();
+        break;
+      case TextInputAction.previous:
+        node.previousFocus();
+        break;
+      default:
+        node.unfocus();
+        return;
+    }
   }
 }

@@ -83,19 +83,23 @@ class _Portrait extends StatelessWidget {
         CustomTextField(
           labelText: 'One',
           prefixIcon: Icons.one_k,
+          textInputAction: TextInputAction.next,
         ),
         CustomTextField(
           labelText: 'Two',
           prefixIcon: Icons.two_k,
           helpText: 'Help Text',
+          textInputAction: TextInputAction.previous,
         ),
         CustomTextField(
           labelText: 'Three',
           prefixIcon: Icons.three_k,
+          textInputAction: TextInputAction.next,
         ),
         CustomTextField(
           labelText: 'Four',
           prefixIcon: Icons.four_k,
+          textInputAction: TextInputAction.done,
         ),
       ],
     );

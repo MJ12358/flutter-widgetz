@@ -24,7 +24,7 @@ class OrientationPage extends StatelessWidget {
       // ),
       child: CustomOrientationBuilder(
         landscapeBuilder: (BuildContext context) {
-          print('landscape');
+          print('landscapeBuilder');
           return const SpacedRow(
             children: <Widget>[
               Text('One'),
@@ -33,7 +33,7 @@ class OrientationPage extends StatelessWidget {
           );
         },
         portraitBuilder: (BuildContext context) {
-          print('portrait');
+          print('portraitBuilder');
           return const SpacedColumn(
             children: <Widget>[
               Text('One'),
@@ -41,6 +41,7 @@ class OrientationPage extends StatelessWidget {
             ],
           );
         },
+        onChanged: print,
       ),
     );
   }

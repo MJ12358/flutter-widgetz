@@ -68,6 +68,8 @@ class CustomOrientationBuilder extends StatefulWidget {
 }
 
 class _CustomOrientationBuilderState extends State<CustomOrientationBuilder> {
+  Orientation? _orientation;
+
   @override
   void dispose() {
     widget.onDispose?.call();
@@ -80,7 +82,12 @@ class _CustomOrientationBuilderState extends State<CustomOrientationBuilder> {
       builder: (BuildContext context, _) {
         final Orientation orientation = MediaQuery.of(context).orientation;
 
-        widget.onChanged?.call(orientation);
+        // do not call onChanged on init
+        if (_orientation != null && _orientation != orientation) {
+          widget.onChanged?.call(orientation);
+        }
+
+        _orientation = orientation;
 
         switch (orientation) {
           case Orientation.landscape:

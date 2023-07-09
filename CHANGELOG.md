@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 4.9.4
+
+- Update `CustomTextField` "onEditingComplete" on default next/previous/unfocus nodes.
+- Prevent `CustomOrientationBuilder` "onChanged" from running on initialization.
+
 ## 4.9.3
 
 - Add `onChanged` to `CustomOrientationBuilder`.
