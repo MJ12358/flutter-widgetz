@@ -170,10 +170,8 @@ class _DialState extends State<_Dial> with SingleTickerProviderStateMixin {
     switch (theme.brightness) {
       case Brightness.light:
         backgroundColor = Colors.grey[200];
-        break;
       case Brightness.dark:
         backgroundColor = theme.colorScheme.background;
-        break;
     }
 
     int? selectedDialValue;

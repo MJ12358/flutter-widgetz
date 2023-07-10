@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 5.0.0
+
+- Increase Dart sdk minimum version.
+
 ## 4.9.4
 
 - Update `CustomTextField` "onEditingComplete" on default next/previous/unfocus nodes.

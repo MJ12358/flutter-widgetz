@@ -169,10 +169,8 @@ class CustomTextField extends StatelessWidget {
     switch (textInputAction) {
       case TextInputAction.next:
         node.nextFocus();
-        break;
       case TextInputAction.previous:
         node.previousFocus();
-        break;
       default:
         node.unfocus();
         return;
