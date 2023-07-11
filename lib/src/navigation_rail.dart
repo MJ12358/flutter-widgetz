@@ -17,6 +17,7 @@ class CustomNavigationRail extends StatefulWidget {
     this.labelType,
     this.leading,
     this.onDestinationSelected,
+    this.selectedIndex,
     this.trailing,
     this.useIndicator,
   });
@@ -55,6 +56,10 @@ class CustomNavigationRail extends StatefulWidget {
   /// Called when one of the [destinations] is selected.
   final ValueChanged<int>? onDestinationSelected;
 
+  /// The index into [destinations] for the current selected
+  /// [NavigationRailDestination] or null if no destination is selected.
+  final int? selectedIndex;
+
   /// The trailing widget in the rail that is placed
   /// below the destinations.
   final Widget? trailing;
@@ -68,7 +73,13 @@ class CustomNavigationRail extends StatefulWidget {
 }
 
 class _CustomNavigationRailState extends State<CustomNavigationRail> {
-  int _selelectedIndex = 0;
+  late int _selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.selectedIndex ?? 0;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +102,7 @@ class _CustomNavigationRailState extends State<CustomNavigationRail> {
                 labelType: widget.labelType,
                 leading: widget.leading,
                 onDestinationSelected: _onDestinationSelected,
-                selectedIndex: _selelectedIndex,
+                selectedIndex: _selectedIndex,
                 trailing: widget.trailing,
                 useIndicator: widget.useIndicator,
               ),
@@ -104,7 +115,7 @@ class _CustomNavigationRailState extends State<CustomNavigationRail> {
 
   void _onDestinationSelected(int value) {
     setState(() {
-      _selelectedIndex = value;
+      _selectedIndex = value;
     });
     widget.onDestinationSelected?.call(value);
   }

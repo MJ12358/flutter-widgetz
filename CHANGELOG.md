@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 5.0.2
+
+- Add index params to `CustomBottomNavigationBar` and `CustomNavigationRail`.
+
 ## 5.0.1
 
 - Increase Dart sdk minimum version.

@@ -11,6 +11,7 @@ class CustomBottomNavigationBar extends StatefulWidget {
     required this.items,
     required this.onTap,
     this.backgroundColor,
+    this.currentIndex,
     this.elevation,
     this.type = BottomNavigationBarType.fixed,
   });
@@ -25,6 +26,9 @@ class CustomBottomNavigationBar extends StatefulWidget {
   /// The color of the [BottomNavigationBar] itself.
   final Color? backgroundColor;
 
+  /// The index into [items] for the current active [BottomNavigationBarItem].
+  final int? currentIndex;
+
   /// The z-coordinate of this [BottomNavigationBar].
   final double? elevation;
 
@@ -37,7 +41,13 @@ class CustomBottomNavigationBar extends StatefulWidget {
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-  int _currentIndex = 0;
+  late int _currentIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentIndex = widget.currentIndex ?? 0;
+  }
 
   @override
   Widget build(BuildContext context) {
