@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 5.0.3
+
+- Use `ThemeData.estimateBrightnessForColor` method instead when getting `ColorExtension.brightness`.
+
 ## 5.0.2
 
 - Add index params to `CustomBottomNavigationBar` and `CustomNavigationRail`.
