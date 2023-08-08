@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 
 part 'src/accordion.dart';
 part 'src/alert.dart';
+part 'src/auth_button.dart';
 part 'src/autocomplete.dart';
 part 'src/avatar.dart';
 part 'src/avatar_group.dart';
