@@ -4,7 +4,8 @@ import 'package:flutter_widgetz/flutter_widgetz.dart';
 class CountdownPage extends StatelessWidget {
   const CountdownPage({super.key});
 
-  static const Duration _defaultDuration = Duration(days: 1);
+  static const Duration _defaultDuration = Duration(days: 2);
+  static final DateTime _defaultDateTime = DateTime.now().add(_defaultDuration);
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +14,14 @@ class CountdownPage extends StatelessWidget {
       child: SpacedColumn(
         children: <Widget>[
           Countdown(
-            target: DateTime.now().add(_defaultDuration),
+            target: _defaultDateTime,
           ),
           Countdown(
-            target: DateTime(2023, 6),
+            target: _defaultDateTime,
             backgroundColor: Colors.black,
           ),
           Countdown(
-            target: DateTime(2023, 6),
+            target: _defaultDateTime,
             backgroundColor: Colors.red,
             textColor: Colors.green,
             daysText: 'D',
@@ -29,7 +30,7 @@ class CountdownPage extends StatelessWidget {
             secondsText: 'S',
           ),
           Countdown(
-            target: DateTime(2023, 6),
+            target: _defaultDateTime,
             backgroundColor: Colors.yellow,
             daysLabel: const Icon(Icons.calendar_today),
             hoursLabel: const Icon(Icons.hourglass_empty),
@@ -40,10 +41,10 @@ class CountdownPage extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(25),
             ),
-            target: DateTime.now().add(_defaultDuration),
+            target: _defaultDateTime,
           ),
           Countdown.circular(
-            target: DateTime.now().add(_defaultDuration),
+            target: _defaultDateTime,
           )
         ],
       ),

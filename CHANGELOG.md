@@ -1,5 +1,11 @@
 # Flutter Widgetz
 
+## 5.1.0
+
+- Add a screenshot to pub.dev
+- Add `AuthButton` widget.
+- Add `Shimmer` widget.
+
 ## 5.0.3
 
 - Use `ThemeData.estimateBrightnessForColor` method instead when getting `ColorExtension.brightness`.

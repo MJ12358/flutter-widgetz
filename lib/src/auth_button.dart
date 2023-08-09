@@ -25,8 +25,48 @@ class AuthButton extends StatelessWidget {
   /// The text show within the button.
   final String text;
 
-  bool get isDark =>
-      Theme.of(context).scaffoldBackgroundColor.brightness == Brightness.dark;
+  static Widget _getAsset(String name) {
+    return Image.asset(
+      'assets/icons/$name',
+      package: 'flutter_widgetz',
+    );
+  }
+
+  /// {@macro flutter_widgetz.AuthButton}
+  ///
+  /// This creates an Apple themed button.
+  ///
+  /// https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple
+  AuthButton.apple({
+    super.key,
+    required this.onTap,
+    this.text = 'Sign in with Apple',
+  })  : color = const Color(0xFF000000),
+        icon = _getAsset('apple.png');
+
+  /// {@macro flutter_widgetz.AuthButton}
+  ///
+  /// This creates a Facebook themed button.
+  ///
+  /// https://about.meta.com/brand/resources/facebookapp/logo/
+  AuthButton.facebook({
+    super.key,
+    required this.onTap,
+    this.text = 'Sign in with Facebook',
+  })  : color = const Color(0xFF43549D),
+        icon = _getAsset('facebook.png');
+
+  /// {@macro flutter_widgetz.AuthButton}
+  ///
+  /// This creates a GitHub themed button.
+  ///
+  /// https://github.com/logos
+  AuthButton.github({
+    super.key,
+    required this.onTap,
+    this.text = 'Sign in with GitHub',
+  })  : color = const Color(0xFF24292E),
+        icon = _getAsset('github.png');
 
   /// {@macro flutter_widgetz.AuthButton}
   ///
@@ -38,49 +78,36 @@ class AuthButton extends StatelessWidget {
     required this.onTap,
     this.text = 'Sign in with Google',
   })  : color = const Color(0xFF4285F4),
-        icon = Image.asset('assets/icons/google.png');
-
-  /// {@macro flutter_widgetz.AuthButton}
-  ///
-  /// This creates an Apple themed button.
-  ///
-  /// https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple
-  const AuthButton.apple({
-    super.key,
-    this.color = const Color(0xFF000000),
-    this.icon = const Icon(Icons.text_snippet),
-    required this.onTap,
-    this.text = 'Sign in With Apple',
-  });
-
-  /// {@macro flutter_widgetz.AuthButton}
-  ///
-  /// This creates a GitHub themed button.
-  ///
-  /// https://github.com/logos
-  const AuthButton.github({
-    super.key,
-    this.color = const Color(0xFF24292E),
-    this.icon = const Icon(Icons.text_snippet),
-    required this.onTap,
-    this.text = 'Sign in With GitHub',
-  });
+        icon = _getAsset('google.png');
 
   /// {@macro flutter_widgetz.AuthButton}
   ///
   /// This creates a Microsoft themed button.
   ///
   /// https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-add-branding-in-apps
-  const AuthButton.microsoft({
+  AuthButton.microsoft({
     super.key,
-    this.color = const Color(0xFFFFFFFF),
-    this.icon = const Icon(Icons.text_snippet),
     required this.onTap,
-    this.text = 'Sign in With Microsoft',
-  });
+    this.text = 'Sign in with Microsoft',
+  })  : color = const Color(0xFF2F2F2F),
+        icon = _getAsset('microsoft.png');
+
+  /// {@macro flutter_widgetz.AuthButton}
+  ///
+  /// This creates a Twitter themed button.
+  ///
+  /// https://about.twitter.com/content/dam/about-twitter/en/brand-toolkit/downloads/twitter-external-brand-guidelines-01272021.pdf
+  AuthButton.twitter({
+    super.key,
+    required this.onTap,
+    this.text = 'Sign in with Twitter',
+  })  : color = const Color(0xFF55ACEE),
+        icon = _getAsset('twitter.png');
 
   @override
   Widget build(BuildContext context) {
+    final double _height = Theme.of(context).buttonTheme.height;
+
     return ElevatedButton(
       onPressed: onTap,
       style: ElevatedButton.styleFrom(
@@ -89,7 +116,7 @@ class AuthButton extends StatelessWidget {
       ),
       child: Container(
         constraints: BoxConstraints(
-          maxHeight: Theme.of(context).buttonTheme.height,
+          maxHeight: _height,
           minWidth: 275,
           maxWidth: 275,
         ),
@@ -101,7 +128,11 @@ class AuthButton extends StatelessWidget {
               margin: const EdgeInsets.all(1.0),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: icon,
+                child: SizedBox(
+                  height: _height,
+                  width: _height,
+                  child: icon,
+                ),
               ),
             ),
             Padding(

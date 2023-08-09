@@ -49,6 +49,7 @@ part 'src/reorderable_list.dart';
 part 'src/save_button.dart';
 part 'src/scaffold.dart';
 part 'src/search_bar.dart';
+part 'src/shimmer.dart';
 part 'src/simple_dialog_option.dart';
 part 'src/single_child_scroll_view.dart';
 part 'src/slider.dart';
