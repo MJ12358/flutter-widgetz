@@ -34,14 +34,19 @@ class SaveButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedSwitcher(
-      duration: duration,
-      child: isSaving
-          ? progressIndicator
-          : CustomElevatedButton(
-              onPressed: onPressed,
-              text: text,
-            ),
+    return SizedBox(
+      // this is to avoid a height change during the transition
+      height: Theme.of(context).buttonTheme.height,
+      width: double.infinity,
+      child: AnimatedSwitcher(
+        duration: duration,
+        child: isSaving
+            ? progressIndicator
+            : CustomElevatedButton(
+                onPressed: onPressed,
+                text: text,
+              ),
+      ),
     );
   }
 }

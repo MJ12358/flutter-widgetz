@@ -92,13 +92,14 @@ class Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ButtonTheme(
+      minWidth: double.infinity,
       shape: RoundedRectangleBorder(
         side: border,
       ),
       child: MaterialButton(
         color: color,
         onPressed: onPressed,
-        textColor: onPressed != null ? color?.blackOrWhite : null,
+        textColor: color?.blackOrWhite,
         child: child,
       ),
     );

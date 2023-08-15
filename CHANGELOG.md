@@ -1,8 +1,12 @@
 # Flutter Widgetz
 
+## 5.1.1
+
+- Fix `Button` minWidth and textColor.
+- Fix `SaveButton` transition height.
+
 ## 5.1.0
 
-- Add a screenshot to pub.dev
 - Add `AuthButton` widget.
 - Add `Shimmer` widget.
 

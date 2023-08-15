@@ -3,8 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
-class ButtonPage extends StatelessWidget {
+class ButtonPage extends StatefulWidget {
   const ButtonPage({super.key});
+
+  @override
+  State<ButtonPage> createState() => _ButtonPageState();
+}
+
+class _ButtonPageState extends State<ButtonPage> {
+  bool _isSaving = false;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +41,10 @@ class ButtonPage extends StatelessWidget {
             onPressed: () => print('button five pressed'),
             text: 'Button Five',
             color: Theme.of(context).colorScheme.onBackground,
+          ),
+          SaveButton(
+            onPressed: _onSaveButtonPressed,
+            isSaving: _isSaving,
           ),
           Button(
             color: Colors.black,
@@ -65,12 +76,26 @@ class ButtonPage extends StatelessWidget {
             onPressed: () => print('outline2'),
             child: const Text('Outline Two'),
           ),
-          Button.success(
-            onPressed: () => print('success'),
-            child: const Text('Success'),
+          SizedBox(
+            width: MediaQuery.of(context).size.width / 2,
+            child: Button.success(
+              onPressed: () => print('success'),
+              child: const Text('Success'),
+            ),
           ),
         ],
       ),
     );
+  }
+
+  /// This is used to simulate a saving event.
+  Future<void> _onSaveButtonPressed() async {
+    setState(() {
+      _isSaving = !_isSaving;
+    });
+    await Future<void>.delayed(const Duration(seconds: 3));
+    setState(() {
+      _isSaving = !_isSaving;
+    });
   }
 }
