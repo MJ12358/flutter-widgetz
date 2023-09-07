@@ -45,7 +45,7 @@ class CountdownPage extends StatelessWidget {
           ),
           Countdown.circular(
             target: _defaultDateTime,
-          )
+          ),
         ],
       ),
     );

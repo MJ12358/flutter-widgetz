@@ -28,8 +28,6 @@ class CustomDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: spaced row cant be put inside a custom divider????????
-    // do you need to wrap the 'child' and its spacers inside an 'expanded'?
     return Theme(
       data: _getTheme(context),
       child: Row(

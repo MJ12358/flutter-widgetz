@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
+List<String> _autocompletes = <String>[
+  'dart',
+  'flutter',
+  'go',
+  'java',
+  'javascript',
+  'php',
+  'ruby',
+];
+
 class TextFieldPage extends StatelessWidget {
   const TextFieldPage({super.key});
 
@@ -21,9 +31,9 @@ class _Landscape extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SpacedColumn(
+    return SpacedColumn(
       children: <Widget>[
-        SpacedRow(
+        const SpacedRow(
           children: <Widget>[
             CustomTextField(
               labelText: 'Row1',
@@ -42,7 +52,7 @@ class _Landscape extends StatelessWidget {
         ),
         SpacedRow(
           children: <Widget>[
-            SpacedColumn(
+            const SpacedColumn(
               children: <Widget>[
                 CustomTextField(
                   labelText: 'One',
@@ -56,8 +66,28 @@ class _Landscape extends StatelessWidget {
             ),
             SpacedColumn(
               children: <Widget>[
+                CustomAutocomplete<String>(
+                  onChanged: print,
+                  onSelected: print,
+                  prefixIcon: Icons.search,
+                  optionsBuilder: (String v) => _autocompletes
+                      .where((String e) => e.contains(v))
+                      .toList(),
+                ),
+                CustomAutocomplete<String>(
+                  onChanged: print,
+                  onSelected: print,
+                  prefixIcon: Icons.search,
+                  optionsBuilder: (String v) => _autocompletes
+                      .where((String e) => e.contains(v))
+                      .toList(),
+                ),
+              ],
+            ),
+            const SpacedColumn(
+              children: <Widget>[
                 CustomTextField(
-                  labelText: 'Three',
+                  // labelText: 'Three',
                   prefixIcon: Icons.three_k,
                 ),
                 CustomTextField(
@@ -78,25 +108,36 @@ class _Portrait extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SpacedColumn(
+    return SpacedColumn(
       children: <Widget>[
-        CustomTextField(
+        const CustomTextField(
           labelText: 'One',
           prefixIcon: Icons.one_k,
           textInputAction: TextInputAction.next,
         ),
-        CustomTextField(
+        const CustomTextField(
           labelText: 'Two',
           prefixIcon: Icons.two_k,
           helpText: 'Help Text',
           textInputAction: TextInputAction.previous,
         ),
-        CustomTextField(
+        Autocomplete<String>(
+          optionsBuilder: (TextEditingValue v) =>
+              _autocompletes.where((String e) => e.contains(v.text)).toList(),
+        ),
+        CustomAutocomplete<String>(
+          onChanged: print,
+          onSelected: print,
+          prefixIcon: Icons.search,
+          optionsBuilder: (String v) =>
+              _autocompletes.where((String e) => e.contains(v)).toList(),
+        ),
+        const CustomTextField(
           labelText: 'Three',
           prefixIcon: Icons.three_k,
           textInputAction: TextInputAction.next,
         ),
-        CustomTextField(
+        const CustomTextField(
           labelText: 'Four',
           prefixIcon: Icons.four_k,
           textInputAction: TextInputAction.done,

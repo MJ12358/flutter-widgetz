@@ -19,7 +19,7 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
     this.hasError = false,
     this.initialValue = '',
     this.keyboardType = TextInputType.text,
-    this.labelText,
+    this.labelText = '',
     this.prefixIcon,
     this.scrollPadding = const EdgeInsets.all(200.0),
     this.textCapitalization = TextCapitalization.none,
@@ -55,6 +55,8 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
   final TextInputType? keyboardType;
 
   /// An optional label for this input.
+  /// This defaults to an empty string in order to keep the
+  /// height of this widget the same as other text fields.
   final String? labelText;
 
   /// An icon that appears before the editable part of the text field.
@@ -184,8 +186,7 @@ class _AutocompleteOptions<T extends Object> extends StatelessWidget {
                         AutocompleteHighlightedOption.of(context) == index;
 
                     if (highlight) {
-                      SchedulerBinding.instance
-                          .addPostFrameCallback((Duration timeStamp) {
+                      SchedulerBinding.instance.addPostFrameCallback((_) {
                         Scrollable.ensureVisible(context, alignment: 0.5);
                       });
                     }

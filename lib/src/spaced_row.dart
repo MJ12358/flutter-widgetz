@@ -53,7 +53,7 @@ class SpacedRow extends StatelessWidget {
 
   // TODO: need to find the type of widget that is returned from "build"
   // then determine its height and/or width
-  // as just checking for "SizedBox" does not achieve the required result
+  // as just checking for "SizedBox" does not achieve the required result.
   static bool _defaultFilter(Widget e) {
     if (e is SizedBox) {
       if ((e.height ?? 0) <= 0 && (e.width ?? 0) <= 0) {

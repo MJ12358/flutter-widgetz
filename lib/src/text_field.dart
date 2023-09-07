@@ -173,7 +173,6 @@ class CustomTextField extends StatelessWidget {
         node.previousFocus();
       default:
         node.unfocus();
-        return;
     }
   }
 }

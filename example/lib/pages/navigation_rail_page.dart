@@ -60,7 +60,7 @@ class _NavigationRailPageState extends State<NavigationRailPage> {
         const VerticalDivider(),
         Expanded(
           child: _pages[_index],
-        )
+        ),
       ],
     );
   }

@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 5.1.2
+
+- Fix `Autocomplete` height when compared to other fields.
+
 ## 5.1.1
 
 - Fix `Button` minWidth and textColor.

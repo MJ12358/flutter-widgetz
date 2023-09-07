@@ -8,22 +8,25 @@ A set of [Flutter](https://flutter.dev) widgets I use in various projects.
 
 - Accordion
 - Alert
+- AuthButton
 - Autocomplete
 - Avatar
 - AvatarGroup
 - Badge
 - BottomNavigationBar
 - Button
+- Carousel
 - CheckboxGroup
-- CheckboxInput
-- ColorInput
+- CheckboxField
+- ColorField
 - ColorPicker
-- CounterInput
-- DateInput
-- DateRangeInput
+- Countdown
+- CounterField
+- DateField
+- DateRangeField
 - Divider
 - Drawer
-- DropdownInput
+- DropdownField
 - DuelingPicklist
 - DurationField
 - DurationPicker
@@ -49,8 +52,8 @@ A set of [Flutter](https://flutter.dev) widgets I use in various projects.
 - SliverList
 - SpacedColumn
 - SpacedRow
-- TextFormField
-- TimeInput
+- TextField
+- TimeField
 
 ## Additional information
 
