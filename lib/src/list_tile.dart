@@ -7,6 +7,7 @@ class CustomListTile extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomListTile}
   CustomListTile({
     super.key,
+    bool? dense,
     Widget? leading,
     String? leadingText,
     VoidCallback? onLongPress,
@@ -18,15 +19,16 @@ class CustomListTile extends StatelessWidget {
     String? titleText,
     Widget? trailing,
   }) : _content = _Tile(
-          onTap: onTap,
-          onLongPress: onLongPress,
+          dense: dense,
           leading: leading,
           leadingText: leadingText,
+          onTap: onTap,
+          onLongPress: onLongPress,
           selected: selected,
-          title: title,
-          titleText: titleText,
           subtitle: subtitle,
           subtitleText: subtitleText,
+          title: title,
+          titleText: titleText,
           trailing: trailing,
         );
 
@@ -42,6 +44,7 @@ class CustomListTile extends StatelessWidget {
     required VoidCallback onDismissed,
     Color color = Colors.red,
     AsyncValueGetter<bool?>? confirmDismiss,
+    bool? dense,
     DismissDirection dismissDirection = DismissDirection.endToStart,
     IconData icon = Icons.delete,
     Widget? leading,
@@ -68,10 +71,11 @@ class CustomListTile extends StatelessWidget {
           confirmDismiss: (_) =>
               confirmDismiss?.call() ?? Future<bool>.value(true),
           child: _Tile(
-            onTap: onTap,
-            onLongPress: onLongPress,
+            dense: dense,
             leading: leading,
             leadingText: leadingText,
+            onTap: onTap,
+            onLongPress: onLongPress,
             selected: selected,
             subtitle: subtitle,
             subtitleText: subtitleText,
@@ -89,6 +93,7 @@ class CustomListTile extends StatelessWidget {
 
 class _Tile extends ListTile {
   _Tile({
+    super.dense,
     Widget? leading,
     String? leadingText,
     super.onTap,

@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 5.2.1
+
+- Add `dense` param to `CustomListTile`.
+
 ## 5.2.0
 
 - Add `CustomAppBar` widget.
@@ -35,12 +39,12 @@
 
 ## 4.9.4
 
-- Update `CustomTextField` "onEditingComplete" on default next/previous/unfocus nodes.
-- Prevent `CustomOrientationBuilder` "onChanged" from running on initialization.
+- Update `CustomTextField.onEditingComplete` to default next/previous/unfocus nodes.
+- Prevent `CustomOrientationBuilder.onChanged` from running on initialization.
 
 ## 4.9.3
 
-- Add `onChanged` to `CustomOrientationBuilder`.
+- Add `onChanged` param to `CustomOrientationBuilder`.
 
 ## 4.9.2
 
@@ -49,8 +53,8 @@
 
 ## 4.9.1
 
+- Add `onEditingComplete` param to `CustomTextField`.
 - Put Spaced Column/Row defaultFilter into own function.
-- Add onEditingComplete to `CustomTextField`.
 
 ## 4.9.0
 
@@ -87,10 +91,10 @@
 
 - Add icon param to `DropdownField`.
 - Fix DropdownField density.
-- Add mainAxisExtent param to `CustomSliverGrid.count`.
+- Add `mainAxisExtent` param to `CustomSliverGrid.count`.
 - Add `CustomSliverGrid.extent` factory.
 - Add general constructors for `CustomSliverGrid` and `CustomSliverList`.
-- Add mainAxisSize to `SpacedRow`.
+- Add `mainAxisSize` param to `SpacedRow`.
 
 ## 4.1.0
 
@@ -113,7 +117,7 @@
 - Add `DateRangeField`.
 - Add `DuelingPicklist`.
 - Add `TimeField`.
-- Add shape param to `ColorPicker`.
+- Add `shape` param to `ColorPicker`.
 - Fix errorBuilder in Avatar factories.
 
 ## 3.1.0
@@ -158,8 +162,8 @@
 
 ## 1.3.6
 
-- Add checked and icon factories to `CustomPopupMenuItem`.
-- Add checked, icon and tile factories to `CustomSimpleDialogOption`.
+- Add `checked` and `icon` factories to `CustomPopupMenuItem`.
+- Add `checked`, `icon` and `tile` factories to `CustomSimpleDialogOption`.
 
 ## 1.3.5
 
@@ -168,12 +172,12 @@
 ## 1.3.4
 
 - Add `CustomPopupMenuItem`.
-- Add icon param to `CustomAvatar`.
-- Add padding param to `CustomPlaceholder`.
+- Add `icon` param to `CustomAvatar`.
+- Add `padding` param to `CustomPlaceholder`.
 
 ## 1.3.3
 
-- Add count factory to sliver grid.
+- Add `count` factory to `CustomSliverGrid`.
 
 ## 1.3.2
 
@@ -185,7 +189,7 @@
 
 ## 1.3.1
 
-- Add padding to sliver list and grid.
+- Add `padding` to `CustomSliverList` and `CustomSliverGrid`.
 - Add more docs and comments.
 
 ## 1.3.0
