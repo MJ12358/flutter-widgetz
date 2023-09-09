@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
@@ -19,11 +17,15 @@ class _ListViewPageState extends State<ListViewPage> {
 
     for (int i = 1; i <= 25; i++) {
       _widgets.add(
-        ListTile(
+        CustomListTile.dismissible(
           key: ValueKey<String>('$i-item'),
-          title: Text(
-            i.toString(),
-          ),
+          uniqueKey: ValueKey<String>('$i-item'),
+          onDismissed: () {
+            _widgets.removeAt(i);
+            setState(() {});
+          },
+          leadingText: i.toString(),
+          titleText: i.toString(),
         ),
       );
     }
@@ -40,8 +42,9 @@ class _ListViewPageState extends State<ListViewPage> {
         return Divider(key: ValueKey<String>('$index-divider'));
       },
       onReorder: (int oldIndex, int newIndex) {
-        print(oldIndex);
-        print(newIndex);
+        final Widget w = _widgets.removeAt(oldIndex);
+        _widgets.insert(newIndex, w);
+        setState(() {});
       },
     );
   }

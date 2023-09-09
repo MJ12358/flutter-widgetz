@@ -72,8 +72,9 @@ class MainState extends State<Main> {
       debugShowMaterialGrid: _showMaterialGrid,
       title: 'Flutter Widgetz Example',
       home: CustomScaffold(
-        appBar: AppBar(
-          title: Text(_currentPage.title),
+        appBar: CustomAppBar.subtitled(
+          titleText: 'Flutter Widgetz',
+          subtitleText: _currentPage.title,
           actions: <Widget>[
             IconButton(
               icon: const Icon(Icons.grid_3x3),

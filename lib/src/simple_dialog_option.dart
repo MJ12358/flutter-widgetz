@@ -2,7 +2,7 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomSimpleDialogOption}
 /// A [SimpleDialogOption] with built in padding.
-/// This fixes an accessibility warning in Google Play Console.
+/// This fixes an accessibility warning in the Google Play Console.
 /// {@endtemplate}
 class CustomSimpleDialogOption extends SimpleDialogOption {
   /// {@macro flutter_widgetz.CustomSimpleDialogOption}
@@ -16,7 +16,9 @@ class CustomSimpleDialogOption extends SimpleDialogOption {
     ),
   });
 
-  /// A [SimpleDialogOption] with a checkmark.
+  /// {@macro flutter_widgetz.CustomSimpleDialogOption}
+  ///
+  /// Checked uses a checkmark based on the [checked] property.
   CustomSimpleDialogOption.checked({
     super.key,
     required String text,
@@ -34,7 +36,9 @@ class CustomSimpleDialogOption extends SimpleDialogOption {
           ),
         );
 
-  /// A [SimpleDialogOption] with an icon.
+  /// {@macro flutter_widgetz.CustomSimpleDialogOption}
+  ///
+  /// Icon uses an icon.
   CustomSimpleDialogOption.icon({
     super.key,
     required String text,
@@ -48,7 +52,9 @@ class CustomSimpleDialogOption extends SimpleDialogOption {
           ),
         );
 
-  /// A [SimpleDialogOption] that wraps the child in a [ListTile].
+  /// {@macro flutter_widgetz.CustomSimpleDialogOption}
+  ///
+  /// Tile wraps the child in a [ListTile].
   CustomSimpleDialogOption.tile({
     super.key,
     required Widget child,

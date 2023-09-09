@@ -8,6 +8,7 @@ A set of [Flutter](https://flutter.dev) widgets I use in various projects.
 
 - Accordion
 - Alert
+- AppBar
 - AuthButton
 - Autocomplete
 - Avatar
@@ -34,6 +35,7 @@ A set of [Flutter](https://flutter.dev) widgets I use in various projects.
 - FloatingActionButton
 - LayoutBuilder
 - Link
+- ListTile
 - NavigationRail
 - OrientationBuilder
 - Placeholder
@@ -52,6 +54,7 @@ A set of [Flutter](https://flutter.dev) widgets I use in various projects.
 - SliverList
 - SpacedColumn
 - SpacedRow
+- TabBar
 - TextField
 - TimeField
 

@@ -1,5 +1,12 @@
 # Flutter Widgetz
 
+## 5.2.0
+
+- Add `CustomAppBar` widget.
+- Add `CustomListTile` widget.
+- Add `CustomTabBar` widget.
+- Update example app.
+
 ## 5.1.2
 
 - Fix `Autocomplete` height when compared to other fields.

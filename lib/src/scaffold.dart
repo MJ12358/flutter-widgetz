@@ -24,7 +24,7 @@ class CustomScaffold extends StatelessWidget {
     this.resizeToAvoidBottomInset = true,
     this.right = true,
     this.semanticLabel,
-    this.top = true,
+    this.top = false,
   });
 
   /// The primary content of the scaffold.
@@ -70,7 +70,8 @@ class CustomScaffold extends StatelessWidget {
   /// Creates a semantic annotation.
   final String? semanticLabel;
 
-  /// Whether to avoid system intrusions on the right.
+  /// Whether to avoid system intrusions at the top of the screen,
+  /// typically the system status bar.
   final bool top;
 
   static Future<void> _defaultOnRefresh() async {}
