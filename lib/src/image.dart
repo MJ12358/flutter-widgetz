@@ -29,14 +29,14 @@ class CustomImage extends StatelessWidget {
   ///
   /// Uses an [AssetImage].
   CustomImage.asset(
-    String name, {
+    String? name, {
     super.key,
     this.color,
     Widget errorWidget = _defaultErrorWidget,
     this.fit = _defaultBoxFit,
     ImageFrameBuilder? frameBuilder,
   }) : imageProvider = Image.asset(
-          name,
+          name ?? '',
           errorBuilder: (_, __, ___) => errorWidget,
           frameBuilder: frameBuilder,
         ).image;
@@ -45,14 +45,14 @@ class CustomImage extends StatelessWidget {
   ///
   /// Uses a [MemoryImage].
   CustomImage.memory(
-    Uint8List bytes, {
+    Uint8List? bytes, {
     super.key,
     this.color,
     Widget errorWidget = _defaultErrorWidget,
     this.fit = _defaultBoxFit,
     ImageFrameBuilder? frameBuilder,
   }) : imageProvider = Image.memory(
-          bytes,
+          bytes ?? Uint8List(0),
           errorBuilder: (_, __, ___) => errorWidget,
           frameBuilder: frameBuilder,
         ).image;
@@ -61,14 +61,14 @@ class CustomImage extends StatelessWidget {
   ///
   /// Uses a [NetworkImage].
   CustomImage.network(
-    String src, {
+    String? src, {
     super.key,
     this.color,
     Widget errorWidget = _defaultErrorWidget,
     this.fit = _defaultBoxFit,
     ImageLoadingBuilder? loadingBuilder,
   }) : imageProvider = Image.network(
-          src,
+          src ?? '',
           errorBuilder: (_, __, ___) => errorWidget,
           loadingBuilder: loadingBuilder,
         ).image;

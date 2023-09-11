@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 5.3.1
+
+- Allow nullable image params.
+
 ## 5.3.0
 
 - Add `CustomImage` widget.
