@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 5.3.0
+
+- Add `CustomImage` widget.
+- Add `memory` constructor to `CustomAvatar`.
+
 ## 5.2.1
 
 - Add `dense` param to `CustomListTile`.

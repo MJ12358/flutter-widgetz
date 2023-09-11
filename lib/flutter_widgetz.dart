@@ -37,6 +37,7 @@ part 'src/duration_picker.dart';
 part 'src/elevated_button.dart';
 part 'src/extensions.dart';
 part 'src/floating_action_button.dart';
+part 'src/image.dart';
 part 'src/layout_builder.dart';
 part 'src/link.dart';
 part 'src/list_tile.dart';

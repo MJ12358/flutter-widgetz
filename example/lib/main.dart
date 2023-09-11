@@ -17,6 +17,7 @@ import 'package:flutter_widgetz_example/pages/dialogs_page.dart';
 import 'package:flutter_widgetz_example/pages/divider_page.dart';
 import 'package:flutter_widgetz_example/pages/dropdown_field_page.dart';
 import 'package:flutter_widgetz_example/pages/duration_picker_page.dart';
+import 'package:flutter_widgetz_example/pages/image_page.dart';
 import 'package:flutter_widgetz_example/pages/link_page.dart';
 import 'package:flutter_widgetz_example/pages/list_view_page.dart';
 import 'package:flutter_widgetz_example/pages/navigation_rail_page.dart';
@@ -128,7 +129,6 @@ class MainState extends State<Main> {
         ),
       ),
       theme: _isDark ? _theme.dark() : _theme.light(),
-      // theme: _isDark ? ThemeData.dark() : ThemeData.light(),
     );
   }
 
@@ -185,6 +185,7 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.space_bar, DividerPage(), 'Dividers'),
   PageInfo(Icons.arrow_drop_down, DropdownFieldPage(), 'Dropdown Field'),
   PageInfo(Icons.timelapse, DurationPickerPage(), 'Duration Picker'),
+  PageInfo(Icons.image, ImagePage(), 'Images'),
   PageInfo(Icons.link, LinkPage(), 'Links'),
   PageInfo(Icons.list, ListViewPage(), 'List View'),
   PageInfo(Icons.navigation, NavigationRailPage(), 'Navigation Rail'),

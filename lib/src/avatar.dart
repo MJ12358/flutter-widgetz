@@ -52,6 +52,20 @@ class CustomAvatar extends StatelessWidget {
 
   /// {@macro flutter_widgetz.CustomAvatar}
   ///
+  /// Uses a [MemoryImage].
+  CustomAvatar.memory(
+    Uint8List bytes, {
+    super.key,
+    this.color,
+    this.icon = _defaultIcon,
+    this.radius,
+  }) : imageProvider = Image.memory(
+          bytes,
+          errorBuilder: _defaultImageErrorWidgetHandler,
+        ).image;
+
+  /// {@macro flutter_widgetz.CustomAvatar}
+  ///
   /// Uses a [NetworkImage].
   CustomAvatar.network(
     String src, {
@@ -64,14 +78,14 @@ class CustomAvatar extends StatelessWidget {
           errorBuilder: _defaultImageErrorWidgetHandler,
         ).image;
 
-  bool get hasImage => imageProvider != null;
+  bool get _hasImage => imageProvider != null;
 
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      backgroundColor: hasImage ? null : color,
+      backgroundColor: _hasImage ? null : color,
       foregroundImage: imageProvider,
-      onForegroundImageError: hasImage ? _defaultImageErrorHandler : null,
+      onForegroundImageError: _hasImage ? _defaultImageErrorHandler : null,
       radius: radius,
       child: Center(
         child: Icon(icon),
