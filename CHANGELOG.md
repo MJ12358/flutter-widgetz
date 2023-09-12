@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 5.3.2
+
+- Add `primaryColor` and `trailingText` params to `CustomListTile`.
+
 ## 5.3.1
 
 - Allow nullable image params.

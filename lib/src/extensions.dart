@@ -1,12 +1,10 @@
 part of flutter_widgetz;
 
 extension _ColorExtension on Color {
-  /// Determine if a color is `light` or `dark`.
   Brightness get brightness {
     return ThemeData.estimateBrightnessForColor(this);
   }
 
-  /// Get black or white based on the brightness of this color.
   Color get blackOrWhite {
     return brightness == Brightness.dark ? Colors.white : Colors.black;
   }

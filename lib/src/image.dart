@@ -77,15 +77,23 @@ class CustomImage extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    return Container(
-      decoration: BoxDecoration(
-        color: color ?? theme.colorScheme.secondary,
-        image: DecorationImage(
-          fit: fit,
-          image: imageProvider,
-          onError: _defaultImageErrorHandler,
+    try {
+      return Container(
+        decoration: BoxDecoration(
+          color: color ?? theme.colorScheme.secondary,
+          image: DecorationImage(
+            fit: fit,
+            image: imageProvider,
+            onError: _defaultImageErrorHandler,
+          ),
         ),
-      ),
-    );
+      );
+    } catch (_) {
+      return Container(
+        decoration: BoxDecoration(
+          color: color ?? theme.colorScheme.secondary,
+        ),
+      );
+    }
   }
 }
