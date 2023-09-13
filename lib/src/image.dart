@@ -8,9 +8,15 @@ class CustomImage extends StatelessWidget {
   const CustomImage({
     super.key,
     required this.imageProvider,
+    this.alignment = _defaultAlignment,
     this.color,
     this.fit = _defaultBoxFit,
+    this.opacity = _defaultOpacity,
+    this.scale = _defaultScale,
   });
+
+  /// How to align the image within its bounds.
+  final Alignment alignment;
 
   /// The color to fill in the background of the box.
   final Color? color;
@@ -21,8 +27,18 @@ class CustomImage extends StatelessWidget {
   /// The image to be painted into the decoration.
   final ImageProvider<Object> imageProvider;
 
+  /// This value is multiplied with the opacity of
+  /// each image pixel before painting onto the canvas.
+  final double opacity;
+
+  /// Defines image pixels to be shown per logical pixels.
+  final double scale;
+
+  static const Alignment _defaultAlignment = Alignment.center;
   static const BoxFit _defaultBoxFit = BoxFit.cover;
   static const Widget _defaultErrorWidget = SizedBox();
+  static const double _defaultOpacity = 1.0;
+  static const double _defaultScale = 1.0;
   static void _defaultImageErrorHandler(Object o, StackTrace? s) {}
 
   /// {@macro flutter_widgetz.CustomImage}
@@ -31,10 +47,13 @@ class CustomImage extends StatelessWidget {
   CustomImage.asset(
     String? name, {
     super.key,
+    this.alignment = _defaultAlignment,
     this.color,
     Widget errorWidget = _defaultErrorWidget,
     this.fit = _defaultBoxFit,
     ImageFrameBuilder? frameBuilder,
+    this.opacity = _defaultOpacity,
+    this.scale = _defaultScale,
   }) : imageProvider = Image.asset(
           name ?? '',
           errorBuilder: (_, __, ___) => errorWidget,
@@ -47,10 +66,13 @@ class CustomImage extends StatelessWidget {
   CustomImage.memory(
     Uint8List? bytes, {
     super.key,
+    this.alignment = _defaultAlignment,
     this.color,
     Widget errorWidget = _defaultErrorWidget,
     this.fit = _defaultBoxFit,
     ImageFrameBuilder? frameBuilder,
+    this.opacity = _defaultOpacity,
+    this.scale = _defaultScale,
   }) : imageProvider = Image.memory(
           bytes ?? Uint8List(0),
           errorBuilder: (_, __, ___) => errorWidget,
@@ -63,10 +85,13 @@ class CustomImage extends StatelessWidget {
   CustomImage.network(
     String? src, {
     super.key,
+    this.alignment = _defaultAlignment,
     this.color,
     Widget errorWidget = _defaultErrorWidget,
     this.fit = _defaultBoxFit,
     ImageLoadingBuilder? loadingBuilder,
+    this.opacity = _defaultOpacity,
+    this.scale = _defaultScale,
   }) : imageProvider = Image.network(
           src ?? '',
           errorBuilder: (_, __, ___) => errorWidget,
@@ -82,9 +107,12 @@ class CustomImage extends StatelessWidget {
         decoration: BoxDecoration(
           color: color ?? theme.colorScheme.secondary,
           image: DecorationImage(
+            alignment: alignment,
             fit: fit,
             image: imageProvider,
             onError: _defaultImageErrorHandler,
+            opacity: opacity,
+            scale: scale,
           ),
         ),
       );

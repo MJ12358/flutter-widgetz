@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 5.4.0
+
+- Add `CustomBottomAppBar` widget.
+- Add `alignment`, `opacity` and `scale` params to `CustomImage`.
+
 ## 5.3.2
 
 - Add `primaryColor` and `trailingText` params to `CustomListTile`.

@@ -17,6 +17,7 @@ part 'src/autocomplete.dart';
 part 'src/avatar.dart';
 part 'src/avatar_group.dart';
 part 'src/badge.dart';
+part 'src/bottom_app_bar.dart';
 part 'src/bottom_navigation_bar.dart';
 part 'src/button.dart';
 part 'src/carousel.dart';

@@ -14,6 +14,7 @@ A set of [Flutter](https://flutter.dev) widgets I use in various projects.
 - Avatar
 - AvatarGroup
 - Badge
+- BottomAppBar
 - BottomNavigationBar
 - Button
 - Carousel
@@ -33,6 +34,7 @@ A set of [Flutter](https://flutter.dev) widgets I use in various projects.
 - DurationPicker
 - ElevatedButton
 - FloatingActionButton
+- Image
 - LayoutBuilder
 - Link
 - ListTile
