@@ -45,10 +45,10 @@ packages:
     dependency: "direct dev"
     description:
       name: dart_lintz
-      sha256: b2d3260597e0e2723c422c2bb9362a8872c4342e03e45db87e07731264673ae6
+      sha256: eb2cd45e0c3eeeda29cd42e9d8f84d6799483ef266987682c9a5e04ccd8fb674
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.1"
   fake_async:
     dependency: transitive
     description:
@@ -62,6 +62,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_extensionz:
+    dependency: "direct main"
+    description:
+      name: flutter_extensionz
+      sha256: "923366884c6db14e5db0bfe205ed52fcee6f954a9444eff6730e8719ca8e77a6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -71,17 +79,17 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_themez
-      sha256: ee75daca3ff62dd076b1941dca43db31eb54984727c80b3761aea3e2723e7414
+      sha256: "416a7b2477b4b3da914508c406b9e75d50b495a505b9b52203cc79a424cc7181"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.1"
+    version: "2.0.0"
   flutter_widgetz:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "5.4.0"
+    version: "6.0.0"
   matcher:
     dependency: transitive
     description:

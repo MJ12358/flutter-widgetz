@@ -10,6 +10,9 @@ class BadgePage extends StatelessWidget {
       padding: EdgeInsets.all(16.0),
       child: SpacedColumn(
         children: <Widget>[
+          CustomDivider(
+            child: Text('Flutter Defaults'),
+          ),
           Badge(
             label: Text('Default'),
           ),
@@ -17,8 +20,15 @@ class BadgePage extends StatelessWidget {
             label: Text('5'),
             child: Icon(Icons.abc),
           ),
+          CustomDivider(
+            child: Text('Custom'),
+          ),
           CustomBadge(
-            label: Text('Custom'),
+            label: Text('Default'),
+          ),
+          CustomBadge(
+            label: Text('5'),
+            child: Icon(Icons.abc),
           ),
           CustomBadge.inverse(
             label: Text('Inverse'),

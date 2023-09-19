@@ -42,6 +42,7 @@ class DuelingPicklist<T extends Object> extends StatefulWidget {
   /// Called when the selected items change.
   final ValueChanged<List<T>>? onSelectedChanged;
 
+  /// How the items should be sorted.
   final int Function(T a, T b)? onSort;
 
   /// The list of selected items.

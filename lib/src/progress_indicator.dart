@@ -13,26 +13,45 @@ class CustomProgressIndicator extends StatelessWidget {
   /// The progress indicator to be shown.
   final ProgressIndicator indicator;
 
+  static const String _defaultSemanticsLabel = 'Loading';
+
   /// {@macro flutter_widgetz.CustomProgressIndicator}
   ///
   /// Circular uses a [CircularProgressIndicator].
-  const CustomProgressIndicator.circular({
+  CustomProgressIndicator.circular({
     super.key,
-  }) : indicator = const CircularProgressIndicator();
+    String semanticsLabel = _defaultSemanticsLabel,
+    double? value,
+  }) : indicator = CircularProgressIndicator(
+          semanticsLabel: semanticsLabel,
+          value: value,
+        );
 
   /// {@macro flutter_widgetz.CustomProgressIndicator}
   ///
   /// Linear uses a [LinearProgressIndicator].
-  const CustomProgressIndicator.linear({
+  CustomProgressIndicator.linear({
     super.key,
-  }) : indicator = const LinearProgressIndicator();
+    BorderRadiusGeometry borderRadius = BorderRadius.zero,
+    String semanticsLabel = _defaultSemanticsLabel,
+    double? value,
+  }) : indicator = LinearProgressIndicator(
+          borderRadius: borderRadius,
+          semanticsLabel: semanticsLabel,
+          value: value,
+        );
 
   /// {@macro flutter_widgetz.CustomProgressIndicator}
   ///
   /// Refresh uses a [RefreshProgressIndicator].
-  const CustomProgressIndicator.refresh({
+  CustomProgressIndicator.refresh({
     super.key,
-  }) : indicator = const RefreshProgressIndicator();
+    String semanticsLabel = _defaultSemanticsLabel,
+    double? value,
+  }) : indicator = RefreshProgressIndicator(
+          semanticsLabel: semanticsLabel,
+          value: value,
+        );
 
   @override
   Widget build(BuildContext context) {

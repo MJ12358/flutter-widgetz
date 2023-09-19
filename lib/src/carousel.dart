@@ -45,7 +45,7 @@ class Carousel extends StatefulWidget {
 
   /// {@macro flutter_widgetz.Carousel}
   ///
-  /// Uses [SliverChildListDelegate].
+  /// Count uses [SliverChildListDelegate].
   Carousel.count({
     super.key,
     required List<Widget> children,
@@ -64,7 +64,7 @@ class Carousel extends StatefulWidget {
 
   /// {@macro flutter_widgetz.Carousel}
   ///
-  /// Uses [SliverChildBuilderDelegate].
+  /// Builder uses [SliverChildBuilderDelegate].
   Carousel.builder({
     super.key,
     required int itemCount,

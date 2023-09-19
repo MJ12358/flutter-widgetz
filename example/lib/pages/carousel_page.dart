@@ -1,31 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
-class CarouselPage extends StatelessWidget {
+class CarouselPage extends StatefulWidget {
   const CarouselPage({super.key});
 
-  List<Widget> get _items {
-    return List<Widget>.generate(5, (int i) {
+  @override
+  State<CarouselPage> createState() => _CarouselPageState();
+}
+
+class _CarouselPageState extends State<CarouselPage> {
+  late final List<Widget> _items;
+  late final List<Widget> _colors;
+
+  @override
+  void initState() {
+    super.initState();
+    _items = List<Widget>.generate(5, (int i) {
       return Center(child: Text('$i'));
     });
-  }
-
-  List<Widget> get _colors {
-    return Colors.primaries
+    _colors = Colors.primaries
         .map(
-          (MaterialColor e) => Container(
-            color: e,
-          ),
+          (MaterialColor e) => Container(color: e),
         )
         .toList();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Center(
-          child: SizedBox(
+    return CustomSingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
+      child: SpacedColumn(
+        spacing: 16.0,
+        children: <Widget>[
+          const CustomDivider(child: Text('Count')),
+          SizedBox(
             height: 100,
             width: 100,
             child: Carousel.count(
@@ -34,32 +42,28 @@ class CarouselPage extends StatelessWidget {
               children: _items,
             ),
           ),
-        ),
-        const SizedBox(height: 16.0),
-        Center(
-          child: SizedBox(
+          const CustomDivider(child: Text('Builder (default)')),
+          SizedBox(
             height: 100,
             width: 200,
             child: Carousel.builder(
               autoplay: true,
               itemCount: _colors.length,
-              itemBuilder: (BuildContext context, int index) {
+              itemBuilder: (_, int index) {
                 return _colors[index];
               },
               onChanged: print,
             ),
           ),
-        ),
-        const SizedBox(height: 16.0),
-        Center(
-          child: SizedBox(
+          const CustomDivider(child: Text('Builder (custom)')),
+          SizedBox(
             height: 100,
             width: 200,
             child: Carousel.builder(
               autoplay: true,
               itemCount: _colors.length,
-              itemBuilder: (BuildContext context, int index) {
-                return _colors.reversed.toList()[index];
+              itemBuilder: (_, int index) {
+                return _colors[index];
               },
               onChanged: print,
               pageDuration: const Duration(seconds: 3),
@@ -67,8 +71,8 @@ class CarouselPage extends StatelessWidget {
               transitionDuration: const Duration(milliseconds: 500),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

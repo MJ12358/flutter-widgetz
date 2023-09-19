@@ -10,9 +10,12 @@ class AvatarPage extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: SpacedColumn(
         children: <Widget>[
+          const CustomDivider(child: Text('Flutter Defaults')),
+          const CircleAvatar(),
           const CircleAvatar(
             child: Icon(Icons.abc),
           ),
+          const CustomDivider(child: Text('Custom')),
           const CustomAvatar(),
           const CustomAvatar(
             icon: Icons.abc,
@@ -25,6 +28,7 @@ class AvatarPage extends StatelessWidget {
             'https://example.com',
             icon: Icons.disabled_by_default,
           ),
+          AvatarGroup(),
           CustomAvatar.network(
             'https://loremflickr.com/640/360',
             radius: 50,
@@ -33,7 +37,6 @@ class AvatarPage extends StatelessWidget {
             'https://loremflickr.com/640/360',
             radius: 50,
           ),
-          AvatarGroup(),
         ],
       ),
     );

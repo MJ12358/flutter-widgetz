@@ -12,7 +12,7 @@ class ColorPickerPage extends StatelessWidget {
         landscapeBuilder: (_) {
           return const SpacedRow(
             children: <Widget>[
-              ColorField(
+              ColorField.bottomSheet(
                 value: Color(0xFFFFFFFF),
               ),
               CustomTextField(
@@ -29,9 +29,8 @@ class ColorPickerPage extends StatelessWidget {
                   context: context,
                   builder: (_) {
                     return AlertDialog(
-                      content: ColorPicker(
+                      content: ColorPicker.rectangle(
                         onTap: print,
-                        shape: BoxShape.rectangle,
                       ),
                     );
                   },
@@ -42,7 +41,9 @@ class ColorPickerPage extends StatelessWidget {
                 onPressed: () => showGeneralDialog(
                   context: context,
                   pageBuilder: (_, __, ___) {
-                    return CustomScaffold(body: ColorPicker(onTap: print));
+                    return CustomScaffold(
+                      body: ColorPicker.circle(onTap: print),
+                    );
                   },
                 ),
                 text: 'General Dialog',
@@ -51,9 +52,8 @@ class ColorPickerPage extends StatelessWidget {
                 onPressed: () => showModalBottomSheet(
                   context: context,
                   builder: (_) {
-                    return ColorPicker(
+                    return ColorPicker.rectangle(
                       onTap: print,
-                      shape: BoxShape.rectangle,
                     );
                   },
                 ),
@@ -63,22 +63,21 @@ class ColorPickerPage extends StatelessWidget {
                 labelText: 'Text Field (for reference)',
                 prefixIcon: Icons.color_lens,
               ),
-              const ColorField(
+              const ColorField.bottomSheet(
+                labelText: 'Bottom Sheet',
                 onChanged: print,
               ),
-              const ColorField(
-                labelText: 'Color (Initial Value)',
+              const ColorField.dialog(
+                labelText: 'Dialog',
                 value: Colors.amber,
               ),
-              ColorField(
+              ColorField.bottomSheet(
                 labelText: 'Color (Formatted)',
+                pickerShape: BoxShape.rectangle,
                 value: Colors.blue,
                 onChanged: print,
                 displayStringForColor: (Color? color) {
-                  if (color == null) {
-                    return '';
-                  }
-                  return Color(color.value).toString();
+                  return color?.toString() ?? '';
                 },
               ),
             ],

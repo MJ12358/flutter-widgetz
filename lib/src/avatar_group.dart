@@ -37,7 +37,7 @@ class AvatarGroup extends StatelessWidget {
 
   /// {@macro flutter_widgetz.AvatarGroup}
   ///
-  /// Uses an [AssetImage].
+  /// Asset uses [Image.asset].
   AvatarGroup.asset(
     String name, {
     super.key,
@@ -56,7 +56,7 @@ class AvatarGroup extends StatelessWidget {
 
   /// {@macro flutter_widgetz.AvatarGroup}
   ///
-  /// Uses a [NetworkImage].
+  /// Network uses [Image.network].
   AvatarGroup.network(
     String source, {
     super.key,

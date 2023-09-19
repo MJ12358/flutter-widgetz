@@ -6,18 +6,19 @@ class PicklistPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomSingleChildScrollView(
-      padding: EdgeInsets.all(16.0),
+    return CustomSingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
       child: SpacedColumn(
         children: <Widget>[
-          DuelingPicklist<BoxFit>(
+          const DuelingPicklist<BoxFit>(
             labelText: 'Dueling Picklist',
             available: BoxFit.values,
           ),
           DuelingPicklist<BoxFit>(
             labelText: 'Dueling Picklist (selected)',
             available: BoxFit.values,
-            selected: <BoxFit>[BoxFit.contain],
+            selected: const <BoxFit>[BoxFit.contain],
+            onSort: (BoxFit a, BoxFit b) => b.name.compareTo(a.name),
           ),
         ],
       ),

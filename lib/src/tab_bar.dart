@@ -1,7 +1,7 @@
 part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomTabBar}
-/// A [TabBar] the automatically unfocuses on tap.
+/// A [TabBar] that automatically unfocuses on tap.
 /// {@endtemplate}
 class CustomTabBar extends TabBar {
   /// {@macro flutter_widgetz.CustomTabBar}

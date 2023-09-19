@@ -12,13 +12,13 @@ class LinkPage extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: SpacedColumn(
         children: <Widget>[
+          Link(
+            'Text',
+            onTap: () => print('text'),
+          ),
           Link.underline(
             'Underline',
             onTap: () => print('underline'),
-          ),
-          Link.text(
-            'Text',
-            onTap: () => print('text'),
           ),
         ],
       ),

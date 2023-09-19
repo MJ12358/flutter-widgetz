@@ -5,47 +5,51 @@ part of flutter_widgetz;
 /// {@endtemplate}
 class Countdown extends StatefulWidget {
   /// {@macro flutter_widgetz.Countdown}
-  Countdown({
+  const Countdown({
     super.key,
     required this.target,
-    Color? backgroundColor,
-    Widget? daysLabel,
-    String daysText = _defaultDaysText,
-    Widget? hoursLabel,
-    String hoursText = _defaultHoursText,
-    Widget? minutesLabel,
-    String minutesText = _defaultMinutesText,
-    Widget? secondsLabel,
-    String secondsText = _defaultSecondsText,
+    required this.decoration,
+    this.daysLabel,
+    this.daysText = _defaultDaysText,
+    this.hoursLabel,
+    this.hoursText = _defaultHoursText,
+    this.minutesLabel,
+    this.minutesText = _defaultMinutesText,
+    this.secondsLabel,
+    this.secondsText = _defaultSecondsText,
     this.separator = _defaultSeparator,
-    ShapeBorder shape = const RoundedRectangleBorder(),
     this.textColor,
-  })  : daysLabel = daysLabel ?? Text(daysText),
-        hoursLabel = hoursLabel ?? Text(hoursText),
-        minutesLabel = minutesLabel ?? Text(minutesText),
-        secondsLabel = secondsLabel ?? Text(secondsText),
-        decoration = ShapeDecoration(
-          color: backgroundColor ?? _defaultBackgroundColor,
-          shape: shape,
-        );
+  });
 
   /// The target datetime from which to countdown.
   final DateTime target;
 
-  /// The label given to the days.
-  final Widget daysLabel;
-
   /// A decoration given to each unit.
-  final ShapeDecoration decoration;
+  final BoxDecoration decoration;
+
+  /// The label given to the days.
+  final Widget? daysLabel;
+
+  /// The text given to the days when [daysLabel] is null.
+  final String daysText;
 
   /// The label given to the hours.
-  final Widget hoursLabel;
+  final Widget? hoursLabel;
+
+  /// The text given to the hours when [hoursLabel] is null.
+  final String hoursText;
 
   /// The label given to the minutes.
-  final Widget minutesLabel;
+  final Widget? minutesLabel;
+
+  /// The text given to the minutes when [minutesLabel] is null.
+  final String minutesText;
 
   /// The label given to the seconds.
-  final Widget secondsLabel;
+  final Widget? secondsLabel;
+
+  /// The label given to the seconds when [secondsLabel] is null.
+  final String secondsText;
 
   /// A widget separating the different units.
   final Widget separator;
@@ -67,25 +71,40 @@ class Countdown extends StatefulWidget {
     super.key,
     required this.target,
     Color? backgroundColor,
-    Widget? daysLabel,
-    String daysText = _defaultDaysText,
-    Widget? hoursLabel,
-    String hoursText = _defaultHoursText,
-    Widget? minutesLabel,
-    String minutesText = _defaultMinutesText,
-    Widget? secondsLabel,
-    String secondsText = _defaultSecondsText,
+    this.daysLabel,
+    this.daysText = _defaultDaysText,
+    this.hoursLabel,
+    this.hoursText = _defaultHoursText,
+    this.minutesLabel,
+    this.minutesText = _defaultMinutesText,
+    this.secondsLabel,
+    this.secondsText = _defaultSecondsText,
     this.separator = _defaultSeparator,
     this.textColor,
-  })  : daysLabel = daysLabel ?? Text(daysText),
-        hoursLabel = hoursLabel ?? Text(hoursText),
-        minutesLabel = minutesLabel ?? Text(minutesText),
-        secondsLabel = secondsLabel ?? Text(secondsText),
-        decoration = ShapeDecoration.fromBoxDecoration(
-          BoxDecoration(
-            color: backgroundColor ?? _defaultBackgroundColor,
-            shape: BoxShape.circle,
-          ),
+  }) : decoration = BoxDecoration(
+          color: backgroundColor ?? _defaultBackgroundColor,
+          shape: BoxShape.circle,
+        );
+
+  /// {@macro flutter_widgetz.Countdown}
+  ///
+  /// Rectangle uses a box decoration with [BoxShape.rectangle].
+  Countdown.rectangle({
+    super.key,
+    required this.target,
+    Color? backgroundColor,
+    this.daysLabel,
+    this.daysText = _defaultDaysText,
+    this.hoursLabel,
+    this.hoursText = _defaultHoursText,
+    this.minutesLabel,
+    this.minutesText = _defaultMinutesText,
+    this.secondsLabel,
+    this.secondsText = _defaultSecondsText,
+    this.separator = _defaultSeparator,
+    this.textColor,
+  }) : decoration = BoxDecoration(
+          color: backgroundColor ?? _defaultBackgroundColor,
         );
 
   @override
@@ -120,7 +139,7 @@ class _CountdownState extends State<Countdown> {
         _Digit(
           color: widget.textColor,
           decoration: widget.decoration,
-          unit: widget.daysLabel,
+          unit: widget.daysLabel ?? Text(widget.daysText),
           value: _duration.days,
         ),
         _Separator(
@@ -130,7 +149,7 @@ class _CountdownState extends State<Countdown> {
         _Digit(
           color: widget.textColor,
           decoration: widget.decoration,
-          unit: widget.hoursLabel,
+          unit: widget.hoursLabel ?? Text(widget.hoursText),
           value: _duration.hours,
         ),
         _Separator(
@@ -140,7 +159,7 @@ class _CountdownState extends State<Countdown> {
         _Digit(
           color: widget.textColor,
           decoration: widget.decoration,
-          unit: widget.minutesLabel,
+          unit: widget.minutesLabel ?? Text(widget.minutesText),
           value: _duration.minutes,
         ),
         _Separator(
@@ -150,7 +169,7 @@ class _CountdownState extends State<Countdown> {
         _Digit(
           color: widget.textColor,
           decoration: widget.decoration,
-          unit: widget.secondsLabel,
+          unit: widget.secondsLabel ?? Text(widget.secondsText),
           value: _duration.seconds,
         ),
       ],
@@ -166,7 +185,7 @@ class _Digit extends StatelessWidget {
     this.color,
   });
 
-  final ShapeDecoration decoration;
+  final BoxDecoration decoration;
   final Widget unit;
   final num value;
   final Color? color;
@@ -185,7 +204,7 @@ class _Digit extends StatelessWidget {
               Text(
                 value.toString(),
                 style: theme.textTheme.titleLarge?.copyWith(
-                  color: color ?? theme.primaryColor,
+                  color: color ?? theme.colorScheme.primary,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -224,7 +243,7 @@ class _Separator extends StatelessWidget {
 
     return DefaultTextStyle(
       style: theme.textTheme.titleLarge!.copyWith(
-        color: color ?? theme.primaryColor,
+        color: color ?? theme.colorScheme.primary,
         fontWeight: FontWeight.bold,
       ),
       child: Container(

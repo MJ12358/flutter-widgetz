@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extensionz/flutter_extensionz.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class ListViewPage extends StatefulWidget {
@@ -24,6 +25,8 @@ class _ListViewPageState extends State<ListViewPage> {
             _widgets.removeAt(i);
             setState(() {});
           },
+          confirmDismiss: () =>
+              context.showAlertDialog(const Text('Are you sure?')),
           leadingText: i.toString(),
           titleText: i.toString(),
         ),

@@ -19,6 +19,9 @@ class _ButtonPageState extends State<ButtonPage> {
       padding: const EdgeInsets.all(16.0),
       child: SpacedColumn(
         children: <Widget>[
+          const CustomDivider(
+            child: Text('Elevated Buttons'),
+          ),
           CustomElevatedButton(
             onPressed: () => print('button one pressed'),
             text: 'Button One',
@@ -42,9 +45,15 @@ class _ButtonPageState extends State<ButtonPage> {
             text: 'Button Five',
             color: Theme.of(context).colorScheme.onBackground,
           ),
+          const CustomDivider(
+            child: Text('Save Button'),
+          ),
           SaveButton(
             onPressed: _onSaveButtonPressed,
             isSaving: _isSaving,
+          ),
+          const CustomDivider(
+            child: Text('Factories'),
           ),
           Button(
             color: Colors.black,
@@ -75,6 +84,9 @@ class _ButtonPageState extends State<ButtonPage> {
             color: Colors.purple,
             onPressed: () => print('outline2'),
             child: const Text('Outline Two'),
+          ),
+          const CustomDivider(
+            child: Text('Constrained Box'),
           ),
           SizedBox(
             width: MediaQuery.of(context).size.width / 2,

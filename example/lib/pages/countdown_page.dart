@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extensionz/flutter_extensionz.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class CountdownPage extends StatelessWidget {
@@ -13,14 +14,14 @@ class CountdownPage extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: SpacedColumn(
         children: <Widget>[
-          Countdown(
+          Countdown.rectangle(
             target: _defaultDateTime,
           ),
-          Countdown(
+          Countdown.rectangle(
             target: _defaultDateTime,
             backgroundColor: Colors.black,
           ),
-          Countdown(
+          Countdown.rectangle(
             target: _defaultDateTime,
             backgroundColor: Colors.red,
             textColor: Colors.green,
@@ -28,20 +29,24 @@ class CountdownPage extends StatelessWidget {
             hoursText: 'H',
             minutesText: 'M',
             secondsText: 'S',
+            separator: const Text('♠'),
           ),
-          Countdown(
+          Countdown.rectangle(
             target: _defaultDateTime,
             backgroundColor: Colors.yellow,
             daysLabel: const Icon(Icons.calendar_today),
             hoursLabel: const Icon(Icons.hourglass_empty),
             minutesLabel: const Icon(Icons.av_timer),
             secondsLabel: const Icon(Icons.autofps_select),
+            separator: const Text('☻'),
           ),
           Countdown(
-            shape: RoundedRectangleBorder(
+            decoration: BoxDecoration(
+              color: Colors.blue,
               borderRadius: BorderRadius.circular(25),
             ),
             target: _defaultDateTime,
+            textColor: Colors.blue.complimentary,
           ),
           Countdown.circular(
             target: _defaultDateTime,

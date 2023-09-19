@@ -4,6 +4,15 @@ part of flutter_widgetz;
 /// A [Text] widget wrapped in an [InkWell].
 /// {@endtemplate}
 class Link extends StatelessWidget {
+  /// {@macro flutter_widgetz.Link}
+  Link(
+    String text, {
+    super.key,
+    this.color = _defaultColor,
+    this.onTap,
+    this.textStyle = _defaultTextStyle,
+  }) : child = Text(text);
+
   /// The widget below this widget in the tree.
   final Widget child;
 
@@ -41,15 +50,6 @@ class Link extends StatelessWidget {
           ),
           child: Text(text),
         );
-
-  /// {@macro flutter_widgetz.Link}
-  Link.text(
-    String text, {
-    super.key,
-    this.color = _defaultColor,
-    this.onTap,
-    this.textStyle = _defaultTextStyle,
-  }) : child = Text(text);
 
   @override
   Widget build(BuildContext context) {

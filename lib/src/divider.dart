@@ -1,7 +1,7 @@
 part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomDivider}
-/// This widget places a [child]
+/// This widget optionally places a [child]
 /// between two dividers.
 /// {@endtemplate}
 class CustomDivider extends StatelessWidget {

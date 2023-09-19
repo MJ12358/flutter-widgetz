@@ -6,14 +6,14 @@ class RatingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomSingleChildScrollView(
-      padding: EdgeInsets.all(16.0),
+    return CustomSingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
       child: SpacedColumn(
         children: <Widget>[
-          RatingBar(
+          const RatingBar(
             onChanged: print,
           ),
-          RatingBar(
+          const RatingBar(
             onChanged: print,
             color: Colors.purple,
             value: 3.5,
@@ -21,7 +21,7 @@ class RatingPage extends StatelessWidget {
           RatingBar(
             onChanged: print,
             color: Colors.deepOrange,
-            unratedColor: Colors.black,
+            unratedColor: Colors.deepOrange.withAlpha(50),
             max: 10,
             value: 6.5,
             size: 25,

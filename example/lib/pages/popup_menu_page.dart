@@ -23,7 +23,7 @@ class _PopupMenuPageState extends State<PopupMenuPage> {
       child: PopupMenuButton<int>(
         child: Icon(
           Icons.menu,
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).colorScheme.primary,
         ),
         itemBuilder: (BuildContext context) {
           return <PopupMenuEntry<int>>[

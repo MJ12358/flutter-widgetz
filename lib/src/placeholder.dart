@@ -30,7 +30,7 @@ class CustomPlaceholder extends StatelessWidget {
 
   /// {@macro flutter_widgetz.CustomPlaceholder}
   ///
-  /// Uses [Image.asset].
+  /// Asset uses [Image.asset] as [child].
   CustomPlaceholder.asset(
     String name, {
     super.key,
@@ -41,7 +41,7 @@ class CustomPlaceholder extends StatelessWidget {
 
   /// {@macro flutter_widgetz.CustomPlaceholder}
   ///
-  /// Uses [Image.network].
+  /// Network uses [Image.network] as [child].
   CustomPlaceholder.network(
     String source, {
     super.key,
@@ -49,6 +49,19 @@ class CustomPlaceholder extends StatelessWidget {
     this.mainAxisAlignment = _defaultAlignment,
     this.padding = _defaultPadding,
   }) : child = Image.network(source);
+
+  /// {@macro flutter_widgetz.CustomPlaceholder}
+  ///
+  /// Flashlight uses a "flashlight" image as [child].
+  CustomPlaceholder.flashlight({
+    super.key,
+    this.text,
+    this.mainAxisAlignment = _defaultAlignment,
+    this.padding = _defaultPadding,
+  }) : child = Image.asset(
+          'assets/images/flashlight.png',
+          package: 'flutter_widgetz',
+        );
 
   @override
   Widget build(BuildContext context) {

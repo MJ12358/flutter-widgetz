@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
-class DurationPickerPage extends StatelessWidget {
-  const DurationPickerPage({super.key});
+class DurationFieldPage extends StatelessWidget {
+  const DurationFieldPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class DurationPickerPage extends StatelessWidget {
           return const SpacedRow(
             children: <Widget>[
               DurationField(
-                labelText: 'Duration Field One',
+                labelText: 'Duration Field',
                 onChanged: print,
               ),
               CustomTextField(
@@ -36,23 +36,28 @@ class DurationPickerPage extends StatelessWidget {
                 prefixIcon: Icons.timelapse,
               ),
               const DurationField(
-                labelText: 'Duration Field One',
+                labelText: 'Duration Field',
+                onChanged: print,
+              ),
+              const DurationField(
+                labelText: 'Duration Field (Default Value)',
+                value: Duration(minutes: 30, seconds: 15),
                 onChanged: print,
               ),
               DurationField(
-                labelText: 'Duration Field Two (formatted)',
+                labelText: 'Duration Field (formatted)',
                 onChanged: print,
                 displayStringForDuration: (Duration? d) =>
                     d != null ? '${d.inMinutes} Minutes' : '',
               ),
               const DurationField(
-                labelText: 'Duration Field Three (snapToMins)',
+                labelText: 'Duration Field (snapToMins)',
                 snapToMins: 5,
                 onChanged: print,
               ),
               const DurationField(
                 unit: DurationPickerUnit.hour,
-                labelText: 'Duration Field Four (baseunit)',
+                labelText: 'Duration Field (baseunit)',
                 onChanged: print,
               ),
             ],

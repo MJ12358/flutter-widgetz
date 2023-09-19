@@ -12,6 +12,8 @@ class CustomFloatingActionButton extends StatefulWidget {
   const CustomFloatingActionButton({
     super.key,
     required this.onPressed,
+    this.autofocus = false,
+    this.clipBehavior = Clip.none,
     this.duration = const Duration(seconds: 1),
     this.heroTag,
     this.icon = Icons.add,
@@ -20,6 +22,13 @@ class CustomFloatingActionButton extends StatefulWidget {
     this.shouldAnimate = false,
     this.tooltip,
   });
+
+  /// True if this widget will be selected as the initial
+  /// focus when no other node in its scope is currently focused.
+  final bool autofocus;
+
+  /// The content will be clipped (or not) according to this option.
+  final Clip clipBehavior;
 
   /// The callback that is called when the button is tapped.
   final VoidCallback onPressed;
@@ -90,6 +99,8 @@ class _CustomFloatingActionButtonState extends State<CustomFloatingActionButton>
 
   Widget _getButton() {
     return FloatingActionButton(
+      autofocus: widget.autofocus,
+      clipBehavior: widget.clipBehavior,
       heroTag: widget.heroTag,
       mini: widget.mini,
       onPressed: widget.onPressed,

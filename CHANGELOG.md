@@ -1,5 +1,28 @@
 # Flutter Widgetz
 
+## 6.0.0
+
+- **BREAKING**:
+  - `ColorField`
+    - Require `modalBuilder` but add `bottomSheet` and `dialog` named constructors.
+    - Change behavior of `defaultStringForColor`.
+  - `ColorPicker`
+    - Require `decoration` but add `circle` and `rectangle` named constructors.
+  - `Countdown`
+    - Require `decoration` but add `circle` and `rectangle` named constructors.
+  - `Link`
+    - Remove `text` named constructor in favor of an implicit one.
+
+- Other:
+  - Add min/max width params to `AuthButton`.
+  - Use `CustomImage` within `CustomAvatar`.
+  - Fix `Countdown` default text/separator colors.
+  - Add `enableFeedback` param to `CustomBottomNavigationBar`.
+  - Add `autofocus` and `clipBehavior` to `CustomFloatingActionButton`.
+  - Add `flashlight` constructor to `CustomPlaceholder`.
+  - Add more params to `CustomProgressIndicator`.
+  - Edit/add comments.
+
 ## 5.4.0
 
 - Add `CustomBottomAppBar` widget.
@@ -53,7 +76,8 @@
 
 ## 5.0.1
 
-- Increase Dart sdk minimum version.
+- **BREAKING**:
+  - Increase Dart sdk minimum version.
 
 ## 4.9.4
 
@@ -120,7 +144,8 @@
 
 ## 4.0.0
 
-- **BREAKING**: Change 'Input' naming to 'Field' to avoid conflicts and to better conform to standards.
+- **BREAKING**:
+  - Change 'Input' naming to 'Field' to avoid conflicts and to better conform to standards.
 
 ## 3.3.0
 
@@ -144,11 +169,13 @@
 
 ## 3.0.0
 
-- Update to Material 3.
+- **BREAKING**:
+  - Update to Material 3.
 
 ## 2.0.0
 
-- Refactor widgets to conform to standards.
+- **BREAKING**:
+  - Refactor widgets to conform to standards.
 
 ## 1.3.12
 

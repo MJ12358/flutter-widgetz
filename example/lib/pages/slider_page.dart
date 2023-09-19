@@ -13,7 +13,6 @@ class SliderPage extends StatelessWidget {
           CustomSlider(
             onChanged: print,
             max: 10,
-            value: 0,
           ),
           CustomSlider(
             labelText: 'Slider Two',

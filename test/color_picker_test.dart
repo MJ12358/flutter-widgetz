@@ -7,7 +7,7 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         home: Scaffold(
-          body: ColorPicker(onTap: (_) {}),
+          body: ColorPicker.circle(onTap: (_) {}),
         ),
       ),
     );

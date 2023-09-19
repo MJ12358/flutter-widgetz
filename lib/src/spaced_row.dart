@@ -51,9 +51,6 @@ class SpacedRow extends StatelessWidget {
 
   static const double _defaultSpacing = 20.0;
 
-  // TODO: need to find the type of widget that is returned from "build"
-  // then determine its height and/or width
-  // as just checking for "SizedBox" does not achieve the required result.
   static bool _defaultFilter(Widget e) {
     if (e is SizedBox) {
       if ((e.height ?? 0) <= 0 && (e.width ?? 0) <= 0) {
@@ -66,7 +63,7 @@ class SpacedRow extends StatelessWidget {
   /// {@macro flutter_widgetz.SpacedRow}
   ///
   /// Filtered is used to filter out undesirable widgets.
-  /// This defaults to removing SizedBoxes with 0 height/width.
+  /// This defaults to removing [SizedBox] with 0 height/width.
   SpacedRow.filtered({
     super.key,
     required List<Widget> children,

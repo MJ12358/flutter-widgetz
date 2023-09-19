@@ -8,13 +8,14 @@ class ColorField extends StatefulWidget {
   /// {@macro flutter_widgetz.ColorField}
   const ColorField({
     super.key,
+    required this.modalBuilder,
     this.colors,
     this.displayStringForColor = _defaultStringForColor,
-    this.labelText = 'Color',
+    this.labelText = _defaultLabelText,
     this.onChanged,
     this.pickerShape,
     this.pickerTitle,
-    this.prefixIcon = Icons.color_lens,
+    this.prefixIcon = _defaultIcon,
     this.value,
   });
 
@@ -28,6 +29,12 @@ class ColorField extends StatefulWidget {
 
   /// Optional text that describes the input field.
   final String labelText;
+
+  /// The material modal builder.
+  final Future<Color?> Function({
+    required BuildContext context,
+    required Widget widget,
+  }) modalBuilder;
 
   /// Called whenever the value changes.
   final ValueChanged<Color>? onChanged;
@@ -44,9 +51,71 @@ class ColorField extends StatefulWidget {
   /// The value of this input.
   final Color? value;
 
+  static const String _defaultLabelText = 'Color';
+  static const IconData _defaultIcon = Icons.color_lens;
   static String _defaultStringForColor(Color? color) {
-    return color?.toString() ?? '';
+    if (color == null) {
+      return '';
+    } else {
+      return Color(color.value).toString();
+    }
   }
+
+  static Future<Color?> _showBottomSheet({
+    required BuildContext context,
+    required Widget widget,
+  }) {
+    return showModalBottomSheet<Color?>(
+      context: context,
+      builder: (_) {
+        return widget;
+      },
+    );
+  }
+
+  static Future<Color?> _showDialog({
+    required BuildContext context,
+    required Widget widget,
+  }) {
+    return showDialog<Color?>(
+      context: context,
+      builder: (_) {
+        return AlertDialog(
+          content: widget,
+        );
+      },
+    );
+  }
+
+  /// {@macro flutter_widgetz.ColorField}
+  ///
+  /// BottomSheet uses [showModalBottomSheet].
+  const ColorField.bottomSheet({
+    super.key,
+    this.colors,
+    this.displayStringForColor = _defaultStringForColor,
+    this.labelText = _defaultLabelText,
+    this.onChanged,
+    this.pickerShape,
+    this.pickerTitle,
+    this.prefixIcon = _defaultIcon,
+    this.value,
+  }) : modalBuilder = _showBottomSheet;
+
+  /// {@macro flutter_widgetz.ColorField}
+  ///
+  /// Dialog uses [showDialog] with [AlertDialog].
+  const ColorField.dialog({
+    super.key,
+    this.colors,
+    this.displayStringForColor = _defaultStringForColor,
+    this.labelText = _defaultLabelText,
+    this.onChanged,
+    this.pickerShape,
+    this.pickerTitle,
+    this.prefixIcon = _defaultIcon,
+    this.value,
+  }) : modalBuilder = _showDialog;
 
   @override
   State<ColorField> createState() => _ColorFieldState();
@@ -92,18 +161,21 @@ class _ColorFieldState extends State<ColorField> {
   }
 
   void _showModal(BuildContext context) {
-    showModalBottomSheet<Color?>(
-      context: context,
-      builder: (BuildContext context) {
-        return ColorPicker(
-          colors: widget.colors,
-          initialColor: _value,
-          shape: widget.pickerShape,
-          title: widget.pickerTitle,
-          onTap: _onChange,
-        );
-      },
-    ).then(_onChange);
+    widget
+        .modalBuilder(
+          context: context,
+          widget: ColorPicker(
+            colors: widget.colors,
+            decoration: BoxDecoration(
+              border: Border.all(),
+              shape: widget.pickerShape ?? BoxShape.circle,
+            ),
+            initialColor: _value,
+            title: widget.pickerTitle,
+            onTap: _onChange,
+          ),
+        )
+        .then(_onChange);
   }
 
   void _onChange(Color? value) {

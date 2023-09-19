@@ -9,20 +9,20 @@ class ColorPicker extends StatefulWidget {
   ColorPicker({
     super.key,
     required this.onTap,
+    required this.decoration,
     List<Color>? colors,
     this.initialColor,
-    this.padding = const EdgeInsets.all(16.0),
-    BoxShape? shape,
+    this.padding = _defaultPadding,
     String? title,
     this.titleStyle,
-  })  : shape = shape ?? BoxShape.circle,
-        title = title ?? 'Choose Color' {
-    this.colors = colors ??
-        Colors.primaries.map((MaterialColor color) => color.shade500).toList();
-  }
+  })  : colors = colors ?? _defaultColors,
+        title = title ?? _defaultTitle;
 
   /// Callback when a color is tapped.
   final ValueChanged<Color> onTap;
+
+  /// The decoration to use for the background.
+  final BoxDecoration decoration;
 
   /// A list of Colors to display.
   ///
@@ -35,14 +35,49 @@ class ColorPicker extends StatefulWidget {
   /// Empty space to inscribe inside the picker;
   final EdgeInsets padding;
 
-  /// The shape to fill the background.
-  final BoxShape shape;
-
   /// A title shown above the picker.
   final String title;
 
   /// The style to use for the [title].
   final TextStyle? titleStyle;
+
+  static List<Color> get _defaultColors =>
+      Colors.primaries.map((MaterialColor color) => color.shade500).toList();
+  static const EdgeInsets _defaultPadding = EdgeInsets.all(16.0);
+  static const String _defaultTitle = 'Choose Color';
+
+  /// {@macro flutter_widgetz.ColorPicker}
+  ///
+  /// Circle uses a [BoxDecoration] with [BoxShape.circle].
+  ColorPicker.circle({
+    super.key,
+    required this.onTap,
+    List<Color>? colors,
+    this.initialColor,
+    this.padding = _defaultPadding,
+    this.title = _defaultTitle,
+    this.titleStyle,
+  })  : colors = colors ?? _defaultColors,
+        decoration = BoxDecoration(
+          border: Border.all(),
+          shape: BoxShape.circle,
+        );
+
+  /// {@macro flutter_widgetz.ColorPicker}
+  ///
+  /// Circle uses a [BoxDecoration] with [BoxShape.rectangle].
+  ColorPicker.rectangle({
+    super.key,
+    required this.onTap,
+    List<Color>? colors,
+    this.initialColor,
+    this.padding = _defaultPadding,
+    this.title = _defaultTitle,
+    this.titleStyle,
+  })  : colors = colors ?? _defaultColors,
+        decoration = BoxDecoration(
+          border: Border.all(),
+        );
 
   @override
   State<ColorPicker> createState() => _ColorPickerState();
@@ -54,7 +89,13 @@ class _ColorPickerState extends State<ColorPicker> {
   @override
   void initState() {
     super.initState();
-    _selectedColor = widget.initialColor;
+    if (widget.initialColor is MaterialColor?) {
+      final MaterialColor? _materialColor =
+          widget.initialColor as MaterialColor?;
+      _selectedColor = _materialColor?.shade500;
+    } else {
+      _selectedColor = widget.initialColor;
+    }
   }
 
   @override
@@ -87,9 +128,9 @@ class _ColorPickerState extends State<ColorPicker> {
                   final Color color = widget.colors[index];
                   return _Dot(
                     color: color,
+                    decoration: widget.decoration,
                     isSelected: color == _selectedColor,
                     onTap: _onTap,
-                    shape: widget.shape,
                   );
                 },
               ),
@@ -111,15 +152,15 @@ class _ColorPickerState extends State<ColorPicker> {
 class _Dot extends StatelessWidget {
   const _Dot({
     required this.color,
+    required this.decoration,
     required this.isSelected,
     required this.onTap,
-    required this.shape,
   });
 
   final Color color;
+  final BoxDecoration decoration;
   final bool isSelected;
-  final void Function(Color) onTap;
-  final BoxShape shape;
+  final ValueChanged<Color> onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -129,10 +170,8 @@ class _Dot extends StatelessWidget {
       child: Container(
         height: 50.0,
         width: 50.0,
-        decoration: BoxDecoration(
+        decoration: decoration.copyWith(
           color: color,
-          shape: shape,
-          border: Border.all(),
         ),
         child: Center(
           child: isSelected

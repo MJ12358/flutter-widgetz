@@ -29,6 +29,8 @@ class DateRangeField extends StatefulWidget {
   final String? errorText;
 
   /// The first date of the date picker.
+  ///
+  /// This defaults to [DateTime.now].
   final DateTime? firstDate;
 
   /// Determines if a error should be shown.
@@ -38,6 +40,8 @@ class DateRangeField extends StatefulWidget {
   final String? labelText;
 
   /// The last date of the date picker.
+  ///
+  /// This defaults to [DateTime.now.add(Duration(days: 365))].
   final DateTime? lastDate;
 
   /// An icon that appears before the editable part of the text field.
@@ -57,6 +61,10 @@ class DateRangeField extends StatefulWidget {
 class _DateRangeFieldState extends State<DateRangeField> {
   late FocusNode _focusNode;
   DateTimeRange? _value;
+
+  DateTime get _defaultFirstDate => DateTime.now();
+  DateTime get _defaultLastDate =>
+      DateTime.now().add(const Duration(days: 365));
 
   @override
   void initState() {
@@ -98,9 +106,8 @@ class _DateRangeFieldState extends State<DateRangeField> {
     showDateRangePicker(
       context: context,
       initialDateRange: _value,
-      firstDate: widget.firstDate ?? DateTime.now(),
-      lastDate:
-          widget.lastDate ?? DateTime.now().add(const Duration(days: 365)),
+      firstDate: widget.firstDate ?? _defaultFirstDate,
+      lastDate: widget.lastDate ?? _defaultLastDate,
     ).then(_onChange);
   }
 

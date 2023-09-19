@@ -8,20 +8,17 @@ class CustomSlider extends StatefulWidget {
   const CustomSlider({
     super.key,
     required this.onChanged,
-    required this.value,
     this.divisions,
     this.labelText,
     this.max = 1.0,
     this.min = 0.0,
     this.prefixIcon,
     this.suffixIcon,
+    this.value = 0,
   });
 
   /// Called when the user is done selecting a new value for the slider.
   final ValueChanged<num> onChanged;
-
-  /// The currently selected value for this slider.
-  final num value;
 
   /// The number of discrete divisions.
   final int? divisions;
@@ -40,6 +37,9 @@ class CustomSlider extends StatefulWidget {
 
   /// An icon that appears after the editable part of the text field.
   final IconData? suffixIcon;
+
+  /// The currently selected value for this slider.
+  final num value;
 
   @override
   State<CustomSlider> createState() => _CustomSliderState();
@@ -80,7 +80,7 @@ class _CustomSliderState extends State<CustomSlider> {
         child: Slider.adaptive(
           divisions: widget.divisions,
           label: _value.toString(),
-          onChanged: _onChange,
+          onChanged: _onChanged,
           onChangeEnd: widget.onChanged,
           max: widget.max,
           min: widget.min,
@@ -90,7 +90,7 @@ class _CustomSliderState extends State<CustomSlider> {
     );
   }
 
-  void _onChange(double value) {
+  void _onChanged(double value) {
     setState(() {
       _value = _value is int ? value.toInt() : value;
     });

@@ -13,6 +13,7 @@ class CustomBottomNavigationBar extends StatefulWidget {
     this.backgroundColor,
     this.currentIndex,
     this.elevation,
+    this.enableFeedback,
     this.type = BottomNavigationBarType.fixed,
   });
 
@@ -31,6 +32,9 @@ class CustomBottomNavigationBar extends StatefulWidget {
 
   /// The z-coordinate of this [BottomNavigationBar].
   final double? elevation;
+
+  /// Whether detected gestures should provide acoustic and/or haptic feedback.
+  final bool? enableFeedback;
 
   /// Defines the layout and behavior of a [BottomNavigationBar].
   final BottomNavigationBarType type;
@@ -55,6 +59,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       backgroundColor: widget.backgroundColor,
       currentIndex: _currentIndex,
       elevation: widget.elevation,
+      enableFeedback: widget.enableFeedback,
       items: widget.items,
       onTap: _onTap,
       type: widget.type,

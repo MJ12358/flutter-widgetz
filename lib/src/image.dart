@@ -83,7 +83,7 @@ class CustomImage extends StatelessWidget {
   ///
   /// Uses a [NetworkImage].
   CustomImage.network(
-    String? src, {
+    String? source, {
     super.key,
     this.alignment = _defaultAlignment,
     this.color,
@@ -93,7 +93,7 @@ class CustomImage extends StatelessWidget {
     this.opacity = _defaultOpacity,
     this.scale = _defaultScale,
   }) : imageProvider = Image.network(
-          src ?? '',
+          source ?? '',
           errorBuilder: (_, __, ___) => errorWidget,
           loadingBuilder: loadingBuilder,
         ).image;

@@ -10,20 +10,28 @@ class PlaceholderPage extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: SpacedColumn(
         mainAxisAlignment: MainAxisAlignment.center,
+        spacer: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Divider(),
+        ),
         children: <Widget>[
           const CustomPlaceholder(
             text: 'Placeholder One (No Image)',
           ),
-          CustomPlaceholder.network(
-            'https://loremflickr.com/640/360',
+          CustomPlaceholder.asset(
+            'asset',
+            text: 'Placeholder Two (Asset)',
           ),
           CustomPlaceholder.network(
             'https://loremflickr.com/640/360',
-            text: 'Placeholder Two (Image)',
+            text: 'Placeholder Three (Image)',
           ),
           const CustomPlaceholder(
-            text: 'Placeholder Three (Icon)',
+            text: 'Placeholder Four (Icon)',
             child: Icon(Icons.abc),
+          ),
+          CustomPlaceholder.flashlight(
+            text: 'Placeholder Five (Flashlight)',
           ),
         ],
       ),

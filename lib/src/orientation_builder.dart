@@ -11,7 +11,7 @@ class CustomOrientationBuilder extends StatefulWidget {
     required this.landscapeBuilder,
     required this.portraitBuilder,
     this.onChanged,
-    this.onDispose,
+    this.onDispose = _defaultOnDispose,
   });
 
   /// Builds a widget to be used in [Orientation.landscape].
@@ -26,7 +26,7 @@ class CustomOrientationBuilder extends StatefulWidget {
   /// Called when this widget is disposed of.
   final VoidCallback? onDispose;
 
-  static void _resetOnDispose() {
+  static void _defaultOnDispose() {
     SystemChrome.setPreferredOrientations(<DeviceOrientation>[]);
   }
 
@@ -39,7 +39,7 @@ class CustomOrientationBuilder extends StatefulWidget {
     this.onChanged,
   })  : landscapeBuilder = builder,
         portraitBuilder = builder,
-        onDispose = _resetOnDispose {
+        onDispose = _defaultOnDispose {
     SystemChrome.setPreferredOrientations(<DeviceOrientation>[
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
@@ -55,7 +55,7 @@ class CustomOrientationBuilder extends StatefulWidget {
     this.onChanged,
   })  : landscapeBuilder = builder,
         portraitBuilder = builder,
-        onDispose = _resetOnDispose {
+        onDispose = _defaultOnDispose {
     SystemChrome.setPreferredOrientations(<DeviceOrientation>[
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,

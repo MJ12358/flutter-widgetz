@@ -27,56 +27,40 @@ class CustomAvatar extends StatelessWidget {
   final double? radius;
 
   static const IconData _defaultIcon = Icons.person;
-  static void _defaultImageErrorHandler(Object o, StackTrace? s) {}
-  static Widget _defaultImageErrorWidgetHandler(
-    BuildContext c,
-    Object o,
-    StackTrace? s,
-  ) {
-    return const SizedBox();
-  }
+  static void _defaultImageErrorBuilder(Object o, StackTrace? s) {}
 
   /// {@macro flutter_widgetz.CustomAvatar}
   ///
-  /// Uses an [AssetImage].
+  /// Asset uses [Image.asset].
   CustomAvatar.asset(
-    String name, {
+    String? name, {
     super.key,
     this.color,
     this.icon = _defaultIcon,
     this.radius,
-  }) : imageProvider = Image.asset(
-          name,
-          errorBuilder: _defaultImageErrorWidgetHandler,
-        ).image;
+  }) : imageProvider = CustomImage.asset(name).imageProvider;
 
   /// {@macro flutter_widgetz.CustomAvatar}
   ///
-  /// Uses a [MemoryImage].
+  /// Memory uses [Image.memory].
   CustomAvatar.memory(
-    Uint8List bytes, {
+    Uint8List? bytes, {
     super.key,
     this.color,
     this.icon = _defaultIcon,
     this.radius,
-  }) : imageProvider = Image.memory(
-          bytes,
-          errorBuilder: _defaultImageErrorWidgetHandler,
-        ).image;
+  }) : imageProvider = CustomImage.memory(bytes).imageProvider;
 
   /// {@macro flutter_widgetz.CustomAvatar}
   ///
-  /// Uses a [NetworkImage].
+  /// Network uses [Image.network].
   CustomAvatar.network(
-    String src, {
+    String? source, {
     super.key,
     this.color,
     this.icon = _defaultIcon,
     this.radius,
-  }) : imageProvider = Image.network(
-          src,
-          errorBuilder: _defaultImageErrorWidgetHandler,
-        ).image;
+  }) : imageProvider = CustomImage.network(source).imageProvider;
 
   bool get _hasImage => imageProvider != null;
 
@@ -85,7 +69,7 @@ class CustomAvatar extends StatelessWidget {
     return CircleAvatar(
       backgroundColor: _hasImage ? null : color,
       foregroundImage: imageProvider,
-      onForegroundImageError: _hasImage ? _defaultImageErrorHandler : null,
+      onForegroundImageError: _hasImage ? _defaultImageErrorBuilder : null,
       radius: radius,
       child: Center(
         child: Icon(icon),

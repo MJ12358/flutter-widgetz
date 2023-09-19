@@ -9,8 +9,11 @@ class AuthButton extends StatelessWidget {
     super.key,
     required this.color,
     required this.icon,
+    this.maxWidth = _defaultMaxWidth,
+    this.minWidth = _defaultMinWidth,
     required this.onTap,
     required this.text,
+    required this.textStyle,
   });
 
   /// The button's color.
@@ -19,11 +22,23 @@ class AuthButton extends StatelessWidget {
   /// The button's icon.
   final Widget icon;
 
+  /// The maximum width that satisfies the constraints.
+  final double maxWidth;
+
+  /// The minimum width that satisfies the constraints.
+  final double minWidth;
+
   /// The callback that is called when the button is tapped.
   final VoidCallback onTap;
 
   /// The text show within the button.
   final String text;
+
+  /// The style to use for the text.
+  final TextStyle? textStyle;
+
+  static const double _defaultMaxWidth = 275;
+  static const double _defaultMinWidth = 275;
 
   static Widget _getAsset(String name) {
     return Image.asset(
@@ -40,7 +55,10 @@ class AuthButton extends StatelessWidget {
   AuthButton.apple({
     super.key,
     required this.onTap,
+    this.maxWidth = _defaultMaxWidth,
+    this.minWidth = _defaultMinWidth,
     this.text = 'Sign in with Apple',
+    this.textStyle,
   })  : color = const Color(0xFF000000),
         icon = _getAsset('apple.png');
 
@@ -52,7 +70,10 @@ class AuthButton extends StatelessWidget {
   AuthButton.facebook({
     super.key,
     required this.onTap,
+    this.maxWidth = _defaultMaxWidth,
+    this.minWidth = _defaultMinWidth,
     this.text = 'Sign in with Facebook',
+    this.textStyle,
   })  : color = const Color(0xFF43549D),
         icon = _getAsset('facebook.png');
 
@@ -64,7 +85,10 @@ class AuthButton extends StatelessWidget {
   AuthButton.github({
     super.key,
     required this.onTap,
+    this.maxWidth = _defaultMaxWidth,
+    this.minWidth = _defaultMinWidth,
     this.text = 'Sign in with GitHub',
+    this.textStyle,
   })  : color = const Color(0xFF24292E),
         icon = _getAsset('github.png');
 
@@ -76,7 +100,10 @@ class AuthButton extends StatelessWidget {
   AuthButton.google({
     super.key,
     required this.onTap,
+    this.maxWidth = _defaultMaxWidth,
+    this.minWidth = _defaultMinWidth,
     this.text = 'Sign in with Google',
+    this.textStyle,
   })  : color = const Color(0xFF4285F4),
         icon = _getAsset('google.png');
 
@@ -88,7 +115,10 @@ class AuthButton extends StatelessWidget {
   AuthButton.microsoft({
     super.key,
     required this.onTap,
+    this.maxWidth = _defaultMaxWidth,
+    this.minWidth = _defaultMinWidth,
     this.text = 'Sign in with Microsoft',
+    this.textStyle,
   })  : color = const Color(0xFF2F2F2F),
         icon = _getAsset('microsoft.png');
 
@@ -100,9 +130,13 @@ class AuthButton extends StatelessWidget {
   AuthButton.twitter({
     super.key,
     required this.onTap,
+    this.maxWidth = _defaultMaxWidth,
+    this.minWidth = _defaultMinWidth,
     this.text = 'Sign in with Twitter',
+    TextStyle? textStyle,
   })  : color = const Color(0xFF55ACEE),
-        icon = _getAsset('twitter.png');
+        icon = _getAsset('twitter.png'),
+        textStyle = textStyle ?? const TextStyle(color: Colors.white);
 
   @override
   Widget build(BuildContext context) {
@@ -117,8 +151,8 @@ class AuthButton extends StatelessWidget {
       child: Container(
         constraints: BoxConstraints(
           maxHeight: _height,
-          minWidth: 275,
-          maxWidth: 275,
+          minWidth: minWidth,
+          maxWidth: maxWidth,
         ),
         child: Row(
           children: <Widget>[
@@ -140,9 +174,10 @@ class AuthButton extends StatelessWidget {
               child: Text(
                 text,
                 textAlign: TextAlign.left,
-                style: TextStyle(
-                  color: color.blackOrWhite,
-                ),
+                style: textStyle ??
+                    TextStyle(
+                      color: color.blackOrWhite,
+                    ),
               ),
             ),
           ],
