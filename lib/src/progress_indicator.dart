@@ -20,11 +20,13 @@ class CustomProgressIndicator extends StatelessWidget {
   /// Circular uses a [CircularProgressIndicator].
   CustomProgressIndicator.circular({
     super.key,
+    Color? backgroundColor,
     String semanticsLabel = _defaultSemanticsLabel,
     double? value,
   }) : indicator = CircularProgressIndicator(
+          backgroundColor: backgroundColor,
           semanticsLabel: semanticsLabel,
-          value: value,
+          value: _computeValue(value),
         );
 
   /// {@macro flutter_widgetz.CustomProgressIndicator}
@@ -32,13 +34,15 @@ class CustomProgressIndicator extends StatelessWidget {
   /// Linear uses a [LinearProgressIndicator].
   CustomProgressIndicator.linear({
     super.key,
+    Color? backgroundColor,
     BorderRadiusGeometry borderRadius = BorderRadius.zero,
     String semanticsLabel = _defaultSemanticsLabel,
     double? value,
   }) : indicator = LinearProgressIndicator(
+          backgroundColor: backgroundColor,
           borderRadius: borderRadius,
           semanticsLabel: semanticsLabel,
-          value: value,
+          value: _computeValue(value),
         );
 
   /// {@macro flutter_widgetz.CustomProgressIndicator}
@@ -46,11 +50,13 @@ class CustomProgressIndicator extends StatelessWidget {
   /// Refresh uses a [RefreshProgressIndicator].
   CustomProgressIndicator.refresh({
     super.key,
+    Color? backgroundColor,
     String semanticsLabel = _defaultSemanticsLabel,
     double? value,
   }) : indicator = RefreshProgressIndicator(
+          backgroundColor: backgroundColor,
           semanticsLabel: semanticsLabel,
-          value: value,
+          value: _computeValue(value),
         );
 
   @override
@@ -58,5 +64,19 @@ class CustomProgressIndicator extends StatelessWidget {
     return Center(
       child: indicator,
     );
+  }
+
+  // A helper to get a value that is between 0.0 and 1.0.
+  static double? _computeValue(double? value) {
+    if (value == null) {
+      return value;
+    }
+    if (value > 1.0) {
+      return value / 100;
+    }
+    if (value < 0) {
+      return 0.0;
+    }
+    return value;
   }
 }

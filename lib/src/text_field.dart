@@ -171,6 +171,8 @@ class CustomTextField extends StatelessWidget {
         node.nextFocus();
       case TextInputAction.previous:
         node.previousFocus();
+      case TextInputAction.newline:
+        return;
       default:
         node.unfocus();
     }

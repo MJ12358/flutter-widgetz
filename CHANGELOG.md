@@ -1,5 +1,16 @@
 # Flutter Widgetz
 
+## 6.1.0
+
+- Add `CustomInputDecorator` widget.
+- Add `PercentIndicator` widget.
+- Add `Poll` widget.
+- Add `crossAxisAlignment`, `height` and `notchMargin` params to `CustomBottomAppBar`.
+- Add `backgroundColor` to `CustomProgressIndicator`.
+- Allow 0 - 100 values for `CustomProgressIndicator` and `PercentIndicator`.
+- Fix possible issue with TextInputAction.newline in `CustomTextField`.
+- Fix `Countdown` date overflow.
+
 ## 6.0.0
 
 - **BREAKING**:

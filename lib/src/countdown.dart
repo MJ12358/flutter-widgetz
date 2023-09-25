@@ -119,7 +119,10 @@ class _CountdownState extends State<Countdown> {
   void initState() {
     super.initState();
     _duration = widget.target.difference(DateTime.now());
-    _timer = Timer.periodic(const Duration(seconds: 1), (_) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
+      if (_hasEnded) {
+        timer.cancel();
+      }
       setState(() {
         _duration = widget.target.difference(DateTime.now());
       });
@@ -130,6 +133,14 @@ class _CountdownState extends State<Countdown> {
   void dispose() {
     _timer.cancel();
     super.dispose();
+  }
+
+  bool get _hasEnded {
+    final DateTime target = widget.target;
+    if (DateTime.now().isAfter(target)) {
+      return true;
+    }
+    return false;
   }
 
   @override

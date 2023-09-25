@@ -10,8 +10,11 @@ class CustomBottomAppBar extends StatelessWidget {
     required this.children,
     this.clipBehavior = Clip.none,
     this.color,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
+    this.height,
     this.iconColor,
     this.mainAxisAlignment = MainAxisAlignment.start,
+    this.notchMargin = 4.0,
     this.padding,
     this.shape,
   });
@@ -25,11 +28,21 @@ class CustomBottomAppBar extends StatelessWidget {
   /// The bottom app bar's background color.
   final Color? color;
 
+  /// How the children should be placed along the cross axis.
+  final CrossAxisAlignment crossAxisAlignment;
+
+  /// The double value used to indicate the height of the [BottomAppBar].
+  final double? height;
+
   /// The default for [Icon.color].
   final Color? iconColor;
 
   /// How the children should be placed along the main axis.
   final MainAxisAlignment mainAxisAlignment;
+
+  /// The margin between the [FloatingActionButton]
+  /// and the [BottomAppBar]'s notch.
+  final double notchMargin;
 
   /// The amount of space to surround the child inside the
   /// bounds of the [BottomAppBar].
@@ -45,6 +58,8 @@ class CustomBottomAppBar extends StatelessWidget {
     return BottomAppBar(
       clipBehavior: clipBehavior,
       color: color ?? theme.colorScheme.secondary,
+      height: height,
+      notchMargin: notchMargin,
       padding: padding,
       shape: shape,
       child: IconTheme(
@@ -52,6 +67,7 @@ class CustomBottomAppBar extends StatelessWidget {
           color: iconColor ?? theme.colorScheme.secondary.blackOrWhite,
         ),
         child: Row(
+          crossAxisAlignment: crossAxisAlignment,
           mainAxisAlignment: mainAxisAlignment,
           children: children.isNotEmpty ? children : <Widget>[const SizedBox()],
         ),

@@ -87,7 +87,7 @@ class _Landscape extends StatelessWidget {
             const SpacedColumn(
               children: <Widget>[
                 CustomTextField(
-                  // labelText: 'Three',
+                  labelText: 'Three',
                   prefixIcon: Icons.three_k,
                 ),
                 CustomTextField(
@@ -111,15 +111,20 @@ class _Portrait extends StatelessWidget {
     return SpacedColumn(
       children: <Widget>[
         const CustomTextField(
-          labelText: 'One',
+          labelText: 'One (Next)',
           prefixIcon: Icons.one_k,
           textInputAction: TextInputAction.next,
         ),
         const CustomTextField(
-          labelText: 'Two',
+          labelText: 'Two (Previous)',
           prefixIcon: Icons.two_k,
           helpText: 'Help Text',
           textInputAction: TextInputAction.previous,
+        ),
+        const CustomInputDecorator(
+          labelText: 'Input Decorator',
+          prefixIcon: Icons.abc,
+          text: 'Hello',
         ),
         Autocomplete<String>(
           optionsBuilder: (TextEditingValue v) =>
@@ -133,12 +138,20 @@ class _Portrait extends StatelessWidget {
               _autocompletes.where((String e) => e.contains(v)).toList(),
         ),
         const CustomTextField(
-          labelText: 'Three',
+          labelText: 'Three (Next)',
           prefixIcon: Icons.three_k,
           textInputAction: TextInputAction.next,
         ),
         const CustomTextField(
-          labelText: 'Four',
+          labelText: 'Four (NewLine)',
+          prefixIcon: Icons.four_k,
+          minLines: 1,
+          maxLines: 2,
+          keyboardType: TextInputType.multiline,
+          textInputAction: TextInputAction.newline,
+        ),
+        const CustomTextField(
+          labelText: 'Five (Done)',
           prefixIcon: Icons.four_k,
           textInputAction: TextInputAction.done,
         ),

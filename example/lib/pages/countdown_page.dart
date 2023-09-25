@@ -15,7 +15,7 @@ class CountdownPage extends StatelessWidget {
       child: SpacedColumn(
         children: <Widget>[
           Countdown.rectangle(
-            target: _defaultDateTime,
+            target: DateTime.now().add(const Duration(seconds: 10)),
           ),
           Countdown.rectangle(
             target: _defaultDateTime,

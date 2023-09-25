@@ -24,7 +24,9 @@ import 'package:flutter_widgetz_example/pages/navigation_rail_page.dart';
 import 'package:flutter_widgetz_example/pages/orienatation_page.dart';
 import 'package:flutter_widgetz_example/pages/picklist_page.dart';
 import 'package:flutter_widgetz_example/pages/placeholder_page.dart';
+import 'package:flutter_widgetz_example/pages/poll_page.dart';
 import 'package:flutter_widgetz_example/pages/popup_menu_page.dart';
+import 'package:flutter_widgetz_example/pages/progress_indicator_page.dart';
 import 'package:flutter_widgetz_example/pages/radio_page.dart';
 import 'package:flutter_widgetz_example/pages/rating_page.dart';
 import 'package:flutter_widgetz_example/pages/scaffold_page.dart';
@@ -190,8 +192,10 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.list, ListViewPage(), 'List View'),
   PageInfo(Icons.navigation, NavigationRailPage(), 'Navigation Rail'),
   PageInfo(Icons.landscape, OrientationPage(), 'Orientation'),
+  PageInfo(Icons.percent, ProgressIndicatorPage(), 'Progress'),
   PageInfo(Icons.price_check, PicklistPage(), 'Picklists'),
   PageInfo(Icons.business, PlaceholderPage(), 'Placeholders'),
+  PageInfo(Icons.poll, PollPage(), 'Polls'),
   PageInfo(Icons.phonelink_setup_sharp, PopupMenuPage(), 'Popup Menu'),
   PageInfo(Icons.radio, RadioPage(), 'Radios'),
   PageInfo(Icons.star, RatingPage(), 'Rating Bar'),
