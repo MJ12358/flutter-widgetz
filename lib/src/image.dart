@@ -74,7 +74,7 @@ class CustomImage extends StatelessWidget {
     this.opacity = _defaultOpacity,
     this.scale = _defaultScale,
   }) : imageProvider = Image.memory(
-          bytes ?? Uint8List(0),
+          bytes ?? _kTransparentImage,
           errorBuilder: (_, __, ___) => errorWidget,
           frameBuilder: frameBuilder,
         ).image;
@@ -97,6 +97,65 @@ class CustomImage extends StatelessWidget {
           errorBuilder: (_, __, ___) => errorWidget,
           loadingBuilder: loadingBuilder,
         ).image;
+
+  /// {@macro flutter_widgetz.CustomImage}
+  ///
+  /// This factory attempts to determine the input
+  /// type to construct the proper image for you.
+  factory CustomImage.dynamic(
+    Object? object, {
+    Alignment alignment = _defaultAlignment,
+    Color? color,
+    Widget errorWidget = _defaultErrorWidget,
+    BoxFit fit = _defaultBoxFit,
+    double opacity = _defaultOpacity,
+    double scale = _defaultScale,
+  }) {
+    if (object is Uint8List) {
+      return CustomImage.memory(
+        object,
+        alignment: alignment,
+        color: color,
+        errorWidget: errorWidget,
+        fit: fit,
+        opacity: opacity,
+        scale: scale,
+      );
+    }
+
+    if (object is String) {
+      if (Uri.tryParse(object)?.isAbsolute ?? false) {
+        return CustomImage.network(
+          object,
+          alignment: alignment,
+          color: color,
+          errorWidget: errorWidget,
+          fit: fit,
+          opacity: opacity,
+          scale: scale,
+        );
+      } else {
+        return CustomImage.asset(
+          object,
+          alignment: alignment,
+          color: color,
+          errorWidget: errorWidget,
+          fit: fit,
+          opacity: opacity,
+          scale: scale,
+        );
+      }
+    }
+
+    return CustomImage(
+      imageProvider: Image.memory(_kTransparentImage).image,
+      alignment: alignment,
+      color: color,
+      fit: fit,
+      opacity: opacity,
+      scale: scale,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

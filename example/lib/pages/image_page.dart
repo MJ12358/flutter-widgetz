@@ -5,16 +5,16 @@ import 'package:flutter_widgetz/flutter_widgetz.dart';
 class ImagePage extends StatelessWidget {
   const ImagePage({super.key});
 
-  List<Object?> get _images => <Object?>[
-        'assets/images/test.png',
-        'assets/images/test2.png',
-        'assets/images/derp.png',
-        Uint8List(0),
-        Uint8List(99),
-        null,
-        'https://placehold.co/200/png',
-        'https://placehold.co/400/png',
-        'http://example.com',
+  List<_ImageInfo> get _images => <_ImageInfo>[
+        _ImageInfo('assets/images/test.png', Colors.amber),
+        _ImageInfo('assets/images/test2.png', Colors.amber),
+        _ImageInfo('assets/images/derp.png', Colors.amber),
+        _ImageInfo(Uint8List(0), Colors.blue),
+        _ImageInfo(Uint8List(99), Colors.blue),
+        _ImageInfo(null, Colors.blue),
+        _ImageInfo('https://placehold.co/200/png', Colors.green),
+        _ImageInfo('https://placehold.co/400/png', Colors.green),
+        _ImageInfo('http://example.com', Colors.green),
       ];
 
   @override
@@ -32,20 +32,20 @@ class ImagePage extends StatelessWidget {
     );
   }
 
-  Widget _getImage(Object? o) {
-    if (o is String) {
-      if (o.contains('http')) {
-        return CustomImage.network(o);
-      } else {
-        return CustomImage.asset(o);
-      }
-    }
-    if (o is Uint8List || o == null) {
-      return CustomImage.memory(
-        o as Uint8List?,
-        color: Colors.blue,
-      );
-    }
-    return const SizedBox();
+  Widget _getImage(_ImageInfo info) {
+    return CustomImage.dynamic(
+      info.image,
+      color: info.color,
+    );
   }
+}
+
+class _ImageInfo {
+  _ImageInfo(
+    this.image,
+    this.color,
+  );
+
+  final Object? image;
+  final Color? color;
 }

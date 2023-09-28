@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 6.2.0
+
+- Add `dynamic` constructor to `CustomImage`.
+
 ## 6.1.0
 
 - Add `CustomInputDecorator` widget.
