@@ -3,13 +3,14 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.CustomImage}
 /// A custom image that handles errors for you.
 /// {@endtemplate}
-class CustomImage extends StatelessWidget {
+class CustomImage extends StatefulWidget {
   /// {@macro flutter_widgetz.CustomImage}
   const CustomImage({
     super.key,
     required this.imageProvider,
     this.alignment = _defaultAlignment,
     this.color,
+    this.errorWidget,
     this.fit = _defaultBoxFit,
     this.opacity = _defaultOpacity,
     this.scale = _defaultScale,
@@ -20,6 +21,9 @@ class CustomImage extends StatelessWidget {
 
   /// The color to fill in the background of the box.
   final Color? color;
+
+  /// A replacement widget when a error occurs.
+  final Widget? errorWidget;
 
   /// How the image should be inscribed into the box.
   final BoxFit fit;
@@ -39,7 +43,6 @@ class CustomImage extends StatelessWidget {
   static const Widget _defaultErrorWidget = SizedBox();
   static const double _defaultOpacity = 1.0;
   static const double _defaultScale = 1.0;
-  static void _defaultImageErrorHandler(Object o, StackTrace? s) {}
 
   /// {@macro flutter_widgetz.CustomImage}
   ///
@@ -49,14 +52,14 @@ class CustomImage extends StatelessWidget {
     super.key,
     this.alignment = _defaultAlignment,
     this.color,
-    Widget errorWidget = _defaultErrorWidget,
+    this.errorWidget = _defaultErrorWidget,
     this.fit = _defaultBoxFit,
     ImageFrameBuilder? frameBuilder,
     this.opacity = _defaultOpacity,
     this.scale = _defaultScale,
   }) : imageProvider = Image.asset(
           name ?? '',
-          errorBuilder: (_, __, ___) => errorWidget,
+          errorBuilder: (_, __, ___) => errorWidget!,
           frameBuilder: frameBuilder,
         ).image;
 
@@ -68,14 +71,14 @@ class CustomImage extends StatelessWidget {
     super.key,
     this.alignment = _defaultAlignment,
     this.color,
-    Widget errorWidget = _defaultErrorWidget,
+    this.errorWidget = _defaultErrorWidget,
     this.fit = _defaultBoxFit,
     ImageFrameBuilder? frameBuilder,
     this.opacity = _defaultOpacity,
     this.scale = _defaultScale,
   }) : imageProvider = Image.memory(
-          bytes ?? _kTransparentImage,
-          errorBuilder: (_, __, ___) => errorWidget,
+          bytes ?? Uint8List(0),
+          errorBuilder: (_, __, ___) => errorWidget!,
           frameBuilder: frameBuilder,
         ).image;
 
@@ -87,14 +90,14 @@ class CustomImage extends StatelessWidget {
     super.key,
     this.alignment = _defaultAlignment,
     this.color,
-    Widget errorWidget = _defaultErrorWidget,
+    this.errorWidget = _defaultErrorWidget,
     this.fit = _defaultBoxFit,
     ImageLoadingBuilder? loadingBuilder,
     this.opacity = _defaultOpacity,
     this.scale = _defaultScale,
   }) : imageProvider = Image.network(
           source ?? '',
-          errorBuilder: (_, __, ___) => errorWidget,
+          errorBuilder: (_, __, ___) => errorWidget!,
           loadingBuilder: loadingBuilder,
         ).image;
 
@@ -111,9 +114,9 @@ class CustomImage extends StatelessWidget {
     double opacity = _defaultOpacity,
     double scale = _defaultScale,
   }) {
-    if (object is Uint8List) {
+    if (object is Uint8List || object == null) {
       return CustomImage.memory(
-        object,
+        object as Uint8List?,
         alignment: alignment,
         color: color,
         errorWidget: errorWidget,
@@ -158,28 +161,48 @@ class CustomImage extends StatelessWidget {
   }
 
   @override
+  State<CustomImage> createState() => _CustomImageState();
+}
+
+class _CustomImageState extends State<CustomImage> {
+  late bool _hasError;
+
+  @override
+  void initState() {
+    super.initState();
+    _hasError = false;
+  }
+
+  @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
     try {
       return Container(
         decoration: BoxDecoration(
-          color: color ?? theme.colorScheme.secondary,
+          color: widget.color ?? theme.colorScheme.secondary,
           image: DecorationImage(
-            alignment: alignment,
-            fit: fit,
-            image: imageProvider,
-            onError: _defaultImageErrorHandler,
-            opacity: opacity,
-            scale: scale,
+            alignment: widget.alignment,
+            fit: widget.fit,
+            image: widget.imageProvider,
+            onError: (_, __) {
+              setState(() {
+                _hasError = true;
+              });
+            },
+            opacity: widget.opacity,
+            scale: widget.scale,
           ),
         ),
+        // for some reason, the errorBuilder is not being called
+        child: _hasError ? widget.errorWidget : null,
       );
     } catch (_) {
       return Container(
         decoration: BoxDecoration(
-          color: color ?? theme.colorScheme.secondary,
+          color: widget.color ?? theme.colorScheme.secondary,
         ),
+        child: widget.errorWidget,
       );
     }
   }

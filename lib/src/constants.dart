@@ -1,5 +1,7 @@
 part of flutter_widgetz;
 
+const String _kFlashlightAsset = 'assets/images/flashlight.png';
+
 final Uint8List _kTransparentImage = Uint8List.fromList(<int>[
   0x89,
   0x50,

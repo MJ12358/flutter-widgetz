@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 6.2.1
+
+- Fix `errorWidget` not showing in `CustomImage`.
+
 ## 6.2.0
 
 - Add `dynamic` constructor to `CustomImage`.

@@ -6,8 +6,8 @@ class ImagePage extends StatelessWidget {
   const ImagePage({super.key});
 
   List<_ImageInfo> get _images => <_ImageInfo>[
+        _ImageInfo('assets/images/placeholder.png', Colors.amber),
         _ImageInfo('assets/images/test.png', Colors.amber),
-        _ImageInfo('assets/images/test2.png', Colors.amber),
         _ImageInfo('assets/images/derp.png', Colors.amber),
         _ImageInfo(Uint8List(0), Colors.blue),
         _ImageInfo(Uint8List(99), Colors.blue),
@@ -36,6 +36,7 @@ class ImagePage extends StatelessWidget {
     return CustomImage.dynamic(
       info.image,
       color: info.color,
+      errorWidget: Image.asset('assets/images/error.png'),
     );
   }
 }
