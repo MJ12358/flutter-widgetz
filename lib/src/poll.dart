@@ -36,7 +36,7 @@ class Poll extends StatefulWidget {
   /// The radii for each corner.
   final double borderRadius;
 
-  /// The color used as the for the text of buttons
+  /// The color used for the text of buttons
   /// and foreground of indicators.
   final Color? color;
 
@@ -120,7 +120,7 @@ class _PollState extends State<Poll> {
         AnimatedSwitcher(
           duration: const Duration(milliseconds: 500),
           child: (_hasEnded || _hasVoted)
-              ? _Indicators(
+              ? _PollIndicators(
                   borderRadius: widget.borderRadius,
                   height: widget.height,
                   options: _options,
@@ -129,7 +129,7 @@ class _PollState extends State<Poll> {
                   backgroundColor: widget.backgroundColor,
                   color: widget.color,
                 )
-              : _Buttons(
+              : _PollButtons(
                   borderRadius: widget.borderRadius,
                   height: widget.height,
                   onVoted: _onVoted,
@@ -139,7 +139,7 @@ class _PollState extends State<Poll> {
                   color: widget.color,
                 ),
         ),
-        _Footer(
+        _PollFooter(
           finalResultsText: widget.finalResultsText,
           hasEnded: _hasEnded,
           votesText: widget.votesText,
@@ -172,8 +172,8 @@ class _PollState extends State<Poll> {
   }
 }
 
-class _Buttons extends StatelessWidget {
-  const _Buttons({
+class _PollButtons extends StatelessWidget {
+  const _PollButtons({
     required this.borderRadius,
     required this.height,
     required this.onVoted,
@@ -197,7 +197,7 @@ class _Buttons extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       spacing: spacing,
       children: options.map((PollOption e) {
-        return _Button(
+        return _PollButton(
           backgroundColor: backgroundColor,
           borderRadius: borderRadius,
           color: color,
@@ -210,8 +210,8 @@ class _Buttons extends StatelessWidget {
   }
 }
 
-class _Indicators extends StatelessWidget {
-  const _Indicators({
+class _PollIndicators extends StatelessWidget {
+  const _PollIndicators({
     required this.borderRadius,
     required this.height,
     required this.options,
@@ -246,7 +246,7 @@ class _Indicators extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       spacing: spacing,
       children: options.map((PollOption e) {
-        return _Indicator(
+        return _PollIndicator(
           backgroundColor: backgroundColor,
           borderRadius: borderRadius,
           color: color,
@@ -260,8 +260,8 @@ class _Indicators extends StatelessWidget {
   }
 }
 
-class _Button extends StatelessWidget {
-  const _Button({
+class _PollButton extends StatelessWidget {
+  const _PollButton({
     required this.borderRadius,
     required this.height,
     required this.onPressed,
@@ -306,8 +306,8 @@ class _Button extends StatelessWidget {
   }
 }
 
-class _Indicator extends StatelessWidget {
-  const _Indicator({
+class _PollIndicator extends StatelessWidget {
+  const _PollIndicator({
     required this.borderRadius,
     required this.height,
     required this.isWinning,
@@ -359,8 +359,8 @@ class _Indicator extends StatelessWidget {
   }
 }
 
-class _Footer extends StatelessWidget {
-  const _Footer({
+class _PollFooter extends StatelessWidget {
+  const _PollFooter({
     required this.finalResultsText,
     required this.hasEnded,
     required this.votesText,

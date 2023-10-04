@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 6.3.0
+
+- Add `RatingSummary` widget.
+
 ## 6.2.1
 
 - Fix `errorWidget` not showing in `CustomImage`.

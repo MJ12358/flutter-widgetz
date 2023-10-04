@@ -75,9 +75,7 @@ class PercentIndicator extends StatelessWidget {
             width: height,
             child: CircularProgressIndicator(
               backgroundColor: backgroundColor,
-              valueColor: AlwaysStoppedAnimation<Color?>(
-                color,
-              ),
+              color: color,
               strokeWidth: strokeWidth,
               value: value,
             ),
@@ -103,10 +101,8 @@ class PercentIndicator extends StatelessWidget {
   })  : builder = ((_, double value, __) {
           return LinearProgressIndicator(
             backgroundColor: backgroundColor,
+            color: color,
             minHeight: height,
-            valueColor: AlwaysStoppedAnimation<Color?>(
-              color,
-            ),
             value: value,
           );
         }),

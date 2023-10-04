@@ -21,10 +21,12 @@ class CustomProgressIndicator extends StatelessWidget {
   CustomProgressIndicator.circular({
     super.key,
     Color? backgroundColor,
+    Color? color,
     String semanticsLabel = _defaultSemanticsLabel,
     double? value,
   }) : indicator = CircularProgressIndicator(
           backgroundColor: backgroundColor,
+          color: color,
           semanticsLabel: semanticsLabel,
           value: _computeValue(value),
         );
@@ -36,11 +38,15 @@ class CustomProgressIndicator extends StatelessWidget {
     super.key,
     Color? backgroundColor,
     BorderRadiusGeometry borderRadius = BorderRadius.zero,
+    Color? color,
+    double? minHeight,
     String semanticsLabel = _defaultSemanticsLabel,
     double? value,
   }) : indicator = LinearProgressIndicator(
           backgroundColor: backgroundColor,
           borderRadius: borderRadius,
+          color: color,
+          minHeight: minHeight,
           semanticsLabel: semanticsLabel,
           value: _computeValue(value),
         );
@@ -51,10 +57,12 @@ class CustomProgressIndicator extends StatelessWidget {
   CustomProgressIndicator.refresh({
     super.key,
     Color? backgroundColor,
+    Color? color,
     String semanticsLabel = _defaultSemanticsLabel,
     double? value,
   }) : indicator = RefreshProgressIndicator(
           backgroundColor: backgroundColor,
+          color: color,
           semanticsLabel: semanticsLabel,
           value: _computeValue(value),
         );

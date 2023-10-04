@@ -45,6 +45,7 @@ A set of [Flutter](https://flutter.dev) widgets I use in various projects.
 - ProgressIndicator
 - RadioGroup
 - RatingBar
+- RatingSummary
 - ReorderableListView
 - SaveButton
 - Scaffold

@@ -53,6 +53,7 @@ part 'src/popup_menu_item.dart';
 part 'src/progress_indicator.dart';
 part 'src/radio_group.dart';
 part 'src/rating_bar.dart';
+part 'src/rating_summary.dart';
 part 'src/reorderable_list.dart';
 part 'src/save_button.dart';
 part 'src/scaffold.dart';

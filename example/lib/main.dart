@@ -122,6 +122,7 @@ class MainState extends State<Main> {
           ],
         ),
         body: PageView.builder(
+          clipBehavior: Clip.none,
           controller: _controller,
           onPageChanged: _onPageChanged,
           itemCount: _pages.length,
@@ -198,7 +199,7 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.poll, PollPage(), 'Polls'),
   PageInfo(Icons.phonelink_setup_sharp, PopupMenuPage(), 'Popup Menu'),
   PageInfo(Icons.radio, RadioPage(), 'Radios'),
-  PageInfo(Icons.star, RatingPage(), 'Rating Bar'),
+  PageInfo(Icons.star, RatingPage(), 'Ratings'),
   PageInfo(Icons.scale, ScaffoldPage(), 'Scaffold'),
   PageInfo(Icons.search, SearchBarPage(), 'Search Bar'),
   PageInfo(Icons.shield, ShimmerPage(), 'Shimmer'),

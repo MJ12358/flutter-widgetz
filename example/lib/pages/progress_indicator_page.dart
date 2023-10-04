@@ -21,6 +21,8 @@ class ProgressIndicatorPage extends StatelessWidget {
             value: 50,
           ),
           PercentIndicator.circular(
+            backgroundColor: Colors.grey,
+            color: Colors.amber,
             height: 100,
             value: 75,
           ),
@@ -29,6 +31,8 @@ class ProgressIndicatorPage extends StatelessWidget {
             value: 50,
           ),
           PercentIndicator.linear(
+            backgroundColor: Colors.grey,
+            color: Colors.amber,
             height: 25,
             value: .75,
           ),
