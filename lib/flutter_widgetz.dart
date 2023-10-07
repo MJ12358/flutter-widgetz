@@ -38,6 +38,7 @@ part 'src/duration_field.dart';
 part 'src/duration_picker.dart';
 part 'src/elevated_button.dart';
 part 'src/extensions.dart';
+part 'src/feedback_bar.dart';
 part 'src/floating_action_button.dart';
 part 'src/image.dart';
 part 'src/input_decorator.dart';

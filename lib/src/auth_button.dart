@@ -40,9 +40,9 @@ class AuthButton extends StatelessWidget {
   static const double _defaultMaxWidth = 275;
   static const double _defaultMinWidth = 275;
 
-  static Widget _getAsset(String name) {
+  static Widget _getAsset(String path) {
     return Image.asset(
-      'assets/icons/$name',
+      path,
       package: 'flutter_widgetz',
     );
   }
@@ -60,7 +60,7 @@ class AuthButton extends StatelessWidget {
     this.text = 'Sign in with Apple',
     this.textStyle,
   })  : color = const Color(0xFF000000),
-        icon = _getAsset('apple.png');
+        icon = _getAsset(_kAppleIcon);
 
   /// {@macro flutter_widgetz.AuthButton}
   ///
@@ -75,7 +75,7 @@ class AuthButton extends StatelessWidget {
     this.text = 'Sign in with Facebook',
     this.textStyle,
   })  : color = const Color(0xFF43549D),
-        icon = _getAsset('facebook.png');
+        icon = _getAsset(_kFacebookIcon);
 
   /// {@macro flutter_widgetz.AuthButton}
   ///
@@ -90,7 +90,7 @@ class AuthButton extends StatelessWidget {
     this.text = 'Sign in with GitHub',
     this.textStyle,
   })  : color = const Color(0xFF24292E),
-        icon = _getAsset('github.png');
+        icon = _getAsset(_kGithubIcon);
 
   /// {@macro flutter_widgetz.AuthButton}
   ///
@@ -105,7 +105,7 @@ class AuthButton extends StatelessWidget {
     this.text = 'Sign in with Google',
     this.textStyle,
   })  : color = const Color(0xFF4285F4),
-        icon = _getAsset('google.png');
+        icon = _getAsset(_kGoogleIcon);
 
   /// {@macro flutter_widgetz.AuthButton}
   ///
@@ -120,7 +120,7 @@ class AuthButton extends StatelessWidget {
     this.text = 'Sign in with Microsoft',
     this.textStyle,
   })  : color = const Color(0xFF2F2F2F),
-        icon = _getAsset('microsoft.png');
+        icon = _getAsset(_kMicrosoftIcon);
 
   /// {@macro flutter_widgetz.AuthButton}
   ///
@@ -135,7 +135,7 @@ class AuthButton extends StatelessWidget {
     this.text = 'Sign in with Twitter',
     TextStyle? textStyle,
   })  : color = const Color(0xFF55ACEE),
-        icon = _getAsset('twitter.png'),
+        icon = _getAsset(_kTwitterIcon),
         textStyle = textStyle ?? const TextStyle(color: Colors.white);
 
   @override

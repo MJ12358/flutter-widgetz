@@ -59,7 +59,7 @@ class CustomPlaceholder extends StatelessWidget {
     this.mainAxisAlignment = _defaultAlignment,
     this.padding = _defaultPadding,
   }) : child = Image.asset(
-          _kFlashlightAsset,
+          _kFlashlightImage,
           package: 'flutter_widgetz',
         );
 

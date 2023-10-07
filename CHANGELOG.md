@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 6.4.0
+
+- Add `FeedbackBar` widget.
+
 ## 6.3.0
 
 - Add `RatingSummary` widget.
