@@ -1,5 +1,7 @@
 part of flutter_widgetz;
 
+const String _kPackage = 'flutter_widgetz';
+
 const String _kBadEmojiFilled = 'assets/emojis/filled/bad.png';
 const String _kGoodEmojiFilled = 'assets/emojis/filled/good.png';
 const String _kOkayEmojiFilled = 'assets/emojis/filled/okay.png';
@@ -18,6 +20,21 @@ const String _kGithubIcon = 'assets/icons/github.png';
 const String _kGoogleIcon = 'assets/icons/google.png';
 const String _kMicrosoftIcon = 'assets/icons/microsoft.png';
 const String _kTwitterIcon = 'assets/icons/twitter.png';
+
+const String _kAIcon = 'assets/icons/a.png';
+const String _kBIcon = 'assets/icons/b.png';
+const String _kXIcon = 'assets/icons/x.png';
+const String _kYIcon = 'assets/icons/y.png';
+
+const String _kCircleIcon = 'assets/icons/circle.png';
+const String _kCrossIcon = 'assets/icons/cross.png';
+const String _kSquareIcon = 'assets/icons/square.png';
+const String _kTriangleIcon = 'assets/icons/triangle.png';
+
+const String _kPadUpIcon = 'assets/icons/pad_up.png';
+const String _kPadRightIcon = 'assets/icons/pad_right.png';
+const String _kPadDownIcon = 'assets/icons/pad_down.png';
+const String _kPadLeftIcon = 'assets/icons/pad_left.png';
 
 const String _kFlashlightImage = 'assets/images/flashlight.png';
 

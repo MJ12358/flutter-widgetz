@@ -1,5 +1,8 @@
 part of flutter_widgetz;
 
+// TODO: make a class called "FeedbackContent"
+// and allow an asset and a label...
+
 /// {@template flutter_widgetz.FeedbackBar}
 /// A feedback widget.
 /// {@endtemplate}
@@ -12,6 +15,7 @@ class FeedbackBar extends StatelessWidget {
     this.footer,
     this.header,
     this.headerText,
+    this.orientation = _defaultOrientation,
     this.rtl = _defaultRtl,
     this.spacing = _defaultSpacing,
   }) : color = null;
@@ -19,7 +23,7 @@ class FeedbackBar extends StatelessWidget {
   /// The assets displayed.
   final List<String> assets;
 
-  /// The color of the assets.
+  /// The color of the [assets].
   final Color? color;
 
   /// An optional footer widget.
@@ -29,17 +33,23 @@ class FeedbackBar extends StatelessWidget {
   final Widget? header;
 
   /// Optional text for the header.
+  ///
+  /// Only used if [header] is null.
   final String? headerText;
 
   /// A callback called when feedback is pressed.
   final ValueChanged<int> onChanged;
 
-  /// Determines if the assets could be right to left.
+  /// The orientation of the [assets].
+  final Orientation orientation;
+
+  /// Determines if the [assets] should be right to left.
   final bool rtl;
 
   /// The spacing between the assets.
   final double spacing;
 
+  static const Orientation _defaultOrientation = Orientation.landscape;
   static const bool _defaultRtl = false;
   static const double _defaultSpacing = 20.0;
 
@@ -53,6 +63,7 @@ class FeedbackBar extends StatelessWidget {
     this.footer,
     this.header,
     this.headerText,
+    this.orientation = _defaultOrientation,
     this.rtl = _defaultRtl,
     this.spacing = _defaultSpacing,
   }) : assets = <String>[
@@ -72,6 +83,7 @@ class FeedbackBar extends StatelessWidget {
     this.footer,
     this.header,
     this.headerText,
+    this.orientation = _defaultOrientation,
     this.rtl = _defaultRtl,
     this.spacing = _defaultSpacing,
   })  : assets = <String>[
@@ -103,10 +115,16 @@ class FeedbackBar extends StatelessWidget {
         spacing: 8.0,
         children: <Widget>[
           if (_header != null) _header!,
-          SpacedRow(
-            spacing: spacing,
-            children: _buildChildren(),
-          ),
+          if (orientation == Orientation.landscape)
+            SpacedRow(
+              spacing: spacing,
+              children: _buildChildren(),
+            )
+          else
+            SpacedColumn(
+              spacing: spacing,
+              children: _buildChildren(),
+            ),
           if (footer != null) footer!,
         ],
       ),
@@ -141,11 +159,10 @@ class _Image extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      // this is set to the size of the asset
-      borderRadius: BorderRadius.circular(128),
+      customBorder: const CircleBorder(),
       child: Image.asset(
         path,
-        package: 'flutter_widgetz',
+        package: _kPackage,
         color: color,
       ),
     );

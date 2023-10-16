@@ -60,7 +60,7 @@ class CustomPlaceholder extends StatelessWidget {
     this.padding = _defaultPadding,
   }) : child = Image.asset(
           _kFlashlightImage,
-          package: 'flutter_widgetz',
+          package: _kPackage,
         );
 
   @override

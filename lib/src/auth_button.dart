@@ -43,7 +43,7 @@ class AuthButton extends StatelessWidget {
   static Widget _getAsset(String path) {
     return Image.asset(
       path,
-      package: 'flutter_widgetz',
+      package: _kPackage,
     );
   }
 

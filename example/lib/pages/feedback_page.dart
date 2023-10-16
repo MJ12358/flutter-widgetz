@@ -31,6 +31,15 @@ class FeedbackPage extends StatelessWidget {
             headerText: 'Outlined (color)',
             onChanged: print,
           ),
+          SizedBox(
+            width: 50,
+            child: FeedbackBar.outlined(
+              color: Colors.black,
+              headerText: 'Outlined (color)',
+              onChanged: print,
+              orientation: Orientation.portrait,
+            ),
+          ),
         ],
       ),
     );

@@ -1,7 +1,5 @@
 part of flutter_widgetz;
 
-// TODO: this is a WIP, but the essence is there.
-
 /// {@template flutter_widgetz.Shimmer}
 /// A shimmer effect widget.
 ///
@@ -13,9 +11,10 @@ class Shimmer extends StatefulWidget {
   Shimmer({
     super.key,
     required this.child,
+    Color backgroundColor = _defaultBackgroundColor,
     Gradient? gradient,
     this.period = _defaultPeriod,
-  }) : gradient = gradient ?? _defaultGradient;
+  }) : gradient = gradient ?? _getDefaultGradient(backgroundColor);
 
   /// The child widget shown during shimmer.
   final Widget child;
@@ -26,8 +25,9 @@ class Shimmer extends StatefulWidget {
   /// The duration of the shimmer.
   final Duration period;
 
-  static final Color _defaultBaseColor = Colors.grey.shade300;
-  static final Color _defaultHighlightColor = Colors.grey.shade100;
+  static const Color _defaultBackgroundColor = Color(0xFFE0E0E0);
+  static const double _defaultBorderRadius = 0;
+  static const Color _defaultHighlightColor = Color(0xFFF5F5F5);
   static const Duration _defaultPeriod = Duration(milliseconds: 1500);
   static const List<double> _defaultStops = <double>[
     0.0,
@@ -36,58 +36,64 @@ class Shimmer extends StatefulWidget {
     0.65,
     1.0,
   ];
-  static final Gradient _defaultGradient = LinearGradient(
-    begin: Alignment.topLeft,
-    colors: <Color>[
-      _defaultBaseColor,
-      _defaultBaseColor,
-      _defaultHighlightColor,
-      _defaultBaseColor,
-      _defaultBaseColor,
-    ],
-    stops: _defaultStops,
-  );
 
-  static Widget _getContainer({
-    Color? color = Colors.white,
-    BoxDecoration? decoration,
-    double? height = 12.0,
-    EdgeInsets? margin,
-    double? width = double.infinity,
-  }) {
-    return Container(
-      decoration: decoration ??
-          BoxDecoration(
-            color: color,
-          ),
-      height: height,
-      margin: margin,
-      width: width,
+  static Gradient _getDefaultGradient(Color baseColor) {
+    return LinearGradient(
+      begin: Alignment.topLeft,
+      colors: <Color>[
+        baseColor,
+        baseColor,
+        _defaultHighlightColor,
+        baseColor,
+        baseColor,
+      ],
+      stops: _defaultStops,
     );
   }
+
+  /// {@macro flutter_widgetz.Shimmer}
+  ///
+  /// Banner uses a [Container] as a [child].
+  Shimmer.banner({
+    super.key,
+    Color backgroundColor = _defaultBackgroundColor,
+    double borderRadius = _defaultBorderRadius,
+    Gradient? gradient,
+    double height = 200.0,
+    this.period = _defaultPeriod,
+  })  : gradient = gradient ?? _getDefaultGradient(backgroundColor),
+        child = _Container(
+          borderRadius: borderRadius,
+          color: backgroundColor,
+          height: height,
+        );
 
   /// {@macro flutter_widgetz.Shimmer}
   ///
   /// List tile uses a [ListTile] as a [child].
   Shimmer.listTile({
     super.key,
+    Color backgroundColor = _defaultBackgroundColor,
+    double borderRadius = _defaultBorderRadius,
     Gradient? gradient,
     this.period = _defaultPeriod,
-  })  : gradient = gradient ?? _defaultGradient,
+  })  : gradient = gradient ?? _getDefaultGradient(backgroundColor),
         child = ListTile(
-          leading: const CircleAvatar(
-            backgroundColor: Colors.white,
+          contentPadding: EdgeInsets.zero,
+          leading: CircleAvatar(
+            backgroundColor: backgroundColor,
           ),
-          title: _getContainer(
-            margin: const EdgeInsets.only(bottom: 8.0),
+          title: _Container(
+            borderRadius: borderRadius,
+            color: backgroundColor,
           ),
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              _getContainer(
-                margin: const EdgeInsets.only(bottom: 8.0),
-              ),
-              _getContainer(
+              _Container(
+                borderRadius: borderRadius,
+                color: backgroundColor,
                 width: 50.0,
               ),
             ],
@@ -96,40 +102,28 @@ class Shimmer extends StatefulWidget {
 
   /// {@macro flutter_widgetz.Shimmer}
   ///
-  /// Banner uses a [Container] with a height of 200 as a [child].
-  Shimmer.banner({
-    super.key,
-    Gradient? gradient,
-    this.period = _defaultPeriod,
-  })  : gradient = gradient ?? _defaultGradient,
-        child = _getContainer(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.0),
-            color: Colors.white,
-          ),
-          height: 200.0,
-          margin: const EdgeInsets.all(16.0),
-        );
-
-  /// {@macro flutter_widgetz.Shimmer}
-  ///
-  /// Title uses a [Column] wrapped in [Padding].
+  /// Title uses a [Column] as a [child].
   Shimmer.title({
     super.key,
+    Color backgroundColor = _defaultBackgroundColor,
+    double borderRadius = _defaultBorderRadius,
     Gradient? gradient,
     this.period = _defaultPeriod,
-  })  : gradient = gradient ?? _defaultGradient,
-        child = Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              _getContainer(),
-              const SizedBox(height: 8.0),
-              _getContainer(),
-            ],
-          ),
+  })  : gradient = gradient ?? _getDefaultGradient(backgroundColor),
+        child = Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            _Container(
+              borderRadius: borderRadius,
+              color: backgroundColor,
+            ),
+            const SizedBox(height: 8.0),
+            _Container(
+              borderRadius: borderRadius,
+              color: backgroundColor,
+            ),
+          ],
         );
 
   @override
@@ -172,6 +166,32 @@ class _ShimmerState extends State<Shimmer> with SingleTickerProviderStateMixin {
           child: child,
         );
       },
+    );
+  }
+}
+
+class _Container extends StatelessWidget {
+  const _Container({
+    this.borderRadius = 0,
+    this.color,
+    this.height = 12.0,
+    this.width = double.infinity,
+  });
+
+  final double borderRadius;
+  final Color? color;
+  final double height;
+  final double width;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(borderRadius),
+        color: color,
+      ),
+      height: height,
+      width: width,
     );
   }
 }

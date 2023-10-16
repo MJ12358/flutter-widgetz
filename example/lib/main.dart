@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_themez/flutter_themez.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 import 'package:flutter_widgetz_example/pages/accordion_page.dart';
@@ -14,6 +15,7 @@ import 'package:flutter_widgetz_example/pages/countdown_page.dart';
 import 'package:flutter_widgetz_example/pages/counter_field_page.dart';
 import 'package:flutter_widgetz_example/pages/date_field_page.dart';
 import 'package:flutter_widgetz_example/pages/dialogs_page.dart';
+import 'package:flutter_widgetz_example/pages/directional_pad_page.dart';
 import 'package:flutter_widgetz_example/pages/divider_page.dart';
 import 'package:flutter_widgetz_example/pages/dropdown_field_page.dart';
 import 'package:flutter_widgetz_example/pages/duration_picker_page.dart';
@@ -80,6 +82,7 @@ class MainState extends State<Main> {
           titleText: 'Flutter Widgetz',
           subtitleText: _currentPage.title,
           actions: <Widget>[
+            const _TimeDilationButton(),
             IconButton(
               icon: const Icon(Icons.grid_3x3),
               onPressed: _onShowMaterialGrid,
@@ -160,6 +163,60 @@ class MainState extends State<Main> {
   }
 }
 
+class _TimeDilationButton extends StatelessWidget {
+  const _TimeDilationButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.timelapse),
+      onPressed: () => showDialog(
+        context: context,
+        builder: (_) => const _TimeDilationModal(),
+      ),
+    );
+  }
+}
+
+class _TimeDilationModal extends StatefulWidget {
+  const _TimeDilationModal();
+
+  @override
+  State<_TimeDilationModal> createState() => _TimeDilationModalState();
+}
+
+class _TimeDilationModalState extends State<_TimeDilationModal> {
+  late double _value;
+
+  @override
+  void initState() {
+    super.initState();
+    _value = timeDilation;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SimpleDialog(
+      title: const Text('Time Dilation'),
+      children: <Widget>[
+        Slider(
+          min: 1,
+          max: 10,
+          divisions: 9,
+          label: '$_value',
+          value: _value,
+          onChanged: (double value) {
+            setState(() {
+              _value = value;
+            });
+          },
+          onChangeEnd: (double value) => timeDilation = value,
+        ),
+      ],
+    );
+  }
+}
+
 class PageInfo {
   const PageInfo(
     this.icon,
@@ -186,6 +243,7 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.numbers, CounterPage(), 'Counter Field'),
   PageInfo(Icons.date_range, DateFieldPage(), 'Date Field'),
   PageInfo(Icons.dialpad_outlined, DialogsPage(), 'Dialogs'),
+  PageInfo(Icons.directions, DirectionalPadPage(), 'Directional Pad'),
   PageInfo(Icons.space_bar, DividerPage(), 'Dividers'),
   PageInfo(Icons.arrow_drop_down, DropdownFieldPage(), 'Dropdown Field'),
   PageInfo(Icons.timelapse, DurationFieldPage(), 'Duration Picker'),

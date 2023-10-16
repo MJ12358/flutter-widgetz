@@ -1,5 +1,11 @@
 # Flutter Widgetz
 
+## 6.5.0
+
+- Add `DirectionalPad` widget.
+- Add `orientation` param to `FeedbackBar`.
+- Add `backgroundColor` to `Shimmer`.
+
 ## 6.4.0
 
 - Add `FeedbackBar` widget.
