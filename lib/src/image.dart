@@ -114,22 +114,10 @@ class CustomImage extends StatefulWidget {
     double opacity = _defaultOpacity,
     double scale = _defaultScale,
   }) {
-    if (object is Uint8List || object == null) {
-      return CustomImage.memory(
-        object as Uint8List?,
-        alignment: alignment,
-        color: color,
-        errorWidget: errorWidget,
-        fit: fit,
-        opacity: opacity,
-        scale: scale,
-      );
-    }
-
-    if (object is String) {
-      if (Uri.tryParse(object)?.isAbsolute ?? false) {
-        return CustomImage.network(
-          object,
+    try {
+      if (object is Uint8List || object == null) {
+        return CustomImage.memory(
+          object as Uint8List?,
           alignment: alignment,
           color: color,
           errorWidget: errorWidget,
@@ -137,7 +125,39 @@ class CustomImage extends StatefulWidget {
           opacity: opacity,
           scale: scale,
         );
-      } else {
+      }
+
+      if (object is String) {
+        final bool isUri = Uri.tryParse(object)?.isAbsolute ?? false;
+
+        if (isUri) {
+          return CustomImage.network(
+            object,
+            alignment: alignment,
+            color: color,
+            errorWidget: errorWidget,
+            fit: fit,
+            opacity: opacity,
+            scale: scale,
+          );
+        }
+
+        final bool isBase64 = RegExp(
+          r'^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$',
+        ).hasMatch(object);
+
+        if (isBase64) {
+          return CustomImage.memory(
+            base64Decode(object),
+            alignment: alignment,
+            color: color,
+            errorWidget: errorWidget,
+            fit: fit,
+            opacity: opacity,
+            scale: scale,
+          );
+        }
+
         return CustomImage.asset(
           object,
           alignment: alignment,
@@ -148,6 +168,8 @@ class CustomImage extends StatefulWidget {
           scale: scale,
         );
       }
+    } catch (_) {
+      // fall through ↓
     }
 
     return CustomImage(

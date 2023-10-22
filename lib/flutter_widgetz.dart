@@ -1,6 +1,7 @@
 library flutter_widgetz;
 
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
@@ -64,6 +65,7 @@ part 'src/shimmer.dart';
 part 'src/simple_dialog_option.dart';
 part 'src/single_child_scroll_view.dart';
 part 'src/slider.dart';
+part 'src/sliver_app_bar.dart';
 part 'src/sliver_grid.dart';
 part 'src/sliver_list.dart';
 part 'src/spaced_column.dart';

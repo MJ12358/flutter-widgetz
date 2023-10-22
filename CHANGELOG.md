@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 6.5.1
+
+- Modify `CustomImage.dynamic` string parsing.
+
 ## 6.5.0
 
 - Add `DirectionalPad` widget.
