@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 6.5.2
+
+- Fix `InputDecorator` assert to allow empty string.
+
 ## 6.5.1
 
 - Modify `CustomImage.dynamic` string parsing.

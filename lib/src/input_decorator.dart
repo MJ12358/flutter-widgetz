@@ -16,7 +16,7 @@ class CustomInputDecorator extends StatelessWidget {
     this.prefixIcon,
     this.text = '',
   }) : assert(
-          child != null || text.length > 0,
+          child != null || text != null,
           'Either child or text must be specified.',
         );
 
@@ -42,7 +42,7 @@ class CustomInputDecorator extends StatelessWidget {
   final IconData? prefixIcon;
 
   /// Text used if [child] is null.
-  final String text;
+  final String? text;
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +59,7 @@ class CustomInputDecorator extends StatelessWidget {
       ),
       child: child ??
           Text(
-            text,
+            text!,
             style: theme.textTheme.titleMedium,
           ),
     );
