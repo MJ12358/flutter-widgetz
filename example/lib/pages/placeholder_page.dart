@@ -23,8 +23,8 @@ class PlaceholderPage extends StatelessWidget {
             text: 'Placeholder Two (Asset)',
           ),
           CustomPlaceholder.network(
-            'https://loremflickr.com/640/360',
-            text: 'Placeholder Three (Image)',
+            'https://placehold.co/400/png',
+            text: 'Placeholder Three (Network)',
           ),
           const CustomPlaceholder(
             text: 'Placeholder Four (Icon)',

@@ -1,6 +1,9 @@
 part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomBottomNavigationBar}
+/// Creates a bottom navigation bar which is typically
+/// used as a [Scaffold]'s [Scaffold.bottomNavigationBar] argument.
+///
 /// A wrapper for [BottomNavigationBar] that
 /// handles the `currentIndex` for you.
 /// {@endtemplate}

@@ -10,7 +10,7 @@ class CustomAppBar extends AppBar {
     super.actions,
     super.automaticallyImplyLeading,
     super.bottom,
-    bool centerTitle = false,
+    bool centerTitle = _defaultCenterTitle,
     super.leading,
     Widget? title,
     String? titleText,
@@ -23,6 +23,8 @@ class CustomAppBar extends AppBar {
           title: title ?? Text(titleText!),
         );
 
+  static const bool _defaultCenterTitle = false;
+
   /// {@macro flutter_widgetz.CustomAppBar}
   ///
   /// Subtitled also requires a [subtitle] and places
@@ -32,7 +34,7 @@ class CustomAppBar extends AppBar {
     super.actions,
     super.automaticallyImplyLeading,
     super.bottom,
-    bool centerTitle = false,
+    bool centerTitle = _defaultCenterTitle,
     super.leading,
     Widget? subtitle,
     String? subtitleText,

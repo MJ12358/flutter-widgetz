@@ -151,7 +151,7 @@ class DirectionalPad extends StatelessWidget {
         borderColor = Colors.transparent,
         borderSize = 0.0,
         buttonColor = null,
-        shape = BoxShape.rectangle,
+        shape = BoxShape.circle,
         buttons = <Widget>[
           _PlayStationButton(
             color: const Color(0xFF3f8b86),
@@ -191,7 +191,7 @@ class DirectionalPad extends StatelessWidget {
         borderColor = Colors.transparent,
         borderSize = 0.0,
         buttonColor = null,
-        shape = BoxShape.rectangle,
+        shape = BoxShape.circle,
         buttons = <Widget>[
           _XboxButton(
             color: const Color(0xFFceb133),
@@ -329,7 +329,9 @@ class _Button extends StatelessWidget {
   }
 }
 
+//
 // Custom button iterations
+//
 
 class _PadButton extends StatelessWidget {
   const _PadButton({

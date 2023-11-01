@@ -33,14 +33,30 @@ class BadgePage extends StatelessWidget {
           CustomBadge.inverse(
             label: Text('Inverse'),
           ),
+          CustomBadge.inverse(
+            label: Text('5'),
+            child: Icon(Icons.abc),
+          ),
           CustomBadge.lightest(
             label: Text('Lightest'),
+          ),
+          CustomBadge.lightest(
+            label: Text('5'),
+            child: Icon(Icons.abc),
           ),
           CustomBadge.success(
             label: Text('Success'),
           ),
+          CustomBadge.success(
+            label: Text('5'),
+            child: Icon(Icons.abc),
+          ),
           CustomBadge.warning(
             label: Text('Warning'),
+          ),
+          CustomBadge.warning(
+            label: Text('5'),
+            child: Icon(Icons.abc),
           ),
           CustomBadge.error(
             label: Text('Error'),

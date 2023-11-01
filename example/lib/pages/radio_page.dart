@@ -15,7 +15,7 @@ class RadioPage extends StatelessWidget {
             prefixIcon: Icons.timelapse,
           ),
           const RadioGroup<String>(
-            labelText: 'Radio Group One (String)',
+            labelText: 'Radio Group',
             items: <String>['1', '2', '3'],
             onChanged: print,
             prefixIcon: Icons.gif_box,

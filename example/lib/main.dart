@@ -34,6 +34,7 @@ import 'package:flutter_widgetz_example/pages/radio_page.dart';
 import 'package:flutter_widgetz_example/pages/rating_page.dart';
 import 'package:flutter_widgetz_example/pages/scaffold_page.dart';
 import 'package:flutter_widgetz_example/pages/search_bar_page.dart';
+import 'package:flutter_widgetz_example/pages/settings_page.dart';
 import 'package:flutter_widgetz_example/pages/shimmer_page.dart';
 import 'package:flutter_widgetz_example/pages/slider_page.dart';
 import 'package:flutter_widgetz_example/pages/sliver_grid_page.dart';
@@ -93,7 +94,7 @@ class MainState extends State<Main> {
             ),
           ],
         ),
-        drawer: CustomDrawer(
+        drawer: CustomDrawer.builder(
           header: const Text(
             'Flutter Widgetz!',
             style: TextStyle(
@@ -259,6 +260,7 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.poll, PollPage(), 'Polls'),
   PageInfo(Icons.phonelink_setup_sharp, PopupMenuPage(), 'Popup Menu'),
   PageInfo(Icons.radio, RadioPage(), 'Radios'),
+  PageInfo(Icons.settings, SettingsPage(), 'Settings'),
   PageInfo(Icons.star, RatingPage(), 'Ratings'),
   PageInfo(Icons.scale, ScaffoldPage(), 'Scaffold'),
   PageInfo(Icons.search, SearchBarPage(), 'Search Bar'),

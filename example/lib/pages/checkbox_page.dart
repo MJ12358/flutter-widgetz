@@ -32,7 +32,7 @@ class CheckboxPage extends StatelessWidget {
                 prefixIcon: Icons.timelapse,
               ),
               const CheckboxGroup<String>(
-                labelText: 'Checkbox Group One (String)',
+                labelText: 'Checkbox Group',
                 items: <String>['1', '2', '3'],
                 onChanged: print,
                 initialValues: <String>['1', '2'],

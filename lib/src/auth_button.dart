@@ -9,11 +9,11 @@ class AuthButton extends StatelessWidget {
     super.key,
     required this.color,
     required this.icon,
-    this.maxWidth = _defaultMaxWidth,
-    this.minWidth = _defaultMinWidth,
     required this.onTap,
     required this.text,
     required this.textStyle,
+    this.maxWidth = _defaultMaxWidth,
+    this.minWidth = _defaultMinWidth,
   });
 
   /// The button's color.

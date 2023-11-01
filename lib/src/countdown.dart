@@ -67,7 +67,7 @@ class Countdown extends StatefulWidget {
   /// {@macro flutter_widgetz.Countdown}
   ///
   /// Circular uses a box decoration with [BoxShape.circle].
-  Countdown.circular({
+  Countdown.circle({
     super.key,
     required this.target,
     Color? backgroundColor,

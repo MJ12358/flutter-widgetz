@@ -6,6 +6,21 @@ part of flutter_widgetz;
 /// https://stackoverflow.com/questions/49161719/is-there-a-way-to-have-an-infinite-loop-using-pageview-in-flutter
 /// {@endtemplate}
 class Carousel extends StatefulWidget {
+  /// {@template flutter_widgetz.Carousel}
+  const Carousel({
+    super.key,
+    required this.delegate,
+    this.autoplay = _defaultAutoPlay,
+    this.clipBehavior = _defaultClipBehavior,
+    this.controller,
+    this.curve = _defaultCurve,
+    this.pageDuration = _defaultPageDuration,
+    this.onChanged,
+    this.physics,
+    this.scrollDirection = _defaultScrollDirection,
+    this.transitionDuration = _defaultTransitionDuration,
+  });
+
   /// Determines whether or not to automatically scroll this [PageView].
   final bool autoplay;
 

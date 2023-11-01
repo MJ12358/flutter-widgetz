@@ -4,7 +4,7 @@ part of flutter_widgetz;
 /// A [FloatingActionButton] that uses a [ScaleTransition]
 /// when animating.
 ///
-/// I use this to bring attention to the button when
+/// Use this to bring attention to the button when
 /// the user needs to, for example, add a record when there are none.
 /// {@endtemplate}
 class CustomFloatingActionButton extends StatefulWidget {

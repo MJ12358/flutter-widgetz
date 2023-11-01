@@ -1,5 +1,21 @@
 # Flutter Widgetz
 
+## 7.0.0
+
+- **BREAKING**:
+  - `CustomDrawer`
+    - Require `delegate` but add `count` and `builder` named constructors.
+  - `Countdown`
+    - Rename a named constructor for consistancy.
+  - `FeedbackBar`
+    - Use widgets instead of strings for items.
+
+- Other:
+  - Introduce `Settings` set of widgets.
+  - Add `color` param to `CustomDrawer`.
+  - Add `package` param to `CustomImage`.
+  - Upload some screenshots.
+
 ## 6.5.2
 
 - Fix `InputDecorator` assert to allow empty string.

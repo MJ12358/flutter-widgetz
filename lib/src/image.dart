@@ -56,11 +56,13 @@ class CustomImage extends StatefulWidget {
     this.fit = _defaultBoxFit,
     ImageFrameBuilder? frameBuilder,
     this.opacity = _defaultOpacity,
+    String? package,
     this.scale = _defaultScale,
   }) : imageProvider = Image.asset(
           name ?? '',
           errorBuilder: (_, __, ___) => errorWidget!,
           frameBuilder: frameBuilder,
+          package: package,
         ).image;
 
   /// {@macro flutter_widgetz.CustomImage}

@@ -12,7 +12,10 @@ class FeedbackPage extends StatelessWidget {
         children: <Widget>[
           FeedbackBar.outlined(
             header: const Text('Outlined'),
-            footer: const Text('Footer'),
+            onChanged: print,
+          ),
+          FeedbackBar.filled(
+            header: const Text('Filled'),
             onChanged: print,
           ),
           FeedbackBar.outlined(
@@ -21,21 +24,16 @@ class FeedbackPage extends StatelessWidget {
             onChanged: print,
             rtl: true,
           ),
-          FeedbackBar.filled(
-            header: const Text('Filled'),
-            footer: const Text('Footer'),
-            onChanged: print,
-          ),
           FeedbackBar.outlined(
             color: Colors.black,
-            headerText: 'Outlined (color)',
+            header: const Text('Outlined'),
             onChanged: print,
           ),
           SizedBox(
-            width: 50,
+            width: 60,
             child: FeedbackBar.outlined(
               color: Colors.black,
-              headerText: 'Outlined (color)',
+              header: const Text('Outlined'),
               onChanged: print,
               orientation: Orientation.portrait,
             ),

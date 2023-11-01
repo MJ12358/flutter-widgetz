@@ -1,7 +1,7 @@
 part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomBadge}
-/// A badge with convenience constructors.
+/// Create a Badge that stacks [label] on top of [child].
 /// {@endtemplate}
 class CustomBadge extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomBadge}

@@ -48,7 +48,7 @@ class CountdownPage extends StatelessWidget {
             target: _defaultDateTime,
             textColor: Colors.blue.complimentary,
           ),
-          Countdown.circular(
+          Countdown.circle(
             target: _defaultDateTime,
           ),
         ],

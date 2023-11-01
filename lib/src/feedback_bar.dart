@@ -1,8 +1,5 @@
 part of flutter_widgetz;
 
-// TODO: make a class called "FeedbackContent"
-// and allow an asset and a label...
-
 /// {@template flutter_widgetz.FeedbackBar}
 /// A feedback widget.
 /// {@endtemplate}
@@ -10,21 +7,18 @@ class FeedbackBar extends StatelessWidget {
   /// {@macro flutter_widgetz.FeedbackBar}
   const FeedbackBar({
     super.key,
-    required this.assets,
+    required this.items,
     required this.onChanged,
     this.footer,
     this.header,
-    this.headerText,
     this.orientation = _defaultOrientation,
     this.rtl = _defaultRtl,
+    this.shape = _defaultShape,
     this.spacing = _defaultSpacing,
-  }) : color = null;
+  });
 
-  /// The assets displayed.
-  final List<String> assets;
-
-  /// The color of the [assets].
-  final Color? color;
+  /// The content displayed.
+  final List<Widget> items;
 
   /// An optional footer widget.
   final Widget? footer;
@@ -32,25 +26,24 @@ class FeedbackBar extends StatelessWidget {
   /// An optional header widget.
   final Widget? header;
 
-  /// Optional text for the header.
-  ///
-  /// Only used if [header] is null.
-  final String? headerText;
-
   /// A callback called when feedback is pressed.
   final ValueChanged<int> onChanged;
 
-  /// The orientation of the [assets].
+  /// The orientation of the [items].
   final Orientation orientation;
 
-  /// Determines if the [assets] should be right to left.
+  /// Determines if the [items] should be right to left.
   final bool rtl;
+
+  /// The shape of the item's [InkWell].
+  final BoxShape shape;
 
   /// The spacing between the assets.
   final double spacing;
 
   static const Orientation _defaultOrientation = Orientation.landscape;
   static const bool _defaultRtl = false;
+  static const BoxShape _defaultShape = BoxShape.rectangle;
   static const double _defaultSpacing = 20.0;
 
   /// {@macro flutter_widgetz.FeedbackBar}
@@ -59,19 +52,19 @@ class FeedbackBar extends StatelessWidget {
   FeedbackBar.outlined({
     super.key,
     required this.onChanged,
-    this.color,
+    Color? color,
     this.footer,
     this.header,
-    this.headerText,
     this.orientation = _defaultOrientation,
     this.rtl = _defaultRtl,
     this.spacing = _defaultSpacing,
-  }) : assets = <String>[
-          _kVeryBadEmojiOutlined,
-          _kBadEmojiOutlined,
-          _kOkayEmojiOutlined,
-          _kGoodEmojiOutlined,
-          _kVeryGoodEmojiOutlined,
+  })  : shape = BoxShape.circle,
+        items = <Widget>[
+          _Image(asset: _kVeryBadEmojiOutlined, color: color),
+          _Image(asset: _kBadEmojiOutlined, color: color),
+          _Image(asset: _kOkayEmojiOutlined, color: color),
+          _Image(asset: _kGoodEmojiOutlined, color: color),
+          _Image(asset: _kVeryGoodEmojiOutlined, color: color),
         ];
 
   /// {@macro flutter_widgetz.FeedbackBar}
@@ -80,30 +73,20 @@ class FeedbackBar extends StatelessWidget {
   FeedbackBar.filled({
     super.key,
     required this.onChanged,
+    Color? color,
     this.footer,
     this.header,
-    this.headerText,
     this.orientation = _defaultOrientation,
     this.rtl = _defaultRtl,
     this.spacing = _defaultSpacing,
-  })  : assets = <String>[
-          _kVeryBadEmojiFilled,
-          _kBadEmojiFilled,
-          _kOkayEmojiFilled,
-          _kGoodEmojiFilled,
-          _kVeryGoodEmojiFilled,
-        ],
-        color = null;
-
-  Widget? get _header {
-    if (header != null) {
-      return header!;
-    }
-    if (headerText != null) {
-      return Text(headerText!);
-    }
-    return null;
-  }
+  })  : shape = BoxShape.circle,
+        items = <Widget>[
+          _Image(asset: _kVeryBadEmojiFilled, color: color),
+          _Image(asset: _kBadEmojiFilled, color: color),
+          _Image(asset: _kOkayEmojiFilled, color: color),
+          _Image(asset: _kGoodEmojiFilled, color: color),
+          _Image(asset: _kVeryGoodEmojiFilled, color: color),
+        ];
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +97,7 @@ class FeedbackBar extends StatelessWidget {
       child: SpacedColumn(
         spacing: 8.0,
         children: <Widget>[
-          if (_header != null) _header!,
+          if (header != null) header!,
           if (orientation == Orientation.landscape)
             SpacedRow(
               spacing: spacing,
@@ -132,13 +115,13 @@ class FeedbackBar extends StatelessWidget {
   }
 
   List<Widget> _buildChildren() {
-    final List<String> images = rtl ? assets.reversed.toList() : assets;
+    final List<Widget> images = rtl ? items.reversed.toList() : items;
 
-    return images.asMap().entries.map((MapEntry<int, String> entry) {
-      return _Image(
-        path: entry.value,
-        color: color,
+    return images.asMap().entries.map((MapEntry<int, Widget> entry) {
+      return _FeedbackItem(
+        item: entry.value,
         onTap: () => onChanged.call(entry.key),
+        shape: shape,
       );
     }).toList();
   }
@@ -146,25 +129,49 @@ class FeedbackBar extends StatelessWidget {
 
 class _Image extends StatelessWidget {
   const _Image({
-    required this.path,
+    required this.asset,
     this.color,
-    this.onTap,
   });
 
-  final String path;
+  final String asset;
   final Color? color;
-  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      asset,
+      package: _kPackage,
+      color: color,
+    );
+  }
+}
+
+class _FeedbackItem extends StatelessWidget {
+  const _FeedbackItem({
+    required this.item,
+    required this.onTap,
+    required this.shape,
+  });
+
+  final Widget item;
+  final VoidCallback onTap;
+  final BoxShape shape;
+
+  ShapeBorder get _border {
+    switch (shape) {
+      case BoxShape.circle:
+        return const CircleBorder();
+      case BoxShape.rectangle:
+        return const RoundedRectangleBorder();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      customBorder: const CircleBorder(),
-      child: Image.asset(
-        path,
-        package: _kPackage,
-        color: color,
-      ),
+      customBorder: _border,
+      child: item,
     );
   }
 }
