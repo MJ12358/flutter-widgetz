@@ -210,15 +210,17 @@ class _CustomImageState extends State<CustomImage> {
             fit: widget.fit,
             image: widget.imageProvider,
             onError: (_, __) {
-              setState(() {
-                _hasError = true;
-              });
+              WidgetsBinding.instance.addPostFrameCallback(
+                (_) => setState(() {
+                  _hasError = true;
+                }),
+              );
             },
             opacity: widget.opacity,
             scale: widget.scale,
           ),
         ),
-        // for some reason, the errorBuilder is not being called
+        // for some reason, the imageProvider.errorBuilder is not being called
         child: _hasError ? widget.errorWidget : null,
       );
     } catch (_) {

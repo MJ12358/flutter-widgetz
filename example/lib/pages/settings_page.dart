@@ -22,6 +22,13 @@ class SettingsPage extends StatelessWidget {
               value: true,
               onChanged: print,
             ),
+            SettingsTile.colorPicker(
+              context: context,
+              color: Colors.purple,
+              defaultColor: Colors.orange,
+              onChanged: print,
+              title: const Text('Color Picker'),
+            ),
           ],
         ),
         SettingsSection(
@@ -39,7 +46,7 @@ class SettingsPage extends StatelessWidget {
             ),
             SettingsTile.switched(
               title: const Text('Switch'),
-              leading: const Icon(Icons.color_lens),
+              leading: const Icon(Icons.theater_comedy),
               value: true,
               onChanged: print,
             ),

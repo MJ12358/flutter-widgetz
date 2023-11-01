@@ -10,7 +10,7 @@ class SettingsList extends StatelessWidget {
     required this.sections,
     this.clipBehavior = Clip.hardEdge,
     this.padding,
-    this.physics,
+    this.physics = const ClampingScrollPhysics(),
     this.shrinkWrap = false,
   });
 
@@ -25,7 +25,7 @@ class SettingsList extends StatelessWidget {
   final EdgeInsets? padding;
 
   /// How the page view should respond to user input.
-  final ScrollPhysics? physics;
+  final ScrollPhysics physics;
 
   /// Whether the extent of the scroll view should be
   /// determined by the contents being viewed.
@@ -139,22 +139,75 @@ class SettingsTile extends StatelessWidget {
 
   static const bool _defaultEnabled = true;
 
+  static Future<void> _showBottomSheet({
+    required BuildContext context,
+    required Widget widget,
+  }) {
+    return showModalBottomSheet<void>(
+      context: context,
+      builder: (_) {
+        return widget;
+      },
+    );
+  }
+
   /// {@macro flutter_widgetz.SettingsTile}
   ///
   /// Switched uses a [Switch] as the trailing widget.
   SettingsTile.switched({
     super.key,
+    required ValueChanged<bool> onChanged,
     required this.title,
     required bool value,
     this.enabled = _defaultEnabled,
     this.leading,
-    ValueChanged<bool>? onChanged,
     this.subtitle,
   })  : onTap = null,
         trailing = Switch(
           value: value,
-          onChanged: (bool value) => onChanged?.call(value),
+          onChanged: onChanged,
         );
+
+  /// {@macro flutter_widgetz.SettingsTile}
+  ///
+  /// Color picker shows a bottom sheet when tapped
+  /// and a close button when color != defaultColor.
+  SettingsTile.colorPicker({
+    super.key,
+    required BuildContext context,
+    required Color color,
+    required Color defaultColor,
+    required ValueChanged<Color> onChanged,
+    required this.title,
+    this.enabled = _defaultEnabled,
+    Widget? leading,
+    BoxShape shape = BoxShape.rectangle,
+    this.subtitle,
+  })  : onTap = (() => _showBottomSheet(
+              context: context,
+              widget: ColorPicker(
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                  shape: shape,
+                ),
+                initialColor: color,
+                onTap: (Color value) {
+                  onChanged.call(value);
+                  Navigator.of(context).pop();
+                },
+              ),
+            )),
+        leading = leading ??
+            Icon(
+              Icons.color_lens,
+              color: color,
+            ),
+        trailing = defaultColor != color
+            ? InkWell(
+                child: const Icon(Icons.close),
+                onTap: () => onChanged.call(defaultColor),
+              )
+            : null;
 
   @override
   Widget build(BuildContext context) {

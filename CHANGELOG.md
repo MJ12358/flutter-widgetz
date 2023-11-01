@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 7.1.0
+
+- Add `colorPicker` named constructor to `SettingsTile`.
+
 ## 7.0.1
 
 - Fix screenshot links.
