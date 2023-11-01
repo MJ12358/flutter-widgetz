@@ -76,80 +76,80 @@ The [generated documentation](https://pub.dev/documentation/flutter_widgetz/late
 
 ### Accordion
 
-![Accordion](screenshots/accordion.png)
+![Accordion](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/accordion.png)
 
 ### Alert
 
-![Alert](screenshots/alert.png)
+![Alert](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/alert.png)
 
 ### Auth Button
 
-![AuthButton](screenshots/auth_button.png)
+![AuthButton](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/auth_button.png)
 
 ### Checkbox Group
 
-![CheckboxGroup](screenshots/checkbox_group.png)
+![CheckboxGroup](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/checkbox_group.png)
 
 ### Color Picker
 
-![ColorPicker](screenshots/color_picker.png)
+![ColorPicker](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/color_picker.png)
 
 ### Countdown
 
-![Countdown](screenshots/countdown.png)
+![Countdown](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/countdown.png)
 
 ### Counter Input
 
-![CounterInput](screenshots/counter_input.png)
+![CounterInput](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/counter_input.png)
 
 ### Directional Pad
 
-![DirectionalPad](screenshots/directional_pad.png)
+![DirectionalPad](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/directional_pad.png)
 
 ### Divider
 
-![Divider](screenshots/divider.png)
+![Divider](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/divider.png)
 
 ### Dueling Picklist
 
-![DuelingPicklist](screenshots/dueling_picklist.png)
+![DuelingPicklist](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/dueling_picklist.png)
 
 ### Duration Picker
 
-![DurationPicker](screenshots/duration_picker.png)
+![DurationPicker](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/duration_picker.png)
 
 ### Feedback Bar
 
-![FeedbackBar](screenshots/feedback_bar.png)
+![FeedbackBar](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/feedback_bar.png)
 
 ### Percent Indicator
 
-![PercentIndicator](screenshots/percent_indicator.png)
+![PercentIndicator](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/percent_indicator.png)
 
 ### Poll
 
-![Poll](screenshots/poll.png)
+![Poll](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/poll.png)
 
 ### Radio Group
 
-![RadioGroup](screenshots/radio_group.png)
+![RadioGroup](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/radio_group.png)
 
 ### Rating Bar
 
-![RatingBar](screenshots/rating_bar.png)
+![RatingBar](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/rating_bar.png)
 
 ### Rating Summary
 
-![RatingSummary](screenshots/rating_summary.png)
+![RatingSummary](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/rating_summary.png)
 
 ### Settings
 
-![Settings](screenshots/settings.png)
+![Settings](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/settings.png)
 
 ### Shimmer
 
-![Shimmer](screenshots/shimmer.png)
+![Shimmer](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/shimmer.png)
 
 ### Slider
 
-![Slider](screenshots/slider.png)
+![Slider](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/slider.png)

@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 7.0.1
+
+- Fix screenshot links.
+
 ## 7.0.0
 
 - **BREAKING**:
