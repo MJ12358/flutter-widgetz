@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 7.1.1
+
+- Fix default behavior of physics in `SettingsList`.
+
 ## 7.1.0
 
 - Add `colorPicker` named constructor to `SettingsTile`.

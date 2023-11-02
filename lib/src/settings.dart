@@ -10,7 +10,7 @@ class SettingsList extends StatelessWidget {
     required this.sections,
     this.clipBehavior = Clip.hardEdge,
     this.padding,
-    this.physics = const ClampingScrollPhysics(),
+    this.physics,
     this.shrinkWrap = false,
   });
 
@@ -25,7 +25,7 @@ class SettingsList extends StatelessWidget {
   final EdgeInsets? padding;
 
   /// How the page view should respond to user input.
-  final ScrollPhysics physics;
+  final ScrollPhysics? physics;
 
   /// Whether the extent of the scroll view should be
   /// determined by the contents being viewed.
