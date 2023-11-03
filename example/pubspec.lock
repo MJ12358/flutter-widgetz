@@ -79,17 +79,17 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_themez
-      sha256: "416a7b2477b4b3da914508c406b9e75d50b495a505b9b52203cc79a424cc7181"
+      sha256: "29bb60c0dfaba14e191cca08d048aa3c67d416de81117e9089e98134f5ebe377"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0"
+    version: "2.0.1"
   flutter_widgetz:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "7.1.1"
+    version: "7.3.0"
   matcher:
     dependency: transitive
     description:

@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 7.3.1
+
+- Fix color of `WelcomeContent` asset.
+
 ## 7.3.0
 
 - Add `darkMode` named constructor to `SettingsTile`.

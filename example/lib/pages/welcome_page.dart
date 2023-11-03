@@ -12,17 +12,17 @@ class WelcomePage extends StatelessWidget {
       onCompleted: () => print('onCompleted'),
       pages: const <Widget>[
         WelcomeContent(
-          asset: 'assets/images/placeholder.png',
+          asset: 'assets/images/welcome/welcome_1.png',
           title: 'Title1',
           description: 'Description1',
         ),
         WelcomeContent(
-          asset: 'assets/images/placeholder.png',
+          asset: 'assets/images/welcome/welcome_2.png',
           title: 'Title2',
           description: 'Description2',
         ),
         WelcomeContent(
-          asset: 'assets/images/placeholder.png',
+          asset: 'assets/images/welcome/welcome_3.png',
           title: 'Title3',
           description: 'Description3',
         ),

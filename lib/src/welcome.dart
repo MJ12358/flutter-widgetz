@@ -90,17 +90,30 @@ class _WelcomeState extends State<Welcome> {
   }
 }
 
+/// {@template flutter_widgetz.WelcomeContent}
+/// Content for a welcome screen.
+/// {@endtemplate}
 class WelcomeContent extends StatelessWidget {
+  /// {@macro flutter_widgetz.WelcomeContent}
   const WelcomeContent({
     super.key,
     required this.asset,
     required this.title,
     required this.description,
+    this.color,
   });
 
+  /// The asset path to be used.
   final String asset;
+
+  /// The title for this content.
   final String title;
+
+  /// The description for this content.
   final String description;
+
+  /// The color of the [asset].
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +127,7 @@ class WelcomeContent extends StatelessWidget {
         children: <Widget>[
           Image.asset(
             asset,
-            color: theme.colorScheme.primary,
+            color: color,
             height: mediaQuery.size.height / 2,
             width: mediaQuery.size.width * 0.70,
           ),
