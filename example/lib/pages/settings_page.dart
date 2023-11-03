@@ -16,6 +16,11 @@ class SettingsPage extends StatelessWidget {
               leading: Icon(Icons.link),
               trailing: Icon(Icons.exit_to_app),
             ),
+            SettingsTile.darkMode(
+              title: const Text('Dark Mode'),
+              value: false,
+              onChanged: print,
+            ),
             SettingsTile.switched(
               title: const Text('Switch'),
               leading: const Icon(Icons.dark_mode),

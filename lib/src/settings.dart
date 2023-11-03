@@ -153,6 +153,25 @@ class SettingsTile extends StatelessWidget {
 
   /// {@macro flutter_widgetz.SettingsTile}
   ///
+  /// DarkMode uses a [Switch] as the trailing widget
+  /// and alternates between dark_mode and light_mode icons.
+  SettingsTile.darkMode({
+    super.key,
+    required ValueChanged<bool> onChanged,
+    required this.title,
+    required bool value,
+    this.enabled = _defaultEnabled,
+    this.subtitle,
+  })  : onTap = null,
+        leading =
+            value ? const Icon(Icons.dark_mode) : const Icon(Icons.light_mode),
+        trailing = Switch(
+          value: value,
+          onChanged: onChanged,
+        );
+
+  /// {@macro flutter_widgetz.SettingsTile}
+  ///
   /// Switched uses a [Switch] as the trailing widget.
   SettingsTile.switched({
     super.key,
