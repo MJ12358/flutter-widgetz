@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 7.2.1
+
+- Fix `WelcomeContent` asset color.
+
 ## 7.2.0
 
 - Introduce `Welcome` widget.

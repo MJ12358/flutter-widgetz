@@ -114,6 +114,7 @@ class WelcomeContent extends StatelessWidget {
         children: <Widget>[
           Image.asset(
             asset,
+            color: theme.colorScheme.primary,
             height: mediaQuery.size.height / 2,
             width: mediaQuery.size.width * 0.70,
           ),
