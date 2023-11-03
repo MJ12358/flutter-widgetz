@@ -41,6 +41,7 @@ import 'package:flutter_widgetz_example/pages/sliver_grid_page.dart';
 import 'package:flutter_widgetz_example/pages/sliver_list_page.dart';
 import 'package:flutter_widgetz_example/pages/text_field_page.dart';
 import 'package:flutter_widgetz_example/pages/time_field_page.dart';
+import 'package:flutter_widgetz_example/pages/welcome_page.dart';
 
 /// To run the example app, clone/fork the repo!
 
@@ -270,4 +271,5 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.list, SliverListPage(), 'Sliver List'),
   PageInfo(Icons.text_fields, TextFieldPage(), 'Text Field'),
   PageInfo(Icons.timelapse, TimeFieldPage(), 'Time Field'),
+  PageInfo(Icons.web_outlined, WelcomePage(), 'Welcome'),
 ];

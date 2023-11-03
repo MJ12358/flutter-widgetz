@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 7.2.0
+
+- Introduce `Welcome` widget.
+
 ## 7.1.1
 
 - Fix default behavior of physics in `SettingsList`.

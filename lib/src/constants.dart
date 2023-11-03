@@ -37,6 +37,8 @@ const String _kPadDownIcon = 'assets/icons/pad_down.png';
 const String _kPadLeftIcon = 'assets/icons/pad_left.png';
 
 const String _kFlashlightImage = 'assets/images/flashlight.png';
+const String _kWelcomeTopImage = 'assets/images/welcome_top.png';
+const String _kWelcomeBottomImage = 'assets/images/welcome_bottom.png';
 
 final Uint8List _kTransparentImage = Uint8List.fromList(<int>[
   0x89,

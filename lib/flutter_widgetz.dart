@@ -73,3 +73,4 @@ part 'src/spaced_row.dart';
 part 'src/tab_bar.dart';
 part 'src/text_field.dart';
 part 'src/time_field.dart';
+part 'src/welcome.dart';
