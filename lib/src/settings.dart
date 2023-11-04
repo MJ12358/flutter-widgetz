@@ -151,6 +151,17 @@ class SettingsTile extends StatelessWidget {
     );
   }
 
+  static void _setImmersiveMode() {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+  }
+
+  static void _unsetImmersiveMode() {
+    SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.manual,
+      overlays: SystemUiOverlay.values,
+    );
+  }
+
   /// {@macro flutter_widgetz.SettingsTile}
   ///
   /// DarkMode uses a [Switch] as the trailing widget
@@ -158,10 +169,10 @@ class SettingsTile extends StatelessWidget {
   SettingsTile.darkMode({
     super.key,
     required ValueChanged<bool> onChanged,
-    required this.title,
     required bool value,
     this.enabled = _defaultEnabled,
     this.subtitle,
+    this.title = const Text('Dark Mode'),
   })  : onTap = null,
         leading =
             value ? const Icon(Icons.dark_mode) : const Icon(Icons.light_mode),
@@ -169,6 +180,32 @@ class SettingsTile extends StatelessWidget {
           value: value,
           onChanged: onChanged,
         );
+
+  /// {@macro flutter_widgetz.SettingsTile}
+  ///
+  /// ImmersiveMode uses a [Switch] as the trailing widget
+  /// and alternates between fullscreen_exit and fullscreen icons,
+  /// while setting [SystemUiMode].
+  SettingsTile.immersiveMode({
+    super.key,
+    required bool value,
+    this.enabled = _defaultEnabled,
+    this.subtitle,
+    this.title = const Text('Immersive Mode'),
+  })  : onTap = null,
+        leading = Icon(value ? Icons.fullscreen_exit : Icons.fullscreen),
+        trailing = Switch(
+          value: value,
+          onChanged: (bool value) =>
+              value ? _setImmersiveMode() : _unsetImmersiveMode(),
+        ) {
+    // set default mode based on the input value
+    if (value) {
+      _setImmersiveMode();
+    } else {
+      _unsetImmersiveMode();
+    }
+  }
 
   /// {@macro flutter_widgetz.SettingsTile}
   ///
@@ -186,6 +223,34 @@ class SettingsTile extends StatelessWidget {
           value: value,
           onChanged: onChanged,
         );
+
+  /// {@macro flutter_widgetz.SettingsTile}
+  ///
+  /// TimeDilation shows a simple dialog that changes [timeDilation].
+  SettingsTile.timeDilation({
+    super.key,
+    required BuildContext context,
+    this.enabled = _defaultEnabled,
+    this.subtitle,
+    this.title = const Text('Time Dilation'),
+    double? value,
+  })  : leading = const Icon(Icons.timelapse),
+        trailing = null,
+        onTap = (() => showDialog(
+              context: context,
+              builder: (_) => SimpleDialog(
+                title: title,
+                children: <Widget>[
+                  CustomSlider(
+                    min: 1,
+                    max: 10,
+                    divisions: 9,
+                    value: value ?? timeDilation,
+                    onChanged: (num value) => timeDilation = value.toDouble(),
+                  ),
+                ],
+              ),
+            ));
 
   /// {@macro flutter_widgetz.SettingsTile}
   ///

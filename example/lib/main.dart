@@ -174,47 +174,19 @@ class _TimeDilationButton extends StatelessWidget {
       icon: const Icon(Icons.timelapse),
       onPressed: () => showDialog(
         context: context,
-        builder: (_) => const _TimeDilationModal(),
-      ),
-    );
-  }
-}
-
-class _TimeDilationModal extends StatefulWidget {
-  const _TimeDilationModal();
-
-  @override
-  State<_TimeDilationModal> createState() => _TimeDilationModalState();
-}
-
-class _TimeDilationModalState extends State<_TimeDilationModal> {
-  late double _value;
-
-  @override
-  void initState() {
-    super.initState();
-    _value = timeDilation;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SimpleDialog(
-      title: const Text('Time Dilation'),
-      children: <Widget>[
-        Slider(
-          min: 1,
-          max: 10,
-          divisions: 9,
-          label: '$_value',
-          value: _value,
-          onChanged: (double value) {
-            setState(() {
-              _value = value;
-            });
-          },
-          onChangeEnd: (double value) => timeDilation = value,
+        builder: (_) => SimpleDialog(
+          title: const Text('Time Dilation'),
+          children: <Widget>[
+            CustomSlider(
+              min: 1,
+              max: 10,
+              divisions: 9,
+              value: timeDilation,
+              onChanged: (num value) => timeDilation = value.toDouble(),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

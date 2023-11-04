@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 7.4.0
+
+- Add `immersiveMode` and `timeDilation` named constructors to `SettingsTile`.
+
 ## 7.3.1
 
 - Fix color of `WelcomeContent` asset.

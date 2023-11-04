@@ -17,13 +17,12 @@ class SettingsPage extends StatelessWidget {
               trailing: Icon(Icons.exit_to_app),
             ),
             SettingsTile.darkMode(
-              title: const Text('Dark Mode'),
               value: false,
               onChanged: print,
             ),
             SettingsTile.switched(
               title: const Text('Switch'),
-              leading: const Icon(Icons.dark_mode),
+              leading: const Icon(Icons.switch_access_shortcut),
               value: true,
               onChanged: print,
             ),
@@ -34,6 +33,10 @@ class SettingsPage extends StatelessWidget {
               onChanged: print,
               title: const Text('Color Picker'),
             ),
+            SettingsTile.immersiveMode(
+              value: false,
+            ),
+            SettingsTile.timeDilation(context: context),
           ],
         ),
         SettingsSection(
