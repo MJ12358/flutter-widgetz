@@ -57,7 +57,7 @@ class _WelcomeState extends State<Welcome> {
 
   @override
   Widget build(BuildContext context) {
-    return _WelcomeBackground(
+    return WelcomeBackground(
       children: <Widget>[
         PageView(
           onPageChanged: _onPageChanged,
@@ -151,19 +151,32 @@ class WelcomeContent extends StatelessWidget {
   }
 }
 
-class _WelcomeBackground extends StatelessWidget {
-  const _WelcomeBackground({
+/// {@template flutter_widgetz.WelcomeBackground}
+/// Background for the welcome.
+/// {@endtemplate}
+class WelcomeBackground extends StatelessWidget {
+  /// {@macro flutter_widgetz.WelcomeBackground}
+  const WelcomeBackground({
+    super.key,
     required this.children,
+    this.alignment = AlignmentDirectional.bottomCenter,
+    this.clipBehavior = Clip.hardEdge,
+    this.fit = StackFit.loose,
   });
 
   final List<Widget> children;
+  final AlignmentDirectional alignment;
+  final Clip clipBehavior;
+  final StackFit fit;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
     return Stack(
-      alignment: AlignmentDirectional.bottomCenter,
+      alignment: alignment,
+      clipBehavior: clipBehavior,
+      fit: fit,
       children: <Widget>[
         Positioned(
           top: 0.0,
