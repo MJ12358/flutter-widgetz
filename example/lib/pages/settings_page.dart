@@ -35,6 +35,7 @@ class SettingsPage extends StatelessWidget {
             ),
             SettingsTile.immersiveMode(
               value: false,
+              onChanged: print,
             ),
             SettingsTile.timeDilation(context: context),
           ],

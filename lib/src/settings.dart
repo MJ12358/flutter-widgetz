@@ -188,6 +188,7 @@ class SettingsTile extends StatelessWidget {
   /// while setting [SystemUiMode].
   SettingsTile.immersiveMode({
     super.key,
+    required ValueChanged<bool> onChanged,
     required bool value,
     this.enabled = _defaultEnabled,
     this.subtitle,
@@ -196,8 +197,10 @@ class SettingsTile extends StatelessWidget {
         leading = Icon(value ? Icons.fullscreen_exit : Icons.fullscreen),
         trailing = Switch(
           value: value,
-          onChanged: (bool value) =>
-              value ? _setImmersiveMode() : _unsetImmersiveMode(),
+          onChanged: (bool value) {
+            onChanged.call(value);
+            value ? _setImmersiveMode() : _unsetImmersiveMode();
+          },
         ) {
     // set default mode based on the input value
     if (value) {

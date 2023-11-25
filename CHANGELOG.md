@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 7.4.2
+
+- Add missing onChanged handler to a settingsTile.
+
 ## 7.4.1
 
 - Make `WelcomeBackground` a public widget.
