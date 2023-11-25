@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 7.5.0
+
+- Add `licenses` named constructor to `SettingsTile`.
+
 ## 7.4.2
 
 - Add missing onChanged handler to a settingsTile.

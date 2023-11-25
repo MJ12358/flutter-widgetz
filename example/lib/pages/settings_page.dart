@@ -11,11 +11,6 @@ class SettingsPage extends StatelessWidget {
         SettingsSection(
           title: 'Section #1',
           tiles: <Widget>[
-            const SettingsTile(
-              title: Text('Link'),
-              leading: Icon(Icons.link),
-              trailing: Icon(Icons.exit_to_app),
-            ),
             SettingsTile.darkMode(
               value: false,
               onChanged: print,
@@ -38,6 +33,7 @@ class SettingsPage extends StatelessWidget {
               onChanged: print,
             ),
             SettingsTile.timeDilation(context: context),
+            SettingsTile.licenses(context: context),
           ],
         ),
         SettingsSection(

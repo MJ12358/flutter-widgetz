@@ -171,11 +171,11 @@ class SettingsTile extends StatelessWidget {
     required ValueChanged<bool> onChanged,
     required bool value,
     this.enabled = _defaultEnabled,
+    Widget? leading,
     this.subtitle,
     this.title = const Text('Dark Mode'),
   })  : onTap = null,
-        leading =
-            value ? const Icon(Icons.dark_mode) : const Icon(Icons.light_mode),
+        leading = leading ?? Icon(value ? Icons.dark_mode : Icons.light_mode),
         trailing = Switch(
           value: value,
           onChanged: onChanged,
@@ -191,10 +191,12 @@ class SettingsTile extends StatelessWidget {
     required ValueChanged<bool> onChanged,
     required bool value,
     this.enabled = _defaultEnabled,
+    Widget? leading,
     this.subtitle,
     this.title = const Text('Immersive Mode'),
   })  : onTap = null,
-        leading = Icon(value ? Icons.fullscreen_exit : Icons.fullscreen),
+        leading =
+            leading ?? Icon(value ? Icons.fullscreen : Icons.fullscreen_exit),
         trailing = Switch(
           value: value,
           onChanged: (bool value) {
@@ -209,6 +211,30 @@ class SettingsTile extends StatelessWidget {
       _unsetImmersiveMode();
     }
   }
+
+  /// {@macro flutter_widgetz.SettingsTile}
+  ///
+  /// Licenses utilizes [showLicensePage] when tapped.
+  SettingsTile.licenses({
+    super.key,
+    required BuildContext context,
+    String? applicationName,
+    String? applicationVersion,
+    Widget? applicationIcon,
+    String? applicationLegalese,
+    this.enabled = _defaultEnabled,
+    Widget? leading,
+    this.subtitle,
+    this.title = const Text('Licenses'),
+    this.trailing,
+  })  : onTap = (() => showLicensePage(
+              context: context,
+              applicationName: applicationName,
+              applicationVersion: applicationVersion,
+              applicationIcon: applicationIcon,
+              applicationLegalese: applicationLegalese,
+            )),
+        leading = leading ?? const Icon(Icons.policy);
 
   /// {@macro flutter_widgetz.SettingsTile}
   ///
@@ -234,11 +260,12 @@ class SettingsTile extends StatelessWidget {
     super.key,
     required BuildContext context,
     this.enabled = _defaultEnabled,
+    Widget? leading,
     this.subtitle,
     this.title = const Text('Time Dilation'),
+    this.trailing,
     double? value,
-  })  : leading = const Icon(Icons.timelapse),
-        trailing = null,
+  })  : leading = leading ?? const Icon(Icons.timelapse),
         onTap = (() => showDialog(
               context: context,
               builder: (_) => SimpleDialog(
@@ -253,7 +280,12 @@ class SettingsTile extends StatelessWidget {
                   ),
                 ],
               ),
-            ));
+            )) {
+    // set default based on the input value
+    if (value != null) {
+      timeDilation = value;
+    }
+  }
 
   /// {@macro flutter_widgetz.SettingsTile}
   ///
