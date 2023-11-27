@@ -6,7 +6,7 @@ part of flutter_widgetz;
 /// https://stackoverflow.com/questions/49161719/is-there-a-way-to-have-an-infinite-loop-using-pageview-in-flutter
 /// {@endtemplate}
 class Carousel extends StatefulWidget {
-  /// {@template flutter_widgetz.Carousel}
+  /// {@macro flutter_widgetz.Carousel}
   const Carousel({
     super.key,
     required this.delegate,

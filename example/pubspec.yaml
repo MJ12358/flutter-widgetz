@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_extensionz: ^4.0.1
-  flutter_themez: ^2.0.1
+  flutter_themez: ^2.0.3
   # flutter_themez:
   #   path: ../../flutter_themez
   flutter_widgetz:

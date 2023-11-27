@@ -10,6 +10,7 @@ class CustomDrawer extends StatelessWidget {
     required this.delegate,
     this.color,
     this.header,
+    this.semanticLabel,
   });
 
   /// A delegate that provides the children for the [PageView].
@@ -21,6 +22,9 @@ class CustomDrawer extends StatelessWidget {
   /// A widget to be placed inside the drawer header.
   final Widget? header;
 
+  /// The semantic label of the drawer.
+  final String? semanticLabel;
+
   /// {@macro flutter_widgetz.CustomDrawer}
   ///
   /// Count uses [SliverChildListDelegate].
@@ -29,6 +33,7 @@ class CustomDrawer extends StatelessWidget {
     required List<Widget> children,
     this.color,
     this.header,
+    this.semanticLabel,
   }) : delegate = SliverChildListDelegate(
           children,
         );
@@ -42,6 +47,7 @@ class CustomDrawer extends StatelessWidget {
     required IndexedWidgetBuilder itemBuilder,
     this.color,
     this.header,
+    this.semanticLabel,
   }) : delegate = SliverChildBuilderDelegate(
           itemBuilder,
           childCount: itemCount,
@@ -52,6 +58,7 @@ class CustomDrawer extends StatelessWidget {
     return SafeArea(
       top: header == null || false,
       child: Drawer(
+        semanticLabel: semanticLabel,
         child: CustomScrollView(
           slivers: <Widget>[
             SliverToBoxAdapter(

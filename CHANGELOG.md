@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 7.5.1
+
+- Fix a comment template.
+- Allow `semanticLabel` on `CustomDrawer`.
+
 ## 7.5.0
 
 - Add `licenses` named constructor to `SettingsTile`.
