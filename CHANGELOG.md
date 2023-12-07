@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 7.6.0
+
+- Add `GroupedListView`.
+- Fix `RatingBar` background color.
+
 ## 7.5.1
 
 - Fix a comment template.

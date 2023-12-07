@@ -48,36 +48,40 @@ class _RatingBarState extends State<RatingBar> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final Color color = widget.color ?? theme.colorScheme.primary;
+    final Color unratedColor = widget.unratedColor ?? theme.disabledColor;
+
     return Material(
+      color: Colors.transparent,
+      shadowColor: Colors.transparent,
+      surfaceTintColor: Colors.transparent,
       child: Wrap(
         children: List<Widget>.generate(
           widget.max,
-          (int index) => _buildRating(context, index),
+          (int index) => _buildRating(index, color, unratedColor),
         ),
       ),
     );
   }
 
-  Widget _buildRating(BuildContext context, int index) {
-    final ThemeData theme = Theme.of(context);
-    final Color _color = widget.color ?? theme.colorScheme.primary;
-    final Color _unratedColor = widget.unratedColor ?? theme.disabledColor;
-    final Widget _widget;
+  Widget _buildRating(int index, Color color, Color unratedColor) {
+    final Widget child;
 
     if (index >= _value) {
-      _widget = _Star(
-        color: _unratedColor,
+      child = _Star(
+        color: unratedColor,
         size: widget.size,
       );
     } else if (index >= _value - 0.5) {
-      _widget = _HalfStar(
-        color: _color,
-        unratedColor: _unratedColor,
+      child = _HalfStar(
+        color: color,
+        unratedColor: unratedColor,
         size: widget.size,
       );
     } else {
-      _widget = _Star(
-        color: _color,
+      child = _Star(
+        color: color,
         size: widget.size,
       );
     }
@@ -91,7 +95,7 @@ class _RatingBarState extends State<RatingBar> {
         });
         widget.onChanged?.call(_result);
       },
-      child: _widget,
+      child: child,
     );
   }
 }

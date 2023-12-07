@@ -26,6 +26,12 @@ class RatingPage extends StatelessWidget {
             value: 6.5,
             size: 25,
           ),
+          Container(
+            color: Colors.lime,
+            child: const RatingBar(
+              value: 4,
+            ),
+          ),
           const RatingSummary(
             fiveStarCount: 40,
             fourStarCount: 26,

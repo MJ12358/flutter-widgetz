@@ -12,7 +12,7 @@ class DropdownField<T extends Object> extends StatefulWidget {
     this.displayStringForItem = _defaultStringForItem,
     this.icon,
     this.isDense = true,
-    this.labelText,
+    this.labelText = '',
     this.prefixIcon,
     this.value,
   });
