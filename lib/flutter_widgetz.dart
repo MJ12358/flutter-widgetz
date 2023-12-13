@@ -48,6 +48,7 @@ part 'src/input_decorator.dart';
 part 'src/layout_builder.dart';
 part 'src/link.dart';
 part 'src/list_tile.dart';
+part 'src/list_view.dart';
 part 'src/navigation_rail.dart';
 part 'src/orientation_builder.dart';
 part 'src/percent_indicator.dart';

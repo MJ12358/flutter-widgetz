@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 7.7.0
+
+- Add `CustomListView`.
+
 ## 7.6.0
 
 - Add `GroupedListView`.
