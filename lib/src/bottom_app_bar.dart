@@ -54,17 +54,19 @@ class CustomBottomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    final Color theColor =
+        color ?? theme.bottomAppBarTheme.color ?? theme.colorScheme.secondary;
 
     return BottomAppBar(
       clipBehavior: clipBehavior,
-      color: color ?? theme.colorScheme.secondary,
+      color: theColor,
       height: height,
       notchMargin: notchMargin,
       padding: padding,
       shape: shape,
       child: IconTheme(
         data: IconThemeData(
-          color: iconColor ?? theme.colorScheme.secondary.blackOrWhite,
+          color: iconColor ?? theColor.blackOrWhite,
         ),
         child: Row(
           crossAxisAlignment: crossAxisAlignment,

@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 7.7.1
+
+- Fix `CustomBottomAppBar` coloring.
+
 ## 7.7.0
 
 - Add `CustomListView`.
