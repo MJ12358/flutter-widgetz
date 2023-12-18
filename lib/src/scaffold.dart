@@ -14,7 +14,9 @@ class CustomScaffold extends StatelessWidget {
     this.appBar,
     this.bottom = true,
     this.bottomNavigationBar,
+    this.bottomSheet,
     this.drawer,
+    this.endDrawer,
     this.floatingActionButton,
     this.floatingActionButtonLocation,
     this.left = true,
@@ -39,8 +41,14 @@ class CustomScaffold extends StatelessWidget {
   /// A bottom navigation bar to display at the bottom of the scaffold.
   final Widget? bottomNavigationBar;
 
+  /// The persistent bottom sheet to display.
+  final Widget? bottomSheet;
+
   /// A panel displayed to the side of the [body].
   final Widget? drawer;
+
+  /// A panel displayed to the side of the [body].
+  final Widget? endDrawer;
 
   /// A button displayed floating above [body].
   final Widget? floatingActionButton;
@@ -85,7 +93,9 @@ class CustomScaffold extends StatelessWidget {
       child: Scaffold(
         appBar: appBar,
         bottomNavigationBar: bottomNavigationBar,
+        bottomSheet: bottomSheet,
         drawer: drawer,
+        endDrawer: endDrawer,
         floatingActionButton: floatingActionButton,
         floatingActionButtonLocation: floatingActionButtonLocation,
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,

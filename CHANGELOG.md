@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 7.7.2
+
+- Add params to `CustomScaffold`.
+
 ## 7.7.1
 
 - Fix `CustomBottomAppBar` coloring.
