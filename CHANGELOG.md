@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 7.8.0
+
+- Add `compact` named constructor to `ColorPicker`.
+
 ## 7.7.2
 
 - Add params to `CustomScaffold`.

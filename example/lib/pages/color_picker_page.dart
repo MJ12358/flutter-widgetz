@@ -25,6 +25,7 @@ class ColorPickerPage extends StatelessWidget {
           return SpacedColumn(
             children: <Widget>[
               CustomElevatedButton(
+                text: 'Alert Dialog',
                 onPressed: () => showDialog(
                   context: context,
                   builder: (_) {
@@ -35,9 +36,9 @@ class ColorPickerPage extends StatelessWidget {
                     );
                   },
                 ),
-                text: 'Alert Dialog',
               ),
               CustomElevatedButton(
+                text: 'General Dialog',
                 onPressed: () => showGeneralDialog(
                   context: context,
                   pageBuilder: (_, __, ___) {
@@ -46,18 +47,31 @@ class ColorPickerPage extends StatelessWidget {
                     );
                   },
                 ),
-                text: 'General Dialog',
               ),
               CustomElevatedButton(
+                text: 'Bottom Sheet',
                 onPressed: () => showModalBottomSheet(
                   context: context,
                   builder: (_) {
                     return ColorPicker.rectangle(
+                      title: '',
                       onTap: print,
                     );
                   },
                 ),
-                text: 'Bottom Sheet',
+              ),
+              CustomElevatedButton(
+                text: 'Bottom Sheet (Compact)',
+                onPressed: () => showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  builder: (_) {
+                    return ColorPicker.compact(
+                      title: '',
+                      onTap: print,
+                    );
+                  },
+                ),
               ),
               const CustomTextField(
                 labelText: 'Text Field (for reference)',
