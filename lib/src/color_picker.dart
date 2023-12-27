@@ -111,7 +111,7 @@ class ColorPicker extends StatefulWidget {
     this.padding = const EdgeInsets.all(8.0),
     BoxShape? shape,
     this.spacing = _defaultSpacing,
-    this.title = _defaultTitle,
+    this.title = '',
     this.titleStyle,
   })  : colors = colors ?? _defaultColors,
         isCompact = true,

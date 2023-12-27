@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 7.8.1
+
+- Fix default title on `ColorPicker.compact`.
+
 ## 7.8.0
 
 - Add `compact` named constructor to `ColorPicker`.
