@@ -37,16 +37,16 @@ class _Landscape extends StatelessWidget {
           children: <Widget>[
             CustomTextField(
               labelText: 'Row1',
-              prefixIcon: Icons.rotate_90_degrees_cw,
+              prefixIcon: Icon(Icons.rotate_90_degrees_cw),
             ),
             CustomTextField(
               labelText: 'Row2',
-              prefixIcon: Icons.missed_video_call,
-              helpText: 'Help Text',
+              prefixIcon: Icon(Icons.missed_video_call),
+              help: Text('Help Text'),
             ),
             CustomTextField(
               labelText: 'Row3',
-              prefixIcon: Icons.rotate_90_degrees_ccw,
+              prefixIcon: Icon(Icons.rotate_90_degrees_ccw),
             ),
           ],
         ),
@@ -56,11 +56,11 @@ class _Landscape extends StatelessWidget {
               children: <Widget>[
                 CustomTextField(
                   labelText: 'One',
-                  prefixIcon: Icons.one_k,
+                  prefixIcon: Icon(Icons.one_k),
                 ),
                 CustomTextField(
                   labelText: 'Two',
-                  prefixIcon: Icons.two_k,
+                  prefixIcon: Icon(Icons.two_k),
                 ),
               ],
             ),
@@ -69,7 +69,7 @@ class _Landscape extends StatelessWidget {
                 CustomAutocomplete<String>(
                   onChanged: print,
                   onSelected: print,
-                  prefixIcon: Icons.search,
+                  prefixIcon: const Icon(Icons.search),
                   optionsBuilder: (String v) => _autocompletes
                       .where((String e) => e.contains(v))
                       .toList(),
@@ -77,7 +77,7 @@ class _Landscape extends StatelessWidget {
                 CustomAutocomplete<String>(
                   onChanged: print,
                   onSelected: print,
-                  prefixIcon: Icons.search,
+                  prefixIcon: const Icon(Icons.search),
                   optionsBuilder: (String v) => _autocompletes
                       .where((String e) => e.contains(v))
                       .toList(),
@@ -88,11 +88,11 @@ class _Landscape extends StatelessWidget {
               children: <Widget>[
                 CustomTextField(
                   labelText: 'Three',
-                  prefixIcon: Icons.three_k,
+                  prefixIcon: Icon(Icons.three_k),
                 ),
                 CustomTextField(
                   labelText: 'Four',
-                  prefixIcon: Icons.four_k,
+                  prefixIcon: Icon(Icons.four_k),
                 ),
               ],
             ),
@@ -112,19 +112,19 @@ class _Portrait extends StatelessWidget {
       children: <Widget>[
         const CustomTextField(
           labelText: 'One (Next)',
-          prefixIcon: Icons.one_k,
+          prefixIcon: Icon(Icons.one_k),
           textInputAction: TextInputAction.next,
         ),
         const CustomTextField(
           labelText: 'Two (Previous)',
-          prefixIcon: Icons.two_k,
-          helpText: 'Help Text',
+          prefixIcon: Icon(Icons.two_k),
+          help: Text('Help Text'),
           textInputAction: TextInputAction.previous,
         ),
         const CustomInputDecorator(
           labelText: 'Input Decorator',
-          prefixIcon: Icons.abc,
-          text: 'Hello',
+          prefixIcon: Icon(Icons.abc),
+          child: Text('Hello'),
         ),
         Autocomplete<String>(
           optionsBuilder: (TextEditingValue v) =>
@@ -133,18 +133,18 @@ class _Portrait extends StatelessWidget {
         CustomAutocomplete<String>(
           onChanged: print,
           onSelected: print,
-          prefixIcon: Icons.search,
+          prefixIcon: const Icon(Icons.search),
           optionsBuilder: (String v) =>
               _autocompletes.where((String e) => e.contains(v)).toList(),
         ),
         const CustomTextField(
           labelText: 'Three (Next)',
-          prefixIcon: Icons.three_k,
+          prefixIcon: Icon(Icons.three_k),
           textInputAction: TextInputAction.next,
         ),
         const CustomTextField(
           labelText: 'Four (NewLine)',
-          prefixIcon: Icons.four_k,
+          prefixIcon: Icon(Icons.four_k),
           minLines: 1,
           maxLines: 2,
           keyboardType: TextInputType.multiline,
@@ -152,7 +152,7 @@ class _Portrait extends StatelessWidget {
         ),
         const CustomTextField(
           labelText: 'Five (Done)',
-          prefixIcon: Icons.four_k,
+          prefixIcon: Icon(Icons.four_k),
           textInputAction: TextInputAction.done,
         ),
       ],

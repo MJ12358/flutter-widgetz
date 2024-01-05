@@ -109,6 +109,9 @@ class CustomPlaceholder extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
 
     return theme.copyWith(
+      colorScheme: theme.colorScheme.copyWith(
+        background: theme.scaffoldBackgroundColor,
+      ),
       iconTheme: theme.iconTheme.copyWith(
         color: theme.scaffoldBackgroundColor.blackOrWhite,
       ),

@@ -16,7 +16,7 @@ class CustomFloatingActionButton extends StatefulWidget {
     this.clipBehavior = Clip.none,
     this.duration = const Duration(seconds: 1),
     this.heroTag,
-    this.icon = Icons.add,
+    this.child = const Icon(Icons.add),
     this.mini = false,
     this.shape,
     this.shouldAnimate = false,
@@ -39,8 +39,8 @@ class CustomFloatingActionButton extends StatefulWidget {
   /// The tag to apply to the button's [Hero] widget.
   final Object? heroTag;
 
-  /// The icon shown in this button.
-  final IconData icon;
+  /// The widget below this widget in the tree.
+  final Widget child;
 
   /// Controls the size of this button.
   final bool mini;
@@ -106,7 +106,7 @@ class _CustomFloatingActionButtonState extends State<CustomFloatingActionButton>
       onPressed: widget.onPressed,
       shape: widget.shape,
       tooltip: widget.tooltip,
-      child: Icon(widget.icon),
+      child: widget.child,
     );
   }
 }

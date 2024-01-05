@@ -13,7 +13,7 @@ class TimeField extends StatefulWidget {
     this.errorText,
     this.hasError = false,
     this.labelText,
-    this.prefixIcon = Icons.timelapse,
+    this.prefixIcon = const Icon(Icons.timelapse),
     this.value,
   });
 
@@ -33,7 +33,7 @@ class TimeField extends StatefulWidget {
   final String? labelText;
 
   /// An icon that appears before the editable part of the text field.
-  final IconData prefixIcon;
+  final Widget prefixIcon;
 
   /// The value of this input.
   final TimeOfDay? value;
@@ -76,7 +76,7 @@ class _TimeFieldState extends State<TimeField> {
         decoration: InputDecoration(
           errorText: widget.hasError ? widget.errorText : null,
           labelText: widget.labelText,
-          prefixIcon: Icon(widget.prefixIcon),
+          prefixIcon: widget.prefixIcon,
         ),
         child: Text(
           widget.displayStringForTime(_value),

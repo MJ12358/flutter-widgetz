@@ -301,6 +301,7 @@ class SettingsTile extends StatelessWidget {
     this.enabled = _defaultEnabled,
     Widget? leading,
     BoxShape shape = BoxShape.rectangle,
+    double? spacing,
     this.subtitle,
   })  : onTap = (() => _showBottomSheet(
               context: context,
@@ -310,6 +311,8 @@ class SettingsTile extends StatelessWidget {
                   shape: shape,
                 ),
                 initialColor: color,
+                spacing: spacing,
+                title: title,
                 onTap: (Color value) {
                   onChanged.call(value);
                   Navigator.of(context).pop();

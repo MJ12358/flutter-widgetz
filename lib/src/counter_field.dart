@@ -9,10 +9,10 @@ class CounterField extends StatefulWidget {
     super.key,
     required this.onChanged,
     required this.value,
-    this.decrementIcon = Icons.remove_circle,
+    this.decrementIcon = const Icon(Icons.remove_circle),
     this.errorText = '',
     this.hasError = false,
-    this.incrementIcon = Icons.add_circle,
+    this.incrementIcon = const Icon(Icons.add_circle),
     this.labelText,
   });
 
@@ -23,7 +23,7 @@ class CounterField extends StatefulWidget {
   final int value;
 
   /// The icon used in the decrement position.
-  final IconData decrementIcon;
+  final Widget decrementIcon;
 
   /// Text show when there is an error.
   final String errorText;
@@ -32,7 +32,7 @@ class CounterField extends StatefulWidget {
   final bool hasError;
 
   /// The icon used in the increment position.
-  final IconData incrementIcon;
+  final Widget incrementIcon;
 
   /// Optional text that describes the input field.
   final String? labelText;
@@ -65,11 +65,11 @@ class _CounterFieldState extends State<CounterField> {
           errorText: widget.hasError ? widget.errorText : null,
           labelText: widget.labelText,
           prefixIcon: InkWell(
-            child: Icon(widget.decrementIcon),
+            child: widget.decrementIcon,
             onTap: () => _onTap(--_value),
           ),
           suffixIcon: InkWell(
-            child: Icon(widget.incrementIcon),
+            child: widget.incrementIcon,
             onTap: () => _onTap(++_value),
           ),
         ),

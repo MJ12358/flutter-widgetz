@@ -16,11 +16,11 @@ class DropdownFieldPage extends StatelessWidget {
                 labelText: 'Dropdown One',
                 items: <String>['1', '2', '3'],
                 onChanged: print,
-                prefixIcon: Icons.gif_box,
+                prefixIcon: Icon(Icons.gif_box),
               ),
               CustomTextField(
                 labelText: 'Text Field (for reference)',
-                prefixIcon: Icons.abc,
+                prefixIcon: Icon(Icons.abc),
               ),
             ],
           );
@@ -30,7 +30,7 @@ class DropdownFieldPage extends StatelessWidget {
             children: <Widget>[
               const CustomTextField(
                 labelText: 'Text Field (for reference)',
-                prefixIcon: Icons.gif_box,
+                prefixIcon: Icon(Icons.gif_box),
               ),
               const DropdownField<String>(
                 labelText: 'Dropdown One',
@@ -45,7 +45,7 @@ class DropdownFieldPage extends StatelessWidget {
                   BoxFit.fill,
                 ],
                 onChanged: print,
-                prefixIcon: Icons.gif_outlined,
+                prefixIcon: Icon(Icons.gif_outlined),
               ),
               DropdownField<BoxFit>(
                 labelText: 'Dropdown Three (Formatted)',
@@ -56,7 +56,7 @@ class DropdownFieldPage extends StatelessWidget {
                 ],
                 onChanged: print,
                 displayStringForItem: (BoxFit v) => v.name,
-                prefixIcon: Icons.gif_box,
+                prefixIcon: const Icon(Icons.gif_box),
               ),
               DropdownField<BoxFit>(
                 labelText: 'Dropdown Four (Initial Value)',
@@ -67,7 +67,7 @@ class DropdownFieldPage extends StatelessWidget {
                 ],
                 onChanged: print,
                 displayStringForItem: (BoxFit v) => v.name,
-                prefixIcon: Icons.select_all,
+                prefixIcon: const Icon(Icons.select_all),
                 value: BoxFit.fill,
               ),
             ],

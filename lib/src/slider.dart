@@ -33,10 +33,10 @@ class CustomSlider extends StatefulWidget {
   final double min;
 
   /// An icon that appears before the editable part of the text field.
-  final IconData? prefixIcon;
+  final Widget? prefixIcon;
 
   /// An icon that appears after the editable part of the text field.
-  final IconData? suffixIcon;
+  final Widget? suffixIcon;
 
   /// The currently selected value for this slider.
   final num value;
@@ -72,10 +72,8 @@ class _CustomSliderState extends State<CustomSlider> {
         decoration: InputDecoration(
           border: InputBorder.none,
           labelText: widget.labelText,
-          prefixIcon:
-              widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
-          suffixIcon:
-              widget.suffixIcon != null ? Icon(widget.suffixIcon) : null,
+          prefixIcon: widget.prefixIcon,
+          suffixIcon: widget.suffixIcon,
         ),
         child: Slider.adaptive(
           divisions: widget.divisions,

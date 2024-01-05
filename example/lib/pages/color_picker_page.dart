@@ -25,7 +25,7 @@ class ColorPickerPage extends StatelessWidget {
           return SpacedColumn(
             children: <Widget>[
               CustomElevatedButton(
-                text: 'Alert Dialog',
+                child: const Text('Alert Dialog'),
                 onPressed: () => showDialog(
                   context: context,
                   builder: (_) {
@@ -38,7 +38,7 @@ class ColorPickerPage extends StatelessWidget {
                 ),
               ),
               CustomElevatedButton(
-                text: 'General Dialog',
+                child: const Text('General Dialog'),
                 onPressed: () => showGeneralDialog(
                   context: context,
                   pageBuilder: (_, __, ___) {
@@ -49,25 +49,23 @@ class ColorPickerPage extends StatelessWidget {
                 ),
               ),
               CustomElevatedButton(
-                text: 'Bottom Sheet',
+                child: const Text('Bottom Sheet'),
                 onPressed: () => showModalBottomSheet(
                   context: context,
                   builder: (_) {
                     return ColorPicker.rectangle(
-                      title: '',
                       onTap: print,
                     );
                   },
                 ),
               ),
               CustomElevatedButton(
-                text: 'Bottom Sheet (Compact)',
+                child: const Text('Bottom Sheet (Compact)'),
                 onPressed: () => showModalBottomSheet(
                   context: context,
                   isScrollControlled: true,
                   builder: (_) {
                     return ColorPicker.compact(
-                      title: '',
                       onTap: print,
                     );
                   },
@@ -75,7 +73,7 @@ class ColorPickerPage extends StatelessWidget {
               ),
               const CustomTextField(
                 labelText: 'Text Field (for reference)',
-                prefixIcon: Icons.color_lens,
+                prefixIcon: Icon(Icons.color_lens),
               ),
               const ColorField.bottomSheet(
                 labelText: 'Bottom Sheet',

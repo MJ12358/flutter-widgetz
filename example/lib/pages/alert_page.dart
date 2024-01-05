@@ -27,7 +27,7 @@ class AlertPage extends StatelessWidget {
           ),
           Alert(
             color: Colors.yellow,
-            icon: Icons.abc,
+            icon: Icon(Icons.abc),
             child: Text('Custom'),
           ),
         ],

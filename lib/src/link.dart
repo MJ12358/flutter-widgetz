@@ -5,13 +5,12 @@ part of flutter_widgetz;
 /// {@endtemplate}
 class Link extends StatelessWidget {
   /// {@macro flutter_widgetz.Link}
-  Link(
-    String text, {
+  const Link(
+    this.child, {
     super.key,
     this.color = _defaultColor,
     this.onTap,
-    this.textStyle = _defaultTextStyle,
-  }) : child = Text(text);
+  });
 
   /// The widget below this widget in the tree.
   final Widget child;
@@ -22,21 +21,16 @@ class Link extends StatelessWidget {
   /// Called when the user taps this part of the material.
   final VoidCallback? onTap;
 
-  /// The style to use for this text.
-  final TextStyle textStyle;
-
   static const Color _defaultColor = Color(0xFF0000EE);
-  static const TextStyle _defaultTextStyle = TextStyle();
 
   /// {@macro flutter_widgetz.Link}
   ///
   /// With an included underline.
   Link.underline(
-    String text, {
+    Widget child, {
     super.key,
     this.color = _defaultColor,
     this.onTap,
-    this.textStyle = _defaultTextStyle,
   }) : child = Container(
           padding: const EdgeInsets.only(
             bottom: 1.0,
@@ -48,13 +42,13 @@ class Link extends StatelessWidget {
               ),
             ),
           ),
-          child: Text(text),
+          child: child,
         );
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTextStyle(
-      style: textStyle.copyWith(
+    return DefaultTextStyle.merge(
+      style: const TextStyle().copyWith(
         color: color,
       ),
       child: InkWell(

@@ -8,16 +8,18 @@ class Accordion extends StatefulWidget {
   const Accordion({
     super.key,
     this.child = const SizedBox(),
+    this.childPadding = const EdgeInsets.all(8.0),
     this.duration = kThemeChangeDuration,
     this.isOpen = false,
     this.onTap,
-    this.title = '',
+    this.title = const Text(''),
     this.titlePadding = const EdgeInsets.all(8.0),
-    this.titleStyle,
   });
 
   /// The content displayed when the accordion is open.
   final Widget child;
+
+  final EdgeInsets childPadding;
 
   /// The duration of the animation.
   final Duration duration;
@@ -28,14 +30,11 @@ class Accordion extends StatefulWidget {
   /// Called when the header is tapped.
   final ValueChanged<bool>? onTap;
 
-  /// The text to display in the header.
-  final String title;
+  /// The widget to display in the header.
+  final Widget title;
 
   /// The padding around the title.
   final EdgeInsets titlePadding;
-
-  /// The text style of the title.
-  final TextStyle? titleStyle;
 
   @override
   State<Accordion> createState() => _AccordionState();
@@ -100,13 +99,12 @@ class _AccordionState extends State<Accordion> with TickerProviderStateMixin {
                   ),
                 ),
                 Expanded(
-                  child: Text(
-                    widget.title,
-                    style: widget.titleStyle ??
-                        theme.textTheme.labelLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1.5,
-                        ),
+                  child: DefaultTextStyle.merge(
+                    style: theme.textTheme.labelLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.5,
+                    ),
+                    child: widget.title,
                   ),
                 ),
               ],
@@ -117,7 +115,7 @@ class _AccordionState extends State<Accordion> with TickerProviderStateMixin {
           axisAlignment: 1.0,
           sizeFactor: _animation,
           child: Container(
-            padding: const EdgeInsets.all(8.0),
+            padding: widget.childPadding,
             child: widget.child,
           ),
         ),

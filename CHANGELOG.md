@@ -1,5 +1,80 @@
 # Flutter Widgetz
 
+## 8.0.0
+
+- Add `childPadding` to `Accordion`.
+- Add `spacing` to `SettingsTile.colorPicker`.
+
+- **BREAKING**:
+  - `Accordian`
+    - Use Widget instead of String for `title`.
+    - Remove unnecessary style due to the above.
+  - `Alert`
+    - Use Widgets instead of IconData.
+  - `AppBar`
+    - Opt for Widget only `title` and `subtitle`.
+  - `AuthButton`
+    - Use Widget instead of String for `text`, now called `child`.
+    - Remove unnecessary style due to the above.
+  - `AutoComplete`
+    - Use widget instead of IconData.
+  - `AvatarGroup`/`Avatar`
+    - Use Widget instead of IconData.
+  - `CheckboxGroup`
+    - Use Widget instead of IconData.
+  - `ColorPicker`/`ColorField`
+    - Use Widget instead of IconData.
+    - Use Widget for `title` instead of String.
+  - `Countdown`
+    - Remove text and use widgets for labels.
+  - `CounterField`
+    - Use Widgets instead of IconData
+  - `DateField`/`DateRangeField`
+    - User Widgets instead of IconData.
+  - `DropdownField`
+    - Use Widgets instead of IconData.
+  - `DuelingPicklist`
+    - Use Widgets instead of Strings for labels.
+  - `DurationField`
+    - Use Widget instead of IconData.
+  - `CustomElevatedButton`
+    - Use Widget instead of String for `text`, now called `child`.
+  - `CustomFloatingActionButton`
+    - Use Widget instead of IconData for `icon`, now called `child`.
+  - `CustomInputDecorator`
+    - Remove text in favor of child.
+    - Use Widget instead of IconData.
+  - `Link`
+    - Use Widget instead of String.
+    - Remove unnecessary style due to the above.
+  - `CustomListTile`
+    - Remove text and use widgets for title/subtitle etc.
+  - `CustomPopupMenuItem`
+    - Use Widget instead of String for `text`, now called `child`.
+  - `RadioGroup`
+    - Use Widget instead of IconData.
+  - `SaveButton`
+    - Use Widget instead of String for `text`, now called `child`.
+  - `CustomSearchBar`
+    - Use Widget instead of IconData.
+  - `CustomSimpleDialogOption`
+    - Use Widget instead of String for `text`, now called `child`.
+  - `CustomSlider`
+    - Use Widgets instead of IconData.
+  - `SpacedColumn`
+    - Opt for spacer widget instead of spacing.
+  - `SpacedRow`
+    - Opt for spacer widget instead of spacing.
+    - Use Widget instead of String for `title`.
+    - Remove unnecessary style due to the above.
+  - `CustomTextField`
+    - Opt for help widget instead of helpText.
+    - Use Widget instead of IconData.
+  - `TimeField`
+    - Use Widget instead of IconData.
+  - `Welcome`
+    - Use Widgets instead of Strings.
+
 ## 7.8.1
 
 - Fix default title on `ColorPicker.compact`.

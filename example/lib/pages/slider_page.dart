@@ -27,11 +27,11 @@ class SliderPage extends StatelessWidget {
             value: 2,
             divisions: 5,
             max: 5,
-            prefixIcon: Icons.abc,
+            prefixIcon: Icon(Icons.abc),
           ),
           CustomTextField(
             labelText: 'Text Field (for reference)',
-            prefixIcon: Icons.abc,
+            prefixIcon: Icon(Icons.abc),
           ),
           CustomSlider(
             labelText: 'Slider',
@@ -39,7 +39,7 @@ class SliderPage extends StatelessWidget {
             value: 2.5,
             divisions: 10,
             max: 5,
-            prefixIcon: Icons.emoji_flags,
+            prefixIcon: Icon(Icons.emoji_flags),
           ),
         ],
       ),

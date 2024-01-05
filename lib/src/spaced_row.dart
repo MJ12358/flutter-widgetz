@@ -11,10 +11,8 @@ class SpacedRow extends StatelessWidget {
     this.crossAxisAlignment = _defaultCrossAxisAlignment,
     this.mainAxisAlignment = _defaultMainAxisAlignment,
     this.mainAxisSize = _defaultMainAxisSize,
-    this.spacing = _defaultSpacing,
-    this.spacer,
+    this.spacer = _defaultSpacer,
     this.title,
-    this.titleStyle,
   });
 
   /// Creates a horizontal array of children.
@@ -29,27 +27,18 @@ class SpacedRow extends StatelessWidget {
   /// How much space should be occupied in the main axis.
   final MainAxisSize mainAxisSize;
 
-  /// The spacing between the children.
-  final double spacing;
-
   /// The spacer between the children.
-  final Widget? spacer;
+  final Widget spacer;
 
   /// An optional title to display above this row.
-  final String? title;
-
-  /// The style to use for the title.
-  final TextStyle? titleStyle;
+  final Widget? title;
 
   static const CrossAxisAlignment _defaultCrossAxisAlignment =
       CrossAxisAlignment.end;
-
   static const MainAxisAlignment _defaultMainAxisAlignment =
       MainAxisAlignment.spaceEvenly;
-
   static const MainAxisSize _defaultMainAxisSize = MainAxisSize.max;
-
-  static const double _defaultSpacing = 20.0;
+  static const Widget _defaultSpacer = SizedBox(width: 20.0);
 
   static bool _defaultFilter(Widget e) {
     if (e is SizedBox) {
@@ -71,10 +60,8 @@ class SpacedRow extends StatelessWidget {
     this.crossAxisAlignment = _defaultCrossAxisAlignment,
     this.mainAxisAlignment = _defaultMainAxisAlignment,
     this.mainAxisSize = _defaultMainAxisSize,
-    this.spacing = _defaultSpacing,
-    this.spacer,
+    this.spacer = _defaultSpacer,
     this.title,
-    this.titleStyle,
   }) : children = children.where(filter ?? _defaultFilter).toList();
 
   @override
@@ -88,9 +75,9 @@ class SpacedRow extends StatelessWidget {
     return Column(
       children: <Widget>[
         if (title != null)
-          Text(
-            title!,
-            style: titleStyle ?? theme.textTheme.titleSmall,
+          DefaultTextStyle.merge(
+            style: theme.textTheme.titleSmall,
+            child: title!,
           ),
         Row(
           crossAxisAlignment: crossAxisAlignment,
@@ -104,14 +91,13 @@ class SpacedRow extends StatelessWidget {
 
   List<Widget> _getChildren() {
     final List<Widget> result = <Widget>[];
-    final Widget _spacer = spacer ?? SizedBox(width: spacing);
 
     for (int i = 0; i < children.length; i++) {
       final Widget child = children[i];
 
       if (i != children.length - 1) {
         result.add(Expanded(child: child));
-        result.add(_spacer);
+        result.add(spacer);
       } else {
         result.add(Expanded(child: child));
       }

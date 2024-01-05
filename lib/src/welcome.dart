@@ -13,8 +13,8 @@ class Welcome extends StatefulWidget {
     this.height = 8.0,
     this.margin = const EdgeInsets.symmetric(horizontal: 8.0),
     this.onCompleted,
-    this.skipText = 'Skip',
-    this.startText = 'Start',
+    this.skip = const Text('Skip'),
+    this.start = const Text('Start'),
   });
 
   /// Creates a scrollable list that works
@@ -36,11 +36,11 @@ class Welcome extends StatefulWidget {
   /// A callback called when the welcome is completed.
   final VoidCallback? onCompleted;
 
-  /// The skip text.
-  final String skipText;
+  /// The skip widget.
+  final Widget skip;
 
-  /// The start text.
-  final String startText;
+  /// The start widget.
+  final Widget start;
 
   @override
   State<Welcome> createState() => _WelcomeState();
@@ -76,8 +76,8 @@ class _WelcomeState extends State<Welcome> {
           duration: widget.duration,
           length: widget.pages.length,
           onTap: () => widget.onCompleted?.call(),
-          skipText: widget.skipText,
-          startText: widget.startText,
+          skip: widget.skip,
+          start: widget.start,
         ),
       ],
     );
@@ -286,16 +286,16 @@ class _WelcomeButton extends StatelessWidget {
     required this.duration,
     required this.length,
     required this.onTap,
-    required this.skipText,
-    required this.startText,
+    required this.skip,
+    required this.start,
   });
 
   final int currentPage;
   final Duration duration;
   final int length;
   final VoidCallback onTap;
-  final String skipText;
-  final String startText;
+  final Widget skip;
+  final Widget start;
 
   @override
   Widget build(BuildContext context) {
@@ -310,39 +310,24 @@ class _WelcomeButton extends StatelessWidget {
           color: Colors.white,
           height: theme.buttonTheme.height * 1.5,
           width: mediaQuery.size.width,
-          child: Center(
-            child: AnimatedCrossFade(
-              duration: duration,
-              crossFadeState: currentPage == length - 1
-                  ? CrossFadeState.showSecond
-                  : CrossFadeState.showFirst,
-              firstChild: _WelcomeButtonText(text: skipText),
-              secondChild: _WelcomeButtonText(text: startText),
+          child: DefaultTextStyle.merge(
+            style: TextStyle(
+              color: theme.colorScheme.primary,
+              letterSpacing: 1.50,
+              fontWeight: FontWeight.bold,
+            ),
+            child: Center(
+              child: AnimatedCrossFade(
+                duration: duration,
+                crossFadeState: currentPage == length - 1
+                    ? CrossFadeState.showSecond
+                    : CrossFadeState.showFirst,
+                firstChild: skip,
+                secondChild: start,
+              ),
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _WelcomeButtonText extends StatelessWidget {
-  const _WelcomeButtonText({
-    required this.text,
-  });
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-
-    return Text(
-      text,
-      style: TextStyle(
-        color: theme.colorScheme.primary,
-        letterSpacing: 1.50,
-        fontWeight: FontWeight.bold,
       ),
     );
   }

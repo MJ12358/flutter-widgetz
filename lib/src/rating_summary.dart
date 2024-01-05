@@ -110,7 +110,7 @@ class RatingSummary extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: SpacedColumn(
-            spacing: spacing,
+            spacer: SizedBox(height: spacing),
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               _RatingIndicator(
@@ -247,7 +247,7 @@ class _RatingSummary extends StatelessWidget {
 
     return SpacedColumn(
       mainAxisSize: MainAxisSize.min,
-      spacing: 8.0,
+      spacer: const SizedBox(height: 8.0),
       children: <Widget>[
         Text(
           rating.toStringAsFixed(1),

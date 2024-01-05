@@ -10,12 +10,15 @@ class SaveButton extends StatelessWidget {
   /// {@macro flutter_widgetz.SaveButton}
   const SaveButton({
     super.key,
+    this.child = const Text('Save'),
     this.duration = const Duration(milliseconds: 500),
     this.isSaving = false,
     this.onPressed,
     this.progressIndicator = const CircularProgressIndicator(),
-    this.text = 'Save',
   });
+
+  /// The button's label.
+  final Widget child;
 
   /// The duration of the transition.
   final Duration duration;
@@ -29,9 +32,6 @@ class SaveButton extends StatelessWidget {
   /// The widget shown when [isSaving] is true.
   final Widget progressIndicator;
 
-  /// The button's label.
-  final String text;
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -44,7 +44,7 @@ class SaveButton extends StatelessWidget {
             ? progressIndicator
             : CustomElevatedButton(
                 onPressed: onPressed,
-                text: text,
+                child: child,
               ),
       ),
     );

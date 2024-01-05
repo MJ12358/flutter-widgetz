@@ -101,6 +101,7 @@ class CustomScaffold extends StatelessWidget {
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,
         body: Builder(
           builder: (BuildContext context) {
+            // TODO: 'WillPopScope' is depreciated but requires Flutter >= 3.16
             return WillPopScope(
               onWillPop: () => _onWillPop(context),
               child: SafeArea(

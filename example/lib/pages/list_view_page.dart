@@ -16,7 +16,7 @@ class _ListViewPageState extends State<ListViewPage> {
   void initState() {
     super.initState();
 
-    for (int i = 1; i <= 25; i++) {
+    for (int i = 0; i < 25; i++) {
       _widgets.add(
         CustomListTile.dismissible(
           key: ValueKey<String>('$i-item'),
@@ -27,8 +27,8 @@ class _ListViewPageState extends State<ListViewPage> {
           },
           confirmDismiss: () =>
               context.showAlertDialog(const Text('Are you sure?')),
-          leadingText: i.toString(),
-          titleText: i.toString(),
+          leading: Text(i.toString()),
+          title: Text(i.toString()),
         ),
       );
     }
@@ -36,19 +36,22 @@ class _ListViewPageState extends State<ListViewPage> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomReorderableListView.separated(
-      itemCount: _widgets.length,
-      itemBuilder: (BuildContext context, int index) {
-        return _widgets[index];
-      },
-      separatorBuilder: (BuildContext context, int index) {
-        return Divider(key: ValueKey<String>('$index-divider'));
-      },
-      onReorder: (int oldIndex, int newIndex) {
-        final Widget w = _widgets.removeAt(oldIndex);
-        _widgets.insert(newIndex, w);
-        setState(() {});
-      },
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: CustomReorderableListView.separated(
+        itemCount: _widgets.length,
+        itemBuilder: (BuildContext context, int index) {
+          return _widgets[index];
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return Divider(key: ValueKey<String>('$index-divider'));
+        },
+        onReorder: (int oldIndex, int newIndex) {
+          final Widget w = _widgets.removeAt(oldIndex);
+          _widgets.insert(newIndex, w);
+          setState(() {});
+        },
+      ),
     );
   }
 }

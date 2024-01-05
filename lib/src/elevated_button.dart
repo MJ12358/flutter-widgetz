@@ -8,16 +8,16 @@ class CustomElevatedButton extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomElevatedButton}
   const CustomElevatedButton({
     super.key,
-    required this.text,
+    required this.child,
     this.color,
     this.onPressed,
   });
 
+  /// The button's label.
+  final Widget child;
+
   /// Called when the button is tapped or otherwise activated.
   final VoidCallback? onPressed;
-
-  /// The button's label.
-  final String text;
 
   /// The button's color.
   final Color? color;
@@ -32,9 +32,7 @@ class CustomElevatedButton extends StatelessWidget {
         width: double.infinity,
         child: ElevatedButton(
           onPressed: onPressed,
-          child: Text(
-            text.toUpperCase(),
-          ),
+          child: child,
         ),
       ),
     );

@@ -36,7 +36,7 @@ class _SearchBarPageState extends State<SearchBarPage> {
             onClear: () {},
           ),
           CustomElevatedButton(
-            text: 'Toggle Visibility',
+            child: const Text('Toggle Visibility'),
             onPressed: () => setState(() {
               _isVisible = !_isVisible;
             }),

@@ -18,7 +18,7 @@ class TimeFieldPage extends StatelessWidget {
               ),
               CustomTextField(
                 labelText: 'Text Field (for reference)',
-                prefixIcon: Icons.timelapse,
+                prefixIcon: Icon(Icons.timelapse),
               ),
             ],
           );
@@ -28,7 +28,7 @@ class TimeFieldPage extends StatelessWidget {
             children: <Widget>[
               const CustomTextField(
                 labelText: 'Text Field (for reference)',
-                prefixIcon: Icons.timelapse,
+                prefixIcon: Icon(Icons.timelapse),
               ),
               const TimeField(
                 labelText: 'Time Field',

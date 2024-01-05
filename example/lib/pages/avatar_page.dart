@@ -18,15 +18,15 @@ class AvatarPage extends StatelessWidget {
           const CustomDivider(child: Text('Custom')),
           const CustomAvatar(),
           const CustomAvatar(
-            icon: Icons.abc,
+            icon: Icon(Icons.abc),
           ),
           CustomAvatar.network(
             'notavalidurl',
-            icon: Icons.disabled_by_default,
+            icon: const Icon(Icons.disabled_by_default),
           ),
           CustomAvatar.network(
             'https://example.com',
-            icon: Icons.disabled_by_default,
+            icon: const Icon(Icons.disabled_by_default),
           ),
           AvatarGroup(),
           CustomAvatar.network(

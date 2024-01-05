@@ -13,7 +13,7 @@ class ColorField extends StatefulWidget {
     this.displayStringForColor = _defaultStringForColor,
     this.labelText = _defaultLabelText,
     this.onChanged,
-    this.pickerShape,
+    this.pickerShape = _defaultPickerShape,
     this.pickerTitle,
     this.prefixIcon = _defaultIcon,
     this.value,
@@ -40,19 +40,20 @@ class ColorField extends StatefulWidget {
   final ValueChanged<Color>? onChanged;
 
   /// The shape to fill the picker background.
-  final BoxShape? pickerShape;
+  final BoxShape pickerShape;
 
   /// A title shown above the picker.
-  final String? pickerTitle;
+  final Widget? pickerTitle;
 
   /// An icon that appears before the editable part of the text field.
-  final IconData prefixIcon;
+  final Widget prefixIcon;
 
   /// The value of this input.
   final Color? value;
 
   static const String _defaultLabelText = 'Color';
-  static const IconData _defaultIcon = Icons.color_lens;
+  static const Widget _defaultIcon = Icon(Icons.color_lens);
+  static const BoxShape _defaultPickerShape = BoxShape.circle;
   static String _defaultStringForColor(Color? color) {
     if (color == null) {
       return '';
@@ -96,7 +97,7 @@ class ColorField extends StatefulWidget {
     this.displayStringForColor = _defaultStringForColor,
     this.labelText = _defaultLabelText,
     this.onChanged,
-    this.pickerShape,
+    this.pickerShape = _defaultPickerShape,
     this.pickerTitle,
     this.prefixIcon = _defaultIcon,
     this.value,
@@ -111,7 +112,7 @@ class ColorField extends StatefulWidget {
     this.displayStringForColor = _defaultStringForColor,
     this.labelText = _defaultLabelText,
     this.onChanged,
-    this.pickerShape,
+    this.pickerShape = _defaultPickerShape,
     this.pickerTitle,
     this.prefixIcon = _defaultIcon,
     this.value,
@@ -150,7 +151,7 @@ class _ColorFieldState extends State<ColorField> {
         isFocused: _focusNode.hasFocus,
         decoration: InputDecoration(
           labelText: widget.labelText,
-          prefixIcon: Icon(widget.prefixIcon),
+          prefixIcon: widget.prefixIcon,
         ),
         child: Text(
           widget.displayStringForColor(_value),
@@ -168,7 +169,7 @@ class _ColorFieldState extends State<ColorField> {
             colors: widget.colors,
             decoration: BoxDecoration(
               border: Border.all(),
-              shape: widget.pickerShape ?? BoxShape.circle,
+              shape: widget.pickerShape,
             ),
             initialColor: _value,
             title: widget.pickerTitle,

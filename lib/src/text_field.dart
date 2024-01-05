@@ -15,7 +15,6 @@ class CustomTextField extends StatelessWidget {
     this.focusNode,
     this.hasError = false,
     this.help,
-    this.helpText,
     this.hintText,
     this.initialValue,
     this.inputFormatter,
@@ -54,9 +53,6 @@ class CustomTextField extends StatelessWidget {
   /// If given, shows a suffix icon and dialog with this widget.
   final Widget? help;
 
-  /// If given, shows a suffix icon and dialog with this string.
-  final String? helpText;
-
   /// Text that suggests what sort of input the field accepts.
   final String? hintText;
 
@@ -89,7 +85,7 @@ class CustomTextField extends StatelessWidget {
   final VoidCallback? onEditingComplete;
 
   /// An icon that appers before the editable part of the text field.
-  final IconData? prefixIcon;
+  final Widget? prefixIcon;
 
   /// Configures padding when the input scrolls into view.
   final EdgeInsets scrollPadding;
@@ -124,7 +120,7 @@ class CustomTextField extends StatelessWidget {
         errorText: hasError ? errorText : null,
         hintText: hintText,
         labelText: labelText,
-        prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
+        prefixIcon: prefixIcon,
         suffixIcon: _getSuffixIcon(context),
       ),
       onChanged: onChanged,
@@ -136,7 +132,7 @@ class CustomTextField extends StatelessWidget {
     if (suffixIcon != null) {
       return suffixIcon;
     }
-    if (helpText == null) {
+    if (help == null) {
       return null;
     }
     return ExcludeFocus(
@@ -149,11 +145,10 @@ class CustomTextField extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: help ??
-                      Text(
-                        helpText!,
-                        textAlign: TextAlign.center,
-                      ),
+                  child: DefaultTextStyle.merge(
+                    textAlign: TextAlign.center,
+                    child: help!,
+                  ),
                 ),
               ],
             );

@@ -20,13 +20,13 @@ class Alert extends StatefulWidget {
   final Widget child;
 
   /// The icon used to close the alert.
-  final IconData closeIcon;
+  final Widget closeIcon;
 
   /// The color of the alert. Defaults to a light grey.
   final Color color;
 
   /// The icon shown to the left of the [child].
-  final IconData icon;
+  final Widget icon;
 
   /// Determines if this alert is visible.
   final bool isVisible;
@@ -37,9 +37,9 @@ class Alert extends StatefulWidget {
   /// The [child] is placed inside this padding.
   final EdgeInsets padding;
 
-  static const IconData _defaultCloseIcon = Icons.close;
+  static const Widget _defaultCloseIcon = Icon(Icons.close);
   static const Color _defaultColor = Color(0xFF717171);
-  static const IconData _defaultIcon = Icons.person;
+  static const Widget _defaultIcon = Icon(Icons.person);
   static const bool _defaultIsVisible = true;
   static const EdgeInsets _defaultPadding = EdgeInsets.all(8.0);
 
@@ -54,7 +54,7 @@ class Alert extends StatefulWidget {
     this.onClose,
     this.padding = _defaultPadding,
   })  : color = const Color(0xFFEA001E),
-        icon = Icons.block;
+        icon = const Icon(Icons.block);
 
   /// {@macro flutter_widgetz.Alert}
   ///
@@ -67,7 +67,7 @@ class Alert extends StatefulWidget {
     this.onClose,
     this.padding = _defaultPadding,
   })  : color = const Color(0xFF444444),
-        icon = Icons.wifi;
+        icon = const Icon(Icons.wifi);
 
   /// {@macro flutter_widgetz.Alert}
   ///
@@ -80,7 +80,7 @@ class Alert extends StatefulWidget {
     this.onClose,
     this.padding = _defaultPadding,
   })  : color = const Color(0xFFF89038),
-        icon = Icons.warning;
+        icon = const Icon(Icons.warning);
 
   @override
   State<Alert> createState() => _AlertState();
@@ -101,36 +101,36 @@ class _AlertState extends State<Alert> {
       return const SizedBox();
     }
 
-    final ThemeData theme = Theme.of(context);
+    final ThemeData _theme = Theme.of(context);
+    final Color _color = widget.color.blackOrWhite;
 
-    return Container(
-      color: widget.color,
-      padding: widget.padding,
-      width: double.infinity,
-      child: Row(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: Icon(
-              widget.icon,
-              color: widget.color.blackOrWhite,
+    return IconTheme(
+      data: _theme.iconTheme.copyWith(
+        color: _color,
+      ),
+      child: Container(
+        color: widget.color,
+        padding: widget.padding,
+        width: double.infinity,
+        child: Row(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: widget.icon,
             ),
-          ),
-          DefaultTextStyle.merge(
-            style: theme.textTheme.bodyMedium?.copyWith(
-              color: widget.color.blackOrWhite,
+            DefaultTextStyle.merge(
+              style: _theme.textTheme.bodyMedium?.copyWith(
+                color: _color,
+              ),
+              child: widget.child,
             ),
-            child: widget.child,
-          ),
-          const Spacer(),
-          GestureDetector(
-            onTap: _onTap,
-            child: Icon(
-              widget.closeIcon,
-              color: widget.color.blackOrWhite,
+            const Spacer(),
+            GestureDetector(
+              onTap: _onTap,
+              child: widget.closeIcon,
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

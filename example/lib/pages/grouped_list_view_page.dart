@@ -4,7 +4,7 @@ import 'package:flutter_widgetz/flutter_widgetz.dart';
 class GroupedListViewPage extends StatelessWidget {
   const GroupedListViewPage({super.key});
 
-  static const List<Map<String, Object>> _items = <Map<String, Object>>[
+  static const List<Map<String, String>> _items = <Map<String, String>>[
     <String, String>{'name': 'John', 'group': 'Team A'},
     <String, String>{'name': 'Will', 'group': 'Team B'},
     <String, String>{'name': 'Beth', 'group': 'Team A'},
@@ -15,15 +15,16 @@ class GroupedListViewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GroupedListView<Map<String, Object>, String>(
+    return GroupedListView<Map<String, String>, String>(
       items: _items,
-      itemBuilder: (_, Map<String, Object> item) {
-        return ListTile(
-          title: Text(item['name']! as String),
+      itemBuilder: (_, Map<String, String> item) {
+        return CustomListTile(
+          title: Text(item['name']!),
+          leading: Text(item['name']![0]),
         );
       },
-      groupBy: (Map<String, Object> item) {
-        return item['group']! as String;
+      groupBy: (Map<String, String> item) {
+        return item['group']!;
       },
       groupHeaderBuilder: (String value) {
         return ListTile(

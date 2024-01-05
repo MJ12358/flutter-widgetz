@@ -9,15 +9,15 @@ class DuelingPicklist<T extends Object> extends StatefulWidget {
   const DuelingPicklist({
     super.key,
     this.available = const <Never>[],
-    this.availableLabel = 'Available',
+    this.availableLabel = const Text('Available'),
     this.displayStringForItem = _defaultStringForItem,
     this.height = 240.0,
-    this.labelText,
+    this.label,
     this.onAvailableChanged,
     this.onSelectedChanged,
     this.onSort,
     this.selected = const <Never>[],
-    this.selectedLabel = 'Selected',
+    this.selectedLabel = const Text('Selected'),
     this.spacing = 16.0,
   });
 
@@ -25,7 +25,7 @@ class DuelingPicklist<T extends Object> extends StatefulWidget {
   final List<T> available;
 
   /// A label above the available items.
-  final String availableLabel;
+  final Widget availableLabel;
 
   /// A callback used to display a string for an item.
   final String Function(T) displayStringForItem;
@@ -34,7 +34,7 @@ class DuelingPicklist<T extends Object> extends StatefulWidget {
   final double height;
 
   /// A optional label to describe the picklists.
-  final String? labelText;
+  final Widget? label;
 
   /// Called when the available items change.
   final ValueChanged<List<T>>? onAvailableChanged;
@@ -49,7 +49,7 @@ class DuelingPicklist<T extends Object> extends StatefulWidget {
   final List<T> selected;
 
   /// A label above the selected items.
-  final String selectedLabel;
+  final Widget selectedLabel;
 
   /// The spacing between the arrows and the picklists.
   final double spacing;
@@ -83,7 +83,7 @@ class _DuelingPicklistState<T extends Object>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        _Label(text: widget.labelText),
+        _Label(child: widget.label),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -156,20 +156,22 @@ class _DuelingPicklistState<T extends Object>
 }
 
 class _Label extends StatelessWidget {
-  const _Label({this.text});
+  const _Label({this.child});
 
-  final String? text;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
-    if (text == null) {
+    if (child == null) {
       return const SizedBox();
     }
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
-      child: Text(
-        text!,
-        style: const TextStyle(fontWeight: FontWeight.bold),
+      child: DefaultTextStyle.merge(
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+        child: child!,
       ),
     );
   }
@@ -234,7 +236,7 @@ class _Picklist<T extends Object> extends StatefulWidget {
   final List<T> children;
   final String Function(T) displayStringForItem;
   final double height;
-  final String label;
+  final Widget label;
   final ValueChanged<List<T>> onChanged;
   final int Function(T a, T b)? onSort;
 
@@ -261,7 +263,7 @@ class _PicklistState<T extends Object> extends State<_Picklist<T>> {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(bottom: 8.0),
-            child: Text(widget.label),
+            child: widget.label,
           ),
           Container(
             height: widget.height,

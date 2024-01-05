@@ -13,23 +13,23 @@ class DialogsPage extends StatelessWidget {
       child: SpacedColumn(
         children: <Widget>[
           CustomElevatedButton(
-            text: 'Default',
+            child: const Text('Default'),
             onPressed: () => _showDefaultDialog(context),
           ),
           CustomElevatedButton(
-            text: 'Custom',
+            child: const Text('Custom'),
             onPressed: () => _showCustomDialog(context),
           ),
           CustomElevatedButton(
-            text: 'Custom Icon',
+            child: const Text('Custom Icon'),
             onPressed: () => _showCustomIconDialog(context),
           ),
           CustomElevatedButton(
-            text: 'Custom Checked',
+            child: const Text('Custom Checked'),
             onPressed: () => _showCustomCheckedDialog(context),
           ),
           CustomElevatedButton(
-            text: 'Custom All',
+            child: const Text('Custom All'),
             onPressed: () => _showCustomAllDialog(context),
           ),
         ],
@@ -84,14 +84,14 @@ class DialogsPage extends StatelessWidget {
         return SimpleDialog(
           children: <Widget>[
             CustomSimpleDialogOption.icon(
-              text: 'One',
-              icon: Icons.abc,
+              icon: const Icon(Icons.abc),
               onPressed: () {},
+              child: const Text('One'),
             ),
             CustomSimpleDialogOption.icon(
-              text: 'Two',
-              icon: Icons.yard,
+              icon: const Icon(Icons.yard),
               onPressed: () {},
+              child: const Text('Two'),
             ),
           ],
         );
@@ -106,12 +106,12 @@ class DialogsPage extends StatelessWidget {
         return SimpleDialog(
           children: <Widget>[
             CustomSimpleDialogOption.checked(
-              text: 'One',
               checked: false,
               onPressed: () {},
+              child: const Text('One'),
             ),
             CustomSimpleDialogOption.checked(
-              text: 'Two',
+              child: const Text('Two'),
               onPressed: () {},
             ),
           ],
@@ -131,23 +131,23 @@ class DialogsPage extends StatelessWidget {
               onPressed: () {},
             ),
             CustomSimpleDialogOption.checked(
-              text: 'Checked false',
               checked: false,
               onPressed: () {},
+              child: const Text('Checked false'),
             ),
             CustomSimpleDialogOption.checked(
-              text: 'Checked true',
+              child: const Text('Checked true'),
               onPressed: () {},
             ),
             CustomSimpleDialogOption.icon(
-              text: 'Icon One',
-              icon: Icons.abc,
+              icon: const Icon(Icons.abc),
               onPressed: () {},
+              child: const Text('Icon One'),
             ),
             CustomSimpleDialogOption.icon(
-              text: 'Icon Two',
-              icon: Icons.yard,
+              icon: const Icon(Icons.yard),
               onPressed: () {},
+              child: const Text('Icon Two'),
             ),
             CustomSimpleDialogOption.tile(
               child: const Text('Tile one'),

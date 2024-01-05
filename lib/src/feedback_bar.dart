@@ -92,20 +92,20 @@ class FeedbackBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    return DefaultTextStyle(
-      style: theme.textTheme.titleMedium!,
+    return DefaultTextStyle.merge(
+      style: theme.textTheme.titleMedium,
       child: SpacedColumn(
-        spacing: 8.0,
+        spacer: const SizedBox(height: 8.0),
         children: <Widget>[
           if (header != null) header!,
           if (orientation == Orientation.landscape)
             SpacedRow(
-              spacing: spacing,
+              spacer: SizedBox(width: spacing),
               children: _buildChildren(),
             )
           else
             SpacedColumn(
-              spacing: spacing,
+              spacer: SizedBox(height: spacing),
               children: _buildChildren(),
             ),
           if (footer != null) footer!,

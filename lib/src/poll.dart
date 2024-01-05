@@ -111,7 +111,7 @@ class _PollState extends State<Poll> {
     return SpacedColumn(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
-      spacing: widget.spacing,
+      spacer: SizedBox(height: widget.spacing),
       children: <Widget>[
         Text(
           widget.question,
@@ -195,7 +195,7 @@ class _PollButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return SpacedColumn(
       mainAxisSize: MainAxisSize.min,
-      spacing: spacing,
+      spacer: SizedBox(height: spacing),
       children: options.map((PollOption e) {
         return _PollButton(
           backgroundColor: backgroundColor,
@@ -244,7 +244,7 @@ class _PollIndicators extends StatelessWidget {
 
     return SpacedColumn(
       mainAxisSize: MainAxisSize.min,
-      spacing: spacing,
+      spacer: SizedBox(height: spacing),
       children: options.map((PollOption e) {
         return _PollIndicator(
           backgroundColor: backgroundColor,
@@ -336,8 +336,8 @@ class _PollIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    return DefaultTextStyle(
-      style: theme.textTheme.labelLarge!.copyWith(
+    return DefaultTextStyle.merge(
+      style: theme.textTheme.labelLarge?.copyWith(
         fontWeight: isWinning ? FontWeight.bold : FontWeight.normal,
       ),
       child: PercentIndicator.linear(

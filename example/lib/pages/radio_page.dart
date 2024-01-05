@@ -12,13 +12,13 @@ class RadioPage extends StatelessWidget {
         children: <Widget>[
           const CustomTextField(
             labelText: 'Text Field (for reference)',
-            prefixIcon: Icons.timelapse,
+            prefixIcon: Icon(Icons.timelapse),
           ),
           const RadioGroup<String>(
             labelText: 'Radio Group',
             items: <String>['1', '2', '3'],
             onChanged: print,
-            prefixIcon: Icons.gif_box,
+            prefixIcon: Icon(Icons.gif_box),
           ),
           const RadioGroup<BoxFit>(
             labelText: 'Radio Group Two (Enum)',
@@ -30,7 +30,7 @@ class RadioPage extends StatelessWidget {
             labelText: 'Radio Group Two (Enum with Formatter)',
             items: BoxFit.values,
             onChanged: print,
-            prefixIcon: Icons.account_box,
+            prefixIcon: const Icon(Icons.account_box),
             displayStringForItem: (BoxFit v) => v.name,
           ),
         ],

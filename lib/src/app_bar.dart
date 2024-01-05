@@ -10,18 +10,10 @@ class CustomAppBar extends AppBar {
     super.actions,
     super.automaticallyImplyLeading,
     super.bottom,
-    bool centerTitle = _defaultCenterTitle,
+    super.centerTitle = _defaultCenterTitle,
     super.leading,
-    Widget? title,
-    String? titleText,
-  })  : assert(
-          title != null || titleText != null,
-          'One of title or titleText must be supplied.',
-        ),
-        super(
-          centerTitle: centerTitle,
-          title: title ?? Text(titleText!),
-        );
+    super.title,
+  });
 
   static const bool _defaultCenterTitle = false;
 
@@ -34,37 +26,24 @@ class CustomAppBar extends AppBar {
     super.actions,
     super.automaticallyImplyLeading,
     super.bottom,
-    bool centerTitle = _defaultCenterTitle,
+    super.centerTitle = _defaultCenterTitle,
     super.leading,
-    Widget? subtitle,
-    String? subtitleText,
-    Widget? title,
-    String? titleText,
-  })  : assert(
-          title != null || titleText != null,
-          'One of title or titleText must be supplied.',
-        ),
-        assert(
-          subtitle != null || subtitleText != null,
-          'One of subtitle or subtitleText must be supplied.',
-        ),
-        super(
-          centerTitle: centerTitle,
+    required Widget subtitle,
+    required Widget title,
+  }) : super(
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              title ??
-                  Text(
-                    titleText!,
-                    textAlign: TextAlign.left,
-                  ),
-              subtitle ??
-                  Text(
-                    subtitleText!,
-                    style: const TextStyle(fontSize: 10),
-                    textAlign: TextAlign.left,
-                  ),
+              DefaultTextStyle.merge(
+                textAlign: TextAlign.left,
+                child: title,
+              ),
+              DefaultTextStyle.merge(
+                style: const TextStyle(fontSize: 10),
+                textAlign: TextAlign.left,
+                child: subtitle,
+              ),
             ],
           ),
         );

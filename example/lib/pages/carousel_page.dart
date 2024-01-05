@@ -30,7 +30,7 @@ class _CarouselPageState extends State<CarouselPage> {
     return CustomSingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
       child: SpacedColumn(
-        spacing: 16.0,
+        spacer: const SizedBox(height: 16.0),
         children: <Widget>[
           const CustomDivider(child: Text('Count')),
           SizedBox(

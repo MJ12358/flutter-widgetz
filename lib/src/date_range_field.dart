@@ -15,7 +15,7 @@ class DateRangeField extends StatefulWidget {
     this.hasError = false,
     this.labelText,
     this.lastDate,
-    this.prefixIcon = Icons.date_range,
+    this.prefixIcon = const Icon(Icons.date_range),
     this.value,
   });
 
@@ -45,7 +45,7 @@ class DateRangeField extends StatefulWidget {
   final DateTime? lastDate;
 
   /// An icon that appears before the editable part of the text field.
-  final IconData prefixIcon;
+  final Widget prefixIcon;
 
   /// The value of this input.
   final DateTimeRange? value;
@@ -92,7 +92,7 @@ class _DateRangeFieldState extends State<DateRangeField> {
         decoration: InputDecoration(
           errorText: widget.hasError ? widget.errorText : null,
           labelText: widget.labelText,
-          prefixIcon: Icon(widget.prefixIcon),
+          prefixIcon: widget.prefixIcon,
         ),
         child: Text(
           widget.displayStringForDateRange(_value),

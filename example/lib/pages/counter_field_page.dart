@@ -19,7 +19,7 @@ class CounterPage extends StatelessWidget {
               ),
               CustomTextField(
                 labelText: 'Text Field (for reference)',
-                prefixIcon: Icons.add_circle,
+                prefixIcon: Icon(Icons.add_circle),
               ),
             ],
           );
@@ -43,8 +43,8 @@ class CounterPage extends StatelessWidget {
                 labelText: 'Counter Three',
                 onChanged: print,
                 value: 10,
-                decrementIcon: Icons.remove,
-                incrementIcon: Icons.add,
+                decrementIcon: Icon(Icons.remove),
+                incrementIcon: Icon(Icons.add),
               ),
             ],
           );

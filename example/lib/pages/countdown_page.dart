@@ -25,10 +25,10 @@ class CountdownPage extends StatelessWidget {
             target: _defaultDateTime,
             backgroundColor: Colors.red,
             textColor: Colors.green,
-            daysText: 'D',
-            hoursText: 'H',
-            minutesText: 'M',
-            secondsText: 'S',
+            daysLabel: const Text('D'),
+            hoursLabel: const Text('H'),
+            minutesLabel: const Text('M'),
+            secondsLabel: const Text('S'),
             separator: const Text('♠'),
           ),
           Countdown.rectangle(
@@ -40,16 +40,22 @@ class CountdownPage extends StatelessWidget {
             secondsLabel: const Icon(Icons.autofps_select),
             separator: const Text('☻'),
           ),
+          Countdown.circle(
+            target: _defaultDateTime,
+          ),
           Countdown(
             decoration: BoxDecoration(
               color: Colors.blue,
               borderRadius: BorderRadius.circular(25),
             ),
+            separator: const Text(
+              '~',
+              style: TextStyle(
+                color: Colors.lime,
+              ),
+            ),
             target: _defaultDateTime,
             textColor: Colors.blue.complimentary,
-          ),
-          Countdown.circle(
-            target: _defaultDateTime,
           ),
         ],
       ),

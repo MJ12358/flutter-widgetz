@@ -13,11 +13,11 @@ class LinkPage extends StatelessWidget {
       child: SpacedColumn(
         children: <Widget>[
           Link(
-            'Text',
+            const Text('Text'),
             onTap: () => print('text'),
           ),
           Link.underline(
-            'Underline',
+            const Text('Underline'),
             onTap: () => print('underline'),
           ),
         ],

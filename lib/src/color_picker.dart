@@ -14,10 +14,10 @@ class ColorPicker extends StatefulWidget {
     this.extent = _defaultExtent,
     this.initialColor,
     this.padding = _defaultPadding,
-    this.spacing = _defaultSpacing,
-    String? title,
-    this.titleStyle,
+    double? spacing,
+    Widget? title,
   })  : colors = colors ?? _defaultColors,
+        spacing = spacing ?? _defaultSpacing,
         title = title ?? _defaultTitle,
         isCompact = false;
 
@@ -45,10 +45,7 @@ class ColorPicker extends StatefulWidget {
   final double spacing;
 
   /// A title shown above the picker.
-  final String title;
-
-  /// The style to use for the [title].
-  final TextStyle? titleStyle;
+  final Widget? title;
 
   /// Determines whether to use a compact horizontal list.
   final bool isCompact;
@@ -58,7 +55,7 @@ class ColorPicker extends StatefulWidget {
   static const double _defaultExtent = 75.0;
   static const EdgeInsets _defaultPadding = EdgeInsets.all(16.0);
   static const double _defaultSpacing = 10.0;
-  static const String _defaultTitle = 'Choose Color';
+  static const Widget _defaultTitle = Text('Choose Color');
 
   /// {@macro flutter_widgetz.ColorPicker}
   ///
@@ -72,7 +69,6 @@ class ColorPicker extends StatefulWidget {
     this.padding = _defaultPadding,
     this.spacing = _defaultSpacing,
     this.title = _defaultTitle,
-    this.titleStyle,
   })  : colors = colors ?? _defaultColors,
         isCompact = false,
         decoration = BoxDecoration(
@@ -92,7 +88,6 @@ class ColorPicker extends StatefulWidget {
     this.padding = _defaultPadding,
     this.spacing = _defaultSpacing,
     this.title = _defaultTitle,
-    this.titleStyle,
   })  : colors = colors ?? _defaultColors,
         isCompact = false,
         decoration = BoxDecoration(
@@ -111,8 +106,7 @@ class ColorPicker extends StatefulWidget {
     this.padding = const EdgeInsets.all(8.0),
     BoxShape? shape,
     this.spacing = _defaultSpacing,
-    this.title = '',
-    this.titleStyle,
+    this.title,
   })  : colors = colors ?? _defaultColors,
         isCompact = true,
         decoration = BoxDecoration(
@@ -151,7 +145,6 @@ class _ColorPickerState extends State<ColorPicker> {
               child: _Header(
                 title: widget.title,
                 padding: widget.padding,
-                style: widget.titleStyle,
               ),
             ),
             SliverPadding(
@@ -191,24 +184,22 @@ class _Header extends StatelessWidget {
   const _Header({
     required this.title,
     required this.padding,
-    this.style,
   });
 
-  final String title;
+  final Widget? title;
   final EdgeInsets padding;
-  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
-    if (title.isEmpty) {
+    if (title == null) {
       return const SizedBox();
     }
 
     return Container(
       padding: padding.copyWith(bottom: 0.0),
-      child: Text(
-        title,
-        style: style ?? Theme.of(context).textTheme.titleMedium,
+      child: DefaultTextStyle.merge(
+        style: Theme.of(context).textTheme.titleMedium,
+        child: title!,
       ),
     );
   }

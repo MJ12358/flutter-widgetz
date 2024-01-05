@@ -13,7 +13,7 @@ class DurationField extends StatefulWidget {
     this.displayStringForDuration = _defaultStringForDuration,
     this.labelText = 'Duration',
     this.onChanged,
-    this.prefixIcon = Icons.timelapse,
+    this.prefixIcon = const Icon(Icons.timelapse),
     this.snapToMins,
     this.unit,
     this.value,
@@ -35,7 +35,7 @@ class DurationField extends StatefulWidget {
   final ValueChanged<Duration>? onChanged;
 
   /// An icon that appears before the editable part of the text field.
-  final IconData prefixIcon;
+  final Widget prefixIcon;
 
   /// The resolution of mins of the dial,
   /// i.e. if snapToMins = 5,
@@ -85,7 +85,7 @@ class _DurationFieldState extends State<DurationField> {
         isFocused: _focusNode.hasFocus,
         decoration: InputDecoration(
           labelText: widget.labelText,
-          prefixIcon: Icon(widget.prefixIcon),
+          prefixIcon: widget.prefixIcon,
         ),
         child: Text(
           widget.displayStringForDuration(_value),

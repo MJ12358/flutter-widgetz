@@ -18,7 +18,7 @@ class CustomAvatar extends StatelessWidget {
   final Color? color;
 
   /// The icon to display when no image is present.
-  final IconData icon;
+  final Widget icon;
 
   /// The image provider.
   final ImageProvider? imageProvider;
@@ -26,7 +26,7 @@ class CustomAvatar extends StatelessWidget {
   /// The size of the avatar, expressed as the radius (half the diameter).
   final double? radius;
 
-  static const IconData _defaultIcon = Icons.person;
+  static const Widget _defaultIcon = Icon(Icons.person);
   static void _defaultImageErrorBuilder(Object o, StackTrace? s) {}
 
   /// {@macro flutter_widgetz.CustomAvatar}
@@ -72,7 +72,7 @@ class CustomAvatar extends StatelessWidget {
       onForegroundImageError: _hasImage ? _defaultImageErrorBuilder : null,
       radius: radius,
       child: Center(
-        child: Icon(icon),
+        child: icon,
       ),
     );
   }

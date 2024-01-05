@@ -23,7 +23,7 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
   /// A [PopupMenuItem] with a checkmark.
   CustomPopupMenuItem.checked({
     super.key,
-    required String text,
+    required Widget child,
     bool checked = false,
     super.enabled = true,
     super.onTap,
@@ -36,14 +36,14 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
               duration: kThemeChangeDuration,
               child: const Icon(Icons.done),
             ),
-            title: Text(text),
+            title: child,
           ),
         );
 
   /// A [PopupMenuItem] with an icon.
   CustomPopupMenuItem.icon({
     super.key,
-    required String text,
+    required Widget child,
     required IconData icon,
     super.onTap,
     super.value,
@@ -51,7 +51,7 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
           padding: EdgeInsets.zero,
           child: ListTile(
             leading: Icon(icon),
-            title: Text(text),
+            title: child,
           ),
         );
 }

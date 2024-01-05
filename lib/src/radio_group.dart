@@ -39,7 +39,7 @@ class RadioGroup<T extends Object> extends StatefulWidget {
   final String? labelText;
 
   /// An icon that appears before the editable part of the text field.
-  final IconData? prefixIcon;
+  final Widget? prefixIcon;
 
   static String _defaultStringForItem(Object? item) {
     return item?.toString() ?? '';
@@ -76,8 +76,7 @@ class _RadioGroupState<T extends Object> extends State<RadioGroup<T>> {
         decoration: InputDecoration(
           border: widget.border,
           labelText: widget.labelText,
-          prefixIcon:
-              widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
+          prefixIcon: widget.prefixIcon,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

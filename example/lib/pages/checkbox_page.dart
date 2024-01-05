@@ -19,7 +19,7 @@ class CheckboxPage extends StatelessWidget {
               ),
               CustomTextField(
                 labelText: 'Text Field (for reference)',
-                prefixIcon: Icons.gif_box,
+                prefixIcon: Icon(Icons.gif_box),
               ),
             ],
           );
@@ -29,14 +29,14 @@ class CheckboxPage extends StatelessWidget {
             children: <Widget>[
               const CustomTextField(
                 labelText: 'Text Field (for reference)',
-                prefixIcon: Icons.timelapse,
+                prefixIcon: Icon(Icons.timelapse),
               ),
               const CheckboxGroup<String>(
                 labelText: 'Checkbox Group',
                 items: <String>['1', '2', '3'],
                 onChanged: print,
                 initialValues: <String>['1', '2'],
-                prefixIcon: Icons.abc,
+                prefixIcon: Icon(Icons.abc),
               ),
               const CheckboxGroup<BoxFit>(
                 labelText: 'Checkbox Group Two (Enum)',
@@ -53,7 +53,7 @@ class CheckboxPage extends StatelessWidget {
               ),
               const CustomTextField(
                 labelText: 'Text Field (for reference)',
-                prefixIcon: Icons.check_box,
+                prefixIcon: Icon(Icons.check_box),
               ),
               const CheckboxField(
                 labelText: 'Checkbox Field One',
@@ -63,7 +63,7 @@ class CheckboxPage extends StatelessWidget {
               const CustomTextField(
                 labelText: 'Text Field (for reference)',
                 initialValue: 'Testing',
-                prefixIcon: Icons.abc,
+                prefixIcon: Icon(Icons.abc),
                 textInputAction: TextInputAction.next,
               ),
               const CheckboxField(

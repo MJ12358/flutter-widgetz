@@ -11,11 +11,11 @@ class PicklistPage extends StatelessWidget {
       child: SpacedColumn(
         children: <Widget>[
           const DuelingPicklist<BoxFit>(
-            labelText: 'Dueling Picklist',
+            label: Text('Dueling Picklist'),
             available: BoxFit.values,
           ),
           DuelingPicklist<BoxFit>(
-            labelText: 'Dueling Picklist (selected)',
+            label: const Text('Dueling Picklist (selected)'),
             available: BoxFit.values,
             selected: const <BoxFit>[BoxFit.contain],
             onSort: (BoxFit a, BoxFit b) => b.name.compareTo(a.name),

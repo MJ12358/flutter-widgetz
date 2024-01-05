@@ -9,14 +9,10 @@ class Countdown extends StatefulWidget {
     super.key,
     required this.target,
     required this.decoration,
-    this.daysLabel,
-    this.daysText = _defaultDaysText,
-    this.hoursLabel,
-    this.hoursText = _defaultHoursText,
-    this.minutesLabel,
-    this.minutesText = _defaultMinutesText,
-    this.secondsLabel,
-    this.secondsText = _defaultSecondsText,
+    this.daysLabel = _defaultDaysLabel,
+    this.hoursLabel = _defaultHoursLabel,
+    this.minutesLabel = _defaultMinutesLabel,
+    this.secondsLabel = _defaultSecondsLabel,
     this.separator = _defaultSeparator,
     this.textColor,
   });
@@ -28,28 +24,16 @@ class Countdown extends StatefulWidget {
   final BoxDecoration decoration;
 
   /// The label given to the days.
-  final Widget? daysLabel;
-
-  /// The text given to the days when [daysLabel] is null.
-  final String daysText;
+  final Widget daysLabel;
 
   /// The label given to the hours.
-  final Widget? hoursLabel;
-
-  /// The text given to the hours when [hoursLabel] is null.
-  final String hoursText;
+  final Widget hoursLabel;
 
   /// The label given to the minutes.
-  final Widget? minutesLabel;
-
-  /// The text given to the minutes when [minutesLabel] is null.
-  final String minutesText;
+  final Widget minutesLabel;
 
   /// The label given to the seconds.
-  final Widget? secondsLabel;
-
-  /// The label given to the seconds when [secondsLabel] is null.
-  final String secondsText;
+  final Widget secondsLabel;
 
   /// A widget separating the different units.
   final Widget separator;
@@ -57,10 +41,10 @@ class Countdown extends StatefulWidget {
   /// The color of the units value.
   final Color? textColor;
 
-  static const String _defaultDaysText = 'Days';
-  static const String _defaultHoursText = 'Hours';
-  static const String _defaultMinutesText = 'Mins';
-  static const String _defaultSecondsText = 'Secs';
+  static const Widget _defaultDaysLabel = Text('Days');
+  static const Widget _defaultHoursLabel = Text('Hours');
+  static const Widget _defaultMinutesLabel = Text('Mins');
+  static const Widget _defaultSecondsLabel = Text('Secs');
   static const Widget _defaultSeparator = Text(':');
   static final Color _defaultBackgroundColor = Colors.grey.shade200;
 
@@ -71,14 +55,10 @@ class Countdown extends StatefulWidget {
     super.key,
     required this.target,
     Color? backgroundColor,
-    this.daysLabel,
-    this.daysText = _defaultDaysText,
-    this.hoursLabel,
-    this.hoursText = _defaultHoursText,
-    this.minutesLabel,
-    this.minutesText = _defaultMinutesText,
-    this.secondsLabel,
-    this.secondsText = _defaultSecondsText,
+    this.daysLabel = _defaultDaysLabel,
+    this.hoursLabel = _defaultHoursLabel,
+    this.minutesLabel = _defaultMinutesLabel,
+    this.secondsLabel = _defaultSecondsLabel,
     this.separator = _defaultSeparator,
     this.textColor,
   }) : decoration = BoxDecoration(
@@ -93,14 +73,10 @@ class Countdown extends StatefulWidget {
     super.key,
     required this.target,
     Color? backgroundColor,
-    this.daysLabel,
-    this.daysText = _defaultDaysText,
-    this.hoursLabel,
-    this.hoursText = _defaultHoursText,
-    this.minutesLabel,
-    this.minutesText = _defaultMinutesText,
-    this.secondsLabel,
-    this.secondsText = _defaultSecondsText,
+    this.daysLabel = _defaultDaysLabel,
+    this.hoursLabel = _defaultHoursLabel,
+    this.minutesLabel = _defaultMinutesLabel,
+    this.secondsLabel = _defaultSecondsLabel,
     this.separator = _defaultSeparator,
     this.textColor,
   }) : decoration = BoxDecoration(
@@ -150,7 +126,7 @@ class _CountdownState extends State<Countdown> {
         _Digit(
           color: widget.textColor,
           decoration: widget.decoration,
-          unit: widget.daysLabel ?? Text(widget.daysText),
+          unit: widget.daysLabel,
           value: _duration.days,
         ),
         _Separator(
@@ -160,7 +136,7 @@ class _CountdownState extends State<Countdown> {
         _Digit(
           color: widget.textColor,
           decoration: widget.decoration,
-          unit: widget.hoursLabel ?? Text(widget.hoursText),
+          unit: widget.hoursLabel,
           value: _duration.hours,
         ),
         _Separator(
@@ -170,7 +146,7 @@ class _CountdownState extends State<Countdown> {
         _Digit(
           color: widget.textColor,
           decoration: widget.decoration,
-          unit: widget.minutesLabel ?? Text(widget.minutesText),
+          unit: widget.minutesLabel,
           value: _duration.minutes,
         ),
         _Separator(
@@ -180,7 +156,7 @@ class _CountdownState extends State<Countdown> {
         _Digit(
           color: widget.textColor,
           decoration: widget.decoration,
-          unit: widget.secondsLabel ?? Text(widget.secondsText),
+          unit: widget.secondsLabel,
           value: _duration.seconds,
         ),
       ],
@@ -220,8 +196,8 @@ class _Digit extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 8.0),
-              DefaultTextStyle(
-                style: theme.textTheme.bodyMedium!.copyWith(
+              DefaultTextStyle.merge(
+                style: theme.textTheme.bodyMedium?.copyWith(
                   color: decoration.color?.blackOrWhite,
                 ),
                 child: IconTheme(
@@ -252,8 +228,8 @@ class _Separator extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    return DefaultTextStyle(
-      style: theme.textTheme.titleLarge!.copyWith(
+    return DefaultTextStyle.merge(
+      style: theme.textTheme.titleLarge?.copyWith(
         color: color ?? theme.colorScheme.primary,
         fontWeight: FontWeight.bold,
       ),

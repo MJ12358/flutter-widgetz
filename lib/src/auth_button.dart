@@ -7,14 +7,16 @@ class AuthButton extends StatelessWidget {
   /// {@macro flutter_widgetz.AuthButton}
   const AuthButton({
     super.key,
+    required this.child,
     required this.color,
     required this.icon,
     required this.onTap,
-    required this.text,
-    required this.textStyle,
     this.maxWidth = _defaultMaxWidth,
     this.minWidth = _defaultMinWidth,
   });
+
+  /// The widget show within the button.
+  final Widget child;
 
   /// The button's color.
   final Color color;
@@ -30,12 +32,6 @@ class AuthButton extends StatelessWidget {
 
   /// The callback that is called when the button is tapped.
   final VoidCallback onTap;
-
-  /// The text show within the button.
-  final String text;
-
-  /// The style to use for the text.
-  final TextStyle? textStyle;
 
   static const double _defaultMaxWidth = 275;
   static const double _defaultMinWidth = 275;
@@ -55,10 +51,9 @@ class AuthButton extends StatelessWidget {
   AuthButton.apple({
     super.key,
     required this.onTap,
+    this.child = const Text('Sign in with Apple'),
     this.maxWidth = _defaultMaxWidth,
     this.minWidth = _defaultMinWidth,
-    this.text = 'Sign in with Apple',
-    this.textStyle,
   })  : color = const Color(0xFF000000),
         icon = _getAsset(_kAppleIcon);
 
@@ -70,10 +65,9 @@ class AuthButton extends StatelessWidget {
   AuthButton.facebook({
     super.key,
     required this.onTap,
+    this.child = const Text('Sign in with Facebook'),
     this.maxWidth = _defaultMaxWidth,
     this.minWidth = _defaultMinWidth,
-    this.text = 'Sign in with Facebook',
-    this.textStyle,
   })  : color = const Color(0xFF43549D),
         icon = _getAsset(_kFacebookIcon);
 
@@ -85,10 +79,9 @@ class AuthButton extends StatelessWidget {
   AuthButton.github({
     super.key,
     required this.onTap,
+    this.child = const Text('Sign in with GitHub'),
     this.maxWidth = _defaultMaxWidth,
     this.minWidth = _defaultMinWidth,
-    this.text = 'Sign in with GitHub',
-    this.textStyle,
   })  : color = const Color(0xFF24292E),
         icon = _getAsset(_kGithubIcon);
 
@@ -100,10 +93,9 @@ class AuthButton extends StatelessWidget {
   AuthButton.google({
     super.key,
     required this.onTap,
+    this.child = const Text('Sign in with Google'),
     this.maxWidth = _defaultMaxWidth,
     this.minWidth = _defaultMinWidth,
-    this.text = 'Sign in with Google',
-    this.textStyle,
   })  : color = const Color(0xFF4285F4),
         icon = _getAsset(_kGoogleIcon);
 
@@ -115,10 +107,9 @@ class AuthButton extends StatelessWidget {
   AuthButton.microsoft({
     super.key,
     required this.onTap,
+    this.child = const Text('Sign in with Microsoft'),
     this.maxWidth = _defaultMaxWidth,
     this.minWidth = _defaultMinWidth,
-    this.text = 'Sign in with Microsoft',
-    this.textStyle,
   })  : color = const Color(0xFF2F2F2F),
         icon = _getAsset(_kMicrosoftIcon);
 
@@ -130,13 +121,15 @@ class AuthButton extends StatelessWidget {
   AuthButton.twitter({
     super.key,
     required this.onTap,
+    Widget child = const Text('Sign in with Twitter'),
     this.maxWidth = _defaultMaxWidth,
     this.minWidth = _defaultMinWidth,
-    this.text = 'Sign in with Twitter',
-    TextStyle? textStyle,
   })  : color = const Color(0xFF55ACEE),
         icon = _getAsset(_kTwitterIcon),
-        textStyle = textStyle ?? const TextStyle(color: Colors.white);
+        child = DefaultTextStyle.merge(
+          style: const TextStyle(color: Colors.white),
+          child: child,
+        );
 
   @override
   Widget build(BuildContext context) {
@@ -171,13 +164,12 @@ class AuthButton extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Text(
-                text,
+              child: DefaultTextStyle.merge(
                 textAlign: TextAlign.left,
-                style: textStyle ??
-                    TextStyle(
-                      color: color.blackOrWhite,
-                    ),
+                style: TextStyle(
+                  color: color.blackOrWhite,
+                ),
+                child: child,
               ),
             ),
           ],

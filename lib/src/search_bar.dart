@@ -16,7 +16,7 @@ class CustomSearchBar extends StatefulWidget {
     this.labelText = 'Search',
     this.onClear,
     this.padding = EdgeInsets.zero,
-    this.prefixIcon = Icons.search,
+    this.prefixIcon = const Icon(Icons.search),
     this.value = '',
   });
 
@@ -48,7 +48,7 @@ class CustomSearchBar extends StatefulWidget {
   final EdgeInsets padding;
 
   /// An icon that appears before the editable part of the text field.
-  final IconData prefixIcon;
+  final Widget prefixIcon;
 
   /// The text value of this input.
   final String value;
@@ -92,7 +92,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
                 textInputAction: TextInputAction.search,
                 decoration: InputDecoration(
                   labelText: widget.labelText,
-                  prefixIcon: Icon(widget.prefixIcon),
+                  prefixIcon: widget.prefixIcon,
                   suffixIcon: _getSuffix(),
                 ),
                 onChanged: widget.onChanged,

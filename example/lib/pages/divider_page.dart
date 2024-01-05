@@ -11,7 +11,7 @@ class DividerPage extends StatelessWidget {
     return CustomSingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
       child: SpacedColumn.filtered(
-        spacing: 50.0,
+        spacer: const SizedBox(height: 50),
         children: <Widget>[
           const CustomDivider(
             child: Text('Divider One'),

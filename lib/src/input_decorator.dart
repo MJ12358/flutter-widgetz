@@ -7,24 +7,20 @@ class CustomInputDecorator extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomInputDecorator}
   const CustomInputDecorator({
     super.key,
+    required this.child,
     this.border,
-    this.child,
     this.errorText,
     this.isFocused = false,
     this.labelText,
     this.suffixIcon,
     this.prefixIcon,
-    this.text = '',
-  }) : assert(
-          child != null || text != null,
-          'Either child or text must be specified.',
-        );
+  });
+
+  /// The widget below this widget in the tree.
+  final Widget child;
 
   /// The shape of the border to draw around the decoration's container.
   final InputBorder? border;
-
-  /// The widget below this widget in the tree.
-  final Widget? child;
 
   /// Text that appears below the [child].
   final String? errorText;
@@ -36,13 +32,10 @@ class CustomInputDecorator extends StatelessWidget {
   final String? labelText;
 
   /// An icon that appears after the input field.
-  final IconData? suffixIcon;
+  final Widget? suffixIcon;
 
   /// An icon that appears before the input field.
-  final IconData? prefixIcon;
-
-  /// Text used if [child] is null.
-  final String? text;
+  final Widget? prefixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +47,13 @@ class CustomInputDecorator extends StatelessWidget {
         border: border,
         errorText: errorText,
         labelText: labelText,
-        suffixIcon: suffixIcon != null ? Icon(suffixIcon) : null,
-        prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
+        suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
       ),
-      child: child ??
-          Text(
-            text!,
-            style: theme.textTheme.titleMedium,
-          ),
+      child: DefaultTextStyle.merge(
+        style: theme.textTheme.titleMedium,
+        child: child,
+      ),
     );
   }
 }

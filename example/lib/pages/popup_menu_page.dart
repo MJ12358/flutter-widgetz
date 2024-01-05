@@ -45,20 +45,20 @@ class _PopupMenuPageState extends State<PopupMenuPage> {
             const PopupMenuDivider(),
             CustomPopupMenuItem<int>.checked(
               checked: _value == 4,
-              text: 'Custom Checked',
               value: 4,
+              child: const Text('Custom Checked'),
             ),
             const PopupMenuDivider(),
             CustomPopupMenuItem<int>.icon(
-              text: 'Custom Icon One',
               icon: Icons.abc,
               value: 5,
+              child: const Text('Custom Icon One'),
             ),
             const PopupMenuDivider(),
             CustomPopupMenuItem<int>.icon(
-              text: 'Custom Icon Two',
               icon: Icons.yard,
               value: 6,
+              child: const Text('Custom Icon Two'),
             ),
           ];
         },

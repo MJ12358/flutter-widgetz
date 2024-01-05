@@ -15,7 +15,7 @@ class DateField extends StatefulWidget {
     this.hasError = false,
     this.labelText,
     this.lastDate,
-    this.prefixIcon = Icons.calendar_month,
+    this.prefixIcon = const Icon(Icons.calendar_month),
     this.value,
   });
 
@@ -45,7 +45,7 @@ class DateField extends StatefulWidget {
   final DateTime? lastDate;
 
   /// An icon that appears before the editable part of the text field.
-  final IconData prefixIcon;
+  final Widget prefixIcon;
 
   /// The value of this input.
   final DateTime? value;
@@ -93,7 +93,7 @@ class _DateFieldState extends State<DateField> {
         decoration: InputDecoration(
           errorText: widget.hasError ? widget.errorText : null,
           labelText: widget.labelText,
-          prefixIcon: Icon(widget.prefixIcon),
+          prefixIcon: widget.prefixIcon,
         ),
         child: Text(
           widget.displayStringForDate(_value),

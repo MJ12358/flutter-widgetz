@@ -82,8 +82,8 @@ class MainState extends State<Main> {
       title: 'Flutter Widgetz Example',
       home: CustomScaffold(
         appBar: CustomAppBar.subtitled(
-          titleText: 'Flutter Widgetz',
-          subtitleText: _currentPage.title,
+          title: const Text('Flutter Widgetz'),
+          subtitle: Text(_currentPage.title),
           actions: <Widget>[
             const _TimeDilationButton(),
             IconButton(

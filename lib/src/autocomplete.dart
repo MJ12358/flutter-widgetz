@@ -60,7 +60,7 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
   final String? labelText;
 
   /// An icon that appears before the editable part of the text field.
-  final IconData? prefixIcon;
+  final Widget? prefixIcon;
 
   /// Used to allow the input enough room for the dropdown.
   final EdgeInsets scrollPadding;

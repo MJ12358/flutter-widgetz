@@ -20,7 +20,7 @@ class ScaffoldPage extends StatelessWidget {
               context,
               MaterialPageRoute<dynamic>(builder: (_) => const _TestPage()),
             ),
-            text: 'Push Page',
+            child: const Text('Push Page'),
           ),
         ],
       ),

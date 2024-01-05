@@ -18,7 +18,7 @@ class DateFieldPage extends StatelessWidget {
               ),
               CustomTextField(
                 labelText: 'Text Field (for reference)',
-                prefixIcon: Icons.date_range,
+                prefixIcon: Icon(Icons.date_range),
               ),
             ],
           );
@@ -28,7 +28,7 @@ class DateFieldPage extends StatelessWidget {
             children: <Widget>[
               const CustomTextField(
                 labelText: 'Text Field (for reference)',
-                prefixIcon: Icons.calendar_month,
+                prefixIcon: Icon(Icons.calendar_month),
               ),
               const DateField(
                 labelText: 'Date Field',

@@ -27,12 +27,12 @@ class AvatarGroup extends StatelessWidget {
   final Widget child2;
 
   /// The icon to display when no image is present.
-  final IconData icon;
+  final Widget icon;
 
   /// The size of the avatar, expressed as the radius (half the diameter).
   final double radius;
 
-  static const IconData _defaultIcon = Icons.person;
+  static const Widget _defaultIcon = Icon(Icons.person);
   static const double _defaultRadius = kRadialReactionRadius;
 
   /// {@macro flutter_widgetz.AvatarGroup}

@@ -21,7 +21,7 @@ class CustomSimpleDialogOption extends SimpleDialogOption {
   /// Checked uses a checkmark based on the [checked] property.
   CustomSimpleDialogOption.checked({
     super.key,
-    required String text,
+    required Widget child,
     bool checked = true,
     super.onPressed,
   }) : super(
@@ -32,7 +32,7 @@ class CustomSimpleDialogOption extends SimpleDialogOption {
               duration: kThemeChangeDuration,
               child: const Icon(Icons.done),
             ),
-            title: Text(text),
+            title: child,
           ),
         );
 
@@ -41,14 +41,14 @@ class CustomSimpleDialogOption extends SimpleDialogOption {
   /// Icon uses an icon.
   CustomSimpleDialogOption.icon({
     super.key,
-    required String text,
-    required IconData icon,
+    required Widget child,
+    required Widget icon,
     super.onPressed,
   }) : super(
           padding: EdgeInsets.zero,
           child: ListTile(
-            leading: Icon(icon),
-            title: Text(text),
+            leading: icon,
+            title: child,
           ),
         );
 

@@ -24,26 +24,26 @@ class _ButtonPageState extends State<ButtonPage> {
           ),
           CustomElevatedButton(
             onPressed: () => print('button one pressed'),
-            text: 'Button One',
+            child: const Text('Button One'),
           ),
           CustomElevatedButton(
             onPressed: () => print('button two pressed'),
-            text: 'Button Two',
+            child: const Text('Button Two'),
           ),
           CustomElevatedButton(
             onPressed: () => print('button three pressed'),
-            text: 'Button Three',
             color: Colors.yellow,
+            child: const Text('Button Three'),
           ),
           CustomElevatedButton(
             onPressed: () => print('button four pressed'),
-            text: 'Button Four',
             color: Theme.of(context).scaffoldBackgroundColor,
+            child: const Text('Button Four'),
           ),
           CustomElevatedButton(
             onPressed: () => print('button five pressed'),
-            text: 'Button Five',
             color: Theme.of(context).colorScheme.onBackground,
+            child: const Text('Button Five'),
           ),
           const CustomDivider(
             child: Text('Save Button'),

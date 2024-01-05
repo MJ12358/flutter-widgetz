@@ -27,7 +27,7 @@ class DropdownField<T extends Object> extends StatefulWidget {
   final String Function(T) displayStringForItem;
 
   /// The drop-down button's icon.
-  final IconData? icon;
+  final Widget? icon;
 
   /// Reduce the widgets height.
   final bool isDense;
@@ -36,7 +36,7 @@ class DropdownField<T extends Object> extends StatefulWidget {
   final String? labelText;
 
   /// An icon that appears before the editable part of the text field.
-  final IconData? prefixIcon;
+  final Widget? prefixIcon;
 
   /// The value of the currently selected [DropdownMenuItem].
   final T? value;
@@ -61,12 +61,12 @@ class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<T>(
-      icon: widget.icon != null ? Icon(widget.icon) : null,
+      icon: widget.icon,
       isDense: widget.isDense,
       decoration: InputDecoration(
         isDense: widget.isDense,
         labelText: widget.labelText,
-        prefixIcon: widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
+        prefixIcon: widget.prefixIcon,
       ),
       items: _getItems(),
       onChanged: _onChange,
