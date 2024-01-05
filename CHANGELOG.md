@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 8.0.1
+
+- Reuse `trailingText` on `CustomListTile`.
+
 ## 8.0.0
 
 - Add `childPadding` to `Accordion`.

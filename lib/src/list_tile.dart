@@ -16,6 +16,7 @@ class CustomListTile extends StatelessWidget {
     Widget? subtitle,
     Widget? title,
     Widget? trailing,
+    String? trailingText,
   }) : _content = _Tile(
           color: primaryColor,
           dense: dense,
@@ -26,6 +27,7 @@ class CustomListTile extends StatelessWidget {
           subtitle: subtitle,
           title: title,
           trailing: trailing,
+          trailingText: trailingText,
         );
 
   /// Internal prop to hold the widget to be built.
@@ -52,6 +54,7 @@ class CustomListTile extends StatelessWidget {
     Widget? subtitle,
     Widget? title,
     Widget? trailing,
+    String? trailingText,
   }) : _content = Dismissible(
           key: ValueKey<Object>(uniqueKey),
           direction: dismissDirection,
@@ -74,6 +77,7 @@ class CustomListTile extends StatelessWidget {
             subtitle: subtitle,
             title: title,
             trailing: trailing,
+            trailingText: trailingText,
           ),
         );
 
@@ -94,6 +98,7 @@ class _Tile extends ListTile {
     super.subtitle,
     super.title,
     Widget? trailing,
+    String? trailingText,
   }) : super(
           leading: leading != null
               ? _Avatar(
@@ -101,12 +106,13 @@ class _Tile extends ListTile {
                   child: leading,
                 )
               : null,
-          trailing: trailing != null
-              ? _Avatar(
-                  color: color,
-                  child: trailing,
-                )
-              : null,
+          trailing: trailing ??
+              (trailingText != null
+                  ? _Avatar(
+                      color: color,
+                      child: Text(trailingText),
+                    )
+                  : null),
         );
 }
 
