@@ -14,8 +14,12 @@ class CustomReorderableListView extends ReorderableListView {
     required IndexedWidgetBuilder separatorBuilder,
     required ReorderCallback onReorder,
     super.clipBehavior,
+    super.footer,
     super.header,
+    super.padding,
+    super.physics,
     super.proxyDecorator,
+    super.shrinkWrap,
   }) : super.builder(
           itemCount: _computeActualChildCount(itemCount),
           itemBuilder: (BuildContext context, int index) {

@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 8.0.2
+
+- Add more super params to `CustomReorderableListView`.
+
 ## 8.0.1
 
 - Reuse `trailingText` on `CustomListTile`.
@@ -32,7 +36,7 @@
   - `Countdown`
     - Remove text and use widgets for labels.
   - `CounterField`
-    - Use Widgets instead of IconData
+    - Use Widgets instead of IconData,
   - `DateField`/`DateRangeField`
     - User Widgets instead of IconData.
   - `DropdownField`
