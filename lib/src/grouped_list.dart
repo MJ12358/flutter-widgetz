@@ -48,6 +48,8 @@ class GroupedListView<T, E> extends StatelessWidget {
     if (groupSeparatorBuilder == null) {
       return const SizedBox.shrink();
     }
+    // TODO: this is causing an issue....
+    // TODO: what is the point of the separator here anyway
     final MapEntry<E, List<T>> group = _grouping.entries.elementAt(index);
     return groupSeparatorBuilder!.call(context, group.value[index]);
   }

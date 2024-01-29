@@ -15,6 +15,7 @@ class Countdown extends StatefulWidget {
     this.secondsLabel = _defaultSecondsLabel,
     this.separator = _defaultSeparator,
     this.textColor,
+    this.onDone,
   });
 
   /// The target datetime from which to countdown.
@@ -41,6 +42,9 @@ class Countdown extends StatefulWidget {
   /// The color of the units value.
   final Color? textColor;
 
+  /// Called when the countdown is done.
+  final VoidCallback? onDone;
+
   static const Widget _defaultDaysLabel = Text('Days');
   static const Widget _defaultHoursLabel = Text('Hours');
   static const Widget _defaultMinutesLabel = Text('Mins');
@@ -61,6 +65,7 @@ class Countdown extends StatefulWidget {
     this.secondsLabel = _defaultSecondsLabel,
     this.separator = _defaultSeparator,
     this.textColor,
+    this.onDone,
   }) : decoration = BoxDecoration(
           color: backgroundColor ?? _defaultBackgroundColor,
           shape: BoxShape.circle,
@@ -79,6 +84,7 @@ class Countdown extends StatefulWidget {
     this.secondsLabel = _defaultSecondsLabel,
     this.separator = _defaultSeparator,
     this.textColor,
+    this.onDone,
   }) : decoration = BoxDecoration(
           color: backgroundColor ?? _defaultBackgroundColor,
         );
@@ -98,6 +104,7 @@ class _CountdownState extends State<Countdown> {
     _timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
       if (_hasEnded) {
         timer.cancel();
+        widget.onDone?.call();
       }
       setState(() {
         _duration = widget.target.difference(DateTime.now());

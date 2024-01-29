@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 8.0.3
+
+- Fix `DropdownField` menu overflow.
+- Add `isDone` to `Countdown`.
+
 ## 8.0.2
 
 - Add more super params to `CustomReorderableListView`.

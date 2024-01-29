@@ -34,6 +34,7 @@ class DurationPicker extends StatefulWidget {
   final Color? color;
 
   /// The actual duration.
+  // TODO: change this to `value`
   final Duration duration;
 
   /// The height of the picker.
@@ -222,7 +223,6 @@ class _DialState extends State<_Dial> with SingleTickerProviderStateMixin {
   double _getThetaForDuration(Duration duration, DurationPickerUnit unit) {
     final int units = unit.durationBase(duration);
     final int baseToSecondaryFactor = unit.secondaryFactor;
-
     return (_kPiByTwo -
             (units % baseToSecondaryFactor) /
                 baseToSecondaryFactor.toDouble() *
@@ -244,7 +244,6 @@ class _DialState extends State<_Dial> with SingleTickerProviderStateMixin {
     _unitValue = _unitHand();
     final Duration d = _angleToDuration(_turningAngle);
     widget.onChanged(d);
-
     return d;
   }
 
@@ -277,7 +276,6 @@ class _DialState extends State<_Dial> with SingleTickerProviderStateMixin {
     final RenderBox? box = context.findRenderObject() as RenderBox?;
     _position = box?.globalToLocal(details.globalPosition);
     _center = box?.size.center(Offset.zero);
-
     _notifyOnChangedIfNeeded();
   }
 
@@ -287,7 +285,6 @@ class _DialState extends State<_Dial> with SingleTickerProviderStateMixin {
     // _position! += details.delta;
     _updateThetaForPan();
     final double newTheta = _theta.value;
-
     _updateTurningAngle(oldTheta, newTheta);
     _notifyOnChangedIfNeeded();
   }
@@ -347,7 +344,6 @@ class _DialState extends State<_Dial> with SingleTickerProviderStateMixin {
     _center = box?.size.center(Offset.zero);
     _updateThetaForPan();
     _notifyOnChangedIfNeeded();
-
     _animateTo(
       _getThetaForDuration(_getTimeForTheta(_theta.value), widget.unit),
     );
@@ -359,7 +355,6 @@ class _DialState extends State<_Dial> with SingleTickerProviderStateMixin {
     final TextStyle? style = textTheme.titleMedium;
     final List<Duration> unitMarkerValues = widget.unit.valueMarkers;
     final List<TextPainter> labels = <TextPainter>[];
-
     for (final Duration duration in unitMarkerValues) {
       final TextPainter painter = TextPainter(
         text: TextSpan(

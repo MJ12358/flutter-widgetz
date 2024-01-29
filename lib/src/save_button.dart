@@ -34,6 +34,8 @@ class SaveButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: latest release flags this with "touch target size" warning
+    // this means the ElevatedButton needs to be bigger...
     return SizedBox(
       // this is to avoid a height change during the transition
       height: Theme.of(context).buttonTheme.height,

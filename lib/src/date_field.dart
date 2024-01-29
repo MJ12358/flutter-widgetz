@@ -62,6 +62,8 @@ class _DateFieldState extends State<DateField> {
   late FocusNode _focusNode;
   DateTime? _value;
 
+  // TODO: adjust these (especially the last date)
+  // DateTime.fromMillisecondsEpoch(0)
   DateTime get _defaultInitialDate => DateTime.now();
   DateTime get _defaultFirstDate => DateTime.now();
   DateTime get _defaultLastDate =>

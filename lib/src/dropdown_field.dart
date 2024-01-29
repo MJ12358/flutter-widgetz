@@ -12,6 +12,7 @@ class DropdownField<T extends Object> extends StatefulWidget {
     this.displayStringForItem = _defaultStringForItem,
     this.icon,
     this.isDense = true,
+    this.isExpanded = true,
     this.labelText = '',
     this.prefixIcon,
     this.value,
@@ -31,6 +32,9 @@ class DropdownField<T extends Object> extends StatefulWidget {
 
   /// Reduce the widgets height.
   final bool isDense;
+
+  /// Set the dropdown's inner contents to horizontally fill its parent.
+  final bool isExpanded;
 
   /// Optional text that describes the input field.
   final String? labelText;
@@ -63,6 +67,7 @@ class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
     return DropdownButtonFormField<T>(
       icon: widget.icon,
       isDense: widget.isDense,
+      isExpanded: widget.isExpanded,
       decoration: InputDecoration(
         isDense: widget.isDense,
         labelText: widget.labelText,

@@ -70,6 +70,16 @@ class DropdownFieldPage extends StatelessWidget {
                 prefixIcon: const Icon(Icons.select_all),
                 value: BoxFit.fill,
               ),
+              const DropdownField<String>(
+                labelText: 'Dropdown Five (Large Content)',
+                items: <String>[
+                  'Lorem ipsum dolor sit amet',
+                  'consectetur adipiscing elit',
+                  'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+                ],
+                onChanged: print,
+                prefixIcon: Icon(Icons.density_large),
+              ),
             ],
           );
         },
