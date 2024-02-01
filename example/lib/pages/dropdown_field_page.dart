@@ -80,10 +80,54 @@ class DropdownFieldPage extends StatelessWidget {
                 onChanged: print,
                 prefixIcon: Icon(Icons.density_large),
               ),
+              const _DropdownTest(),
             ],
           );
         },
       ),
+    );
+  }
+}
+
+class _DropdownTest extends StatefulWidget {
+  const _DropdownTest();
+
+  @override
+  State<_DropdownTest> createState() => __DropdownTestState();
+}
+
+class __DropdownTestState extends State<_DropdownTest> {
+  late BoxFit? _value;
+
+  @override
+  void initState() {
+    super.initState();
+    _value = BoxFit.fill;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        DropdownField<BoxFit>(
+          labelText: 'Dropdown Six (On State Changed)',
+          items: const <BoxFit>[
+            BoxFit.contain,
+            BoxFit.cover,
+            BoxFit.fill,
+          ],
+          onChanged: print,
+          displayStringForItem: (BoxFit v) => v.name,
+          prefixIcon: const Icon(Icons.select_all),
+          value: _value,
+        ),
+        CustomElevatedButton(
+          child: const Text('Set State ↑'),
+          onPressed: () => setState(() {
+            _value = BoxFit.contain;
+          }),
+        ),
+      ],
     );
   }
 }

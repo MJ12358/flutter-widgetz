@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 8.0.4
+
+- Fix programmatic updating of `DropdownField`.
+
 ## 8.0.3
 
 - Fix `DropdownField` menu overflow.

@@ -63,6 +63,12 @@ class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
   }
 
   @override
+  void didUpdateWidget(DropdownField<T> oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _value = widget.value;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<T>(
       icon: widget.icon,
