@@ -65,6 +65,12 @@ class _DurationPickerState extends State<DurationPicker> {
   }
 
   @override
+  void didUpdateWidget(DurationPicker oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _duration = widget.duration;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: widget.width ?? _kDurationPickerWidthPortrait / 1.5,

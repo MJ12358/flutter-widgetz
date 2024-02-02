@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 8.0.5
+
+- Fix programmatic updating of `DurationPicker`.
+
 ## 8.0.4
 
 - Fix programmatic updating of `DropdownField`.
