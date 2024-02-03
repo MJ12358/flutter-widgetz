@@ -18,12 +18,12 @@ class DurationPicker extends StatefulWidget {
     super.key,
     required this.onChanged,
     this.color,
-    Duration? duration,
+    Duration? value,
     this.height,
     int? snapToMins,
     DurationPickerUnit? unit,
     this.width,
-  })  : duration = duration ?? Duration.zero,
+  })  : value = value ?? Duration.zero,
         snapToMins = snapToMins ?? 1,
         unit = unit ?? DurationPickerUnit.minute;
 
@@ -32,10 +32,6 @@ class DurationPicker extends StatefulWidget {
 
   /// The color of the picker.
   final Color? color;
-
-  /// The actual duration.
-  // TODO: change this to `value`
-  final Duration duration;
 
   /// The height of the picker.
   final double? height;
@@ -48,6 +44,9 @@ class DurationPicker extends StatefulWidget {
   /// The unit for this picker.
   final DurationPickerUnit unit;
 
+  /// The actual duration.
+  final Duration value;
+
   /// The width of the picker.
   final double? width;
 
@@ -56,18 +55,18 @@ class DurationPicker extends StatefulWidget {
 }
 
 class _DurationPickerState extends State<DurationPicker> {
-  late Duration _duration;
+  late Duration _value;
 
   @override
   void initState() {
     super.initState();
-    _duration = widget.duration;
+    _value = widget.value;
   }
 
   @override
   void didUpdateWidget(DurationPicker oldWidget) {
     super.didUpdateWidget(oldWidget);
-    _duration = widget.duration;
+    _value = widget.value;
   }
 
   @override
@@ -82,7 +81,7 @@ class _DurationPickerState extends State<DurationPicker> {
           Expanded(
             child: _Dial(
               color: widget.color,
-              duration: _duration,
+              value: _value,
               onChanged: _onChanged,
               unit: widget.unit,
             ),
@@ -100,20 +99,20 @@ class _DurationPickerState extends State<DurationPicker> {
 
     widget.onChanged(value);
     setState(() {
-      _duration = value;
+      _value = value;
     });
   }
 }
 
 class _Dial extends StatefulWidget {
   const _Dial({
-    required this.duration,
+    required this.value,
     required this.onChanged,
     this.color,
     this.unit = DurationPickerUnit.minute,
   });
 
-  final Duration duration;
+  final Duration value;
   final ValueChanged<Duration> onChanged;
   final Color? color;
   final DurationPickerUnit unit;
@@ -143,7 +142,7 @@ class _DialState extends State<_Dial> with SingleTickerProviderStateMixin {
     );
 
     _thetaTween = Tween<double>(
-      begin: _getThetaForDuration(widget.duration, widget.unit),
+      begin: _getThetaForDuration(widget.value, widget.unit),
     );
 
     _theta = _thetaTween.animate(
@@ -237,8 +236,7 @@ class _DialState extends State<_Dial> with SingleTickerProviderStateMixin {
   }
 
   double _turningAngleFactor() {
-    return widget.unit.durationBase(widget.duration) /
-        widget.unit.secondaryFactor;
+    return widget.unit.durationBase(widget.value) / widget.unit.secondaryFactor;
   }
 
   Duration _getTimeForTheta(double theta) {
@@ -296,14 +294,13 @@ class _DialState extends State<_Dial> with SingleTickerProviderStateMixin {
   }
 
   int _secondaryUnitHand() {
-    return widget.unit.durationSecondary(widget.duration);
+    return widget.unit.durationSecondary(widget.value);
   }
 
   int _unitHand() {
     // Result is in [0; num base units in secondary unit - 1],
     // even if overall time is >= 1 secondary unit
-    return widget.unit.durationBase(widget.duration) %
-        widget.unit.secondaryFactor;
+    return widget.unit.durationBase(widget.value) % widget.unit.secondaryFactor;
   }
 
   Duration _angleToDuration(double angle) {
@@ -341,7 +338,7 @@ class _DialState extends State<_Dial> with SingleTickerProviderStateMixin {
   void _handlePanEnd(DragEndDetails details) {
     _position = null;
     _center = null;
-    _animateTo(_getThetaForDuration(widget.duration, widget.unit));
+    _animateTo(_getThetaForDuration(widget.value, widget.unit));
   }
 
   void _handleTapUp(TapUpDetails details) {

@@ -18,6 +18,7 @@ class Poll extends StatefulWidget {
     this.hasVoted = false,
     this.height = 50,
     this.spacing = 4.0,
+    this.timer,
     this.votesText = 'Votes',
   }) : assert(options.length >= 2, 'Poll must have at least 2 options.');
 
@@ -55,6 +56,9 @@ class Poll extends StatefulWidget {
   /// The spacing between the buttons and indicators.
   final double spacing;
 
+  /// An optional timer if you do not want to use the build in timer.
+  final Timer? timer;
+
   /// The text displaying the votes.
   final String votesText;
 
@@ -74,12 +78,7 @@ class _PollState extends State<Poll> {
     _hasVoted = widget.hasVoted;
     _isLoading = false;
     _options = widget.options;
-    _timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
-      if (_hasEnded) {
-        timer.cancel();
-      }
-      setState(() {});
-    });
+    _timer = widget.timer ?? _initTimer();
   }
 
   @override
@@ -94,6 +93,15 @@ class _PollState extends State<Poll> {
       return true;
     }
     return false;
+  }
+
+  Timer _initTimer() {
+    return Timer.periodic(const Duration(seconds: 1), (Timer timer) {
+      if (_hasEnded) {
+        timer.cancel();
+      }
+      setState(() {});
+    });
   }
 
   int get _totalVotes {

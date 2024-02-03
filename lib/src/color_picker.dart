@@ -124,12 +124,15 @@ class _ColorPickerState extends State<ColorPicker> {
   @override
   void initState() {
     super.initState();
-    if (widget.initialColor is MaterialColor?) {
-      final MaterialColor? _materialColor =
-          widget.initialColor as MaterialColor?;
-      _selectedColor = _materialColor?.shade500;
+    _selectedColor = _getInitialColor();
+  }
+
+  Color? _getInitialColor() {
+    final Color? initialColor = widget.initialColor;
+    if (initialColor is MaterialColor?) {
+      return initialColor?.shade500;
     } else {
-      _selectedColor = widget.initialColor;
+      return widget.initialColor;
     }
   }
 

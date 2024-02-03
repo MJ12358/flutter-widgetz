@@ -58,6 +58,12 @@ class _TimeFieldState extends State<TimeField> {
   }
 
   @override
+  void didUpdateWidget(TimeField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _value = widget.value;
+  }
+
+  @override
   void dispose() {
     _focusNode.dispose();
     super.dispose();

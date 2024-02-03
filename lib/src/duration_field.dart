@@ -8,11 +8,11 @@ class DurationField extends StatefulWidget {
   /// {@macro flutter_widgetz.DurationField}
   const DurationField({
     super.key,
+    required this.onChanged,
     this.acceptText = 'Accept',
     this.cancelText = 'Cancel',
     this.displayStringForDuration = _defaultStringForDuration,
     this.labelText = 'Duration',
-    this.onChanged,
     this.prefixIcon = const Icon(Icons.timelapse),
     this.snapToMins,
     this.unit,
@@ -32,7 +32,7 @@ class DurationField extends StatefulWidget {
   final String labelText;
 
   /// Called whenever the value changes.
-  final ValueChanged<Duration>? onChanged;
+  final ValueChanged<Duration> onChanged;
 
   /// An icon that appears before the editable part of the text field.
   final Widget prefixIcon;
@@ -68,6 +68,12 @@ class _DurationFieldState extends State<DurationField> {
   }
 
   @override
+  void didUpdateWidget(DurationField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _value = widget.value;
+  }
+
+  @override
   void dispose() {
     _focusNode.dispose();
     super.dispose();
@@ -96,7 +102,7 @@ class _DurationFieldState extends State<DurationField> {
   }
 
   void _showModal(BuildContext context) {
-    showDialog<Duration>(
+    showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
@@ -111,21 +117,14 @@ class _DurationFieldState extends State<DurationField> {
             ),
           ],
           content: DurationPicker(
-            onChanged: _onChange,
+            onChanged: (Duration value) => _value = value,
             unit: widget.unit,
-            duration: _value,
+            value: _value,
             snapToMins: widget.snapToMins,
           ),
         );
       },
-    ).then(_onChange);
-  }
-
-  void _onChange(Duration? value) {
-    _onFocusChange(true);
-    if (value != null) {
-      _value = value;
-    }
+    ).then((_) => _onFocusChange(true));
   }
 
   void _onAccept() {
@@ -133,7 +132,7 @@ class _DurationFieldState extends State<DurationField> {
     setState(() {
       _value = value;
     });
-    widget.onChanged?.call(value);
+    widget.onChanged(value);
     _onPop();
   }
 

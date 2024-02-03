@@ -7,8 +7,8 @@ class ImagePage extends StatelessWidget {
 
   List<_ImageInfo> get _images => <_ImageInfo>[
         _ImageInfo('assets/images/placeholder.png', Colors.amber),
-        _ImageInfo('assets/images/test.png', Colors.amber),
         _ImageInfo('assets/images/derp.png', Colors.amber),
+        _ImageInfo('doesnotexist.png', Colors.amber),
         _ImageInfo(Uint8List(0), Colors.blue),
         _ImageInfo(Uint8List(99), Colors.blue),
         _ImageInfo(null, Colors.blue),

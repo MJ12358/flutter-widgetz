@@ -11,6 +11,7 @@ class GroupedListViewPage extends StatelessWidget {
     <String, String>{'name': 'Miranda', 'group': 'Team B'},
     <String, String>{'name': 'Mike', 'group': 'Team C'},
     <String, String>{'name': 'Danny', 'group': 'Team C'},
+    <String, String>{'name': 'Dave', 'group': 'Team C'},
   ];
 
   @override
@@ -31,6 +32,9 @@ class GroupedListViewPage extends StatelessWidget {
           title: Text(value),
           tileColor: Colors.black12,
         );
+      },
+      separatorBuilder: (_, __) {
+        return const Divider();
       },
     );
   }

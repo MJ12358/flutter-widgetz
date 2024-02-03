@@ -1,5 +1,16 @@
 # Flutter Widgetz
 
+## 9.0.0
+
+- Refactor some default values.
+- Adjust default first/last dates in `DateField` and `DateRangeField`.
+- Add `didUpdateWidget` where applicable for consistency.
+- Add optional `timer` to `Countdown` and `Poll`.
+- Change `duration` field to `value` in `DurationPicker`.
+- Add `static` factory to `RatingBar`.
+- Adjust button height to conform with touch target sizing.
+- Require `onChanged` where applicable for consistency.
+
 ## 8.0.5
 
 - Fix programmatic updating of `DurationPicker`.

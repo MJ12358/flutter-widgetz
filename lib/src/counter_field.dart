@@ -53,6 +53,12 @@ class _CounterFieldState extends State<CounterField> {
   }
 
   @override
+  void didUpdateWidget(CounterField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _value = widget.value;
+  }
+
+  @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 

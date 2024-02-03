@@ -9,10 +9,10 @@ class ColorField extends StatefulWidget {
   const ColorField({
     super.key,
     required this.modalBuilder,
+    required this.onChanged,
     this.colors,
     this.displayStringForColor = _defaultStringForColor,
     this.labelText = _defaultLabelText,
-    this.onChanged,
     this.pickerShape = _defaultPickerShape,
     this.pickerTitle,
     this.prefixIcon = _defaultIcon,
@@ -37,7 +37,7 @@ class ColorField extends StatefulWidget {
   }) modalBuilder;
 
   /// Called whenever the value changes.
-  final ValueChanged<Color>? onChanged;
+  final ValueChanged<Color> onChanged;
 
   /// The shape to fill the picker background.
   final BoxShape pickerShape;
@@ -93,10 +93,10 @@ class ColorField extends StatefulWidget {
   /// BottomSheet uses [showModalBottomSheet].
   const ColorField.bottomSheet({
     super.key,
+    required this.onChanged,
     this.colors,
     this.displayStringForColor = _defaultStringForColor,
     this.labelText = _defaultLabelText,
-    this.onChanged,
     this.pickerShape = _defaultPickerShape,
     this.pickerTitle,
     this.prefixIcon = _defaultIcon,
@@ -108,10 +108,10 @@ class ColorField extends StatefulWidget {
   /// Dialog uses [showDialog] with [AlertDialog].
   const ColorField.dialog({
     super.key,
+    required this.onChanged,
     this.colors,
     this.displayStringForColor = _defaultStringForColor,
     this.labelText = _defaultLabelText,
-    this.onChanged,
     this.pickerShape = _defaultPickerShape,
     this.pickerTitle,
     this.prefixIcon = _defaultIcon,
@@ -130,6 +130,12 @@ class _ColorFieldState extends State<ColorField> {
   void initState() {
     super.initState();
     _focusNode = FocusNode();
+    _value = widget.value;
+  }
+
+  @override
+  void didUpdateWidget(ColorField oldWidget) {
+    super.didUpdateWidget(oldWidget);
     _value = widget.value;
   }
 
@@ -187,7 +193,7 @@ class _ColorFieldState extends State<ColorField> {
     setState(() {
       _value = value;
     });
-    widget.onChanged?.call(value);
+    widget.onChanged(value);
     Navigator.of(context).pop();
   }
 

@@ -12,8 +12,9 @@ class RatingBar extends StatefulWidget {
     this.onChanged,
     this.size = 40.0,
     this.unratedColor,
-    this.value = 0,
-  });
+    num? value,
+  })  : value = value ?? _defaultValue,
+        _readOnly = false;
 
   /// The color of the stars.
   final Color? color;
@@ -33,6 +34,26 @@ class RatingBar extends StatefulWidget {
   /// Defines the rating to be set to the rating bar.
   final num value;
 
+  final bool _readOnly;
+
+  static const int _defaultMax = 5;
+  static const double _defaultSize = 40.0;
+  static const num _defaultValue = 0;
+
+  /// {@macro flutter_widgetz.RatingBar}
+  ///
+  /// Static is not tappable aka. read only.
+  const RatingBar.static({
+    super.key,
+    this.color,
+    this.max = _defaultMax,
+    this.size = _defaultSize,
+    this.unratedColor,
+    num? value,
+  })  : onChanged = null,
+        value = value ?? _defaultValue,
+        _readOnly = true;
+
   @override
   State<RatingBar> createState() => _RatingBarState();
 }
@@ -43,6 +64,12 @@ class _RatingBarState extends State<RatingBar> {
   @override
   void initState() {
     super.initState();
+    _value = widget.value;
+  }
+
+  @override
+  void didUpdateWidget(RatingBar oldWidget) {
+    super.didUpdateWidget(oldWidget);
     _value = widget.value;
   }
 
@@ -87,6 +114,10 @@ class _RatingBarState extends State<RatingBar> {
     }
 
     final num _result = index + 1;
+
+    if (widget._readOnly) {
+      return child;
+    }
 
     return InkWell(
       onTap: () {

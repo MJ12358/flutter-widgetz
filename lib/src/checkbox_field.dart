@@ -42,6 +42,12 @@ class _CheckboxFieldState extends State<CheckboxField> {
   }
 
   @override
+  void didUpdateWidget(CheckboxField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _value = widget.value;
+  }
+
+  @override
   void dispose() {
     _focusNode.dispose();
     super.dispose();

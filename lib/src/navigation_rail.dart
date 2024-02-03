@@ -17,10 +17,10 @@ class CustomNavigationRail extends StatefulWidget {
     this.labelType,
     this.leading,
     this.onDestinationSelected,
-    this.selectedIndex,
+    int? selectedIndex,
     this.trailing,
     this.useIndicator,
-  });
+  }) : selectedIndex = selectedIndex ?? 0;
 
   /// Defines the appearance of the button items
   /// that are arrayed within the navigation rail.
@@ -58,7 +58,7 @@ class CustomNavigationRail extends StatefulWidget {
 
   /// The index into [destinations] for the current selected
   /// [NavigationRailDestination] or null if no destination is selected.
-  final int? selectedIndex;
+  final int selectedIndex;
 
   /// The trailing widget in the rail that is placed
   /// below the destinations.
@@ -78,7 +78,7 @@ class _CustomNavigationRailState extends State<CustomNavigationRail> {
   @override
   void initState() {
     super.initState();
-    _selectedIndex = widget.selectedIndex ?? 0;
+    _selectedIndex = widget.selectedIndex;
   }
 
   @override

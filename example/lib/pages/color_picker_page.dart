@@ -14,6 +14,7 @@ class ColorPickerPage extends StatelessWidget {
             children: <Widget>[
               ColorField.bottomSheet(
                 value: Color(0xFFFFFFFF),
+                onChanged: print,
               ),
               CustomTextField(
                 labelText: 'Text Field (for reference)',
@@ -82,6 +83,7 @@ class ColorPickerPage extends StatelessWidget {
               const ColorField.dialog(
                 labelText: 'Dialog',
                 value: Colors.amber,
+                onChanged: print,
               ),
               ColorField.bottomSheet(
                 labelText: 'Color (Formatted)',

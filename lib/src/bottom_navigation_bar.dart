@@ -14,11 +14,11 @@ class CustomBottomNavigationBar extends StatefulWidget {
     required this.items,
     required this.onTap,
     this.backgroundColor,
-    this.currentIndex,
+    int? currentIndex,
     this.elevation,
     this.enableFeedback,
     this.type = BottomNavigationBarType.fixed,
-  });
+  }) : currentIndex = currentIndex ?? 0;
 
   /// Defines the appearance of the button items
   /// that are arrayed within the bottom navigation bar.
@@ -31,7 +31,7 @@ class CustomBottomNavigationBar extends StatefulWidget {
   final Color? backgroundColor;
 
   /// The index into [items] for the current active [BottomNavigationBarItem].
-  final int? currentIndex;
+  final int currentIndex;
 
   /// The z-coordinate of this [BottomNavigationBar].
   final double? elevation;
@@ -53,7 +53,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   void initState() {
     super.initState();
-    _currentIndex = widget.currentIndex ?? 0;
+    _currentIndex = widget.currentIndex;
   }
 
   @override

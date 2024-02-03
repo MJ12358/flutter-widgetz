@@ -29,6 +29,7 @@ class CustomElevatedButton extends StatelessWidget {
         style: _getStyle(context),
       ),
       child: SizedBox(
+        height: _kDefaultButtonHeight,
         width: double.infinity,
         child: ElevatedButton(
           onPressed: onPressed,

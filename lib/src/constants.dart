@@ -40,6 +40,8 @@ const String _kFlashlightImage = 'assets/images/flashlight.png';
 const String _kWelcomeTopImage = 'assets/images/welcome_top.png';
 const String _kWelcomeBottomImage = 'assets/images/welcome_bottom.png';
 
+const double _kDefaultButtonHeight = 40.0;
+
 final Uint8List _kTransparentImage = Uint8List.fromList(<int>[
   0x89,
   0x50,

@@ -57,6 +57,12 @@ class _CustomSliderState extends State<CustomSlider> {
   }
 
   @override
+  void didUpdateWidget(CustomSlider oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _value = widget.value;
+  }
+
+  @override
   void dispose() {
     _focusNode.dispose();
     super.dispose();

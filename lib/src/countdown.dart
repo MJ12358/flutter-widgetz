@@ -15,6 +15,7 @@ class Countdown extends StatefulWidget {
     this.secondsLabel = _defaultSecondsLabel,
     this.separator = _defaultSeparator,
     this.textColor,
+    this.timer,
     this.onDone,
   });
 
@@ -42,6 +43,9 @@ class Countdown extends StatefulWidget {
   /// The color of the units value.
   final Color? textColor;
 
+  /// An optional timer if you do not want to use the build in timer.
+  final Timer? timer;
+
   /// Called when the countdown is done.
   final VoidCallback? onDone;
 
@@ -65,6 +69,7 @@ class Countdown extends StatefulWidget {
     this.secondsLabel = _defaultSecondsLabel,
     this.separator = _defaultSeparator,
     this.textColor,
+    this.timer,
     this.onDone,
   }) : decoration = BoxDecoration(
           color: backgroundColor ?? _defaultBackgroundColor,
@@ -84,6 +89,7 @@ class Countdown extends StatefulWidget {
     this.secondsLabel = _defaultSecondsLabel,
     this.separator = _defaultSeparator,
     this.textColor,
+    this.timer,
     this.onDone,
   }) : decoration = BoxDecoration(
           color: backgroundColor ?? _defaultBackgroundColor,
@@ -101,15 +107,7 @@ class _CountdownState extends State<Countdown> {
   void initState() {
     super.initState();
     _duration = widget.target.difference(DateTime.now());
-    _timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
-      if (_hasEnded) {
-        timer.cancel();
-        widget.onDone?.call();
-      }
-      setState(() {
-        _duration = widget.target.difference(DateTime.now());
-      });
-    });
+    _timer = widget.timer ?? _initTimer();
   }
 
   @override
@@ -124,6 +122,18 @@ class _CountdownState extends State<Countdown> {
       return true;
     }
     return false;
+  }
+
+  Timer _initTimer() {
+    return Timer.periodic(const Duration(seconds: 1), (Timer timer) {
+      if (_hasEnded) {
+        timer.cancel();
+        widget.onDone?.call();
+      }
+      setState(() {
+        _duration = widget.target.difference(DateTime.now());
+      });
+    });
   }
 
   @override
