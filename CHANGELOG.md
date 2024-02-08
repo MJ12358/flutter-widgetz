@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 9.1.0
+
+- Add `RestartWidget`.
+
 ## 9.0.1
 
 - Fix imageProvider not updating in `CustomImage`.

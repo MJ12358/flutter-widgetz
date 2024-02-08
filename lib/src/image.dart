@@ -202,6 +202,7 @@ class _CustomImageState extends State<CustomImage> {
   @override
   void didUpdateWidget(CustomImage oldWidget) {
     super.didUpdateWidget(oldWidget);
+    _hasError = false;
     _imageProvider = widget.imageProvider;
   }
 
