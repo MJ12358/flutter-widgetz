@@ -190,11 +190,19 @@ class CustomImage extends StatefulWidget {
 
 class _CustomImageState extends State<CustomImage> {
   late bool _hasError;
+  late ImageProvider _imageProvider;
 
   @override
   void initState() {
     super.initState();
     _hasError = false;
+    _imageProvider = widget.imageProvider;
+  }
+
+  @override
+  void didUpdateWidget(CustomImage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _imageProvider = widget.imageProvider;
   }
 
   @override
@@ -208,7 +216,7 @@ class _CustomImageState extends State<CustomImage> {
           image: DecorationImage(
             alignment: widget.alignment,
             fit: widget.fit,
-            image: widget.imageProvider,
+            image: _imageProvider,
             onError: (_, __) {
               WidgetsBinding.instance.addPostFrameCallback(
                 (_) => setState(() {

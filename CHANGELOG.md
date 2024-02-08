@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 9.0.1
+
+- Fix imageProvider not updating in `CustomImage`.
+
 ## 9.0.0
 
 - Refactor some default values.
