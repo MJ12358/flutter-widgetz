@@ -11,6 +11,7 @@ class CustomTabBar extends TabBar {
     super.controller,
     ValueChanged<int>? onTap,
     super.isScrollable,
+    super.padding,
     super.physics,
     super.splashFactory,
     super.tabAlignment,

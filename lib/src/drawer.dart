@@ -60,6 +60,7 @@ class CustomDrawer extends StatelessWidget {
       child: Drawer(
         semanticLabel: semanticLabel,
         child: CustomScrollView(
+          key: const PageStorageKey<int>(0),
           slivers: <Widget>[
             SliverToBoxAdapter(
               child: _getHeader(context),
@@ -78,11 +79,19 @@ class CustomDrawer extends StatelessWidget {
       return const SizedBox();
     }
 
+    final Color _color = color ?? Theme.of(context).colorScheme.primary;
+
     return DrawerHeader(
       decoration: BoxDecoration(
-        color: color ?? Theme.of(context).colorScheme.primary,
+        color: _color,
       ),
-      child: header,
+      child: DefaultTextStyle(
+        style: TextStyle(
+          color: _color.blackOrWhite,
+          fontSize: 24.0,
+        ),
+        child: header!,
+      ),
     );
   }
 }

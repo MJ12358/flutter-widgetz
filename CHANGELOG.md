@@ -1,5 +1,13 @@
 # Flutter Widgetz
 
+## 9.2.0
+
+- Add `CustomDialog`.
+- Add `CustomSliverReorderableList`.
+- Add `PageStorageKey` to `CustomDrawer`.
+- Add color param to `CustomPlaceholder`.
+- Add padding param to `CustomTabBar`.
+
 ## 9.1.0
 
 - Add `RestartWidget`.

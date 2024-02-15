@@ -97,13 +97,7 @@ class MainState extends State<Main> {
           ],
         ),
         drawer: CustomDrawer.builder(
-          header: const Text(
-            'Flutter Widgetz!',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-            ),
-          ),
+          header: const Text('Flutter Widgetz!'),
           itemCount: _pages.length,
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
@@ -128,14 +122,16 @@ class MainState extends State<Main> {
             ),
           ],
         ),
-        body: PageView.builder(
-          clipBehavior: Clip.none,
-          controller: _controller,
-          onPageChanged: _onPageChanged,
-          itemCount: _pages.length,
-          itemBuilder: (BuildContext context, int index) {
-            return _pages[index].page;
-          },
+        body: Scaffold(
+          body: PageView.builder(
+            clipBehavior: Clip.none,
+            controller: _controller,
+            onPageChanged: _onPageChanged,
+            itemCount: _pages.length,
+            itemBuilder: (BuildContext context, int index) {
+              return _pages[index].page;
+            },
+          ),
         ),
       ),
       theme: _isDark ? _theme.dark() : _theme.light(),

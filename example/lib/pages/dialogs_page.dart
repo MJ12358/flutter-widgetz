@@ -32,6 +32,10 @@ class DialogsPage extends StatelessWidget {
             child: const Text('Custom All'),
             onPressed: () => _showCustomAllDialog(context),
           ),
+          CustomElevatedButton(
+            child: const Text('Scrollable'),
+            onPressed: () => _showScrollableDialog(context),
+          ),
         ],
       ),
     );
@@ -40,16 +44,14 @@ class DialogsPage extends StatelessWidget {
   void _showDefaultDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (BuildContext context) {
-        return SimpleDialog(
+      builder: (_) {
+        return const SimpleDialog(
           children: <Widget>[
             SimpleDialogOption(
-              child: const Text('One'),
-              onPressed: () {},
+              child: Text('One'),
             ),
             SimpleDialogOption(
-              child: const Text('Two'),
-              onPressed: () {},
+              child: Text('Two'),
             ),
           ],
         );
@@ -60,16 +62,14 @@ class DialogsPage extends StatelessWidget {
   void _showCustomDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (BuildContext context) {
-        return SimpleDialog(
-          children: <Widget>[
+      builder: (_) {
+        return CustomDialog.list(
+          children: const <Widget>[
             CustomSimpleDialogOption(
-              child: const Text('One'),
-              onPressed: () {},
+              child: Text('One'),
             ),
             CustomSimpleDialogOption(
-              child: const Text('Two'),
-              onPressed: () {},
+              child: Text('Two'),
             ),
           ],
         );
@@ -80,17 +80,15 @@ class DialogsPage extends StatelessWidget {
   void _showCustomIconDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (BuildContext context) {
-        return SimpleDialog(
+      builder: (_) {
+        return CustomDialog.list(
           children: <Widget>[
             CustomSimpleDialogOption.icon(
               icon: const Icon(Icons.abc),
-              onPressed: () {},
               child: const Text('One'),
             ),
             CustomSimpleDialogOption.icon(
               icon: const Icon(Icons.yard),
-              onPressed: () {},
               child: const Text('Two'),
             ),
           ],
@@ -102,17 +100,15 @@ class DialogsPage extends StatelessWidget {
   void _showCustomCheckedDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (BuildContext context) {
-        return SimpleDialog(
+      builder: (_) {
+        return CustomDialog.list(
           children: <Widget>[
             CustomSimpleDialogOption.checked(
               checked: false,
-              onPressed: () {},
               child: const Text('One'),
             ),
             CustomSimpleDialogOption.checked(
               child: const Text('Two'),
-              onPressed: () {},
             ),
           ],
         );
@@ -123,36 +119,54 @@ class DialogsPage extends StatelessWidget {
   void _showCustomAllDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (BuildContext context) {
-        return SimpleDialog(
+      builder: (_) {
+        return CustomDialog.list(
+          title: const Text('Custom Dialog'),
           children: <Widget>[
-            CustomSimpleDialogOption(
-              child: const Text('Custom'),
-              onPressed: () {},
+            const CustomSimpleDialogOption(
+              child: Text('Custom'),
             ),
             CustomSimpleDialogOption.checked(
               checked: false,
-              onPressed: () {},
+              onPressed: () => print('checked false'),
               child: const Text('Checked false'),
             ),
             CustomSimpleDialogOption.checked(
+              onPressed: () => print('checked true'),
               child: const Text('Checked true'),
-              onPressed: () {},
             ),
             CustomSimpleDialogOption.icon(
               icon: const Icon(Icons.abc),
-              onPressed: () {},
+              onPressed: () => print('icon one'),
               child: const Text('Icon One'),
             ),
             CustomSimpleDialogOption.icon(
               icon: const Icon(Icons.yard),
-              onPressed: () {},
+              onPressed: () => print('icon two'),
               child: const Text('Icon Two'),
             ),
             CustomSimpleDialogOption.tile(
-              child: const Text('Tile one'),
               onPressed: () => print('tile one'),
+              child: const Text('Tile one'),
             ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showScrollableDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) {
+        return CustomDialog.list(
+          title: const Text('Scrollable Dialog'),
+          children: <Widget>[
+            for (int i = 0; i < 25; i++)
+              CustomSimpleDialogOption.icon(
+                icon: const Icon(Icons.abc),
+                child: Text('Icon $i'),
+              ),
           ],
         );
       },

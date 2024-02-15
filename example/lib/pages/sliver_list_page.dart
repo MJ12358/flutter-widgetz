@@ -26,13 +26,8 @@ class _SliverListPageState extends State<SliverListPage> {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: <Widget>[
-        SliverToBoxAdapter(
-          child: Container(
-            color: Theme.of(context).colorScheme.primary,
-            height: 75,
-            padding: const EdgeInsets.all(16.0),
-            child: const Text('Sliver Builder'),
-          ),
+        const SliverToBoxAdapter(
+          child: _Header(text: 'Sliver Builder'),
         ),
         CustomSliverList.builder(
           itemCount: _widgets.length,
@@ -42,13 +37,8 @@ class _SliverListPageState extends State<SliverListPage> {
             );
           },
         ),
-        SliverToBoxAdapter(
-          child: Container(
-            color: Theme.of(context).colorScheme.primary,
-            height: 75,
-            padding: const EdgeInsets.all(16.0),
-            child: const Text('Sliver Separated'),
-          ),
+        const SliverToBoxAdapter(
+          child: _Header(text: 'Sliver Separated'),
         ),
         CustomSliverList.separated(
           itemCount: _widgets.length,
@@ -61,7 +51,45 @@ class _SliverListPageState extends State<SliverListPage> {
             return const Divider();
           },
         ),
+        const SliverToBoxAdapter(
+          child: _Header(text: 'Sliver Reorder'),
+        ),
+        CustomSliverReorderableList.separated(
+          itemCount: _widgets.length,
+          itemBuilder: (_, int index) {
+            return ListTile(
+              key: ValueKey<int>(index),
+              title: _widgets[index],
+            );
+          },
+          separatorBuilder: (_, __) {
+            return const Divider();
+          },
+          onReorder: (int oldIndex, int newIndex) {
+            final Widget w = _widgets.removeAt(oldIndex);
+            _widgets.insert(newIndex, w);
+            setState(() {});
+          },
+        ),
       ],
+    );
+  }
+}
+
+class _Header extends StatelessWidget {
+  const _Header({
+    required this.text,
+  });
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Theme.of(context).colorScheme.primary,
+      height: 75,
+      padding: const EdgeInsets.all(16.0),
+      child: Text(text),
     );
   }
 }

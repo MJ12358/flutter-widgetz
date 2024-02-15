@@ -19,8 +19,8 @@ class _ListViewPageState extends State<ListViewPage> {
     for (int i = 0; i < 25; i++) {
       _widgets.add(
         CustomListTile.dismissible(
-          key: ValueKey<String>('$i-item'),
-          uniqueKey: ValueKey<String>('$i-item'),
+          key: ValueKey<int>(i),
+          uniqueKey: ValueKey<int>(i),
           onDismissed: () {
             _widgets.removeAt(i);
             setState(() {});

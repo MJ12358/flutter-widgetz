@@ -25,34 +25,28 @@ class CustomReorderableListView extends ReorderableListView {
           itemBuilder: (BuildContext context, int index) {
             if (index.isOdd) {
               final Widget separator = separatorBuilder.call(context, index);
-
               if (separator.key == null) {
                 return KeyedSubtree(
                   key: ValueKey<String>('ReorderableSeparator${index}Key'),
                   child: IgnorePointer(child: separator),
                 );
               }
-
               return separator;
             }
-
             return itemBuilder.call(context, index ~/ 2);
           },
           onReorder: (int oldIndex, int newIndex) {
             if (oldIndex < newIndex) {
               newIndex -= 1;
             }
-
             if (oldIndex.isOdd) {
               // separator - should never happen
               return;
             }
-
             if ((oldIndex - newIndex).abs() == 1) {
               // moved behind the top/bottom separator
               return;
             }
-
             newIndex = oldIndex > newIndex && newIndex.isOdd
                 ? (newIndex + 1) ~/ 2
                 : newIndex ~/ 2;

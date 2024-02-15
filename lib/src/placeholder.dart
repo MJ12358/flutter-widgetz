@@ -35,9 +35,10 @@ class CustomPlaceholder extends StatelessWidget {
     String name, {
     super.key,
     this.text,
+    Color? color,
     this.mainAxisAlignment = _defaultAlignment,
     this.padding = _defaultPadding,
-  }) : child = Image.asset(name);
+  }) : child = Image.asset(name, color: color);
 
   /// {@macro flutter_widgetz.CustomPlaceholder}
   ///
@@ -46,9 +47,10 @@ class CustomPlaceholder extends StatelessWidget {
     String source, {
     super.key,
     this.text,
+    Color? color,
     this.mainAxisAlignment = _defaultAlignment,
     this.padding = _defaultPadding,
-  }) : child = Image.network(source);
+  }) : child = Image.network(source, color: color);
 
   /// {@macro flutter_widgetz.CustomPlaceholder}
   ///
