@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 9.3.0
+
+- Add `checkbox` and `radio` factories to `CustomDialog`.
+- Add `clipBehavior`, `physics` and `shrinkWrap` to `GroupedListView`.
+
 ## 9.2.0
 
 - Add `CustomDialog`.

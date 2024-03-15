@@ -30,6 +30,63 @@ class CustomDialog extends StatelessWidget {
 
   /// {@macro flutter_widgetz.CustomDialog}
   ///
+  /// Checkbox uses a [ListView] with [CheckboxListTile]s.
+  CustomDialog.checkbox({
+    super.key,
+    required List<Enum> initialValues,
+    required List<Enum> currentValues,
+    required ValueChanged<Enum?> onChanged,
+    String Function(Enum)? displayStringForValue,
+    this.contentPadding = _defaultContentPadding,
+    ScrollPhysics physics = const RangeMaintainingScrollPhysics(),
+    bool shrinkWrap = true,
+    this.title,
+    this.titlePadding = _defaultTitlePadding,
+  }) : child = ListView(
+          physics: physics,
+          shrinkWrap: shrinkWrap,
+          children: <Widget>[
+            ...initialValues.map((Enum e) {
+              return CheckboxListTile(
+                title: Text(displayStringForValue?.call(e) ?? e.name),
+                value: currentValues.contains(e),
+                onChanged: (_) => onChanged.call(e),
+              );
+            }),
+          ],
+        );
+
+  /// {@macro flutter_widgetz.CustomDialog}
+  ///
+  /// Radio uses a [ListView] with [RadioListTile]s.
+  CustomDialog.radio({
+    super.key,
+    required List<Enum> values,
+    required Enum groupValue,
+    required ValueChanged<Enum?> onChanged,
+    String Function(Enum)? displayStringForValue,
+    this.contentPadding = _defaultContentPadding,
+    ScrollPhysics physics = const RangeMaintainingScrollPhysics(),
+    bool shrinkWrap = true,
+    this.title,
+    this.titlePadding = _defaultTitlePadding,
+  }) : child = ListView(
+          physics: physics,
+          shrinkWrap: shrinkWrap,
+          children: <Widget>[
+            ...values.map((Enum e) {
+              return RadioListTile<Enum>(
+                title: Text(displayStringForValue?.call(e) ?? e.name),
+                value: e,
+                groupValue: groupValue,
+                onChanged: onChanged,
+              );
+            }),
+          ],
+        );
+
+  /// {@macro flutter_widgetz.CustomDialog}
+  ///
   /// List uses a list of widgets inside a [ListView].
   CustomDialog.list({
     super.key,

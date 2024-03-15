@@ -16,6 +16,9 @@ class GroupedListView<T, E> extends StatelessWidget {
     this.groupHeaderBuilder,
     this.groupSeparatorBuilder,
     this.separatorBuilder,
+    this.clipBehavior = Clip.hardEdge,
+    this.physics,
+    this.shrinkWrap = false,
   });
 
   /// The items of which the [itemBuilder] produces.
@@ -35,6 +38,16 @@ class GroupedListView<T, E> extends StatelessWidget {
 
   /// Called to build list separators.
   final GroupedWidgetBuilder<T>? separatorBuilder;
+
+  /// The content will be clipped (or not) according to this option.
+  final Clip clipBehavior;
+
+  /// How the scroll view should respond to user input.
+  final ScrollPhysics? physics;
+
+  /// Whether the extent of the scroll view should be
+  /// determined by the contents being viewed.
+  final bool shrinkWrap;
 
   Map<E, List<T>> get _grouping {
     final Map<E, List<T>> map = <E, List<T>>{};
@@ -72,6 +85,9 @@ class GroupedListView<T, E> extends StatelessWidget {
       itemCount: _grouping.length,
       itemBuilder: _itemBuilder,
       separatorBuilder: _separatorBuilder,
+      clipBehavior: clipBehavior,
+      physics: physics,
+      shrinkWrap: shrinkWrap,
     );
   }
 }
