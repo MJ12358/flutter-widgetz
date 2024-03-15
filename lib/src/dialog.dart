@@ -3,7 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.CustomDialog}
 /// A predictable dialog.
 /// {@endtemplate}
-class CustomDialog extends StatelessWidget {
+@optionalTypeArgs
+class CustomDialog<T> extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomDialog}
   const CustomDialog({
     super.key,
@@ -33,10 +34,10 @@ class CustomDialog extends StatelessWidget {
   /// Checkbox uses a [ListView] with [CheckboxListTile]s.
   CustomDialog.checkbox({
     super.key,
-    required List<Enum> initialValues,
-    required List<Enum> currentValues,
-    required ValueChanged<Enum?> onChanged,
-    String Function(Enum)? displayStringForValue,
+    required List<T> initialValues,
+    required List<T> currentValues,
+    required ValueChanged<T?> onChanged,
+    String Function(T)? displayStringForValue,
     this.contentPadding = _defaultContentPadding,
     ScrollPhysics physics = const RangeMaintainingScrollPhysics(),
     bool shrinkWrap = true,
@@ -46,9 +47,9 @@ class CustomDialog extends StatelessWidget {
           physics: physics,
           shrinkWrap: shrinkWrap,
           children: <Widget>[
-            ...initialValues.map((Enum e) {
+            ...initialValues.map((T e) {
               return CheckboxListTile(
-                title: Text(displayStringForValue?.call(e) ?? e.name),
+                title: Text(displayStringForValue?.call(e) ?? e.toString()),
                 value: currentValues.contains(e),
                 onChanged: (_) => onChanged.call(e),
               );
@@ -61,10 +62,10 @@ class CustomDialog extends StatelessWidget {
   /// Radio uses a [ListView] with [RadioListTile]s.
   CustomDialog.radio({
     super.key,
-    required List<Enum> values,
-    required Enum groupValue,
-    required ValueChanged<Enum?> onChanged,
-    String Function(Enum)? displayStringForValue,
+    required List<T> values,
+    required T groupValue,
+    required ValueChanged<T?> onChanged,
+    String Function(T)? displayStringForValue,
     this.contentPadding = _defaultContentPadding,
     ScrollPhysics physics = const RangeMaintainingScrollPhysics(),
     bool shrinkWrap = true,
@@ -74,9 +75,9 @@ class CustomDialog extends StatelessWidget {
           physics: physics,
           shrinkWrap: shrinkWrap,
           children: <Widget>[
-            ...values.map((Enum e) {
-              return RadioListTile<Enum>(
-                title: Text(displayStringForValue?.call(e) ?? e.name),
+            ...values.map((T e) {
+              return RadioListTile<T>(
+                title: Text(displayStringForValue?.call(e) ?? e.toString()),
                 value: e,
                 groupValue: groupValue,
                 onChanged: onChanged,

@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 9.3.1
+
+- Use type param in `CustomDialog`.
+
 ## 9.3.0
 
 - Add `checkbox` and `radio` factories to `CustomDialog`.
