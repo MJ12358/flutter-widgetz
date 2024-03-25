@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 9.4.0
+
+- Add `GroupedSliver`.
+- Add `Marquee`.
+
 ## 9.3.1
 
 - Use type param in `CustomDialog`.

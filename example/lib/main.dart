@@ -24,6 +24,7 @@ import 'package:flutter_widgetz_example/pages/grouped_list_view_page.dart';
 import 'package:flutter_widgetz_example/pages/image_page.dart';
 import 'package:flutter_widgetz_example/pages/link_page.dart';
 import 'package:flutter_widgetz_example/pages/list_view_page.dart';
+import 'package:flutter_widgetz_example/pages/marquee_page.dart';
 import 'package:flutter_widgetz_example/pages/navigation_rail_page.dart';
 import 'package:flutter_widgetz_example/pages/orienatation_page.dart';
 import 'package:flutter_widgetz_example/pages/picklist_page.dart';
@@ -223,6 +224,7 @@ const List<PageInfo> _pages = <PageInfo>[
   PageInfo(Icons.image, ImagePage(), 'Images'),
   PageInfo(Icons.link, LinkPage(), 'Links'),
   PageInfo(Icons.list, ListViewPage(), 'List View'),
+  PageInfo(Icons.margin, MarqueePage(), 'Marquee'),
   PageInfo(Icons.navigation, NavigationRailPage(), 'Navigation Rail'),
   PageInfo(Icons.landscape, OrientationPage(), 'Orientation'),
   PageInfo(Icons.percent, ProgressIndicatorPage(), 'Progress'),
