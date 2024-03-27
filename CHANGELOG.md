@@ -1,8 +1,8 @@
 # Flutter Widgetz
 
-## 9.4.1
+## 9.4.2
 
-- Fix autofocus of `SearchBar` when multiple instances are used.
+- Add `focusNode` param to `SearchBar`.
 
 ## 9.4.0
 
