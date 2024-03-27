@@ -59,12 +59,19 @@ class CustomSearchBar extends StatefulWidget {
 
 class _CustomSearchBarState extends State<CustomSearchBar> {
   late final TextEditingController _controller;
+  late final FocusNode _focusNode;
 
   @override
   void initState() {
     super.initState();
     _controller = TextEditingController();
     _controller.text = widget.value;
+    _focusNode = FocusNode();
+    if (widget.autofocus) {
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => FocusScope.of(context).requestFocus(_focusNode),
+      );
+    }
   }
 
   @override
@@ -88,6 +95,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
               child: TextFormField(
                 autofocus: widget.autofocus,
                 controller: _controller,
+                focusNode: _focusNode,
                 keyboardType: widget.keyboardType,
                 textInputAction: TextInputAction.search,
                 decoration: InputDecoration(

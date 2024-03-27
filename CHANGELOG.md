@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 9.4.1
+
+- Fix autofocus of `SearchBar` when multiple instances are used.
+
 ## 9.4.0
 
 - Add `GroupedSliver`.
