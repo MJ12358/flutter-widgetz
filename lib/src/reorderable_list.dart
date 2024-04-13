@@ -1,11 +1,35 @@
 part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomReorderableListView}
-/// Wraps [ReorderableListView] to allow a separator.
+/// Wraps [ReorderableListView] to allow a separator and fix
+/// indexing issue in the original Flutter widget.
+/// https://github.com/flutter/flutter/issues/24786
 ///
 /// Inspired by: https://github.com/flutter/flutter/issues/76706
 /// {@endtemplate}
 class CustomReorderableListView extends ReorderableListView {
+  /// {@macro flutter_widgetz.CustomReorderableListView}
+  CustomReorderableListView.builder({
+    super.key,
+    required super.itemCount,
+    required super.itemBuilder,
+    required ReorderCallback onReorder,
+    super.clipBehavior,
+    super.footer,
+    super.header,
+    super.padding,
+    super.physics,
+    super.proxyDecorator,
+    super.shrinkWrap,
+  }) : super.builder(
+          onReorder: (int oldIndex, int newIndex) {
+            if (oldIndex < newIndex) {
+              newIndex -= 1;
+            }
+            onReorder.call(oldIndex, newIndex);
+          },
+        );
+
   /// {@macro flutter_widgetz.CustomReorderableListView}
   CustomReorderableListView.separated({
     super.key,

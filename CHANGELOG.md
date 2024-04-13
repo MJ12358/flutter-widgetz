@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 9.4.3
+
+- Add `builder` constructor to `CustomReorderableListView` to fix indexing issue in the original Flutter widget.
+
 ## 9.4.2
 
 - Add `focusNode` param to `SearchBar`.
