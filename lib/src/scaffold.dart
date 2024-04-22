@@ -6,7 +6,7 @@ part of flutter_widgetz;
 /// Also includes [WillPopScope] and a [RefreshIndicator]
 /// to be used when necessary.
 /// {@endtemplate}
-class CustomScaffold extends StatelessWidget {
+class CustomScaffold extends StatefulWidget {
   /// {@macro flutter_widgetz.CustomScaffold}
   const CustomScaffold({
     super.key,
@@ -16,6 +16,7 @@ class CustomScaffold extends StatelessWidget {
     this.bottomNavigationBar,
     this.bottomSheet,
     this.drawer,
+    this.dynamicFab = false,
     this.endDrawer,
     this.floatingActionButton,
     this.floatingActionButtonLocation,
@@ -46,6 +47,8 @@ class CustomScaffold extends StatelessWidget {
 
   /// A panel displayed to the side of the [body].
   final Widget? drawer;
+
+  final bool dynamicFab;
 
   /// A panel displayed to the side of the [body].
   final Widget? endDrawer;
@@ -84,50 +87,81 @@ class CustomScaffold extends StatelessWidget {
 
   static Future<void> _defaultOnRefresh() async {}
 
-  bool get _canRefresh => onRefresh != null;
+  @override
+  State<CustomScaffold> createState() => _CustomScaffoldState();
+}
+
+class _CustomScaffoldState extends State<CustomScaffold> {
+  bool get _canRefresh => widget.onRefresh != null;
+  bool _showFab = true;
 
   @override
   Widget build(BuildContext context) {
     return Semantics(
-      label: semanticLabel,
+      label: widget.semanticLabel,
       child: Scaffold(
-        appBar: appBar,
-        bottomNavigationBar: bottomNavigationBar,
-        bottomSheet: bottomSheet,
-        drawer: drawer,
-        endDrawer: endDrawer,
-        floatingActionButton: floatingActionButton,
-        floatingActionButtonLocation: floatingActionButtonLocation,
-        resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-        body: Builder(
-          builder: (BuildContext context) {
-            // TODO: 'WillPopScope' is depreciated but requires Flutter >= 3.16
-            return WillPopScope(
-              onWillPop: () => _onWillPop(context),
-              child: SafeArea(
-                bottom: bottom,
-                left: left,
-                right: right,
-                top: top,
-                child: RefreshIndicator(
-                  onRefresh: onRefresh ?? _defaultOnRefresh,
-                  notificationPredicate: (_) => _canRefresh,
-                  child: Padding(
-                    padding: padding,
-                    child: body,
+        appBar: widget.appBar,
+        bottomNavigationBar: widget.bottomNavigationBar,
+        bottomSheet: widget.bottomSheet,
+        drawer: widget.drawer,
+        endDrawer: widget.endDrawer,
+        floatingActionButton: _showFab ? widget.floatingActionButton : null,
+        floatingActionButtonLocation: widget.floatingActionButtonLocation,
+        resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
+        body: NotificationListener<UserScrollNotification>(
+          onNotification: _onScrollNotification,
+          child: Builder(
+            builder: (BuildContext context) {
+              // TODO: 'WillPopScope' is depreciated
+              // but requires Flutter >= 3.16
+              return WillPopScope(
+                onWillPop: () => _onWillPop(context),
+                child: SafeArea(
+                  bottom: widget.bottom,
+                  left: widget.left,
+                  right: widget.right,
+                  top: widget.top,
+                  child: RefreshIndicator(
+                    onRefresh:
+                        widget.onRefresh ?? CustomScaffold._defaultOnRefresh,
+                    notificationPredicate: (_) => _canRefresh,
+                    child: Padding(
+                      padding: widget.padding,
+                      child: widget.body,
+                    ),
                   ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );
   }
 
+  bool _onScrollNotification(UserScrollNotification notification) {
+    if (!widget.dynamicFab) {
+      return true;
+    }
+    final ScrollDirection direction = notification.direction;
+    final Axis axis = axisDirectionToAxis(notification.metrics.axisDirection);
+    if (axis == Axis.vertical) {
+      if (direction == ScrollDirection.reverse) {
+        setState(() {
+          _showFab = false;
+        });
+      } else if (direction == ScrollDirection.forward) {
+        setState(() {
+          _showFab = true;
+        });
+      }
+    }
+    return true;
+  }
+
   Future<bool> _onWillPop(BuildContext context) async {
-    if (onWillPop != null) {
-      return onWillPop!();
+    if (widget.onWillPop != null) {
+      return widget.onWillPop!();
     }
     Scaffold.of(context).closeDrawer();
     ScaffoldMessenger.of(context).clearMaterialBanners();

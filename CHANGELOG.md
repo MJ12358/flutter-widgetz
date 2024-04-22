@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 9.5.0
+
+- Add `dynamicFab` option to `CustomScaffold` to hide/show FloatingActionButton on scroll.
+
 ## 9.4.3
 
 - Add `builder` constructor to `CustomReorderableListView` to fix indexing issue in the original Flutter widget.

@@ -82,6 +82,11 @@ class MainState extends State<Main> {
       debugShowMaterialGrid: _showMaterialGrid,
       title: 'Flutter Widgetz Example',
       home: CustomScaffold(
+        dynamicFab: true,
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.abc),
+          onPressed: () {},
+        ),
         appBar: CustomAppBar.subtitled(
           title: const Text('Flutter Widgetz'),
           subtitle: Text(_currentPage.title),
