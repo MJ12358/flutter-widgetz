@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 9.5.1
+
+- Add `style` param to `CustomTextField`.
+
 ## 9.5.0
 
 - Add `dynamicFab` option to `CustomScaffold` to hide/show FloatingActionButton on scroll.

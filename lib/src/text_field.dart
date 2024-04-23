@@ -27,6 +27,7 @@ class CustomTextField extends StatelessWidget {
     this.onEditingComplete,
     this.prefixIcon,
     this.scrollPadding = const EdgeInsets.all(20.0),
+    this.style,
     this.suffixIcon,
     this.textCapitalization = TextCapitalization.none,
     this.textInputAction,
@@ -90,6 +91,9 @@ class CustomTextField extends StatelessWidget {
   /// Configures padding when the input scrolls into view.
   final EdgeInsets scrollPadding;
 
+  /// The style to use for the text being edited.
+  final TextStyle? style;
+
   /// An icon that appers after the editable part of the text field.
   final Widget? suffixIcon;
 
@@ -114,6 +118,7 @@ class CustomTextField extends StatelessWidget {
       minLines: minLines,
       obscureText: obscureText,
       scrollPadding: scrollPadding,
+      style: style,
       textCapitalization: textCapitalization,
       textInputAction: textInputAction,
       decoration: InputDecoration(
