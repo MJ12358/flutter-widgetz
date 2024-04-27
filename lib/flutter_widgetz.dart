@@ -40,6 +40,7 @@ part 'src/dueling_picklist.dart';
 part 'src/duration_field.dart';
 part 'src/duration_picker.dart';
 part 'src/elevated_button.dart';
+part 'src/expandable_fab.dart';
 part 'src/extensions.dart';
 part 'src/feedback_bar.dart';
 part 'src/floating_action_button.dart';

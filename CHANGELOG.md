@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 9.6.0
+
+- Introduce `ExpandableFab` widget.
+
 ## 9.5.1
 
 - Add `style` param to `CustomTextField`.

@@ -83,24 +83,22 @@ class MainState extends State<Main> {
       title: 'Flutter Widgetz Example',
       home: CustomScaffold(
         dynamicFab: true,
-        floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.abc),
-          onPressed: () {},
-        ),
-        appBar: CustomAppBar.subtitled(
-          title: const Text('Flutter Widgetz'),
-          subtitle: Text(_currentPage.title),
-          actions: <Widget>[
+        floatingActionButton: ExpandableFab(
+          children: <Widget>[
             const _TimeDilationButton(),
-            IconButton(
+            ExpandedActionButton(
               icon: const Icon(Icons.grid_3x3),
               onPressed: _onShowMaterialGrid,
             ),
-            IconButton(
+            ExpandedActionButton(
               icon: Icon(_isDark ? Icons.dark_mode : Icons.sunny),
               onPressed: _onDarkModeChanged,
             ),
           ],
+        ),
+        appBar: CustomAppBar.subtitled(
+          title: const Text('Flutter Widgetz'),
+          subtitle: Text(_currentPage.title),
         ),
         drawer: CustomDrawer.builder(
           header: const Text('Flutter Widgetz!'),
@@ -173,7 +171,7 @@ class _TimeDilationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
+    return ExpandedActionButton(
       icon: const Icon(Icons.timelapse),
       onPressed: () => showDialog(
         context: context,
