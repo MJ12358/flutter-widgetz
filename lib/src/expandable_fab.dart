@@ -9,13 +9,18 @@ class ExpandableFab extends StatefulWidget {
   /// {@macro flutter_widgetz.ExpandableFab}
   const ExpandableFab({
     super.key,
+    required this.children,
     this.initialOpen = false,
     this.distance = 112.0,
     this.duration = const Duration(milliseconds: 250),
     this.closedIcon = const Icon(Icons.create),
     this.openedIcon = const Icon(Icons.close),
-    required this.children,
   });
+
+  /// The widgets shown when the fab is open.
+  ///
+  /// Typically a list of [ExpandedActionButton].
+  final List<Widget> children;
 
   /// Determines whether this action button is initially open or not.
   final bool initialOpen;
@@ -31,11 +36,6 @@ class ExpandableFab extends StatefulWidget {
 
   /// The icon show when the fab is opened.
   final Icon openedIcon;
-
-  /// The widgets shown when the fab is open.
-  ///
-  /// Typically a list of [ExpandedActionButton].
-  final List<Widget> children;
 
   @override
   State<ExpandableFab> createState() => _ExpandableFabState();
@@ -150,26 +150,24 @@ class _OpenedFab extends StatelessWidget {
     final Brightness brightness = theme.brightness;
 
     return SizedBox(
-      width: 56,
-      height: 56,
+      width: 56.0,
+      height: 56.0,
       child: Center(
         child: Material(
           shape: const CircleBorder(),
           clipBehavior: Clip.antiAlias,
           // this is to account for a dark theme
-          color: brightness == Brightness.light
-              ? null
-              : theme.colorScheme.onBackground,
-          elevation: 4,
+          color: brightness == Brightness.dark
+              ? theme.colorScheme.onBackground
+              : null,
+          elevation: 4.0,
           child: InkWell(
             onTap: onTap,
             child: Padding(
-              padding: const EdgeInsets.all(8),
-              child: Theme(
-                data: theme.copyWith(
-                  iconTheme: theme.iconTheme.copyWith(
-                    color: theme.primaryColor,
-                  ),
+              padding: const EdgeInsets.all(8.0),
+              child: IconTheme(
+                data: theme.iconTheme.copyWith(
+                  color: theme.primaryColor,
                 ),
                 child: icon,
               ),

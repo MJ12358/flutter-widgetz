@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 9.7.0
+
+- Introduce `DownloadButton` widget.
+
 ## 9.6.0
 
 - Introduce `ExpandableFab` widget.

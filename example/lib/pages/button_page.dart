@@ -1,5 +1,7 @@
 // ignore_for_file: avoid_print
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
@@ -12,6 +14,15 @@ class ButtonPage extends StatefulWidget {
 
 class _ButtonPageState extends State<ButtonPage> {
   bool _isSaving = false;
+  DownloadStatus _downloadStatus = DownloadStatus.initial;
+  double _downloadProgress = 0.0;
+  Timer? _timer;
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,6 +106,18 @@ class _ButtonPageState extends State<ButtonPage> {
               child: const Text('Success'),
             ),
           ),
+          const CustomDivider(
+            child: Text('Download Button'),
+          ),
+          DownloadButton(
+            // primaryColor: Colors.purple,
+            // secondaryColor: Colors.black,
+            status: _downloadStatus,
+            progress: _downloadProgress,
+            onDownload: _onDownloadButtonPressed,
+            onCancel: () => print('onCancel'),
+            onOpen: () => print('onOpen'),
+          ),
         ],
       ),
     );
@@ -108,6 +131,31 @@ class _ButtonPageState extends State<ButtonPage> {
     await Future<void>.delayed(const Duration(seconds: 3));
     setState(() {
       _isSaving = !_isSaving;
+    });
+  }
+
+  /// This is used to simulate a download event.
+  Future<void> _onDownloadButtonPressed() async {
+    setState(() {
+      _downloadStatus = DownloadStatus.fetching;
+    });
+    Future<void>.delayed(
+      const Duration(seconds: 1),
+      () => setState(() {
+        _downloadStatus = DownloadStatus.downloading;
+      }),
+    );
+    _timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
+      final double progress = timer.tick / 5;
+      setState(() {
+        _downloadProgress = progress;
+      });
+      if (progress >= 1) {
+        setState(() {
+          _downloadStatus = DownloadStatus.done;
+        });
+        timer.cancel();
+      }
     });
   }
 }

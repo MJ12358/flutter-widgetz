@@ -34,6 +34,7 @@ part 'src/date_range_field.dart';
 part 'src/dialog.dart';
 part 'src/directional_pad.dart';
 part 'src/divider.dart';
+part 'src/download_button.dart';
 part 'src/drawer.dart';
 part 'src/dropdown_field.dart';
 part 'src/dueling_picklist.dart';
