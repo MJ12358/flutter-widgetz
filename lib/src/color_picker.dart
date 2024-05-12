@@ -144,6 +144,7 @@ class _ColorPickerState extends State<ColorPicker> {
         child: CustomScrollView(
           shrinkWrap: true,
           slivers: <Widget>[
+            // TODO: during a dialog, we need the title to be in the dialog no the content
             SliverToBoxAdapter(
               child: _Header(
                 title: widget.title,

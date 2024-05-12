@@ -82,7 +82,8 @@ class MainState extends State<Main> {
       debugShowMaterialGrid: _showMaterialGrid,
       title: 'Flutter Widgetz Example',
       home: CustomScaffold(
-        dynamicFab: true,
+        // TODO: this has an odd effect when using an ExpandableFab
+        // dynamicFab: true,
         floatingActionButton: ExpandableFab(
           children: <Widget>[
             const _TimeDilationButton(),

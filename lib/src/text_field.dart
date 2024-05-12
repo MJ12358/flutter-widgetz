@@ -145,17 +145,13 @@ class CustomTextField extends StatelessWidget {
         onTap: () => showDialog(
           context: context,
           builder: (_) {
-            return SimpleDialog(
+            return CustomDialog(
               title: labelText != null ? Text(labelText!) : const SizedBox(),
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: DefaultTextStyle.merge(
-                    textAlign: TextAlign.center,
-                    child: help!,
-                  ),
-                ),
-              ],
+              contentPadding: const EdgeInsets.all(8.0),
+              child: DefaultTextStyle.merge(
+                textAlign: TextAlign.center,
+                child: help!,
+              ),
             );
           },
         ),

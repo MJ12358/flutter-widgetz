@@ -54,13 +54,8 @@ class ColorField extends StatefulWidget {
   static const String _defaultLabelText = 'Color';
   static const Widget _defaultIcon = Icon(Icons.color_lens);
   static const BoxShape _defaultPickerShape = BoxShape.circle;
-  static String _defaultStringForColor(Color? color) {
-    if (color == null) {
-      return '';
-    } else {
-      return Color(color.value).toString();
-    }
-  }
+  static String _defaultStringForColor(Color? color) =>
+      color != null ? Color(color.value).toString() : '';
 
   static Future<Color?> _showBottomSheet({
     required BuildContext context,
@@ -82,6 +77,7 @@ class ColorField extends StatefulWidget {
       context: context,
       builder: (_) {
         return AlertDialog(
+          contentPadding: EdgeInsets.zero,
           content: widget,
         );
       },

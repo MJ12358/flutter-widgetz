@@ -104,7 +104,7 @@ class _DurationFieldState extends State<DurationField> {
   void _showModal(BuildContext context) {
     showDialog(
       context: context,
-      builder: (BuildContext context) {
+      builder: (_) {
         return AlertDialog(
           actions: <Widget>[
             TextButton(

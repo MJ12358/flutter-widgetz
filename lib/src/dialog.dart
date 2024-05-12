@@ -9,6 +9,7 @@ class CustomDialog<T> extends StatelessWidget {
   const CustomDialog({
     super.key,
     required this.child,
+    this.actions,
     this.contentPadding = _defaultContentPadding,
     this.title,
     this.titlePadding = _defaultTitlePadding,
@@ -16,6 +17,10 @@ class CustomDialog<T> extends StatelessWidget {
 
   /// The widget below this widget in the tree.
   final Widget child;
+
+  /// The (optional) set of actions that are displayed at the bottom
+  /// of the dialog with an [OverflowBar].
+  final List<Widget>? actions;
 
   /// The padding of the content.
   final EdgeInsets contentPadding;
@@ -37,6 +42,7 @@ class CustomDialog<T> extends StatelessWidget {
     required List<T> initialValues,
     required List<T> currentValues,
     required ValueChanged<T?> onChanged,
+    this.actions,
     String Function(T)? displayStringForValue,
     this.contentPadding = _defaultContentPadding,
     ScrollPhysics physics = const RangeMaintainingScrollPhysics(),
@@ -65,6 +71,7 @@ class CustomDialog<T> extends StatelessWidget {
     required List<T> values,
     required T groupValue,
     required ValueChanged<T?> onChanged,
+    this.actions,
     String Function(T)? displayStringForValue,
     this.contentPadding = _defaultContentPadding,
     ScrollPhysics physics = const RangeMaintainingScrollPhysics(),
@@ -92,6 +99,7 @@ class CustomDialog<T> extends StatelessWidget {
   CustomDialog.list({
     super.key,
     required List<Widget> children,
+    this.actions,
     this.contentPadding = _defaultContentPadding,
     ScrollPhysics physics = const RangeMaintainingScrollPhysics(),
     bool shrinkWrap = true,
@@ -106,7 +114,8 @@ class CustomDialog<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      contentPadding: contentPadding,
+      actions: actions,
+      contentPadding: EdgeInsets.zero,
       titlePadding: EdgeInsets.zero,
       title: title != null
           ? _Title(
@@ -114,8 +123,9 @@ class CustomDialog<T> extends StatelessWidget {
               child: title!,
             )
           : null,
-      content: SizedBox(
-        // this is necessary to prevent render box issues in dialog
+      content: Container(
+        padding: contentPadding,
+        // this is necessary to prevent render box issues
         width: double.minPositive,
         child: child,
       ),
@@ -141,7 +151,13 @@ class _Title extends StatelessWidget {
         color: theme.colorScheme.primary.blackOrWhite,
       ),
       child: Container(
-        color: theme.colorScheme.primary,
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.vertical(
+            // this is to mimic the default alert dialog border radius
+            top: Radius.circular(4.0),
+          ),
+          color: theme.colorScheme.primary,
+        ),
         padding: padding,
         child: child,
       ),

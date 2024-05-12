@@ -1,5 +1,11 @@
 # Flutter Widgetz
 
+## 9.7.1
+
+- Use `CustomDialog` when displaying help on `CustomTextField`.
+- Add `actions` param to `CustomDialog`.
+- Fix `contentPadding` on `CustomDialog`.
+
 ## 9.7.0
 
 - Introduce `DownloadButton` widget.

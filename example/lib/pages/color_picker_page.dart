@@ -31,6 +31,7 @@ class ColorPickerPage extends StatelessWidget {
                   context: context,
                   builder: (_) {
                     return AlertDialog(
+                      contentPadding: EdgeInsets.zero,
                       content: ColorPicker.rectangle(
                         onTap: print,
                       ),

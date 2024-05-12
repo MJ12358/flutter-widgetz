@@ -66,10 +66,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_extensionz
-      sha256: "923366884c6db14e5db0bfe205ed52fcee6f954a9444eff6730e8719ca8e77a6"
+      sha256: dbf53881cfb2f0bfff1b9c609a6faf2da0ed704f33b8ed513c79dcbdbe54b31e
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.1"
+    version: "4.2.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -89,7 +89,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "9.4.3"
+    version: "9.7.0"
   matcher:
     dependency: transitive
     description:

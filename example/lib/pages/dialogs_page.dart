@@ -64,6 +64,7 @@ class DialogsPage extends StatelessWidget {
       context: context,
       builder: (_) {
         return CustomDialog.list(
+          title: const Text('Custom Dialog'),
           children: const <Widget>[
             CustomSimpleDialogOption(
               child: Text('One'),
@@ -82,6 +83,7 @@ class DialogsPage extends StatelessWidget {
       context: context,
       builder: (_) {
         return CustomDialog.list(
+          title: const Text('Custom Icon Dialog'),
           children: <Widget>[
             CustomSimpleDialogOption.icon(
               icon: const Icon(Icons.abc),
@@ -102,6 +104,7 @@ class DialogsPage extends StatelessWidget {
       context: context,
       builder: (_) {
         return CustomDialog.list(
+          title: const Text('Custom Checked Dialog'),
           children: <Widget>[
             CustomSimpleDialogOption.checked(
               checked: false,
@@ -121,7 +124,8 @@ class DialogsPage extends StatelessWidget {
       context: context,
       builder: (_) {
         return CustomDialog.list(
-          title: const Text('Custom Dialog'),
+          title: const Text('Custom Dialog All'),
+          // contentPadding: const EdgeInsets.all(8.0),
           children: <Widget>[
             const CustomSimpleDialogOption(
               child: Text('Custom'),
@@ -161,6 +165,16 @@ class DialogsPage extends StatelessWidget {
       builder: (_) {
         return CustomDialog.list(
           title: const Text('Scrollable Dialog'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: const Text('Accept'),
+            ),
+          ],
           children: <Widget>[
             for (int i = 0; i < 25; i++)
               CustomSimpleDialogOption.icon(

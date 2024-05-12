@@ -118,7 +118,7 @@ class _Portrait extends StatelessWidget {
         const CustomTextField(
           labelText: 'Two (Previous)',
           prefixIcon: Icon(Icons.two_k),
-          help: Text('Help Text'),
+          help: Text('This is some help text.'),
           textInputAction: TextInputAction.previous,
         ),
         const CustomInputDecorator(
