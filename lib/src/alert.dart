@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.Alert}
 /// Alert banners communicate a state.
+///
+///![Alert](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/alert.png)
 /// {@endtemplate}
 class Alert extends StatefulWidget {
   /// {@macro flutter_widgetz.Alert}

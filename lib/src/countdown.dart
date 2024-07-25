@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.Countdown}
 /// A widget that counts down from the given [target].
+///
+///![Countdown](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/countdown.png)
 /// {@endtemplate}
 class Countdown extends StatefulWidget {
   /// {@macro flutter_widgetz.Countdown}

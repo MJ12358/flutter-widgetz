@@ -68,11 +68,13 @@ class CustomAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       backgroundColor: _hasImage ? null : color,
-      foregroundImage: imageProvider,
+      foregroundImage: _hasImage ? imageProvider : null,
       onForegroundImageError: _hasImage ? _defaultImageErrorBuilder : null,
       radius: radius,
-      child: Center(
-        child: icon,
+      child: FittedBox(
+        child: Center(
+          child: icon,
+        ),
       ),
     );
   }

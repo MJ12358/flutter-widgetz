@@ -54,7 +54,7 @@ class DropdownField<T extends Object> extends StatefulWidget {
 }
 
 class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
-  late T? _value;
+  T? _value;
 
   @override
   void initState() {

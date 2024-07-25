@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.ColorPicker}
 /// A color picker that represents
 /// all [MaterialColor] via a [GridView].
+///
+///![ColorPicker](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/color_picker.png)
 /// {@endtemplate}
 class ColorPicker extends StatefulWidget {
   /// {@macro flutter_widgetz.ColorPicker}
@@ -15,10 +17,9 @@ class ColorPicker extends StatefulWidget {
     this.initialColor,
     this.padding = _defaultPadding,
     double? spacing,
-    Widget? title,
+    this.title,
   })  : colors = colors ?? _defaultColors,
         spacing = spacing ?? _defaultSpacing,
-        title = title ?? _defaultTitle,
         isCompact = false;
 
   /// Callback when a color is tapped.
@@ -30,7 +31,7 @@ class ColorPicker extends StatefulWidget {
   /// A list of Colors to display.
   ///
   /// Defaults to [Colors.primaries].
-  late final List<Color> colors;
+  final List<Color> colors;
 
   /// The maximum extent of tiles.
   final double extent;
@@ -55,7 +56,6 @@ class ColorPicker extends StatefulWidget {
   static const double _defaultExtent = 75.0;
   static const EdgeInsets _defaultPadding = EdgeInsets.all(16.0);
   static const double _defaultSpacing = 10.0;
-  static const Widget _defaultTitle = Text('Choose Color');
 
   /// {@macro flutter_widgetz.ColorPicker}
   ///
@@ -68,7 +68,7 @@ class ColorPicker extends StatefulWidget {
     this.initialColor,
     this.padding = _defaultPadding,
     this.spacing = _defaultSpacing,
-    this.title = _defaultTitle,
+    this.title,
   })  : colors = colors ?? _defaultColors,
         isCompact = false,
         decoration = BoxDecoration(
@@ -87,7 +87,7 @@ class ColorPicker extends StatefulWidget {
     this.initialColor,
     this.padding = _defaultPadding,
     this.spacing = _defaultSpacing,
-    this.title = _defaultTitle,
+    this.title,
   })  : colors = colors ?? _defaultColors,
         isCompact = false,
         decoration = BoxDecoration(
@@ -144,7 +144,6 @@ class _ColorPickerState extends State<ColorPicker> {
         child: CustomScrollView(
           shrinkWrap: true,
           slivers: <Widget>[
-            // TODO: during a dialog, we need the title to be in the dialog no the content
             SliverToBoxAdapter(
               child: _Header(
                 title: widget.title,

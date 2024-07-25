@@ -37,9 +37,7 @@ class CustomListTile extends StatelessWidget {
   ///
   /// Dismissible wraps the [ListTile] inside a [Dismissible].
   CustomListTile.dismissible({
-    super.key,
-    // TODO: this should only require ONE key
-    required Object uniqueKey,
+    required super.key,
     required VoidCallback onDismissed,
     Color color = Colors.red,
     AsyncValueGetter<bool?>? confirmDismiss,
@@ -57,7 +55,7 @@ class CustomListTile extends StatelessWidget {
     Widget? trailing,
     String? trailingText,
   }) : _content = Dismissible(
-          key: ValueKey<Object>(uniqueKey),
+          key: key!,
           direction: dismissDirection,
           background: Container(
             alignment: Alignment.centerRight,

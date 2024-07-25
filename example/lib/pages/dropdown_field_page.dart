@@ -97,7 +97,7 @@ class _DropdownTest extends StatefulWidget {
 }
 
 class __DropdownTestState extends State<_DropdownTest> {
-  late BoxFit? _value;
+  BoxFit? _value;
 
   @override
   void initState() {

@@ -5,6 +5,8 @@ part of flutter_widgetz;
 ///
 /// Inspired by:
 /// https://github.com/hnvn/flutter_shimmer/blob/master/lib/shimmer.dart
+///
+///![Shimmer](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/shimmer.png)
 /// {@endtemplate}
 class Shimmer extends StatefulWidget {
   /// {@macro flutter_widgetz.Shimmer}
@@ -131,7 +133,7 @@ class Shimmer extends StatefulWidget {
 }
 
 class _ShimmerState extends State<Shimmer> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
+  late final AnimationController _controller;
 
   @override
   void initState() {

@@ -52,8 +52,17 @@ class DateFieldPage extends StatelessWidget {
                 value: DateTime.now(),
               ),
               const DateRangeField(
-                labelText: 'Date Range',
+                labelText: 'Date Range Field',
                 onChanged: print,
+              ),
+              const DateTimeField(
+                labelText: 'DateTime Field',
+                onChanged: print,
+              ),
+              DateTimeField(
+                labelText: 'DateTime Field (Initial Value)',
+                onChanged: print,
+                value: DateTime.now(),
               ),
             ],
           );

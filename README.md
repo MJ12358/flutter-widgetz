@@ -98,9 +98,9 @@ The [generated documentation](https://pub.dev/documentation/flutter_widgetz/late
 
 ![Countdown](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/countdown.png)
 
-### Counter Input
+### Counter Field
 
-![CounterInput](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/counter_input.png)
+![CounterField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/counter_input.png)
 
 ### Directional Pad
 

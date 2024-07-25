@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.Poll}
 /// A Poll widget, similar to Twitter's.
+///
+///![Poll](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/poll.png)
 /// {@endtemplate}
 class Poll extends StatefulWidget {
   /// {@macro flutter_widgetz.Poll}

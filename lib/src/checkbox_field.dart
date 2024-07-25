@@ -20,7 +20,8 @@ class CheckboxField extends StatefulWidget {
   /// Whether this checkbox is checked.
   final bool value;
 
-  /// The widget below this widget in the tree.
+  /// Displayed where the text would be in a [TextField].
+  /// Typically this is an empty [Text] widget in a [CheckboxField].
   final Widget child;
 
   /// Optional text that describes the input field.
@@ -31,7 +32,7 @@ class CheckboxField extends StatefulWidget {
 }
 
 class _CheckboxFieldState extends State<CheckboxField> {
-  late FocusNode _focusNode;
+  late final FocusNode _focusNode;
   late bool _value;
 
   @override

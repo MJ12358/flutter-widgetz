@@ -29,12 +29,15 @@ class AvatarPage extends StatelessWidget {
             icon: const Icon(Icons.disabled_by_default),
           ),
           AvatarGroup(),
+          AvatarGroup(
+            radius: 50,
+          ),
           CustomAvatar.network(
-            'https://loremflickr.com/640/360',
+            'https://placehold.co/600x400/png',
             radius: 50,
           ),
           AvatarGroup.network(
-            'https://loremflickr.com/640/360',
+            'https://placehold.co/600x400/png',
             radius: 50,
           ),
         ],

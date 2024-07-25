@@ -57,7 +57,7 @@ class DurationField extends StatefulWidget {
 }
 
 class _DurationFieldState extends State<DurationField> {
-  late FocusNode _focusNode;
+  late final FocusNode _focusNode;
   Duration? _value;
 
   @override

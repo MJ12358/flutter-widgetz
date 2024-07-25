@@ -44,6 +44,16 @@ class CustomImage extends StatefulWidget {
   static const double _defaultOpacity = 1.0;
   static const double _defaultScale = 1.0;
 
+  static bool _isUri(String input) {
+    return Uri.tryParse(input)?.isAbsolute ?? false;
+  }
+
+  static bool _isBase64(String input) {
+    return RegExp(
+      r'^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$',
+    ).hasMatch(input);
+  }
+
   /// {@macro flutter_widgetz.CustomImage}
   ///
   /// Uses an [AssetImage].
@@ -108,7 +118,7 @@ class CustomImage extends StatefulWidget {
   /// This factory attempts to determine the input
   /// type to construct the proper image for you.
   factory CustomImage.dynamic(
-    Object? object, {
+    Object? input, {
     Alignment alignment = _defaultAlignment,
     Color? color,
     Widget errorWidget = _defaultErrorWidget,
@@ -117,9 +127,9 @@ class CustomImage extends StatefulWidget {
     double scale = _defaultScale,
   }) {
     try {
-      if (object is Uint8List || object == null) {
+      if (input is Uint8List || input == null) {
         return CustomImage.memory(
-          object as Uint8List?,
+          input as Uint8List?,
           alignment: alignment,
           color: color,
           errorWidget: errorWidget,
@@ -129,12 +139,10 @@ class CustomImage extends StatefulWidget {
         );
       }
 
-      if (object is String) {
-        final bool isUri = Uri.tryParse(object)?.isAbsolute ?? false;
-
-        if (isUri) {
+      if (input is String) {
+        if (_isUri(input)) {
           return CustomImage.network(
-            object,
+            input,
             alignment: alignment,
             color: color,
             errorWidget: errorWidget,
@@ -144,13 +152,9 @@ class CustomImage extends StatefulWidget {
           );
         }
 
-        final bool isBase64 = RegExp(
-          r'^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$',
-        ).hasMatch(object);
-
-        if (isBase64) {
+        if (_isBase64(input)) {
           return CustomImage.memory(
-            base64Decode(object),
+            base64Decode(input),
             alignment: alignment,
             color: color,
             errorWidget: errorWidget,
@@ -161,7 +165,7 @@ class CustomImage extends StatefulWidget {
         }
 
         return CustomImage.asset(
-          object,
+          input,
           alignment: alignment,
           color: color,
           errorWidget: errorWidget,
@@ -206,25 +210,28 @@ class _CustomImageState extends State<CustomImage> {
     _imageProvider = widget.imageProvider;
   }
 
+  void _onError(Object o, StackTrace? st) {
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => setState(() {
+        _hasError = true;
+      }),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    final Color color = widget.color ?? theme.colorScheme.secondary;
 
     try {
       return Container(
         decoration: BoxDecoration(
-          color: widget.color ?? theme.colorScheme.secondary,
+          color: color,
           image: DecorationImage(
             alignment: widget.alignment,
             fit: widget.fit,
             image: _imageProvider,
-            onError: (_, __) {
-              WidgetsBinding.instance.addPostFrameCallback(
-                (_) => setState(() {
-                  _hasError = true;
-                }),
-              );
-            },
+            onError: _onError,
             opacity: widget.opacity,
             scale: widget.scale,
           ),
@@ -235,7 +242,7 @@ class _CustomImageState extends State<CustomImage> {
     } catch (_) {
       return Container(
         decoration: BoxDecoration(
-          color: widget.color ?? theme.colorScheme.secondary,
+          color: color,
         ),
         child: widget.errorWidget,
       );

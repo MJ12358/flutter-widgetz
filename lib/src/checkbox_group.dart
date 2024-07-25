@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CheckboxGroup}
 /// Wraps a list of [CheckboxListTile] in an [InputDecorator].
+///
+///![CheckboxGroup](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/checkbox_group.png)
 /// {@endtemplate}
 class CheckboxGroup<T extends Object> extends StatefulWidget {
   /// {@macro flutter_widgetz.CheckboxGroup}
@@ -50,7 +52,7 @@ class CheckboxGroup<T extends Object> extends StatefulWidget {
 }
 
 class _CheckboxGroupState<T extends Object> extends State<CheckboxGroup<T>> {
-  late FocusNode _focusNode;
+  late final FocusNode _focusNode;
   late List<T> _values;
 
   @override

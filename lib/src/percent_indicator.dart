@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.PercentIndicator}
 /// A [ProgressIndicator] that shows the percentage overlayed.
+///
+///![PercentIndicator](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/percent_indicator.png)
 /// {@endtemplate}
 class PercentIndicator extends StatelessWidget {
   /// {@macro flutter_widgetz.PercentIndicator}

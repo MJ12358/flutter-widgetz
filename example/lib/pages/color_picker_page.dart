@@ -30,9 +30,9 @@ class ColorPickerPage extends StatelessWidget {
                 onPressed: () => showDialog(
                   context: context,
                   builder: (_) {
-                    return AlertDialog(
-                      contentPadding: EdgeInsets.zero,
-                      content: ColorPicker.rectangle(
+                    return CustomDialog(
+                      title: const Text('Choose Color'),
+                      child: ColorPicker.rectangle(
                         onTap: print,
                       ),
                     );
@@ -45,7 +45,9 @@ class ColorPickerPage extends StatelessWidget {
                   context: context,
                   pageBuilder: (_, __, ___) {
                     return CustomScaffold(
-                      body: ColorPicker.circle(onTap: print),
+                      body: ColorPicker.circle(
+                        onTap: print,
+                      ),
                     );
                   },
                 ),

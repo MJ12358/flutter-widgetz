@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.Accordion}
 /// An accordion allows a user to toggle the display of a section of content.
+///
+///![Accordion](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/accordion.png)
 /// {@endtemplate}
 class Accordion extends StatefulWidget {
   /// {@macro flutter_widgetz.Accordion}
@@ -19,6 +21,7 @@ class Accordion extends StatefulWidget {
   /// The content displayed when the accordion is open.
   final Widget child;
 
+  /// The padding insetting the child.
   final EdgeInsets childPadding;
 
   /// The duration of the animation.

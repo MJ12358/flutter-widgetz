@@ -56,6 +56,25 @@ class AvatarGroup extends StatelessWidget {
 
   /// {@macro flutter_widgetz.AvatarGroup}
   ///
+  /// Memory uses [Image.memory].
+  AvatarGroup.memory(
+    Uint8List? bytes, {
+    super.key,
+    this.icon = _defaultIcon,
+    this.radius = _defaultRadius,
+  })  : child1 = CustomAvatar.memory(
+          bytes,
+          icon: icon,
+          radius: radius,
+        ),
+        child2 = CustomAvatar.memory(
+          bytes,
+          icon: icon,
+          radius: _computeRadius(radius),
+        );
+
+  /// {@macro flutter_widgetz.AvatarGroup}
+  ///
   /// Network uses [Image.network].
   AvatarGroup.network(
     String source, {

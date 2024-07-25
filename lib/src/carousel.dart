@@ -103,7 +103,7 @@ class Carousel extends StatefulWidget {
 }
 
 class _CarouselState extends State<Carousel> {
-  late PageController _controller;
+  late final PageController _controller;
   late int _currentPage;
   late bool _isReverse;
   Timer? _timer;
