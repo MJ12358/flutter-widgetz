@@ -147,6 +147,7 @@ class CustomTextField extends StatelessWidget {
           builder: (_) {
             return CustomDialog(
               title: labelText != null ? Text(labelText!) : const SizedBox(),
+              // TODO: do you want more padding here???
               contentPadding: const EdgeInsets.all(8.0),
               child: DefaultTextStyle.merge(
                 textAlign: TextAlign.center,
