@@ -7,6 +7,7 @@
 - Add `entryMode` and `pickerMode` to `DateField`.
 - Add `entryMode` to `DateRangeField`.
 - Add `entryMode` to `TimeField`.
+- Add `debounce` to `CustomSearchBar`.
 
 - **BREAKING**:
   - `ColorPicker`

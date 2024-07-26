@@ -10,6 +10,7 @@ class CustomSearchBar extends StatefulWidget {
     required this.onChanged,
     this.alignment = Alignment.topCenter,
     this.autofocus = false,
+    this.debounce = const Duration(milliseconds: 250),
     this.duration = kThemeChangeDuration,
     this.focusNode,
     this.isVisible = true,
@@ -29,6 +30,9 @@ class CustomSearchBar extends StatefulWidget {
 
   /// Determines whether to auto focus this input.
   final bool autofocus;
+
+  /// The duration with which the search is debounced.
+  final Duration debounce;
 
   /// The duration when transitioning this widget's size.
   final Duration duration;
@@ -63,6 +67,7 @@ class CustomSearchBar extends StatefulWidget {
 
 class _CustomSearchBarState extends State<CustomSearchBar> {
   late final TextEditingController _controller;
+  Timer? _timer;
 
   @override
   void initState() {
@@ -74,6 +79,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
   @override
   void dispose() {
     _controller.dispose();
+    _timer?.cancel();
     super.dispose();
   }
 
@@ -100,7 +106,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
                   prefixIcon: widget.prefixIcon,
                   suffixIcon: _getSuffix(),
                 ),
-                onChanged: widget.onChanged,
+                onChanged: _onChanged,
               ),
             ),
     );
@@ -117,5 +123,12 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
         _controller.clear();
       },
     );
+  }
+
+  void _onChanged(String value) {
+    _timer?.cancel();
+    _timer = Timer(widget.debounce, () {
+      widget.onChanged.call(value);
+    });
   }
 }
