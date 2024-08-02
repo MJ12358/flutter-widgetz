@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomProgressIndicator}
 /// Wraps a [ProgressIndicator] in a [Center].
+///
+///![CustomProgressIndicator](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/progress_indicator.png)
 /// {@endtemplate}
 class CustomProgressIndicator extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomProgressIndicator}

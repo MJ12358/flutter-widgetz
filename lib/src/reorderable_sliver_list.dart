@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomSLiverReorderableList}
 /// Wraps [SliverReorderableList] to allow a separator.
+///
+///![CustomSliverReorderableList](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/list_view.png)
 /// {@endtemplate}
 class CustomSliverReorderableList extends StatelessWidget {
   /// Used to build the items.

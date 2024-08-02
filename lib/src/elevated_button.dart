@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.CustomElevatedButton}
 /// An [ElevatedButton] that utilizes the
 /// full width of its container.
+///
+///![CustomElevatedButton](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/elevated_button.png)
 /// {@endtemplate}
 class CustomElevatedButton extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomElevatedButton}

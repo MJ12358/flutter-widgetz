@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.DateField}
 /// Wraps a call to [showDatePicker] in
 /// an [InputDecorator] and [InkWell].
+///
+///![DateField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/date_field.png)
 /// {@endtemplate}
 class DateField extends StatefulWidget {
   /// {@macro flutter_widgetz.DateField}

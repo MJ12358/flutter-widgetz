@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomImage}
 /// A custom image that handles errors for you.
+///
+///![CustomImage](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/image.png)
 /// {@endtemplate}
 class CustomImage extends StatefulWidget {
   /// {@macro flutter_widgetz.CustomImage}
@@ -175,6 +177,7 @@ class CustomImage extends StatefulWidget {
         );
       }
     } catch (_) {
+      // when none of the other conditions match,
       // fall through ↓
     }
 

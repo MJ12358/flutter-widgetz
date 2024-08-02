@@ -4,6 +4,8 @@ part of flutter_widgetz;
 /// Wraps a calls to [showDatePicker]
 /// then [showTimePicker] in
 /// an [InputDecorator] and [InkWell].
+///
+///![DateTimeField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/datetime_field.png)
 /// {@endtemplate}
 class DateTimeField extends StatefulWidget {
   const DateTimeField({

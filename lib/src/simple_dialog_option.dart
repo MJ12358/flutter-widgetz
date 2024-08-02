@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.CustomSimpleDialogOption}
 /// A [SimpleDialogOption] with built in padding.
 /// This fixes an accessibility warning in the Google Play Console.
+///
+///![CustomSimpleDialogOption](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/simple_dialog_option.png)
 /// {@endtemplate}
 class CustomSimpleDialogOption extends SimpleDialogOption {
   /// {@macro flutter_widgetz.CustomSimpleDialogOption}

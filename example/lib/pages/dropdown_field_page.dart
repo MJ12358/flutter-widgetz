@@ -13,7 +13,7 @@ class DropdownFieldPage extends StatelessWidget {
           return const SpacedRow(
             children: <Widget>[
               DropdownField<String>(
-                labelText: 'Dropdown One',
+                labelText: 'Dropdown',
                 items: <String>['1', '2', '3'],
                 onChanged: print,
                 prefixIcon: Icon(Icons.gif_box),
@@ -33,9 +33,10 @@ class DropdownFieldPage extends StatelessWidget {
                 prefixIcon: Icon(Icons.gif_box),
               ),
               const DropdownField<String>(
-                labelText: 'Dropdown One',
+                labelText: 'Dropdown',
                 items: <String>['1', '2', '3'],
                 onChanged: print,
+                prefixIcon: Icon(Icons.gif_box),
               ),
               const DropdownField<BoxFit>(
                 labelText: 'Dropdown Two',

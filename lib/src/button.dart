@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.Button}
 /// Buttons are clickable items used to perform an action.
+///
+///![Button](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/button.png)
 /// {@endtemplate}
 class Button extends StatelessWidget {
   /// {@macro flutter_widgetz.Button}

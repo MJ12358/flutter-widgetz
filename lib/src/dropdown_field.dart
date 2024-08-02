@@ -2,6 +2,10 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.DropdownField}
 /// Wraps a [DropdownButton] in an [InputDecorator].
+///
+///![DropdownField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/dropdown_field1.png)
+///
+///![DropdownField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/dropdown_field2.png)
 /// {@endtemplate}
 class DropdownField<T extends Object> extends StatefulWidget {
   /// {@macro flutter_widgetz.DropdownField}

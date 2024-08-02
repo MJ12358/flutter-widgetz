@@ -5,6 +5,8 @@ typedef GroupedWidgetBuilder<T> = Widget Function(BuildContext, T);
 /// {@template flutter_widgetz.GroupedListView}
 /// A groupable list of widgets, similar to [ListView],
 /// except that the items can be sectioned into groups.
+///
+///![GroupedListView](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/grouped_list.png)
 /// {@endtemplate}
 class GroupedListView<T, E> extends StatelessWidget {
   /// {@macro flutter_widgetz.GroupedListView}

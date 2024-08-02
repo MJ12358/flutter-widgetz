@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.DateRangeField}
 /// Wraps a call to [showDateRangePicker] in
 /// an [InputDecorator] and [InkWell].
+///
+///![DateRangeField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/date_range_field.png)
 /// {@endtemplate}
 class DateRangeField extends StatefulWidget {
   /// {@macro flutter_widgetz.DateRangeField}

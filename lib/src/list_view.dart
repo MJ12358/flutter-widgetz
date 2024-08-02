@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomListView}
 /// A custom list view.
+///
+///![CustomListView](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/list_view.png)
 /// {@endtemplate}
 class CustomListView extends StatelessWidget {
   /// The content will be clipped (or not) according to this option.

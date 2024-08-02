@@ -4,6 +4,8 @@ part of flutter_widgetz;
 /// Uses [CircleAvatar] while dumping image errors.
 ///
 /// Images are show via `foregroundImage`.
+///
+///![CustomAvatar](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/avatar.png)
 /// {@endtemplate}
 class CustomAvatar extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomAvatar}

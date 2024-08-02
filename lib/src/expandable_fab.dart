@@ -4,6 +4,8 @@ part of flutter_widgetz;
 /// When pressed, this expandable FAB spawns multiple, other action buttons.
 ///
 /// https://docs.flutter.dev/cookbook/effects/expandable-fab
+///
+///![ExpandableFab](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/expandable_fab.png)
 /// {@endtemplate}
 class ExpandableFab extends StatefulWidget {
   /// {@macro flutter_widgetz.ExpandableFab}

@@ -27,11 +27,11 @@ class _SearchBarPageState extends State<SearchBarPage> {
             hintText: 'Default (for reference)',
           ),
           const CustomSearchBar(
-            labelText: 'Search Bar One',
+            labelText: 'Search Bar',
             onChanged: print,
           ),
           CustomSearchBar(
-            labelText: 'Search Bar Two (with onClear)',
+            labelText: 'Search Bar (with onClear)',
             onChanged: print,
             onClear: () {},
           ),

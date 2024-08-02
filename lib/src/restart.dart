@@ -1,8 +1,12 @@
 part of flutter_widgetz;
 
+/// {@template flutter_widgetz.RestartWidget}
 /// Restart Widget
-/// https://stackoverflow.com/a/50116077/9111447
+///
+/// Inspired By: https://stackoverflow.com/a/50116077/9111447
+/// {@endtemplate}
 class RestartWidget extends StatefulWidget {
+  /// {@macro flutter_widgetz.RestartWidget}
   const RestartWidget({
     super.key,
     required this.child,

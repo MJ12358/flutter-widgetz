@@ -4,7 +4,7 @@ part of flutter_widgetz;
 /// This widget optionally places a [child]
 /// between two dividers.
 ///
-///![Divider](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/divider.png)
+///![CustomDivider](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/divider.png)
 /// {@endtemplate}
 class CustomDivider extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomDivider}

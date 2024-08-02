@@ -4,6 +4,8 @@ part of flutter_widgetz;
 /// A rating summary widget.
 ///
 /// Inspired by Google's "Audience rating summary".
+///
+///![RatingSummary](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/rating_summary.png)
 /// {@endtemplate}
 class RatingSummary extends StatelessWidget {
   /// {@macro flutter_widgetz.RatingSummary}

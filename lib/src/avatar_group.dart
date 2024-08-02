@@ -4,6 +4,8 @@ part of flutter_widgetz;
 /// An avatar group is an element that communicates
 /// to the user that there is more than 1 person
 /// associated to an item.
+///
+///![AvatarGroup](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/avatar_group.png)
 /// {@endtemplate}
 class AvatarGroup extends StatelessWidget {
   /// {@macro flutter_widgetz.AvatarGroup}

@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.Marquee}
 /// A widget that scrolls a [child] infinitely.
+///
+///![Marquee](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/marquee.png)
 /// {@endtemplate}
 class Marquee extends StatefulWidget {
   /// {@macro flutter_widgetz.Marquee}

@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.SearchBar}
 /// A [TextFormField] made to appear like a search bar.
+///
+///![CustomSearchBar](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/search_bar.png)
 /// {@endtemplate}
 class CustomSearchBar extends StatefulWidget {
   /// {@macro flutter_widgetz.SearchBar}

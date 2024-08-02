@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.ColorField}
 /// Wraps a call to [showModalBottomSheet]->[ColorPicker]
 /// in an [InputDecorator] and [InkWell].
+///
+///![ColorField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/color_field.png)
 /// {@endtemplate}
 class ColorField extends StatefulWidget {
   /// {@macro flutter_widgetz.ColorField}

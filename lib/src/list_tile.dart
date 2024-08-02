@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomListTile}
 /// A [ListTile] with conveniences.
+///
+///![CustomListTile](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/list_view.png)
 /// {@endtemplate}
 class CustomListTile extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomListTile}

@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomAppBar}
 /// An [AppBar] with conveniences.
+///
+///![CustomAppBar](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/app_bar.png)
 /// {@endtemplate}
 class CustomAppBar extends AppBar {
   /// {@macro flutter_widgetz.CustomAppBar}

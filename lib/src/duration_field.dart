@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.DurationField}
 /// Wraps a call to [showDialog]->[DurationPicker]
 /// in an [InputDecorator] and [InkWell].
+///
+///![DurationField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/duration_field.png)
 /// {@endtemplate}
 class DurationField extends StatefulWidget {
   /// {@macro flutter_widgetz.DurationField}

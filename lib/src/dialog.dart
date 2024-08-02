@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomDialog}
 /// A predictable dialog.
+///
+///![CustomDialog](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/dialog.png)
 /// {@endtemplate}
 @optionalTypeArgs
 class CustomDialog<T> extends StatelessWidget {

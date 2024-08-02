@@ -34,17 +34,17 @@ class DateFieldPage extends StatelessWidget {
                 labelText: 'Date Field',
                 onChanged: print,
               ),
-              const DateField(
-                labelText: 'Date Field Error',
-                errorText: 'Error',
-                hasError: true,
-                onChanged: print,
-              ),
               DateField(
                 labelText: 'Date Field (ISO8601 String)',
                 onChanged: print,
                 displayStringForDate: (DateTime? v) =>
                     v?.toIso8601String() ?? '',
+              ),
+              const DateField(
+                labelText: 'Date Field Error',
+                errorText: 'Error',
+                hasError: true,
+                onChanged: print,
               ),
               DateField(
                 labelText: 'Date Field (Initial Value)',

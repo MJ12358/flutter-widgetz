@@ -21,6 +21,12 @@ enum DownloadStatus {
 /// based on the given [status].
 ///
 /// https://docs.flutter.dev/cookbook/effects/download-button
+///
+///![DownloadButton](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/download_button1.png)
+///
+///![DownloadButton](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/download_button2.png)
+///
+///![DownloadButton](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/download_button3.png)
 /// {@endtemplate}
 class DownloadButton extends StatelessWidget {
   /// {@macro flutter_widgetz.DownloadButton}

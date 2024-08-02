@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.TimeField}
 /// Wraps a call to [showTimePicker] in
 /// an [InputDecorator] and [InkWell].
+///
+///![TimeField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/time_field.png)
 /// {@endtemplate}
 class TimeField extends StatefulWidget {
   /// {@macro flutter_widgetz.TimeField}

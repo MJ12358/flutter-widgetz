@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.CheckboxField}
 /// Wraps a [Checkbox] with an [InputDecorator] and [InkWell]
 /// to provide a fully clickable input.
+///
+///![CheckboxField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/checkbox_field.png)
 /// {@endtemplate}
 class CheckboxField extends StatefulWidget {
   /// {@macro flutter_widgetz.CheckboxField}

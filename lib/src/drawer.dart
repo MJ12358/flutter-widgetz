@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomDrawer}
 /// A [Drawer] that uses a [CustomScrollView].
+///
+///![CustomDrawer](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/drawer.png)
 /// {@endtemplate}
 class CustomDrawer extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomDrawer}

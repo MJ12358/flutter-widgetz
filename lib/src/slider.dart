@@ -3,7 +3,7 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.CustomSlider}
 /// A [Slider] wrapped in an [InputDecorator].
 ///
-///![Slider](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/slider.png)
+///![CustomSlider](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/slider.png)
 /// {@endtemplate}
 class CustomSlider extends StatefulWidget {
   /// {@macro flutter_widgetz.CustomSlider}

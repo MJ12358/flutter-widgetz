@@ -38,9 +38,16 @@ class ImagePage extends StatelessWidget {
     return CustomImage.dynamic(
       info.image,
       color: info.color,
-      // errorWidget: Image.asset('assets/images/error.png'),
+      // why is the error asset not being constrained
+      // errorWidget: ConstrainedBox(
+      //   constraints: const BoxConstraints(maxHeight: 50, maxWidth: 50),
+      //   child: Image.asset('assets/images/error.png'),
+      // ),
       errorWidget: const Center(
-        child: Text('An Error Occurred!'),
+        child: Text(
+          'Your error widget here',
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }
