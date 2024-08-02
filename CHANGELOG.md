@@ -1,5 +1,22 @@
 # Flutter Widgetz
 
+## 10.0.0
+
+- Introduce `DateTimeField`.
+- Add `memory` factory to `AvatarGroup`.
+- Add `entryMode` and `pickerMode` to `DateField`.
+- Add `entryMode` to `DateRangeField`.
+- Add `entryMode` to `TimeField`.
+- Add `debounce` to `CustomSearchBar`.
+
+- **BREAKING**:
+  - `ColorPicker`
+    - Remove the default title.
+  - `ColorField`
+    - Remove the default label text.
+  - `CustomListTile`
+    - Utilize super key for Dismissible key.
+
 ## 9.7.1
 
 - Use `CustomDialog` when displaying help on `CustomTextField`.

@@ -20,7 +20,6 @@ class _ListViewPageState extends State<ListViewPage> {
       _widgets.add(
         CustomListTile.dismissible(
           key: ValueKey<int>(i),
-          uniqueKey: ValueKey<int>(i),
           onDismissed: () {
             _widgets.removeAt(i);
             setState(() {});

@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.CustomNavigationRail}
 /// A wrapper for [NavigationRail] that handles
 /// the `selectedIndex` for you.
+///
+///![CustomNavigationRail](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/navigation_rail.png)
 /// {@endtemplate}
 class CustomNavigationRail extends StatefulWidget {
   /// {@macro flutter_widgetz.CustomNavigationRail}

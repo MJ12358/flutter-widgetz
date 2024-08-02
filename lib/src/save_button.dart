@@ -5,6 +5,10 @@ part of flutter_widgetz;
 ///
 /// This animates between the [ElevatedButton] and
 /// the [progressIndicator] when [isSaving] changes.
+///
+///![SaveButton](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/save_button1.png)
+///
+///![SaveButton](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/save_button2.png)
 /// {@endtemplate}
 class SaveButton extends StatelessWidget {
   /// {@macro flutter_widgetz.SaveButton}

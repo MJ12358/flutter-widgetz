@@ -34,6 +34,12 @@ class DateFieldPage extends StatelessWidget {
                 labelText: 'Date Field',
                 onChanged: print,
               ),
+              DateField(
+                labelText: 'Date Field (ISO8601 String)',
+                onChanged: print,
+                displayStringForDate: (DateTime? v) =>
+                    v?.toIso8601String() ?? '',
+              ),
               const DateField(
                 labelText: 'Date Field Error',
                 errorText: 'Error',
@@ -41,19 +47,22 @@ class DateFieldPage extends StatelessWidget {
                 onChanged: print,
               ),
               DateField(
-                labelText: 'Date Field (ISO8601 String)',
-                onChanged: print,
-                displayStringForDate: (DateTime? v) =>
-                    v?.toIso8601String() ?? '',
-              ),
-              DateField(
                 labelText: 'Date Field (Initial Value)',
                 onChanged: print,
                 value: DateTime.now(),
               ),
               const DateRangeField(
-                labelText: 'Date Range',
+                labelText: 'Date Range Field',
                 onChanged: print,
+              ),
+              const DateTimeField(
+                labelText: 'DateTime Field',
+                onChanged: print,
+              ),
+              DateTimeField(
+                labelText: 'DateTime Field (Initial Value)',
+                onChanged: print,
+                value: DateTime.now(),
               ),
             ],
           );

@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.FeedbackBar}
 /// A feedback widget.
+///
+///![FeedbackBar](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/feedback_bar.png)
 /// {@endtemplate}
 class FeedbackBar extends StatelessWidget {
   /// {@macro flutter_widgetz.FeedbackBar}

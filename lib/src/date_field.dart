@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.DateField}
 /// Wraps a call to [showDatePicker] in
 /// an [InputDecorator] and [InkWell].
+///
+///![DateField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/date_field.png)
 /// {@endtemplate}
 class DateField extends StatefulWidget {
   /// {@macro flutter_widgetz.DateField}
@@ -10,11 +12,13 @@ class DateField extends StatefulWidget {
     super.key,
     required this.onChanged,
     this.displayStringForDate = _defaultStringForDate,
+    this.entryMode = DatePickerEntryMode.calendar,
     this.errorText,
     this.firstDate,
     this.hasError = false,
     this.labelText,
     this.lastDate,
+    this.pickerMode = DatePickerMode.day,
     this.prefixIcon = const Icon(Icons.calendar_month),
     this.value,
   });
@@ -24,6 +28,9 @@ class DateField extends StatefulWidget {
 
   /// The string that is displayed in the input.
   final String Function(DateTime?) displayStringForDate;
+
+  /// Represents the [DatePickerEntryMode].
+  final DatePickerEntryMode entryMode;
 
   /// The text shown when there is an error.
   final String? errorText;
@@ -40,6 +47,9 @@ class DateField extends StatefulWidget {
   /// The last date of the date picker.
   final DateTime? lastDate;
 
+  /// Represents the [DatePickerMode].
+  final DatePickerMode pickerMode;
+
   /// An icon that appears before the editable part of the text field.
   final Widget prefixIcon;
 
@@ -55,12 +65,12 @@ class DateField extends StatefulWidget {
 }
 
 class _DateFieldState extends State<DateField> {
-  late FocusNode _focusNode;
+  late final FocusNode _focusNode;
   DateTime? _value;
 
   DateTime get _defaultInitialDate => DateTime.now();
   DateTime get _defaultFirstDate => DateTime.fromMillisecondsSinceEpoch(0);
-  DateTime get _defaultLastDate => DateTime(2100);
+  DateTime get _defaultLastDate => DateTime(DateTime.now().year + 100);
 
   @override
   void initState() {
@@ -110,6 +120,8 @@ class _DateFieldState extends State<DateField> {
       initialDate: _value ?? _defaultInitialDate,
       firstDate: widget.firstDate ?? _defaultFirstDate,
       lastDate: widget.lastDate ?? _defaultLastDate,
+      initialDatePickerMode: widget.pickerMode,
+      initialEntryMode: widget.entryMode,
     ).then(_onChange);
   }
 

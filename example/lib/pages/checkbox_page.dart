@@ -56,7 +56,7 @@ class CheckboxPage extends StatelessWidget {
                 prefixIcon: Icon(Icons.check_box),
               ),
               const CheckboxField(
-                labelText: 'Checkbox Field One',
+                labelText: 'Checkbox Field',
                 onChanged: print,
                 value: true,
               ),
@@ -67,7 +67,7 @@ class CheckboxPage extends StatelessWidget {
                 textInputAction: TextInputAction.next,
               ),
               const CheckboxField(
-                labelText: 'Checkbox Field Two',
+                labelText: 'Checkbox Field',
                 onChanged: print,
                 value: false,
               ),

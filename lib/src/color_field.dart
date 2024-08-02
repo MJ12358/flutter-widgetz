@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.ColorField}
 /// Wraps a call to [showModalBottomSheet]->[ColorPicker]
 /// in an [InputDecorator] and [InkWell].
+///
+///![ColorField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/color_field.png)
 /// {@endtemplate}
 class ColorField extends StatefulWidget {
   /// {@macro flutter_widgetz.ColorField}
@@ -12,7 +14,7 @@ class ColorField extends StatefulWidget {
     required this.onChanged,
     this.colors,
     this.displayStringForColor = _defaultStringForColor,
-    this.labelText = _defaultLabelText,
+    this.labelText,
     this.pickerShape = _defaultPickerShape,
     this.pickerTitle,
     this.prefixIcon = _defaultIcon,
@@ -28,7 +30,7 @@ class ColorField extends StatefulWidget {
   final String Function(Color?) displayStringForColor;
 
   /// Optional text that describes the input field.
-  final String labelText;
+  final String? labelText;
 
   /// The material modal builder.
   final Future<Color?> Function({
@@ -51,7 +53,6 @@ class ColorField extends StatefulWidget {
   /// The value of this input.
   final Color? value;
 
-  static const String _defaultLabelText = 'Color';
   static const Widget _defaultIcon = Icon(Icons.color_lens);
   static const BoxShape _defaultPickerShape = BoxShape.circle;
   static String _defaultStringForColor(Color? color) =>
@@ -92,7 +93,7 @@ class ColorField extends StatefulWidget {
     required this.onChanged,
     this.colors,
     this.displayStringForColor = _defaultStringForColor,
-    this.labelText = _defaultLabelText,
+    this.labelText,
     this.pickerShape = _defaultPickerShape,
     this.pickerTitle,
     this.prefixIcon = _defaultIcon,
@@ -107,7 +108,7 @@ class ColorField extends StatefulWidget {
     required this.onChanged,
     this.colors,
     this.displayStringForColor = _defaultStringForColor,
-    this.labelText = _defaultLabelText,
+    this.labelText,
     this.pickerShape = _defaultPickerShape,
     this.pickerTitle,
     this.prefixIcon = _defaultIcon,
@@ -119,7 +120,7 @@ class ColorField extends StatefulWidget {
 }
 
 class _ColorFieldState extends State<ColorField> {
-  late FocusNode _focusNode;
+  late final FocusNode _focusNode;
   Color? _value;
 
   @override

@@ -83,7 +83,7 @@ class DialogsPage extends StatelessWidget {
       context: context,
       builder: (_) {
         return CustomDialog.list(
-          title: const Text('Custom Icon Dialog'),
+          title: const Text('Custom Dialog'),
           children: <Widget>[
             CustomSimpleDialogOption.icon(
               icon: const Icon(Icons.abc),
@@ -104,7 +104,7 @@ class DialogsPage extends StatelessWidget {
       context: context,
       builder: (_) {
         return CustomDialog.list(
-          title: const Text('Custom Checked Dialog'),
+          title: const Text('Custom Checked'),
           children: <Widget>[
             CustomSimpleDialogOption.checked(
               checked: false,
@@ -124,7 +124,7 @@ class DialogsPage extends StatelessWidget {
       context: context,
       builder: (_) {
         return CustomDialog.list(
-          title: const Text('Custom Dialog All'),
+          title: const Text('Custom Dialog'),
           // contentPadding: const EdgeInsets.all(8.0),
           children: <Widget>[
             const CustomSimpleDialogOption(

@@ -11,6 +11,8 @@ const double _kPiByTwo = math.pi / 2;
 ///
 /// Modified from:
 /// https://github.com/juliansteenbakker/duration_picker
+///
+///![DurationPicker](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/duration_picker.png)
 /// {@endtemplate}
 class DurationPicker extends StatefulWidget {
   /// {@macro flutter_widgetz.DurationPicker}

@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.DuelingPicklist}
 /// A dueling-picklist is used to move options between
 /// two lists and is often referred to as a multi-select.
+///
+///![DuelingPicklist](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/dueling_picklist.png)
 /// {@endtemplate}
 class DuelingPicklist<T extends Object> extends StatefulWidget {
   /// {@macro flutter_widgetz.DuelingPicklist}

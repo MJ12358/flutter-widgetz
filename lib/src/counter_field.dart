@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CounterField}
 /// The allows a user to increase or decrease a numerical value.
+///
+///![CounterField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/counter_field.png)
 /// {@endtemplate}
 class CounterField extends StatefulWidget {
   /// {@macro flutter_widgetz.CounterField}
@@ -42,7 +44,7 @@ class CounterField extends StatefulWidget {
 }
 
 class _CounterFieldState extends State<CounterField> {
-  late FocusNode _focusNode;
+  late final FocusNode _focusNode;
   late int _value;
 
   @override

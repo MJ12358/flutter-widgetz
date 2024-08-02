@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.RatingBar}
 /// A custom rating bar.
+///
+///![RatingBar](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/rating_bar.png)
 /// {@endtemplate}
 class RatingBar extends StatefulWidget {
   /// {@macro flutter_widgetz.RatingBar}

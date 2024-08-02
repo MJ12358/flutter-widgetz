@@ -60,7 +60,7 @@ class Main extends StatefulWidget {
 
 class MainState extends State<Main> {
   late final PageController _controller;
-  late PageInfo _currentPage;
+  late Page _currentPage;
   late bool _isDark;
   late bool _showMaterialGrid;
   late FlutterThemez _theme;
@@ -83,7 +83,7 @@ class MainState extends State<Main> {
       title: 'Flutter Widgetz Example',
       home: CustomScaffold(
         // TODO: this has an odd effect when using an ExpandableFab
-        // dynamicFab: true,
+        dynamicFab: true,
         floatingActionButton: ExpandableFab(
           children: <Widget>[
             const _TimeDilationButton(),
@@ -193,8 +193,8 @@ class _TimeDilationButton extends StatelessWidget {
   }
 }
 
-class PageInfo {
-  const PageInfo(
+class Page {
+  const Page(
     this.icon,
     this.page,
     this.title,
@@ -205,47 +205,47 @@ class PageInfo {
   final String title;
 }
 
-const List<PageInfo> _pages = <PageInfo>[
-  PageInfo(Icons.account_tree, AccordionPage(), 'Accordions'),
-  PageInfo(Icons.notifications, AlertPage(), 'Alerts'),
-  PageInfo(Icons.login, AuthButtonPage(), 'Auth Buttons'),
-  PageInfo(Icons.person, AvatarPage(), 'Avatars'),
-  PageInfo(Icons.badge, BadgePage(), 'Badges'),
-  PageInfo(Icons.gamepad, ButtonPage(), 'Buttons'),
-  PageInfo(Icons.roundabout_left, CarouselPage(), 'Carousel'),
-  PageInfo(Icons.check_box, CheckboxPage(), 'Checkboxes'),
-  PageInfo(Icons.color_lens, ColorPickerPage(), 'Color Picker'),
-  PageInfo(Icons.downhill_skiing, CountdownPage(), 'Countdown'),
-  PageInfo(Icons.numbers, CounterPage(), 'Counter Field'),
-  PageInfo(Icons.date_range, DateFieldPage(), 'Date Field'),
-  PageInfo(Icons.dialpad_outlined, DialogsPage(), 'Dialogs'),
-  PageInfo(Icons.directions, DirectionalPadPage(), 'Directional Pad'),
-  PageInfo(Icons.space_bar, DividerPage(), 'Dividers'),
-  PageInfo(Icons.arrow_drop_down, DropdownFieldPage(), 'Dropdown Field'),
-  PageInfo(Icons.timelapse, DurationFieldPage(), 'Duration Picker'),
-  PageInfo(Icons.feedback, FeedbackPage(), 'Feedback'),
-  PageInfo(Icons.group, GroupedListViewPage(), 'Grouped List'),
-  PageInfo(Icons.image, ImagePage(), 'Images'),
-  PageInfo(Icons.link, LinkPage(), 'Links'),
-  PageInfo(Icons.list, ListViewPage(), 'List View'),
-  PageInfo(Icons.margin, MarqueePage(), 'Marquee'),
-  PageInfo(Icons.navigation, NavigationRailPage(), 'Navigation Rail'),
-  PageInfo(Icons.landscape, OrientationPage(), 'Orientation'),
-  PageInfo(Icons.percent, ProgressIndicatorPage(), 'Progress'),
-  PageInfo(Icons.price_check, PicklistPage(), 'Picklists'),
-  PageInfo(Icons.business, PlaceholderPage(), 'Placeholders'),
-  PageInfo(Icons.poll, PollPage(), 'Polls'),
-  PageInfo(Icons.phonelink_setup_sharp, PopupMenuPage(), 'Popup Menu'),
-  PageInfo(Icons.radio, RadioPage(), 'Radios'),
-  PageInfo(Icons.settings, SettingsPage(), 'Settings'),
-  PageInfo(Icons.star, RatingPage(), 'Ratings'),
-  PageInfo(Icons.scale, ScaffoldPage(), 'Scaffold'),
-  PageInfo(Icons.search, SearchBarPage(), 'Search Bar'),
-  PageInfo(Icons.shield, ShimmerPage(), 'Shimmer'),
-  PageInfo(Icons.tune, SliderPage(), 'Sliders'),
-  PageInfo(Icons.grid_4x4, SliverGridPage(), 'Sliver Grid'),
-  PageInfo(Icons.list, SliverListPage(), 'Sliver List'),
-  PageInfo(Icons.text_fields, TextFieldPage(), 'Text Field'),
-  PageInfo(Icons.timelapse, TimeFieldPage(), 'Time Field'),
-  PageInfo(Icons.web_outlined, WelcomePage(), 'Welcome'),
+const List<Page> _pages = <Page>[
+  Page(Icons.account_tree, AccordionPage(), 'Accordions'),
+  Page(Icons.notifications, AlertPage(), 'Alerts'),
+  Page(Icons.login, AuthButtonPage(), 'Auth Buttons'),
+  Page(Icons.person, AvatarPage(), 'Avatars'),
+  Page(Icons.badge, BadgePage(), 'Badges'),
+  Page(Icons.gamepad, ButtonPage(), 'Buttons'),
+  Page(Icons.roundabout_left, CarouselPage(), 'Carousel'),
+  Page(Icons.check_box, CheckboxPage(), 'Checkboxes'),
+  Page(Icons.color_lens, ColorPickerPage(), 'Color Picker'),
+  Page(Icons.downhill_skiing, CountdownPage(), 'Countdown'),
+  Page(Icons.numbers, CounterPage(), 'Counter Field'),
+  Page(Icons.date_range, DateFieldPage(), 'Date Field'),
+  Page(Icons.dialpad_outlined, DialogsPage(), 'Dialogs'),
+  Page(Icons.directions, DirectionalPadPage(), 'Directional Pad'),
+  Page(Icons.space_bar, DividerPage(), 'Dividers'),
+  Page(Icons.arrow_drop_down, DropdownFieldPage(), 'Dropdown Field'),
+  Page(Icons.timelapse, DurationFieldPage(), 'Duration Picker'),
+  Page(Icons.feedback, FeedbackPage(), 'Feedback'),
+  Page(Icons.group, GroupedListViewPage(), 'Grouped List'),
+  Page(Icons.image, ImagePage(), 'Images'),
+  Page(Icons.link, LinkPage(), 'Links'),
+  Page(Icons.list, ListViewPage(), 'List View'),
+  Page(Icons.margin, MarqueePage(), 'Marquee'),
+  Page(Icons.navigation, NavigationRailPage(), 'Navigation Rail'),
+  Page(Icons.landscape, OrientationPage(), 'Orientation'),
+  Page(Icons.percent, ProgressIndicatorPage(), 'Progress'),
+  Page(Icons.price_check, PicklistPage(), 'Picklists'),
+  Page(Icons.business, PlaceholderPage(), 'Placeholders'),
+  Page(Icons.poll, PollPage(), 'Polls'),
+  Page(Icons.phonelink_setup_sharp, PopupMenuPage(), 'Popup Menu'),
+  Page(Icons.radio, RadioPage(), 'Radios'),
+  Page(Icons.settings, SettingsPage(), 'Settings'),
+  Page(Icons.star, RatingPage(), 'Ratings'),
+  Page(Icons.scale, ScaffoldPage(), 'Scaffold'),
+  Page(Icons.search, SearchBarPage(), 'Search Bar'),
+  Page(Icons.shield, ShimmerPage(), 'Shimmer'),
+  Page(Icons.tune, SliderPage(), 'Sliders'),
+  Page(Icons.grid_4x4, SliverGridPage(), 'Sliver Grid'),
+  Page(Icons.list, SliverListPage(), 'Sliver List'),
+  Page(Icons.text_fields, TextFieldPage(), 'Text Field'),
+  Page(Icons.timelapse, TimeFieldPage(), 'Time Field'),
+  Page(Icons.web_outlined, WelcomePage(), 'Welcome'),
 ];

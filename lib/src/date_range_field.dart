@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.DateRangeField}
 /// Wraps a call to [showDateRangePicker] in
 /// an [InputDecorator] and [InkWell].
+///
+///![DateRangeField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/date_range_field.png)
 /// {@endtemplate}
 class DateRangeField extends StatefulWidget {
   /// {@macro flutter_widgetz.DateRangeField}
@@ -10,6 +12,7 @@ class DateRangeField extends StatefulWidget {
     super.key,
     required this.onChanged,
     this.displayStringForDateRange = _defaultStringForDateRange,
+    this.entryMode = DatePickerEntryMode.calendar,
     this.errorText,
     this.firstDate,
     this.hasError = false,
@@ -24,6 +27,9 @@ class DateRangeField extends StatefulWidget {
 
   /// The string that is displayed in the input.
   final String Function(DateTimeRange?) displayStringForDateRange;
+
+  /// Represents the [DatePickerEntryMode].
+  final DatePickerEntryMode entryMode;
 
   /// The text shown when there is an error.
   final String? errorText;
@@ -55,11 +61,11 @@ class DateRangeField extends StatefulWidget {
 }
 
 class _DateRangeFieldState extends State<DateRangeField> {
-  late FocusNode _focusNode;
+  late final FocusNode _focusNode;
   DateTimeRange? _value;
 
   DateTime get _defaultFirstDate => DateTime.fromMillisecondsSinceEpoch(0);
-  DateTime get _defaultLastDate => DateTime(2100);
+  DateTime get _defaultLastDate => DateTime(DateTime.now().year + 100);
 
   @override
   void initState() {
@@ -109,6 +115,7 @@ class _DateRangeFieldState extends State<DateRangeField> {
       initialDateRange: _value,
       firstDate: widget.firstDate ?? _defaultFirstDate,
       lastDate: widget.lastDate ?? _defaultLastDate,
+      initialEntryMode: widget.entryMode,
     ).then(_onChange);
   }
 

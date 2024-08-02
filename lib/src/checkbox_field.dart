@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.CheckboxField}
 /// Wraps a [Checkbox] with an [InputDecorator] and [InkWell]
 /// to provide a fully clickable input.
+///
+///![CheckboxField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/checkbox_field.png)
 /// {@endtemplate}
 class CheckboxField extends StatefulWidget {
   /// {@macro flutter_widgetz.CheckboxField}
@@ -20,7 +22,8 @@ class CheckboxField extends StatefulWidget {
   /// Whether this checkbox is checked.
   final bool value;
 
-  /// The widget below this widget in the tree.
+  /// Displayed where the text would be in a [TextField].
+  /// Typically this is an empty [Text] widget in a [CheckboxField].
   final Widget child;
 
   /// Optional text that describes the input field.
@@ -31,7 +34,7 @@ class CheckboxField extends StatefulWidget {
 }
 
 class _CheckboxFieldState extends State<CheckboxField> {
-  late FocusNode _focusNode;
+  late final FocusNode _focusNode;
   late bool _value;
 
   @override

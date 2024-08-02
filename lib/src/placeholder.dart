@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomPlaceholder}
 /// A placeholder that displays an image above some text.
+///
+///![CustomPlaceholder](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/placeholder.png)
 /// {@endtemplate}
 class CustomPlaceholder extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomPlaceholder}

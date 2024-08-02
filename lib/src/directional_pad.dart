@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.DirectionalPad}
 /// A directional pad widget.
+///
+///![DirectionalPad](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/directional_pad.png)
 /// {@endtemplate}
 class DirectionalPad extends StatelessWidget {
   /// {@macro flutter_widgetz.DirectionalPad}
@@ -153,30 +155,10 @@ class DirectionalPad extends StatelessWidget {
         buttonColor = null,
         shape = BoxShape.circle,
         buttons = <Widget>[
-          _PlayStationButton(
-            color: const Color(0xFF3f8b86),
-            padding: 38.0,
-            path: _kTriangleIcon,
-            size: size,
-          ),
-          _PlayStationButton(
-            color: const Color(0xFFbc3f32),
-            padding: 28.0,
-            path: _kCircleIcon,
-            size: size,
-          ),
-          _PlayStationButton(
-            color: const Color(0xFF6773a8),
-            padding: 48.0,
-            path: _kCrossIcon,
-            size: size,
-          ),
-          _PlayStationButton(
-            color: const Color(0xFFc06c9a),
-            padding: 56.0,
-            path: _kSquareIcon,
-            size: size,
-          ),
+          _PlayStationButton.triangle(size: size),
+          _PlayStationButton.circle(size: size),
+          _PlayStationButton.cross(size: size),
+          _PlayStationButton.square(size: size),
         ];
 
   /// {@macro flutter_widgetz.DirectionalPad}
@@ -193,26 +175,10 @@ class DirectionalPad extends StatelessWidget {
         buttonColor = null,
         shape = BoxShape.circle,
         buttons = <Widget>[
-          _XboxButton(
-            color: const Color(0xFFceb133),
-            size: size,
-            path: _kYIcon,
-          ),
-          _XboxButton(
-            color: const Color(0xFFd23727),
-            size: size,
-            path: _kBIcon,
-          ),
-          _XboxButton(
-            color: const Color(0xFF397957),
-            size: size,
-            path: _kAIcon,
-          ),
-          _XboxButton(
-            color: const Color(0xFF344e9f),
-            size: size,
-            path: _kXIcon,
-          ),
+          _XboxButton.y(size: size),
+          _XboxButton.b(size: size),
+          _XboxButton.a(size: size),
+          _XboxButton.x(size: size),
         ];
 
   @override
@@ -374,6 +340,30 @@ class _PlayStationButton extends StatelessWidget {
   final String path;
   final double size;
 
+  const _PlayStationButton.triangle({
+    required this.size,
+  })  : color = const Color(0xFF3f8b86),
+        padding = 38.0,
+        path = _kTriangleIcon;
+
+  const _PlayStationButton.circle({
+    required this.size,
+  })  : color = const Color(0xFFbc3f32),
+        padding = 28.0,
+        path = _kCircleIcon;
+
+  const _PlayStationButton.cross({
+    required this.size,
+  })  : color = const Color(0xFF6773a8),
+        padding = 48.0,
+        path = _kCrossIcon;
+
+  const _PlayStationButton.square({
+    required this.size,
+  })  : color = const Color(0xFFc06c9a),
+        padding = 56.0,
+        path = _kSquareIcon;
+
   @override
   Widget build(BuildContext context) {
     final double cSize = size / 3.0;
@@ -409,6 +399,26 @@ class _XboxButton extends StatelessWidget {
   final Color color;
   final String path;
   final double size;
+
+  const _XboxButton.y({
+    required this.size,
+  })  : color = const Color(0xFFceb133),
+        path = _kYIcon;
+
+  const _XboxButton.b({
+    required this.size,
+  })  : color = const Color(0xFFd23727),
+        path = _kBIcon;
+
+  const _XboxButton.a({
+    required this.size,
+  })  : color = const Color(0xFF397957),
+        path = _kAIcon;
+
+  const _XboxButton.x({
+    required this.size,
+  })  : color = const Color(0xFF344e9f),
+        path = _kXIcon;
 
   @override
   Widget build(BuildContext context) {

@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.SettingsList}
 /// A list of [SettingsSection].
+///
+///![Settings](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/settings.png)
 /// {@endtemplate}
 class SettingsList extends StatelessWidget {
   /// {@macro flutter_widgetz.SettingsList}
@@ -48,6 +50,8 @@ class SettingsList extends StatelessWidget {
 
 /// {@template flutter_widgetz.SettingsSection}
 /// A section of [SettingsTile]'s.
+///
+///![Settings](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/settings.png)
 /// {@endtemplate}
 class SettingsSection extends StatelessWidget {
   /// {@macro flutter_widgetz.SettingsSection}
@@ -106,6 +110,8 @@ class SettingsSection extends StatelessWidget {
 
 /// {@template flutter_widgetz.SettingsTile}
 /// A settings tile.
+///
+///![Settings](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/settings.png)
 /// {@endtemplate}
 class SettingsTile extends StatelessWidget {
   /// {@macro flutter_widgetz.SettingsTile}

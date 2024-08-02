@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.TimeField}
 /// Wraps a call to [showTimePicker] in
 /// an [InputDecorator] and [InkWell].
+///
+///![TimeField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/time_field.png)
 /// {@endtemplate}
 class TimeField extends StatefulWidget {
   /// {@macro flutter_widgetz.TimeField}
@@ -10,6 +12,7 @@ class TimeField extends StatefulWidget {
     super.key,
     required this.onChanged,
     this.displayStringForTime = _defaultStringForTime,
+    this.entryMode = TimePickerEntryMode.dial,
     this.errorText,
     this.hasError = false,
     this.labelText,
@@ -22,6 +25,9 @@ class TimeField extends StatefulWidget {
 
   /// The string that is displayed in the input.
   final String Function(TimeOfDay?) displayStringForTime;
+
+  /// Represents the [TimePickerEntryMode].
+  final TimePickerEntryMode entryMode;
 
   /// The text shown when there is an error.
   final String? errorText;
@@ -47,7 +53,7 @@ class TimeField extends StatefulWidget {
 }
 
 class _TimeFieldState extends State<TimeField> {
-  late FocusNode _focusNode;
+  late final FocusNode _focusNode;
   TimeOfDay? _value;
 
   @override
@@ -95,6 +101,7 @@ class _TimeFieldState extends State<TimeField> {
   void _showTimePicker(BuildContext context) {
     showTimePicker(
       context: context,
+      initialEntryMode: widget.entryMode,
       initialTime: _value ?? TimeOfDay.now(),
     ).then(_onChange);
   }

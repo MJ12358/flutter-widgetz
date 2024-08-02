@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.AuthButton}
 /// An auth button with many factory constructors.
+///
+///![AuthButton](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/auth_button.png)
 /// {@endtemplate}
 class AuthButton extends StatelessWidget {
   /// {@macro flutter_widgetz.AuthButton}

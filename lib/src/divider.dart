@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.CustomDivider}
 /// This widget optionally places a [child]
 /// between two dividers.
+///
+///![CustomDivider](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/divider.png)
 /// {@endtemplate}
 class CustomDivider extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomDivider}

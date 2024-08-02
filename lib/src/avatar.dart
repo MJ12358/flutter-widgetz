@@ -4,6 +4,8 @@ part of flutter_widgetz;
 /// Uses [CircleAvatar] while dumping image errors.
 ///
 /// Images are show via `foregroundImage`.
+///
+///![CustomAvatar](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/avatar.png)
 /// {@endtemplate}
 class CustomAvatar extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomAvatar}
@@ -68,11 +70,13 @@ class CustomAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       backgroundColor: _hasImage ? null : color,
-      foregroundImage: imageProvider,
+      foregroundImage: _hasImage ? imageProvider : null,
       onForegroundImageError: _hasImage ? _defaultImageErrorBuilder : null,
       radius: radius,
-      child: Center(
-        child: icon,
+      child: FittedBox(
+        child: Center(
+          child: icon,
+        ),
       ),
     );
   }

@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomListTile}
 /// A [ListTile] with conveniences.
+///
+///![CustomListTile](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/list_view.png)
 /// {@endtemplate}
 class CustomListTile extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomListTile}
@@ -37,9 +39,7 @@ class CustomListTile extends StatelessWidget {
   ///
   /// Dismissible wraps the [ListTile] inside a [Dismissible].
   CustomListTile.dismissible({
-    super.key,
-    // TODO: this should only require ONE key
-    required Object uniqueKey,
+    required super.key,
     required VoidCallback onDismissed,
     Color color = Colors.red,
     AsyncValueGetter<bool?>? confirmDismiss,
@@ -57,7 +57,7 @@ class CustomListTile extends StatelessWidget {
     Widget? trailing,
     String? trailingText,
   }) : _content = Dismissible(
-          key: ValueKey<Object>(uniqueKey),
+          key: key!,
           direction: dismissDirection,
           background: Container(
             alignment: Alignment.centerRight,

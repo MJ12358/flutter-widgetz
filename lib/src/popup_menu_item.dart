@@ -4,6 +4,8 @@ part of flutter_widgetz;
 /// A [PopupMenuItem] with built in padding.
 /// This uses the default horizontal padding of 16,
 /// with a additional vertical of 8.
+///
+///![CustomPopupMenuItem](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/popup_menu_item.png)
 /// {@endtemplate}
 class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
   /// {@macro flutter_widgetz.CustomPopupMenuItem}

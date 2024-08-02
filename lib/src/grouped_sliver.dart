@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.GroupedSliverList}
 /// A groupable list of widgets, similar to [SliverList],
 /// except that the items can be sectioned into groups.
+///
+///![GroupedSliverList](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/grouped_list.png)
 /// {@endtemplate}
 class GroupedSliverList<T, E> extends StatelessWidget {
   /// {@macro flutter_widgetz.GroupedSliverList}

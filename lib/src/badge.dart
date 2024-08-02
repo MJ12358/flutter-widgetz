@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomBadge}
 /// Create a Badge that stacks [label] on top of [child].
+///
+///![CustomBadge](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/badge.png)
 /// {@endtemplate}
 class CustomBadge extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomBadge}

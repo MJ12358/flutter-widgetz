@@ -2,8 +2,13 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomListView}
 /// A custom list view.
+///
+///![CustomListView](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/list_view.png)
 /// {@endtemplate}
 class CustomListView extends StatelessWidget {
+  /// The content will be clipped (or not) according to this option.
+  final Clip clipBehavior;
+
   /// The total count of children.
   final int itemCount;
 
@@ -31,6 +36,7 @@ class CustomListView extends StatelessWidget {
   CustomListView.static({
     super.key,
     required List<Widget> children,
+    this.clipBehavior = Clip.none,
     this.padding,
     Widget? separator,
   })  : itemCount = children.length,
@@ -46,6 +52,7 @@ class CustomListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+      clipBehavior: clipBehavior,
       itemCount: itemCount,
       itemBuilder: itemBuilder,
       padding: padding,

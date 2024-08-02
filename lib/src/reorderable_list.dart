@@ -3,9 +3,12 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.CustomReorderableListView}
 /// Wraps [ReorderableListView] to allow a separator and fix
 /// indexing issue in the original Flutter widget.
+///
 /// https://github.com/flutter/flutter/issues/24786
 ///
 /// Inspired by: https://github.com/flutter/flutter/issues/76706
+///
+///![CustomReorderableListView](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/list_view.png)
 /// {@endtemplate}
 class CustomReorderableListView extends ReorderableListView {
   /// {@macro flutter_widgetz.CustomReorderableListView}

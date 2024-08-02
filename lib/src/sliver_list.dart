@@ -3,6 +3,8 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.CustomSliverList}
 /// Wraps [SliverList] in order to present it in a
 /// way that is similar to [ListView].
+///
+///![CustomSliverList](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/list_view.png)
 /// {@endtemplate}
 class CustomSliverList extends StatelessWidget {
   /// {@macro flutter_widgetz.CustomSliverList}

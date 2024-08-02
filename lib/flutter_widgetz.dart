@@ -31,6 +31,7 @@ part 'src/countdown.dart';
 part 'src/counter_field.dart';
 part 'src/date_field.dart';
 part 'src/date_range_field.dart';
+part 'src/datetime_field.dart';
 part 'src/dialog.dart';
 part 'src/directional_pad.dart';
 part 'src/divider.dart';

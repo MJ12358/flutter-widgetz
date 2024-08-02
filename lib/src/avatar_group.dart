@@ -4,6 +4,8 @@ part of flutter_widgetz;
 /// An avatar group is an element that communicates
 /// to the user that there is more than 1 person
 /// associated to an item.
+///
+///![AvatarGroup](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/avatar_group.png)
 /// {@endtemplate}
 class AvatarGroup extends StatelessWidget {
   /// {@macro flutter_widgetz.AvatarGroup}
@@ -50,6 +52,25 @@ class AvatarGroup extends StatelessWidget {
         ),
         child2 = CustomAvatar.asset(
           name,
+          icon: icon,
+          radius: _computeRadius(radius),
+        );
+
+  /// {@macro flutter_widgetz.AvatarGroup}
+  ///
+  /// Memory uses [Image.memory].
+  AvatarGroup.memory(
+    Uint8List? bytes, {
+    super.key,
+    this.icon = _defaultIcon,
+    this.radius = _defaultRadius,
+  })  : child1 = CustomAvatar.memory(
+          bytes,
+          icon: icon,
+          radius: radius,
+        ),
+        child2 = CustomAvatar.memory(
+          bytes,
           icon: icon,
           radius: _computeRadius(radius),
         );

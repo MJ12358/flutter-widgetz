@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.RadioGroup}
 /// Wraps a list of [RadioListTile] in an [InputDecorator].
+///
+///![RadioGroup](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/radio_group.png)
 /// {@endtemplate}
 class RadioGroup<T extends Object> extends StatefulWidget {
   /// {@macro flutter_widgetz.RadioGroup}
@@ -50,7 +52,7 @@ class RadioGroup<T extends Object> extends StatefulWidget {
 }
 
 class _RadioGroupState<T extends Object> extends State<RadioGroup<T>> {
-  late FocusNode _focusNode;
+  late final FocusNode _focusNode;
   T? _value;
 
   @override

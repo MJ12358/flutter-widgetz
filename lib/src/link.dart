@@ -2,6 +2,8 @@ part of flutter_widgetz;
 
 /// {@template flutter_widgetz.Link}
 /// A [Text] widget wrapped in an [InkWell].
+///
+///![Link](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/link.png)
 /// {@endtemplate}
 class Link extends StatelessWidget {
   /// {@macro flutter_widgetz.Link}

@@ -4,6 +4,8 @@ part of flutter_widgetz;
 /// A carousel of widgets.
 ///
 /// https://stackoverflow.com/questions/49161719/is-there-a-way-to-have-an-infinite-loop-using-pageview-in-flutter
+///
+///![Carousel](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/carousel.png)
 /// {@endtemplate}
 class Carousel extends StatefulWidget {
   /// {@macro flutter_widgetz.Carousel}
@@ -103,7 +105,7 @@ class Carousel extends StatefulWidget {
 }
 
 class _CarouselState extends State<Carousel> {
-  late PageController _controller;
+  late final PageController _controller;
   late int _currentPage;
   late bool _isReverse;
   Timer? _timer;

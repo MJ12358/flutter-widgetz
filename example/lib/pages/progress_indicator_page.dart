@@ -16,7 +16,7 @@ class ProgressIndicatorPage extends StatelessWidget {
           CustomProgressIndicator.linear(),
           const CustomDivider(child: Text('Refresh')),
           CustomProgressIndicator.refresh(),
-          const CustomDivider(child: Text('Percent Circular')),
+          const CustomDivider(child: Text('Circular')),
           PercentIndicator.circular(
             value: 50,
           ),
@@ -26,7 +26,7 @@ class ProgressIndicatorPage extends StatelessWidget {
             height: 100,
             value: 75,
           ),
-          const CustomDivider(child: Text('Percent Linear')),
+          const CustomDivider(child: Text('Linear')),
           PercentIndicator.linear(
             value: 50,
           ),
