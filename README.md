@@ -68,7 +68,7 @@ The [generated documentation](https://pub.dev/documentation/flutter_widgetz/late
 
 ### Counter Field
 
-![CounterField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/counter_input.png)
+![CounterField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/counter_field.png)
 
 ### Date Field
 
