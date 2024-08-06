@@ -41,6 +41,7 @@ import 'package:flutter_widgetz_example/pages/shimmer_page.dart';
 import 'package:flutter_widgetz_example/pages/slider_page.dart';
 import 'package:flutter_widgetz_example/pages/sliver_grid_page.dart';
 import 'package:flutter_widgetz_example/pages/sliver_list_page.dart';
+import 'package:flutter_widgetz_example/pages/staggered_display_page.dart';
 import 'package:flutter_widgetz_example/pages/text_field_page.dart';
 import 'package:flutter_widgetz_example/pages/time_field_page.dart';
 import 'package:flutter_widgetz_example/pages/welcome_page.dart';
@@ -238,6 +239,7 @@ const List<Page> _pages = <Page>[
   Page(Icons.phonelink_setup_sharp, PopupMenuPage(), 'Popup Menu'),
   Page(Icons.radio, RadioPage(), 'Radios'),
   Page(Icons.settings, SettingsPage(), 'Settings'),
+  Page(Icons.storage, StaggeredDisplayPage(), 'Staggered Display'),
   Page(Icons.star, RatingPage(), 'Ratings'),
   Page(Icons.scale, ScaffoldPage(), 'Scaffold'),
   Page(Icons.search, SearchBarPage(), 'Search Bar'),
