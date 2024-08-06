@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 10.1.0
+
+- Add `restorationId` to `CustomTextField`.
+
 ## 10.0.0
 
 - Introduce `DateTimeField`.

@@ -26,6 +26,7 @@ class CustomTextField extends StatelessWidget {
     this.onChanged,
     this.onEditingComplete,
     this.prefixIcon,
+    this.restorationId,
     this.scrollPadding = const EdgeInsets.all(20.0),
     this.style,
     this.suffixIcon,
@@ -88,6 +89,9 @@ class CustomTextField extends StatelessWidget {
   /// An icon that appers before the editable part of the text field.
   final Widget? prefixIcon;
 
+  /// Restoration ID to save and restore the state of the form field.
+  final String? restorationId;
+
   /// Configures padding when the input scrolls into view.
   final EdgeInsets scrollPadding;
 
@@ -117,6 +121,7 @@ class CustomTextField extends StatelessWidget {
       maxLines: maxLines,
       minLines: minLines,
       obscureText: obscureText,
+      restorationId: restorationId,
       scrollPadding: scrollPadding,
       style: style,
       textCapitalization: textCapitalization,
@@ -147,8 +152,7 @@ class CustomTextField extends StatelessWidget {
           builder: (_) {
             return CustomDialog(
               title: labelText != null ? Text(labelText!) : const SizedBox(),
-              // TODO: do you want more padding here???
-              contentPadding: const EdgeInsets.all(8.0),
+              contentPadding: const EdgeInsets.all(16.0),
               child: DefaultTextStyle.merge(
                 textAlign: TextAlign.center,
                 child: help!,
