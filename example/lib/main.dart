@@ -81,6 +81,7 @@ class MainState extends State<Main> {
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: _showMaterialGrid,
       title: 'Flutter Widgetz Example',
+      restorationScopeId: 'root',
       home: CustomScaffold(
         // TODO: this has an odd effect when using an ExpandableFab
         dynamicFab: true,
