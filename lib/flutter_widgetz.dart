@@ -50,6 +50,7 @@ part 'src/grouped_list.dart';
 part 'src/grouped_sliver.dart';
 part 'src/image.dart';
 part 'src/input_decorator.dart';
+part 'src/keyboard_visibility.dart';
 part 'src/layout_builder.dart';
 part 'src/link.dart';
 part 'src/list_tile.dart';

@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 10.2.0
+
+- Introduce `KeyboardVisibility` widget.
+- Add `restorationId` to `CustomScaffold`.
+
 ## 10.1.0
 
 - Add `restorationId` to `CustomTextField`.

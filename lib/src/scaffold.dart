@@ -25,6 +25,7 @@ class CustomScaffold extends StatefulWidget {
     this.onWillPop,
     this.padding = EdgeInsets.zero,
     this.resizeToAvoidBottomInset = true,
+    this.restorationId,
     this.right = true,
     this.semanticLabel,
     this.top = false,
@@ -75,6 +76,9 @@ class CustomScaffold extends StatefulWidget {
   /// If true the [body] and floating widgets avoid the onscreen keyboard.
   final bool resizeToAvoidBottomInset;
 
+  /// Save and restore the state of the [Scaffold].
+  final String? restorationId;
+
   /// Whether to avoid system intrusions on the right.
   final bool right;
 
@@ -97,7 +101,6 @@ class _CustomScaffoldState extends State<CustomScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: possibly add a sticky bottom sheet in here...
     return Semantics(
       label: widget.semanticLabel,
       child: Scaffold(
@@ -109,6 +112,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
         floatingActionButton: _showFab ? widget.floatingActionButton : null,
         floatingActionButtonLocation: widget.floatingActionButtonLocation,
         resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
+        restorationId: widget.restorationId,
         body: NotificationListener<UserScrollNotification>(
           onNotification: _onScrollNotification,
           child: Builder(
