@@ -20,6 +20,7 @@ class DateTimeField extends StatefulWidget {
     this.labelText,
     this.lastDate,
     this.prefixIcon = const Icon(Icons.calendar_month),
+    this.skipDateEntry = false,
     this.timeEntryMode = TimePickerEntryMode.dial,
     this.value,
   });
@@ -53,6 +54,9 @@ class DateTimeField extends StatefulWidget {
 
   /// An icon that appears before the editable part of the text field.
   final Widget prefixIcon;
+
+  /// Determines whether to skip the date portion of this DateTime.
+  final bool skipDateEntry;
 
   /// Represents the [TimePickerEntryMode].
   final TimePickerEntryMode timeEntryMode;
@@ -122,16 +126,19 @@ class _DateTimeFieldState extends State<DateTimeField> {
   }
 
   Future<void> _showPickers(BuildContext context) async {
-    DateTime? dt = await showDatePicker(
-      context: context,
-      initialDate: _value ?? _defaultInitialDate,
-      firstDate: widget.firstDate ?? _defaultFirstDate,
-      lastDate: widget.lastDate ?? _defaultLastDate,
-      initialDatePickerMode: widget.datePickerMode,
-      initialEntryMode: widget.dateEntryMode,
-    );
-    if (dt == null) {
-      return;
+    DateTime? dt = DateTime.now();
+    if (!widget.skipDateEntry) {
+      dt = await showDatePicker(
+        context: context,
+        initialDate: _value ?? _defaultInitialDate,
+        firstDate: widget.firstDate ?? _defaultFirstDate,
+        lastDate: widget.lastDate ?? _defaultLastDate,
+        initialDatePickerMode: widget.datePickerMode,
+        initialEntryMode: widget.dateEntryMode,
+      );
+      if (dt == null) {
+        return;
+      }
     }
     // ignore: use_build_context_synchronously
     final TimeOfDay? tod = await showTimePicker(
