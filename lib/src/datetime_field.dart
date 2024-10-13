@@ -126,7 +126,7 @@ class _DateTimeFieldState extends State<DateTimeField> {
   }
 
   Future<void> _showPickers(BuildContext context) async {
-    DateTime? dt = DateTime.now();
+    DateTime? dt = _defaultInitialDate;
     if (!widget.skipDateEntry) {
       dt = await showDatePicker(
         context: context,

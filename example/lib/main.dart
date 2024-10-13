@@ -42,6 +42,7 @@ import 'package:flutter_widgetz_example/pages/slider_page.dart';
 import 'package:flutter_widgetz_example/pages/sliver_grid_page.dart';
 import 'package:flutter_widgetz_example/pages/sliver_list_page.dart';
 import 'package:flutter_widgetz_example/pages/text_field_page.dart';
+import 'package:flutter_widgetz_example/pages/text_page.dart';
 import 'package:flutter_widgetz_example/pages/time_field_page.dart';
 import 'package:flutter_widgetz_example/pages/welcome_page.dart';
 
@@ -246,6 +247,7 @@ const List<Page> _pages = <Page>[
   Page(Icons.tune, SliderPage(), 'Sliders'),
   Page(Icons.grid_4x4, SliverGridPage(), 'Sliver Grid'),
   Page(Icons.list, SliverListPage(), 'Sliver List'),
+  Page(Icons.text_format, TextPage(), 'Text'),
   Page(Icons.text_fields, TextFieldPage(), 'Text Field'),
   Page(Icons.timelapse, TimeFieldPage(), 'Time Field'),
   Page(Icons.web_outlined, WelcomePage(), 'Welcome'),

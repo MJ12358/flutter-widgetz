@@ -82,6 +82,7 @@ part 'src/sliver_list.dart';
 part 'src/spaced_column.dart';
 part 'src/spaced_row.dart';
 part 'src/tab_bar.dart';
+part 'src/text.dart';
 part 'src/text_field.dart';
 part 'src/time_field.dart';
 part 'src/welcome.dart';
