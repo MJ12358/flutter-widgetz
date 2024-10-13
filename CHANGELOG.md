@@ -1,5 +1,13 @@
 # Flutter Widgetz
 
+## 10.3.0
+
+- Introduce `CustomText` widget.
+
+## 10.2.1
+
+- Add `skipDateEntry` to `DateTimeField`.
+
 ## 10.2.0
 
 - Introduce `KeyboardVisibility` widget.
