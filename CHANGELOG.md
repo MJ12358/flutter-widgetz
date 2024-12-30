@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 10.3.1
+
+- Add `labelText` to `CustomText` widget.
+
 ## 10.3.0
 
 - Introduce `CustomText` widget.
