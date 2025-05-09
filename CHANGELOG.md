@@ -2,7 +2,8 @@
 
 ## 10.4.0
 
-- Add `CustomDialog.alert` factory constructor.
+- Add `CustomDialog.alert` constructor.
+- Add `SettingsTile.orientation` constructor.
 
 ## 10.3.1
 
