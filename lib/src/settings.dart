@@ -168,6 +168,23 @@ class SettingsTile extends StatelessWidget {
     );
   }
 
+  static void _setOrientation(BuildContext context) {
+    final Orientation orientation = MediaQuery.of(context).orientation;
+    final DeviceOrientation deviceOrientation =
+        orientation == Orientation.portrait
+            ? DeviceOrientation.portraitUp
+            : DeviceOrientation.landscapeRight;
+    SystemChrome.setPreferredOrientations(
+      <DeviceOrientation>[deviceOrientation],
+    );
+  }
+
+  static void _unsetOrientation() {
+    SystemChrome.setPreferredOrientations(
+      DeviceOrientation.values,
+    );
+  }
+
   /// {@macro flutter_widgetz.SettingsTile}
   ///
   /// DarkMode uses a [Switch] as the trailing widget
@@ -215,6 +232,36 @@ class SettingsTile extends StatelessWidget {
       _setImmersiveMode();
     } else {
       _unsetImmersiveMode();
+    }
+  }
+
+  /// {@macro flutter_widgetz.SettingsTile}
+  ///
+  /// Orientation uses a [Switch] as the trailing widget
+  /// and locks the screen to the current orientation.
+  SettingsTile.orientation({
+    super.key,
+    required BuildContext context,
+    required ValueChanged<bool> onChanged,
+    required bool value,
+    this.enabled = _defaultEnabled,
+    Widget? leading,
+    this.subtitle,
+    this.title = const Text('Lock Orientation'),
+  })  : onTap = null,
+        leading = leading ?? const Icon(Icons.screen_rotation),
+        trailing = Switch(
+          value: value,
+          onChanged: (bool value) {
+            onChanged.call(value);
+            value ? _setOrientation(context) : _unsetOrientation();
+          },
+        ) {
+    // set default mode based on the input value
+    if (value) {
+      _setOrientation(context);
+    } else {
+      _unsetOrientation();
     }
   }
 

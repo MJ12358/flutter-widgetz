@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 10.4.0
+
+- Add `CustomDialog.alert` factory constructor.
+
 ## 10.3.1
 
 - Add `labelText` to `CustomText` widget.

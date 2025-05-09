@@ -113,6 +113,35 @@ class CustomDialog<T> extends StatelessWidget {
           children: children,
         );
 
+  /// {@macro flutter_widgetz.CustomDialog}
+  ///
+  /// Alert mimics the default alert dialog.
+  CustomDialog.alert({
+    super.key,
+    required this.child,
+    required BuildContext context,
+    String acceptText = 'Accept',
+    String cancelText = 'Cancel',
+    EdgeInsets? contentPadding,
+    this.title,
+    this.titlePadding = _defaultTitlePadding,
+  })  : actions = <Widget>[
+          TextButton(
+            onPressed: Navigator.of(context).pop,
+            child: Text(cancelText),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(acceptText),
+          ),
+        ],
+        contentPadding = contentPadding ??
+            const EdgeInsets.only(
+              top: 20.0,
+              left: 20.0,
+              right: 20.0,
+            );
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
