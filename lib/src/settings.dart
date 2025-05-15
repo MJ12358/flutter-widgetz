@@ -223,8 +223,8 @@ class SettingsTile extends StatelessWidget {
         trailing = Switch(
           value: value,
           onChanged: (bool value) {
-            onChanged.call(value);
             value ? _setImmersiveMode() : _unsetImmersiveMode();
+            onChanged.call(value);
           },
         ) {
     // set default mode based on the input value
@@ -253,8 +253,8 @@ class SettingsTile extends StatelessWidget {
         trailing = Switch(
           value: value,
           onChanged: (bool value) {
-            onChanged.call(value);
             value ? _setOrientation(context) : _unsetOrientation();
+            onChanged.call(value);
           },
         ) {
     // set default mode based on the input value
@@ -313,6 +313,7 @@ class SettingsTile extends StatelessWidget {
     super.key,
     required BuildContext context,
     this.enabled = _defaultEnabled,
+    ValueChanged<double>? onChanged,
     Widget? leading,
     this.subtitle,
     this.title = const Text('Time Dilation'),
@@ -329,7 +330,10 @@ class SettingsTile extends StatelessWidget {
                     max: 10,
                     divisions: 9,
                     value: value ?? timeDilation,
-                    onChanged: (num value) => timeDilation = value.toDouble(),
+                    onChanged: (num value) {
+                      timeDilation = value.toDouble();
+                      onChanged?.call(timeDilation);
+                    },
                   ),
                 ],
               ),

@@ -45,10 +45,10 @@ packages:
     dependency: "direct dev"
     description:
       name: dart_lintz
-      sha256: eb2cd45e0c3eeeda29cd42e9d8f84d6799483ef266987682c9a5e04ccd8fb674
+      sha256: "4aa35db7465aeb4d6be88bbd6f9c52f5375cc01338d2e77a5f72b2bb7add79bb"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.1"
+    version: "1.2.3"
   fake_async:
     dependency: transitive
     description:
@@ -89,7 +89,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "9.7.1"
+    version: "10.4.0"
   matcher:
     dependency: transitive
     description:

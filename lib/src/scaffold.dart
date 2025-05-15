@@ -117,8 +117,6 @@ class _CustomScaffoldState extends State<CustomScaffold> {
           onNotification: _onScrollNotification,
           child: Builder(
             builder: (BuildContext context) {
-              // TODO: 'WillPopScope' is depreciated
-              // but requires Flutter >= 3.16
               return WillPopScope(
                 onWillPop: () => _onWillPop(context),
                 child: SafeArea(
@@ -150,16 +148,17 @@ class _CustomScaffoldState extends State<CustomScaffold> {
     }
     final ScrollDirection direction = notification.direction;
     final Axis axis = axisDirectionToAxis(notification.metrics.axisDirection);
-    if (axis == Axis.vertical) {
-      if (direction == ScrollDirection.reverse) {
-        setState(() {
-          _showFab = false;
-        });
-      } else if (direction == ScrollDirection.forward) {
-        setState(() {
-          _showFab = true;
-        });
-      }
+    if (axis != Axis.vertical) {
+      return true;
+    }
+    if (direction == ScrollDirection.reverse) {
+      setState(() {
+        _showFab = false;
+      });
+    } else if (direction == ScrollDirection.forward) {
+      setState(() {
+        _showFab = true;
+      });
     }
     return true;
   }

@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## 10.4.1
+
+- Add `restorationId` to `CustomAutocomplete`.
+- Add `onChanged` to `SettingsTile.timeDilation`.
+
 ## 10.4.0
 
 - Add `CustomDialog.alert` constructor.
