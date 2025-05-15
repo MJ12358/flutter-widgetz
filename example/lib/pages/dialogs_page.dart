@@ -37,8 +37,12 @@ class DialogsPage extends StatelessWidget {
             onPressed: () => _showScrollableDialog(context),
           ),
           CustomElevatedButton(
-            child: const Text('Custom Alert'),
+            child: const Text('Custom Alert Dialog'),
             onPressed: () => _showCustomAlertDialog(context),
+          ),
+          CustomElevatedButton(
+            child: const Text('Custom Simple Dialog'),
+            onPressed: () => _showCustomSimpleDialog(context),
           ),
         ],
       ),
@@ -189,6 +193,18 @@ class DialogsPage extends StatelessWidget {
           context: context,
           title: const Text('Custom Alert'),
           child: const Text('This is a custom alert dialog.'),
+        );
+      },
+    );
+  }
+
+  void _showCustomSimpleDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) {
+        return CustomDialog.simple(
+          title: const Text('Custom Simple'),
+          child: const Text('This is a custom simple dialog.'),
         );
       },
     );

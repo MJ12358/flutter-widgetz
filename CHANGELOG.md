@@ -1,5 +1,11 @@
 # Flutter Widgetz
 
+## 10.4.2
+
+- Add `CustomDialog.simple`.
+- Optimize `SettingsTile` default values.
+- Utilize `CustomDialog.simple` within `CustomTextField.help`.
+
 ## 10.4.1
 
 - Add `restorationId` to `CustomAutocomplete`.

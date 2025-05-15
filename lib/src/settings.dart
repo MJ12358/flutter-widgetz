@@ -245,11 +245,10 @@ class SettingsTile extends StatelessWidget {
     required ValueChanged<bool> onChanged,
     required bool value,
     this.enabled = _defaultEnabled,
-    Widget? leading,
+    this.leading = const Icon(Icons.screen_rotation),
     this.subtitle,
     this.title = const Text('Lock Orientation'),
   })  : onTap = null,
-        leading = leading ?? const Icon(Icons.screen_rotation),
         trailing = Switch(
           value: value,
           onChanged: (bool value) {
@@ -276,18 +275,17 @@ class SettingsTile extends StatelessWidget {
     Widget? applicationIcon,
     String? applicationLegalese,
     this.enabled = _defaultEnabled,
-    Widget? leading,
+    this.leading = const Icon(Icons.policy),
     this.subtitle,
     this.title = const Text('Licenses'),
     this.trailing,
-  })  : onTap = (() => showLicensePage(
+  }) : onTap = (() => showLicensePage(
               context: context,
               applicationName: applicationName,
               applicationVersion: applicationVersion,
               applicationIcon: applicationIcon,
               applicationLegalese: applicationLegalese,
-            )),
-        leading = leading ?? const Icon(Icons.policy);
+            ));
 
   /// {@macro flutter_widgetz.SettingsTile}
   ///
@@ -314,12 +312,13 @@ class SettingsTile extends StatelessWidget {
     required BuildContext context,
     this.enabled = _defaultEnabled,
     ValueChanged<double>? onChanged,
-    Widget? leading,
+    this.leading = const Icon(Icons.timelapse),
     this.subtitle,
     this.title = const Text('Time Dilation'),
-    this.trailing,
+    Widget? trailing,
     double? value,
-  })  : leading = leading ?? const Icon(Icons.timelapse),
+  })  : trailing = trailing ??
+            Text(value != null ? value.toString() : timeDilation.toString()),
         onTap = (() => showDialog(
               context: context,
               builder: (_) => SimpleDialog(
