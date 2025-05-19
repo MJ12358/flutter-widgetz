@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## 10.4.3
+
+- Fix popup menu padding issues introduced in a Flutter update.
+
 ## 10.4.2
 
 - Add `CustomDialog.simple`.

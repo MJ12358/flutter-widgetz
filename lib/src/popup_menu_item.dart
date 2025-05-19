@@ -31,7 +31,6 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
     super.onTap,
     super.value,
   }) : super(
-          padding: EdgeInsets.zero,
           child: ListTile(
             leading: AnimatedOpacity(
               opacity: checked ? 1.0 : 0.15,
@@ -50,7 +49,6 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
     super.onTap,
     super.value,
   }) : super(
-          padding: EdgeInsets.zero,
           child: ListTile(
             leading: Icon(icon),
             title: child,
