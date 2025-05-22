@@ -56,7 +56,7 @@ class ColorField extends StatefulWidget {
   static const Widget _defaultIcon = Icon(Icons.color_lens);
   static const BoxShape _defaultPickerShape = BoxShape.circle;
   static String _defaultStringForColor(Color? color) =>
-      color != null ? Color(color.value).toString() : '';
+      color != null ? Color(color.toARGB32()).toString() : '';
 
   static Future<Color?> _showBottomSheet({
     required BuildContext context,

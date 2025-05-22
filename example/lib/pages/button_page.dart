@@ -53,7 +53,7 @@ class _ButtonPageState extends State<ButtonPage> {
           ),
           CustomElevatedButton(
             onPressed: () => print('button five pressed'),
-            color: Theme.of(context).colorScheme.onBackground,
+            color: Theme.of(context).colorScheme.onSurface,
             child: const Text('Button Five'),
           ),
           const CustomDivider(

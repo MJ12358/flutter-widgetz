@@ -1,8 +1,13 @@
 # Flutter Widgetz
 
-## 10.4.3
+## 11.0.0
 
-- Fix popup menu padding issues introduced in a Flutter update.
+- Update Flutter to latest version.
+- Fix popup menu padding issues.
+- Utilize new `ColorScheme` getters.
+- Replace `Color`.`value` with `toARGB32`.
+- Replace `withOpacity` with `withValues`.
+- Replace `MaterialStateProperty` with `WidgetStateProperty`.
 
 ## 10.4.2
 
