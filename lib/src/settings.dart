@@ -168,6 +168,23 @@ class SettingsTile extends StatelessWidget {
     );
   }
 
+  static void _setOrientation(BuildContext context) {
+    final Orientation orientation = MediaQuery.of(context).orientation;
+    final DeviceOrientation deviceOrientation =
+        orientation == Orientation.portrait
+            ? DeviceOrientation.portraitUp
+            : DeviceOrientation.landscapeRight;
+    SystemChrome.setPreferredOrientations(
+      <DeviceOrientation>[deviceOrientation],
+    );
+  }
+
+  static void _unsetOrientation() {
+    SystemChrome.setPreferredOrientations(
+      DeviceOrientation.values,
+    );
+  }
+
   /// {@macro flutter_widgetz.SettingsTile}
   ///
   /// DarkMode uses a [Switch] as the trailing widget
@@ -206,8 +223,8 @@ class SettingsTile extends StatelessWidget {
         trailing = Switch(
           value: value,
           onChanged: (bool value) {
-            onChanged.call(value);
             value ? _setImmersiveMode() : _unsetImmersiveMode();
+            onChanged.call(value);
           },
         ) {
     // set default mode based on the input value
@@ -215,6 +232,35 @@ class SettingsTile extends StatelessWidget {
       _setImmersiveMode();
     } else {
       _unsetImmersiveMode();
+    }
+  }
+
+  /// {@macro flutter_widgetz.SettingsTile}
+  ///
+  /// Orientation uses a [Switch] as the trailing widget
+  /// and locks the screen to the current orientation.
+  SettingsTile.orientation({
+    super.key,
+    required BuildContext context,
+    required ValueChanged<bool> onChanged,
+    required bool value,
+    this.enabled = _defaultEnabled,
+    this.leading = const Icon(Icons.screen_rotation),
+    this.subtitle,
+    this.title = const Text('Lock Orientation'),
+  })  : onTap = null,
+        trailing = Switch(
+          value: value,
+          onChanged: (bool value) {
+            value ? _setOrientation(context) : _unsetOrientation();
+            onChanged.call(value);
+          },
+        ) {
+    // set default mode based on the input value
+    if (value) {
+      _setOrientation(context);
+    } else {
+      _unsetOrientation();
     }
   }
 
@@ -229,18 +275,17 @@ class SettingsTile extends StatelessWidget {
     Widget? applicationIcon,
     String? applicationLegalese,
     this.enabled = _defaultEnabled,
-    Widget? leading,
+    this.leading = const Icon(Icons.policy),
     this.subtitle,
     this.title = const Text('Licenses'),
     this.trailing,
-  })  : onTap = (() => showLicensePage(
+  }) : onTap = (() => showLicensePage(
               context: context,
               applicationName: applicationName,
               applicationVersion: applicationVersion,
               applicationIcon: applicationIcon,
               applicationLegalese: applicationLegalese,
-            )),
-        leading = leading ?? const Icon(Icons.policy);
+            ));
 
   /// {@macro flutter_widgetz.SettingsTile}
   ///
@@ -266,12 +311,14 @@ class SettingsTile extends StatelessWidget {
     super.key,
     required BuildContext context,
     this.enabled = _defaultEnabled,
-    Widget? leading,
+    ValueChanged<double>? onChanged,
+    this.leading = const Icon(Icons.timelapse),
     this.subtitle,
     this.title = const Text('Time Dilation'),
-    this.trailing,
+    Widget? trailing,
     double? value,
-  })  : leading = leading ?? const Icon(Icons.timelapse),
+  })  : trailing = trailing ??
+            Text(value != null ? value.toString() : timeDilation.toString()),
         onTap = (() => showDialog(
               context: context,
               builder: (_) => SimpleDialog(
@@ -282,7 +329,10 @@ class SettingsTile extends StatelessWidget {
                     max: 10,
                     divisions: 9,
                     value: value ?? timeDilation,
-                    onChanged: (num value) => timeDilation = value.toDouble(),
+                    onChanged: (num value) {
+                      timeDilation = value.toDouble();
+                      onChanged?.call(timeDilation);
+                    },
                   ),
                 ],
               ),

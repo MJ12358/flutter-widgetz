@@ -1,5 +1,34 @@
 # Flutter Widgetz
 
+## 11.0.0
+
+- Update Flutter to latest version.
+- Fix popup menu padding issues.
+- Utilize new `ColorScheme` getters.
+- Replace `Color`.`value` with `toARGB32`.
+- Replace `withOpacity` with `withValues`.
+- Replace `MaterialStateProperty` with `WidgetStateProperty`.
+
+## 10.4.2
+
+- Add `CustomDialog.simple`.
+- Optimize `SettingsTile` default values.
+- Utilize `CustomDialog.simple` within `CustomTextField.help`.
+
+## 10.4.1
+
+- Add `restorationId` to `CustomAutocomplete`.
+- Add `onChanged` to `SettingsTile.timeDilation`.
+
+## 10.4.0
+
+- Add `CustomDialog.alert` constructor.
+- Add `SettingsTile.orientation` constructor.
+
+## 10.3.1
+
+- Add `labelText` to `CustomText` widget.
+
 ## 10.3.0
 
 - Introduce `CustomText` widget.

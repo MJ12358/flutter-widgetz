@@ -36,6 +36,14 @@ class DialogsPage extends StatelessWidget {
             child: const Text('Scrollable'),
             onPressed: () => _showScrollableDialog(context),
           ),
+          CustomElevatedButton(
+            child: const Text('Custom Alert Dialog'),
+            onPressed: () => _showCustomAlertDialog(context),
+          ),
+          CustomElevatedButton(
+            child: const Text('Custom Simple Dialog'),
+            onPressed: () => _showCustomSimpleDialog(context),
+          ),
         ],
       ),
     );
@@ -165,16 +173,6 @@ class DialogsPage extends StatelessWidget {
       builder: (_) {
         return CustomDialog.list(
           title: const Text('Scrollable Dialog'),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Cancel'),
-            ),
-            TextButton(
-              onPressed: () {},
-              child: const Text('Accept'),
-            ),
-          ],
           children: <Widget>[
             for (int i = 0; i < 25; i++)
               CustomSimpleDialogOption.icon(
@@ -182,6 +180,31 @@ class DialogsPage extends StatelessWidget {
                 child: Text('Icon $i'),
               ),
           ],
+        );
+      },
+    );
+  }
+
+  void _showCustomAlertDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) {
+        return CustomDialog.alert(
+          context: context,
+          title: const Text('Custom Alert'),
+          child: const Text('This is a custom alert dialog.'),
+        );
+      },
+    );
+  }
+
+  void _showCustomSimpleDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) {
+        return CustomDialog.simple(
+          title: const Text('Custom Simple'),
+          child: const Text('This is a custom simple dialog.'),
         );
       },
     );

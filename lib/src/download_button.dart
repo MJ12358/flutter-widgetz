@@ -161,7 +161,7 @@ class _DownloadButtonShape extends StatelessWidget {
     if (isInProgress) {
       shape = ShapeDecoration(
         shape: const CircleBorder(),
-        color: Colors.white.withOpacity(0.0),
+        color: Colors.white.withValues(alpha: 0.0),
       );
     } else {
       shape = ShapeDecoration(
@@ -219,8 +219,9 @@ class _ProgressIndicator extends StatelessWidget {
         duration: const Duration(milliseconds: 200),
         builder: (_, double progress, __) {
           return CircularProgressIndicator(
-            backgroundColor:
-                isDownloading ? primaryColor : Colors.white.withOpacity(0),
+            backgroundColor: isDownloading
+                ? primaryColor
+                : Colors.white.withValues(alpha: 0.0),
             valueColor: AlwaysStoppedAnimation<Color>(
               isFetching ? primaryColor : secondaryColor,
             ),

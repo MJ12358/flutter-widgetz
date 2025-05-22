@@ -49,10 +49,10 @@ class CustomElevatedButton extends StatelessWidget {
     // when elevated button style is set by ThemeData, copyWith
     if (style != null) {
       return style.copyWith(
-        backgroundColor: MaterialStateProperty.resolveWith((_) {
+        backgroundColor: WidgetStateProperty.resolveWith((_) {
           return color ?? primary;
         }),
-        foregroundColor: MaterialStateProperty.resolveWith((_) {
+        foregroundColor: WidgetStateProperty.resolveWith((_) {
           return color?.blackOrWhite ?? primary.blackOrWhite;
         }),
       );

@@ -160,7 +160,7 @@ class _OpenedFab extends StatelessWidget {
           clipBehavior: Clip.antiAlias,
           // this is to account for a dark theme
           color: brightness == Brightness.dark
-              ? theme.colorScheme.onBackground
+              ? theme.colorScheme.onSurface
               : null,
           elevation: 4.0,
           child: InkWell(

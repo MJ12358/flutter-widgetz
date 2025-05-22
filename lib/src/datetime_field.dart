@@ -140,6 +140,9 @@ class _DateTimeFieldState extends State<DateTimeField> {
         return;
       }
     }
+    if (!context.mounted) {
+      return;
+    }
     // ignore: use_build_context_synchronously
     final TimeOfDay? tod = await showTimePicker(
       context: context,

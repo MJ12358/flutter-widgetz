@@ -33,8 +33,37 @@ class CustomDialog<T> extends StatelessWidget {
   /// The padding of the title.
   final EdgeInsets titlePadding;
 
-  static const EdgeInsets _defaultTitlePadding = EdgeInsets.all(20.0);
+  static const double _defaultPadding = 20.0;
+  static const EdgeInsets _defaultTitlePadding =
+      EdgeInsets.all(_defaultPadding);
   static const EdgeInsets _defaultContentPadding = EdgeInsets.zero;
+
+  /// {@macro flutter_widgetz.CustomDialog}
+  ///
+  /// Alert mimics the default alert dialog.
+  CustomDialog.alert({
+    super.key,
+    required this.child,
+    required BuildContext context,
+    String acceptText = 'Accept',
+    String cancelText = 'Cancel',
+    this.contentPadding = const EdgeInsets.only(
+      top: _defaultPadding,
+      left: _defaultPadding,
+      right: _defaultPadding,
+    ),
+    this.title,
+    this.titlePadding = _defaultTitlePadding,
+  }) : actions = <Widget>[
+          TextButton(
+            onPressed: Navigator.of(context).pop,
+            child: Text(cancelText),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(acceptText),
+          ),
+        ];
 
   /// {@macro flutter_widgetz.CustomDialog}
   ///
@@ -63,6 +92,24 @@ class CustomDialog<T> extends StatelessWidget {
               );
             }),
           ],
+        );
+
+  /// {@macro flutter_widgetz.CustomDialog}
+  ///
+  /// List uses a list of widgets inside a [ListView].
+  CustomDialog.list({
+    super.key,
+    required List<Widget> children,
+    this.actions,
+    this.contentPadding = _defaultContentPadding,
+    ScrollPhysics physics = const RangeMaintainingScrollPhysics(),
+    bool shrinkWrap = true,
+    this.title,
+    this.titlePadding = _defaultTitlePadding,
+  }) : child = ListView(
+          physics: physics,
+          shrinkWrap: shrinkWrap,
+          children: children,
         );
 
   /// {@macro flutter_widgetz.CustomDialog}
@@ -97,20 +144,17 @@ class CustomDialog<T> extends StatelessWidget {
 
   /// {@macro flutter_widgetz.CustomDialog}
   ///
-  /// List uses a list of widgets inside a [ListView].
-  CustomDialog.list({
+  /// Simple mimics the default simple dialog.
+  CustomDialog.simple({
     super.key,
-    required List<Widget> children,
-    this.actions,
-    this.contentPadding = _defaultContentPadding,
-    ScrollPhysics physics = const RangeMaintainingScrollPhysics(),
-    bool shrinkWrap = true,
+    required Widget child,
+    this.contentPadding = const EdgeInsets.all(_defaultPadding),
     this.title,
     this.titlePadding = _defaultTitlePadding,
-  }) : child = ListView(
-          physics: physics,
-          shrinkWrap: shrinkWrap,
-          children: children,
+  })  : actions = null,
+        child = DefaultTextStyle.merge(
+          textAlign: TextAlign.center,
+          child: child,
         );
 
   @override

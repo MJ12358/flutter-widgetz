@@ -24,6 +24,7 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
     this.labelText = '',
     this.prefixIcon,
     this.scrollPadding = const EdgeInsets.all(200.0),
+    this.restorationId,
     this.textCapitalization = TextCapitalization.none,
     this.textInputAction,
   });
@@ -64,6 +65,9 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
   /// An icon that appears before the editable part of the text field.
   final Widget? prefixIcon;
 
+  /// Restoration ID to save and restore the state of the form field.
+  final String? restorationId;
+
   /// Used to allow the input enough room for the dropdown.
   final EdgeInsets scrollPadding;
 
@@ -100,6 +104,7 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
               prefixIcon: prefixIcon,
               scrollPadding: scrollPadding,
               hasError: hasError,
+              restorationId: restorationId,
               textCapitalization: textCapitalization,
               textInputAction: textInputAction,
               onChanged: onChanged,

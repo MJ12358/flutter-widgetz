@@ -1,6 +1,7 @@
 part of flutter_widgetz;
 
 /// {@template flutter_widgetz.CustomText}
+/// This is meant to mimic the [CustomTextField] but without the input.
 /// Shows a suffix icon with dialog alongside some [text].
 /// {@endtemplate}.
 class CustomText extends StatelessWidget {
@@ -9,6 +10,9 @@ class CustomText extends StatelessWidget {
 
   /// The widget to be placed within the help dialog.
   final Widget help;
+
+  /// An optional label for the dialog.
+  final String? labelText;
 
   /// How the children should be placed along the main axis.
   final MainAxisAlignment mainAxisAlignment;
@@ -24,6 +28,7 @@ class CustomText extends StatelessWidget {
     this.text, {
     super.key,
     required this.help,
+    this.labelText,
     this.crossAxisAlignment = _defaultCrossAxisAlignment,
     this.mainAxisAlignment = _defaultMainAxisAlignment,
     this.style,
@@ -53,7 +58,7 @@ class CustomText extends StatelessWidget {
           context: context,
           builder: (_) {
             return CustomDialog(
-              title: Text(text),
+              title: labelText != null ? Text(labelText!) : const SizedBox(),
               contentPadding: const EdgeInsets.all(16.0),
               child: DefaultTextStyle.merge(
                 textAlign: TextAlign.center,

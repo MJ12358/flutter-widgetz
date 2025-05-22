@@ -179,7 +179,7 @@ class _DialState extends State<_Dial> with SingleTickerProviderStateMixin {
       case Brightness.light:
         backgroundColor = Colors.grey[200];
       case Brightness.dark:
-        backgroundColor = theme.colorScheme.background;
+        backgroundColor = theme.colorScheme.surface;
     }
 
     int? selectedDialValue;
@@ -424,7 +424,7 @@ class _DialPainter extends CustomPainter {
       canvas.drawCircle(
         centerPoint,
         radius,
-        Paint()..color = accentColor.withOpacity((i == 0) ? 0.3 : 0.1),
+        Paint()..color = accentColor.withValues(alpha: (i == 0) ? 0.3 : 0.1),
       );
     }
 
@@ -489,7 +489,7 @@ class _DialPainter extends CustomPainter {
     final Paint elapsedPainter = Paint()
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
-      ..color = accentColor.withOpacity(0.3)
+      ..color = accentColor.withValues(alpha: 0.3)
       ..isAntiAlias = true
       ..strokeWidth = radius * 0.12;
 
