@@ -2,13 +2,44 @@ name: Publish to pub.dev
 
 on:
   push:
-  #  branches: ["main"] # publishing only allowd from 'tag' refType
+   branches: ["main"]
    tags:
      - "v[0-9]+.[0-9]+.[0-9]+"
   workflow_dispatch:
 
 jobs:
-  publish:
-    permissions:
-      id-token: write # Required for authentication using OIDC
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Pub Credentials
+        shell: bash
+        env:
+          PUB_DEV_ACCESS_TOKEN: ${{ secrets.PUB_DEV_ACCESS_TOKEN }}
+          PUB_DEV_REFRESH_TOKEN: ${{ secrets.PUB_DEV_REFRESH_TOKEN }}
+          PUB_DEV_TOKEN_ENDPOINT: ${{ secrets.PUB_DEV_TOKEN_ENDPOINT }}
+          PUB_DEV_TOKEN_EXPIRATION: ${{ secrets.PUB_DEV_TOKEN_EXPIRATION }}
+        run: |
+          sh ./scripts/pub_login.sh  
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.0'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Run tests
+        run: flutter test
+        
+      - name: Check Publish Warnings
+        run: pub publish --dry-run
+
+      - name: Publish Package
+        run: pub publish -f
