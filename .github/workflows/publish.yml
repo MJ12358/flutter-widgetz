@@ -18,16 +18,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # - name: Setup Pub Credentials
-      #   shell: bash
-      #   env:
-      #     PUB_DEV_ACCESS_TOKEN: ${{ secrets.PUB_DEV_ACCESS_TOKEN }}
-      #     PUB_DEV_REFRESH_TOKEN: ${{ secrets.PUB_DEV_REFRESH_TOKEN }}
-      #     PUB_DEV_TOKEN_ENDPOINT: ${{ secrets.PUB_DEV_TOKEN_ENDPOINT }}
-      #     PUB_DEV_TOKEN_EXPIRATION: ${{ secrets.PUB_DEV_TOKEN_EXPIRATION }}
-      #   run: |
-      #     sh ./scripts/pub_login.sh  
-
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -44,12 +34,7 @@ jobs:
         run: flutter test
         
       - uses: flutter-actions/setup-pubdev-credentials@v1
-      # - name: Publish
-      #   uses: k-paxian/dart-package-publisher@master
-      #   with:
-      #     accessToken: ${{ secrets.PUB_DEV_ACCESS_TOKEN }}
-      #     refreshToken: ${{ secrets.PUB_DEV_REFRESH_TOKEN }}
-
+      
       - name: Check Publish Warnings
         run: pub publish --dry-run
 
