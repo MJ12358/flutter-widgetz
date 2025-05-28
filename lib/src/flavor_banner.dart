@@ -13,9 +13,16 @@ class FlavorBanner extends StatelessWidget {
     this.child = const SizedBox.shrink(),
   });
 
+  /// The message to display in the banner.
   final String message;
+
+  /// The color of the banner.
   final Color color;
+
+  /// The location of the banner.
   final BannerLocation location;
+
+  /// The child widget to display behind the banner.
   final Widget child;
 
   @override
