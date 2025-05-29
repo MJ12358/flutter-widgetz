@@ -2,8 +2,8 @@ name: Publish to pub.dev
 
 on:
   push:
-   tags:
-     - "v[0-9]+.[0-9]+.[0-9]+"
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
   workflow_dispatch:
 
 jobs:
@@ -56,7 +56,6 @@ jobs:
       - name: Create Release in GitHub
         uses: ncipollo/release-action@v1
         with:
-          artifacts: build/app/outputs/bundle/release/*.aab
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: v${{ steps.version.outputs.data }}
           commit: ${{ github.sha }}
