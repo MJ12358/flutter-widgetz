@@ -26,6 +26,7 @@ jobs:
           file: "./pubspec.yaml"
           key-path: '["version"]'
 
+<<<<<<< HEAD
         # Get release notes
       - name: Get Release Notes
         id: release_notes
@@ -34,6 +35,8 @@ jobs:
           changelog-file-path: CHANGELOG.md
           version: ${{ steps.version.outputs.data }}
 
+=======
+>>>>>>> cc3b476ac8af1013885a95259e41f2c50afa0ca1
       # Get Flutter
       - name: Install Flutter
         uses: subosito/flutter-action@v2
@@ -64,7 +67,14 @@ jobs:
       - name: Create Release in GitHub
         uses: ncipollo/release-action@v1
         with:
+<<<<<<< HEAD
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: v${{ steps.version.outputs.data }}
           commit: ${{ github.sha }}
           body: ${{ steps.release_notes.outputs.body }}
+=======
+          artifacts: build/app/outputs/bundle/release/*.aab
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: v${{ steps.version.outputs.data }}
+          commit: ${{ github.sha }}
+>>>>>>> cc3b476ac8af1013885a95259e41f2c50afa0ca1
