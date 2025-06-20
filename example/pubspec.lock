@@ -78,16 +78,18 @@ packages:
   flutter_themez:
     dependency: "direct main"
     description:
-      path: "../../flutter_themez"
-      relative: true
-    source: path
+      name: flutter_themez
+      sha256: "24695147b8c92915b59aa30f9f26875ab789816aaf5de50fdc9553ee386db8c2"
+      url: "https://pub.dev"
+    source: hosted
     version: "3.0.0"
   flutter_widgetz:
     dependency: "direct main"
     description:
-      path: ".."
-      relative: true
-    source: path
+      name: flutter_widgetz
+      sha256: "0af376516dfb06de252315b5ced7d8c723ced54cf3c7f1faaca1842078743e1c"
+      url: "https://pub.dev"
+    source: hosted
     version: "11.1.0"
   leak_tracker:
     dependency: transitive
@@ -216,4 +218,4 @@ packages:
     version: "15.0.0"
 sdks:
   dart: ">=3.7.0-0 <4.0.0"
-  flutter: ">=3.32.2"
+  flutter: ">=3.18.0-18.0.pre.54"
