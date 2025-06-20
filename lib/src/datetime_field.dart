@@ -1,6 +1,6 @@
 part of flutter_widgetz;
 
-/// {@template flutter_widgetz.DateField}
+/// {@template flutter_widgetz.DateTimeField}
 /// Wraps a calls to [showDatePicker]
 /// then [showTimePicker] in
 /// an [InputDecorator] and [InkWell].
@@ -8,6 +8,7 @@ part of flutter_widgetz;
 ///![DateTimeField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/datetime_field.png)
 /// {@endtemplate}
 class DateTimeField extends StatefulWidget {
+  /// {@macro flutter_widgetz.DateTimeField}
   const DateTimeField({
     super.key,
     required this.onChanged,
@@ -22,6 +23,7 @@ class DateTimeField extends StatefulWidget {
     this.prefixIcon = const Icon(Icons.calendar_month),
     this.skipDateEntry = false,
     this.timeEntryMode = TimePickerEntryMode.dial,
+    this.use24HourFormat = false,
     this.value,
   });
 
@@ -60,6 +62,9 @@ class DateTimeField extends StatefulWidget {
 
   /// Represents the [TimePickerEntryMode].
   final TimePickerEntryMode timeEntryMode;
+
+  /// Determines whether to use a 24 hour format clock.
+  final bool use24HourFormat;
 
   /// The value of this input.
   final DateTime? value;
@@ -106,20 +111,25 @@ class _DateTimeFieldState extends State<DateTimeField> {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    return InkWell(
-      focusNode: _focusNode,
-      onFocusChange: _onFocusChange,
-      onTap: () => _showPickers(context),
-      child: InputDecorator(
-        isFocused: _focusNode.hasFocus,
-        decoration: InputDecoration(
-          errorText: widget.hasError ? widget.errorText : null,
-          labelText: widget.labelText,
-          prefixIcon: widget.prefixIcon,
-        ),
-        child: Text(
-          widget.displayStringForDate(_value),
-          style: theme.textTheme.titleMedium,
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(
+        alwaysUse24HourFormat: widget.use24HourFormat,
+      ),
+      child: InkWell(
+        focusNode: _focusNode,
+        onFocusChange: _onFocusChange,
+        onTap: () => _showPickers(context),
+        child: InputDecorator(
+          isFocused: _focusNode.hasFocus,
+          decoration: InputDecoration(
+            errorText: widget.hasError ? widget.errorText : null,
+            labelText: widget.labelText,
+            prefixIcon: widget.prefixIcon,
+          ),
+          child: Text(
+            widget.displayStringForDate(_value),
+            style: theme.textTheme.titleMedium,
+          ),
         ),
       ),
     );

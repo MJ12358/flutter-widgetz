@@ -2,49 +2,54 @@ name: Publish to pub.dev
 
 on:
   push:
-    tags:
-      - "v[0-9]+.[0-9]+.[0-9]+"
+    paths:
+      - 'CHANGELOG.md'
   workflow_dispatch:
 
 jobs:
   publish:
 
     permissions:
-      contents: write
       id-token: write # Required for authentication using OIDC
     
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repo
+        uses: actions/checkout@v4
 
-      # Read pubspec for version number
-      - name: Get Version
-        id: version
-        uses: KJ002/read-yaml@main
+      - name: Read pubspec.yaml
+        id: pubspec
+        uses: nichmor/minimal-read-yaml@v0.0.2
         with:
-          file: "./pubspec.yaml"
-          key-path: '["version"]'
+          config: "./pubspec.yaml"
 
-      # Get Flutter
-      - name: Install Flutter
+      - name: Get Release Notes
+        id: release_notes
+        uses: kiyoon/parse-changelog-action@v1
+        with:
+          changelog-file-path: CHANGELOG.md
+          version: ${{ steps.pubspec.outputs['version'] }}
+
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.32.0'
-          channel: "stable"
+          channel: stable
+          flutter-version: ${{ steps.pubspec.outputs['environment.flutter'] }}
 
-      # Get Flutter dependencies
-      - name: Install dependencies
+      - name: Get dependencies
         run: flutter pub get
 
-      # This produces too many warnings
+      # This produces too many warnings right now
+      # Run linter
       # - name: Analyze
       #   run: flutter analyze
 
       - name: Run tests
         run: flutter test
         
-      - uses: flutter-actions/setup-pubdev-credentials@v1
+      - name: Get pub.dev credentials
+        uses: flutter-actions/setup-pubdev-credentials@v1
 
       - name: Check Publish Warnings
         run: flutter pub publish --dry-run
@@ -52,10 +57,10 @@ jobs:
       - name: Publish Package
         run: flutter pub publish -f
 
-      # Create a release in GitHub
       - name: Create Release in GitHub
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: v${{ steps.version.outputs.data }}
+          tag: v${{ steps.pubspec.outputs['version'] }}
           commit: ${{ github.sha }}
+          body: ${{ steps.release_notes.outputs.body }}

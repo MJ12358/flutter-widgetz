@@ -1,5 +1,12 @@
 # Flutter Widgetz
 
+## [11.1.1]
+
+- Fix `DateTimeField` comment template.
+- Add `use24hourFormat` param to `DateTimeField`.
+- Add `onTap` param to `SettingsTile.switched`.
+- Update example app.
+
 ## [11.1.0]
 
 - Add `FlavorBanner` widget.

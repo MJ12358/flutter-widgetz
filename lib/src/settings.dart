@@ -297,9 +297,9 @@ class SettingsTile extends StatelessWidget {
     required bool value,
     this.enabled = _defaultEnabled,
     this.leading,
+    this.onTap,
     this.subtitle,
-  })  : onTap = null,
-        trailing = Switch(
+  }) : trailing = Switch(
           value: value,
           onChanged: onChanged,
         );

@@ -47,6 +47,7 @@ import 'package:flutter_widgetz_example/pages/time_field_page.dart';
 import 'package:flutter_widgetz_example/pages/welcome_page.dart';
 
 /// To run the example app, clone/fork the repo!
+/// You'll need to change the pubspec.yaml file to point to remote
 
 void main() {
   runApp(const Main());

@@ -78,10 +78,9 @@ packages:
   flutter_themez:
     dependency: "direct main"
     description:
-      name: flutter_themez
-      sha256: "24695147b8c92915b59aa30f9f26875ab789816aaf5de50fdc9553ee386db8c2"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../flutter_themez"
+      relative: true
+    source: path
     version: "3.0.0"
   flutter_widgetz:
     dependency: "direct main"
@@ -217,4 +216,4 @@ packages:
     version: "15.0.0"
 sdks:
   dart: ">=3.7.0-0 <4.0.0"
-  flutter: ">=3.18.0-18.0.pre.54"
+  flutter: ">=3.32.2"

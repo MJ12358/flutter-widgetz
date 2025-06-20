@@ -11,13 +11,12 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_extensionz: 5.0.0
-  flutter_themez: 3.0.0
-  # flutter_themez:
-  #   path: ../../flutter_themez
+  # flutter_themez: 3.0.0
+  flutter_themez:
+    path: ../../flutter_themez
+  # flutter_widgetz: 11.1.0
   flutter_widgetz:
-    # When depending on this package from a real application you should use:
-    #   flutter_widgetz: ^x.y.z
-    path: ../
+    path: ../../flutter_widgetz
 
 dev_dependencies:
   dart_lintz: 1.2.3
