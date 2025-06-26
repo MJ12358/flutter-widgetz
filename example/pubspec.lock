@@ -87,10 +87,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_widgetz
-      sha256: "0af376516dfb06de252315b5ced7d8c723ced54cf3c7f1faaca1842078743e1c"
+      sha256: e067dc4e6d930df51d3c4abfe073f82cd5d59eaa4a61351264ad7bdd20a769e2
       url: "https://pub.dev"
     source: hosted
-    version: "11.1.0"
+    version: "11.1.1"
   leak_tracker:
     dependency: transitive
     description:

@@ -16,6 +16,14 @@ class AlertPage extends StatelessWidget {
           Alert(
             child: Text('Default'),
           ),
+          Alert(
+            child: Text(
+              'This is a long alert message that should wrap to the next line.',
+            ),
+          ),
+          Alert.info(
+            child: Text('Info'),
+          ),
           Alert.error(
             child: Text('Error'),
           ),

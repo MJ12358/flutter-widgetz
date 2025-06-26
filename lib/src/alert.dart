@@ -60,6 +60,19 @@ class Alert extends StatefulWidget {
 
   /// {@macro flutter_widgetz.Alert}
   ///
+  /// Info uses [Icons.info] and a light grey color.
+  const Alert.info({
+    super.key,
+    required this.child,
+    this.closeIcon = _defaultCloseIcon,
+    this.isVisible = _defaultIsVisible,
+    this.onClose,
+    this.padding = _defaultPadding,
+  })  : color = const Color(0xFF9B9B9B),
+        icon = const Icon(Icons.info);
+
+  /// {@macro flutter_widgetz.Alert}
+  ///
   /// Offline uses [Icons.wifi] and a dark grey color.
   const Alert.offline({
     super.key,
@@ -104,6 +117,7 @@ class _AlertState extends State<Alert> {
     }
 
     final ThemeData _theme = Theme.of(context);
+    final MediaQueryData _mediaQuery = MediaQuery.of(context);
     final Color _color = widget.color.blackOrWhite;
 
     return IconTheme(
@@ -113,20 +127,21 @@ class _AlertState extends State<Alert> {
       child: Container(
         color: widget.color,
         padding: widget.padding,
-        width: double.infinity,
+        width: _mediaQuery.size.width,
         child: Row(
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: widget.icon,
             ),
-            DefaultTextStyle.merge(
-              style: _theme.textTheme.bodyMedium?.copyWith(
-                color: _color,
+            Expanded(
+              child: DefaultTextStyle.merge(
+                style: _theme.textTheme.bodyMedium?.copyWith(
+                  color: _color,
+                ),
+                child: widget.child,
               ),
-              child: widget.child,
             ),
-            const Spacer(),
             GestureDetector(
               onTap: _onTap,
               child: widget.closeIcon,

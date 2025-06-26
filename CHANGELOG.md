@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## [11.1.2]
+
+- Add `Alert.info` factory constructor.
+- Fix overflowing `Alert` child.
+
 ## [11.1.1]
 
 - Fix `DateTimeField` comment template.
