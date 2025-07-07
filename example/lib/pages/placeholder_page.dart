@@ -33,6 +33,10 @@ class PlaceholderPage extends StatelessWidget {
           CustomPlaceholder.flashlight(
             text: 'Placeholder Five (Flashlight)',
           ),
+          CustomPlaceholder.flashlight(
+            text: 'Placeholder Five (Flashlight with color)',
+            color: Colors.pink,
+          ),
         ],
       ),
     );

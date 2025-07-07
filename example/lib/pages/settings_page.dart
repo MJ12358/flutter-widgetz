@@ -32,7 +32,8 @@ class SettingsPage extends StatelessWidget {
               value: false,
               onChanged: print,
             ),
-            SettingsTile.timeDilation(context: context),
+            const _Orientation(),
+            const _TimeDilation(),
             SettingsTile.licenses(context: context),
           ],
         ),
@@ -87,6 +88,54 @@ class SettingsPage extends StatelessWidget {
           ],
         ),
       ],
+    );
+  }
+}
+
+class _Orientation extends StatefulWidget {
+  const _Orientation();
+
+  @override
+  State<_Orientation> createState() => __OrientationState();
+}
+
+class __OrientationState extends State<_Orientation> {
+  bool _value = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return SettingsTile.orientation(
+      context: context,
+      onChanged: (bool value) {
+        setState(() {
+          _value = value;
+        });
+      },
+      value: _value,
+    );
+  }
+}
+
+class _TimeDilation extends StatefulWidget {
+  const _TimeDilation();
+
+  @override
+  State<_TimeDilation> createState() => __TimeDilationState();
+}
+
+class __TimeDilationState extends State<_TimeDilation> {
+  int _value = 1;
+
+  @override
+  Widget build(BuildContext context) {
+    return SettingsTile.timeDilation(
+      context: context,
+      value: _value.toDouble(),
+      onChanged: (double value) {
+        setState(() {
+          _value = value.toInt();
+        });
+      },
     );
   }
 }

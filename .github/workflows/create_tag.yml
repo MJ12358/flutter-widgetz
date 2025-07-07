@@ -1,0 +1,33 @@
+name: Create Tag
+
+on:
+  push:
+    paths:
+      - 'CHANGELOG.md'
+  workflow_dispatch:
+
+jobs:
+  create_tag:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Read pubspec.yaml
+        id: pubspec
+        uses: nichmor/minimal-read-yaml@v0.0.2
+        with:
+          config: "./pubspec.yaml"
+
+      - name: Create Tag
+        uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/v${{ steps.pubspec.outputs['version'] }}',
+              sha: context.sha
+            })

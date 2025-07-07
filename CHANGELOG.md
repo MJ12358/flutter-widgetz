@@ -1,5 +1,11 @@
 # Flutter Widgetz
 
+## [11.1.3]
+
+- Add `color` param to `CustomPlaceholder.flashlight`.
+- Add `addAutomaticKeepAlives` to `CustomSliverList`.
+- Update example assets and pages.
+
 ## [11.1.2]
 
 - Add `Alert.info` factory constructor.

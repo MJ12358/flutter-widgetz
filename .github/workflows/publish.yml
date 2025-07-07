@@ -2,9 +2,8 @@ name: Publish to pub.dev
 
 on:
   push:
-    paths:
-      - 'CHANGELOG.md'
-  workflow_dispatch:
+    tags:
+      - 'v*'
 
 jobs:
   publish:
@@ -35,7 +34,6 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          # flutter-version: ${{ steps.pubspec.outputs['environment.flutter'] }}
 
       - name: Get dependencies
         run: flutter pub get

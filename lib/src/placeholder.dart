@@ -40,7 +40,10 @@ class CustomPlaceholder extends StatelessWidget {
     Color? color,
     this.mainAxisAlignment = _defaultAlignment,
     this.padding = _defaultPadding,
-  }) : child = Image.asset(name, color: color);
+  }) : child = Image.asset(
+          name,
+          color: color,
+        );
 
   /// {@macro flutter_widgetz.CustomPlaceholder}
   ///
@@ -52,7 +55,10 @@ class CustomPlaceholder extends StatelessWidget {
     Color? color,
     this.mainAxisAlignment = _defaultAlignment,
     this.padding = _defaultPadding,
-  }) : child = Image.network(source, color: color);
+  }) : child = Image.network(
+          source,
+          color: color,
+        );
 
   /// {@macro flutter_widgetz.CustomPlaceholder}
   ///
@@ -60,10 +66,12 @@ class CustomPlaceholder extends StatelessWidget {
   CustomPlaceholder.flashlight({
     super.key,
     this.text,
+    Color? color,
     this.mainAxisAlignment = _defaultAlignment,
     this.padding = _defaultPadding,
   }) : child = Image.asset(
           _kFlashlightImage,
+          color: color,
           package: _kPackage,
         );
 

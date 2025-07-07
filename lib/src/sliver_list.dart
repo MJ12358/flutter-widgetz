@@ -30,9 +30,11 @@ class CustomSliverList extends StatelessWidget {
     required int itemCount,
     required IndexedWidgetBuilder itemBuilder,
     this.padding = _defaultPadding,
+    bool addAutomaticKeepAlives = true,
   }) : delegate = SliverChildBuilderDelegate(
           itemBuilder,
           childCount: itemCount,
+          addAutomaticKeepAlives: addAutomaticKeepAlives,
         );
 
   /// {@macro flutter_widgetz.CustomSliverList}
@@ -42,8 +44,10 @@ class CustomSliverList extends StatelessWidget {
     super.key,
     required List<Widget> children,
     this.padding = _defaultPadding,
+    bool addAutomaticKeepAlives = true,
   }) : delegate = SliverChildListDelegate(
           children,
+          addAutomaticKeepAlives: addAutomaticKeepAlives,
         );
 
   /// {@macro flutter_widgetz.CustomSliverList}
@@ -56,6 +60,7 @@ class CustomSliverList extends StatelessWidget {
     required IndexedWidgetBuilder itemBuilder,
     required IndexedWidgetBuilder separatorBuilder,
     this.padding = _defaultPadding,
+    bool addAutomaticKeepAlives = true,
   }) : delegate = SliverChildBuilderDelegate(
           (BuildContext context, int index) {
             final int itemIndex = index ~/ 2;
@@ -67,6 +72,7 @@ class CustomSliverList extends StatelessWidget {
             }
             return widget;
           },
+          addAutomaticKeepAlives: addAutomaticKeepAlives,
           childCount: _computeActualChildCount(itemCount),
           semanticIndexCallback: (_, int index) {
             return index.isEven ? index ~/ 2 : null;
