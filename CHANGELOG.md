@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [11.2.0]
+
+- Add `iconChecked` factory constructor to `CustomPopupMenuItem`.
+
 ## [11.1.3]
 
 - Add `color` param to `CustomPlaceholder.flashlight`.

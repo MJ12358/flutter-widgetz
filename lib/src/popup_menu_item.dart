@@ -54,4 +54,25 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
             title: child,
           ),
         );
+
+  /// A [PopupMenuItem] with an leading icon
+  /// and a trailing checkmark.
+  CustomPopupMenuItem.iconChecked({
+    super.key,
+    required Widget child,
+    required IconData icon,
+    bool checked = false,
+    super.onTap,
+    super.value,
+  }) : super(
+          child: ListTile(
+            leading: Icon(icon),
+            title: child,
+            trailing: AnimatedOpacity(
+              opacity: checked ? 1.0 : 0.15,
+              duration: kThemeChangeDuration,
+              child: const Icon(Icons.done),
+            ),
+          ),
+        );
 }

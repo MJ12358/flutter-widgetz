@@ -60,6 +60,13 @@ class _PopupMenuPageState extends State<PopupMenuPage> {
               value: 6,
               child: const Text('Custom Icon Two'),
             ),
+            const PopupMenuDivider(),
+            CustomPopupMenuItem<int>.iconChecked(
+              checked: _value == 7,
+              icon: Icons.temple_buddhist,
+              value: 7,
+              child: const Text('Custom Icon Checked'),
+            ),
           ];
         },
         onSelected: (int value) {
