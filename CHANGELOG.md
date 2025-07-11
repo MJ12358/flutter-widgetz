@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## [11.3.0]
+
+- Add `AnimatedSize` to `Alert`.
+- Change `closeIcon` from `GestureDetector` to `InkWell` on `Alert` child.
+
 ## [11.2.0]
 
 - Add `iconChecked` factory constructor to `CustomPopupMenuItem`.

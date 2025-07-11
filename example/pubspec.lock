@@ -79,10 +79,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_themez
-      sha256: de2856bd3eadd68c64181cb8f07ce18dbe1af41c457011412adef5cc00317878
+      sha256: "80a244c64f808d3e745016b956a876544cb60a90e72cc8ed4b91c184260c90e4"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.0"
+    version: "3.1.2"
   flutter_widgetz:
     dependency: "direct main"
     description:

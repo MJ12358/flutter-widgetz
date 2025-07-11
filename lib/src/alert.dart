@@ -112,10 +112,6 @@ class _AlertState extends State<Alert> {
 
   @override
   Widget build(BuildContext context) {
-    if (!_isVisible) {
-      return const SizedBox();
-    }
-
     final ThemeData _theme = Theme.of(context);
     final MediaQueryData _mediaQuery = MediaQuery.of(context);
     final Color _color = widget.color.blackOrWhite;
@@ -124,30 +120,37 @@ class _AlertState extends State<Alert> {
       data: _theme.iconTheme.copyWith(
         color: _color,
       ),
-      child: Container(
-        color: widget.color,
-        padding: widget.padding,
-        width: _mediaQuery.size.width,
-        child: Row(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: widget.icon,
-            ),
-            Expanded(
-              child: DefaultTextStyle.merge(
-                style: _theme.textTheme.bodyMedium?.copyWith(
-                  color: _color,
+      child: AnimatedSize(
+        alignment: Alignment.topCenter,
+        clipBehavior: Clip.none,
+        duration: kThemeAnimationDuration,
+        child: !_isVisible
+            ? const SizedBox()
+            : Container(
+                color: widget.color,
+                padding: widget.padding,
+                width: _mediaQuery.size.width,
+                child: Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: widget.icon,
+                    ),
+                    Expanded(
+                      child: DefaultTextStyle.merge(
+                        style: _theme.textTheme.bodyMedium?.copyWith(
+                          color: _color,
+                        ),
+                        child: widget.child,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: _onTap,
+                      child: widget.closeIcon,
+                    ),
+                  ],
                 ),
-                child: widget.child,
               ),
-            ),
-            GestureDetector(
-              onTap: _onTap,
-              child: widget.closeIcon,
-            ),
-          ],
-        ),
       ),
     );
   }

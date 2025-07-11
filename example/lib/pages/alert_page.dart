@@ -10,7 +10,7 @@ class AlertPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomSingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
-      // # This is a good example of how "filtered" does/does not
+      // TODO: This is a good example of how "filtered" does/does not
       child: SpacedColumn.filtered(
         children: const <Widget>[
           Alert(
