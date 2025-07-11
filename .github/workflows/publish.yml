@@ -9,7 +9,6 @@ jobs:
   publish:
 
     permissions:
-      contents: write # Required to update releases
       id-token: write # Required for authentication using OIDC
     
     runs-on: ubuntu-latest
@@ -17,19 +16,6 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
-
-      - name: Read pubspec.yaml
-        id: pubspec
-        uses: nichmor/minimal-read-yaml@v0.0.2
-        with:
-          config: "./pubspec.yaml"
-
-      - name: Get Release Notes
-        id: release_notes
-        uses: kiyoon/parse-changelog-action@v1
-        with:
-          changelog-file-path: CHANGELOG.md
-          version: ${{ steps.pubspec.outputs['version'] }}
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -55,13 +41,3 @@ jobs:
 
       - name: Publish Package
         run: flutter pub publish -f
-
-      - name: Create Release in GitHub
-        uses: ncipollo/release-action@v1
-        with:
-          allowUpdates: true
-          replacesArtifacts: false
-          token: ${{ secrets.GITHUB_TOKEN }}
-          tag: v${{ steps.pubspec.outputs['version'] }}
-          commit: ${{ github.sha }}
-          body: ${{ steps.release_notes.outputs.body }}
