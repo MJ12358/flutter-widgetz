@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [11.3.1]
+
+- Allow nullable `subtitle` param in `CustomAppBar.subtitled`.
+
 ## [11.3.0]
 
 - Add `AnimatedSize` to `Alert`.

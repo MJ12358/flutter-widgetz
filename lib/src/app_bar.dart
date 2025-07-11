@@ -32,22 +32,26 @@ class CustomAppBar extends AppBar {
     super.bottom,
     super.centerTitle = _defaultCenterTitle,
     super.leading,
-    required Widget subtitle,
+    required Widget? subtitle,
     required Widget title,
+    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.stretch,
+    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.center,
+    TextAlign textAlign = TextAlign.left,
   }) : super(
           title: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: crossAxisAlignment,
+            mainAxisAlignment: mainAxisAlignment,
             children: <Widget>[
               DefaultTextStyle.merge(
-                textAlign: TextAlign.left,
+                textAlign: textAlign,
                 child: title,
               ),
-              DefaultTextStyle.merge(
-                style: const TextStyle(fontSize: 10),
-                textAlign: TextAlign.left,
-                child: subtitle,
-              ),
+              if (subtitle != null)
+                DefaultTextStyle.merge(
+                  style: const TextStyle(fontSize: 10),
+                  textAlign: textAlign,
+                  child: subtitle,
+                ),
             ],
           ),
         );
