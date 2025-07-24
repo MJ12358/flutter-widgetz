@@ -10,6 +10,7 @@ class CustomInputDecorator extends StatelessWidget {
     required this.child,
     this.border,
     this.errorText,
+    this.help,
     this.isFocused = false,
     this.labelText,
     this.suffixIcon,
@@ -24,6 +25,9 @@ class CustomInputDecorator extends StatelessWidget {
 
   /// Text that appears below the [child].
   final String? errorText;
+
+  /// If given, shows a suffix icon and dialog with this widget.
+  final Widget? help;
 
   /// Whether the input field has focus.
   final bool isFocused;
@@ -45,14 +49,38 @@ class CustomInputDecorator extends StatelessWidget {
       isFocused: isFocused,
       decoration: InputDecoration(
         border: border,
+        enabledBorder: border,
         errorText: errorText,
         labelText: labelText,
-        suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
+        suffixIcon: _getSuffixIcon(context),
       ),
       child: DefaultTextStyle.merge(
         style: theme.textTheme.titleMedium,
         child: child,
+      ),
+    );
+  }
+
+  Widget? _getSuffixIcon(BuildContext context) {
+    if (suffixIcon != null) {
+      return suffixIcon;
+    }
+    if (help == null) {
+      return null;
+    }
+    return ExcludeFocus(
+      child: InkWell(
+        onTap: () => showDialog(
+          context: context,
+          builder: (_) {
+            return CustomDialog.simple(
+              title: labelText != null ? Text(labelText!) : null,
+              child: help!,
+            );
+          },
+        ),
+        child: const Icon(Icons.info),
       ),
     );
   }

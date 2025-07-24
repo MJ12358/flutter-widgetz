@@ -9,14 +9,19 @@ class Alert extends StatefulWidget {
   /// {@macro flutter_widgetz.Alert}
   const Alert({
     super.key,
+    this.alignment = _defaultAlignment,
     this.child = const SizedBox(),
     this.closeIcon = _defaultCloseIcon,
     this.color = _defaultColor,
+    this.duration = _defaultDuration,
     this.icon = _defaultIcon,
     this.isVisible = _defaultIsVisible,
     this.onClose,
     this.padding = _defaultPadding,
   });
+
+  /// The alignment of the child within the parent.
+  final Alignment alignment;
 
   /// The widget shown inside the alert.
   final Widget child;
@@ -26,6 +31,9 @@ class Alert extends StatefulWidget {
 
   /// The color of the alert. Defaults to a light grey.
   final Color color;
+
+  /// The duration when transitioning this widgets size.
+  final Duration duration;
 
   /// The icon shown to the left of the [child].
   final Widget icon;
@@ -39,8 +47,10 @@ class Alert extends StatefulWidget {
   /// The [child] is placed inside this padding.
   final EdgeInsets padding;
 
+  static const Alignment _defaultAlignment = Alignment.topCenter;
   static const Widget _defaultCloseIcon = Icon(Icons.close);
   static const Color _defaultColor = Color(0xFF717171);
+  static const Duration _defaultDuration = kThemeAnimationDuration;
   static const Widget _defaultIcon = Icon(Icons.person);
   static const bool _defaultIsVisible = true;
   static const EdgeInsets _defaultPadding = EdgeInsets.all(8.0);
@@ -51,7 +61,9 @@ class Alert extends StatefulWidget {
   const Alert.error({
     super.key,
     required this.child,
+    this.alignment = _defaultAlignment,
     this.closeIcon = _defaultCloseIcon,
+    this.duration = _defaultDuration,
     this.isVisible = _defaultIsVisible,
     this.onClose,
     this.padding = _defaultPadding,
@@ -64,7 +76,9 @@ class Alert extends StatefulWidget {
   const Alert.info({
     super.key,
     required this.child,
+    this.alignment = _defaultAlignment,
     this.closeIcon = _defaultCloseIcon,
+    this.duration = _defaultDuration,
     this.isVisible = _defaultIsVisible,
     this.onClose,
     this.padding = _defaultPadding,
@@ -77,7 +91,9 @@ class Alert extends StatefulWidget {
   const Alert.offline({
     super.key,
     required this.child,
+    this.alignment = _defaultAlignment,
     this.closeIcon = _defaultCloseIcon,
+    this.duration = _defaultDuration,
     this.isVisible = _defaultIsVisible,
     this.onClose,
     this.padding = _defaultPadding,
@@ -90,7 +106,9 @@ class Alert extends StatefulWidget {
   const Alert.warning({
     super.key,
     required this.child,
+    this.alignment = _defaultAlignment,
     this.closeIcon = _defaultCloseIcon,
+    this.duration = _defaultDuration,
     this.isVisible = _defaultIsVisible,
     this.onClose,
     this.padding = _defaultPadding,
@@ -121,9 +139,11 @@ class _AlertState extends State<Alert> {
         color: _color,
       ),
       child: AnimatedSize(
-        alignment: Alignment.topCenter,
-        clipBehavior: Clip.none,
-        duration: kThemeAnimationDuration,
+        alignment: widget.alignment,
+        duration: widget.duration == Duration.zero
+            // zero duration causes an error
+            ? const Duration(milliseconds: 1)
+            : widget.duration,
         child: !_isVisible
             ? const SizedBox()
             : Container(

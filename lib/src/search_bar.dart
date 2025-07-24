@@ -36,7 +36,7 @@ class CustomSearchBar extends StatefulWidget {
   /// The duration with which the search is debounced.
   final Duration debounce;
 
-  /// The duration when transitioning this widget's size.
+  /// The duration when transitioning this widgets size.
   final Duration duration;
 
   /// Defines the keyboard focus for this widget.

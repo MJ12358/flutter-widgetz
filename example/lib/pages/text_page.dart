@@ -35,6 +35,30 @@ class TextPage extends StatelessWidget {
             prefixIcon: Icon(Icons.missed_video_call),
             help: Text('Help Text'),
           ),
+          CustomInputDecorator(
+            labelText: 'Input Decorator Label1',
+            border: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.red,
+                width: 2.0,
+              ),
+            ),
+            help: Text('Can you hear me now?'),
+            child: Text('Input Decorator Child1'),
+          ),
+          CustomInputDecorator(
+            labelText: 'Input Decorator Label2',
+            border: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.red,
+                width: 5.0,
+              ),
+            ),
+            help: Text('Input Decorator Help'),
+            child: Center(
+              child: Text('Input Decorator Child2'),
+            ),
+          ),
         ],
       ),
     );

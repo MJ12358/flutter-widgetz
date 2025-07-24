@@ -1,5 +1,14 @@
 # Flutter Widgetz
 
+## [11.4.0]
+
+- Add `alignment` to `Alert`.
+- Add `duration` to `Alert`.
+- Fix `CustomText` help dialog title when null.
+- Fix `CustomTextField` help dialog title when null.
+- Fix `CustomInputDecorator` `border`.
+- Add `help` to `CustomInputDecorator`.
+
 ## [11.3.1]
 
 - Allow nullable `subtitle` param in `CustomAppBar.subtitled`.

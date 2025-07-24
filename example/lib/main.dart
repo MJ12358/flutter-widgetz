@@ -98,6 +98,10 @@ class MainState extends State<Main> {
               icon: Icon(_isDark ? Icons.dark_mode : Icons.sunny),
               onPressed: _onDarkModeChanged,
             ),
+            // ExpandedActionButton(
+            //   icon: const Icon(Icons.font_download),
+            //   onPressed: _onFontPressed,
+            // ),
           ],
         ),
         appBar: CustomAppBar.subtitled(
@@ -157,6 +161,17 @@ class MainState extends State<Main> {
       _isDark = !_isDark;
     });
   }
+
+  // void _onFontPressed(BuildContext context) {
+  //   showDialog(
+  //     context: context,
+  //     builder: (_) {
+  //       return CustomDialog.list(
+  //         children: ,
+  //       )
+  //     }
+  //   );
+  // }
 
   void _onDrawerChanged(BuildContext context, int index) {
     _controller.jumpToPage(index);

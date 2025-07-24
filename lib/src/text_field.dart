@@ -151,7 +151,7 @@ class CustomTextField extends StatelessWidget {
           context: context,
           builder: (_) {
             return CustomDialog.simple(
-              title: labelText != null ? Text(labelText!) : const SizedBox(),
+              title: labelText != null ? Text(labelText!) : null,
               child: help!,
             );
           },
