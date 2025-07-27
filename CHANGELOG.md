@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [11.4.1]
+
+- Fix `CustomInputDecorator` and `CustomText` focus when closing `help` dialog.
+
 ## [11.4.0]
 
 - Add `alignment` to `Alert`.

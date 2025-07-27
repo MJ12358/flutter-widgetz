@@ -22,6 +22,10 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
     super.value,
   });
 
+  static double _getOpacity(bool checked) {
+    return checked ? 1.0 : 0.15;
+  }
+
   /// A [PopupMenuItem] with a checkmark.
   CustomPopupMenuItem.checked({
     super.key,
@@ -33,7 +37,7 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
   }) : super(
           child: ListTile(
             leading: AnimatedOpacity(
-              opacity: checked ? 1.0 : 0.15,
+              opacity: _getOpacity(checked),
               duration: kThemeChangeDuration,
               child: const Icon(Icons.done),
             ),
@@ -69,7 +73,7 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
             leading: Icon(icon),
             title: child,
             trailing: AnimatedOpacity(
-              opacity: checked ? 1.0 : 0.15,
+              opacity: _getOpacity(checked),
               duration: kThemeChangeDuration,
               child: const Icon(Icons.done),
             ),

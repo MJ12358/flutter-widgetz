@@ -8,6 +8,9 @@ on:
 
 jobs:
   create_release:
+
+    permissions:
+      contents: write # Required to update releases
     
     runs-on: ubuntu-latest
 

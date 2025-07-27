@@ -79,7 +79,12 @@ class CustomInputDecorator extends StatelessWidget {
               child: help!,
             );
           },
-        ),
+        ).then((_) {
+          // Unfocus any input when exiting the help dialog
+          if (context.mounted) {
+            FocusManager.instance.primaryFocus?.unfocus();
+          }
+        }),
         child: const Icon(Icons.info),
       ),
     );

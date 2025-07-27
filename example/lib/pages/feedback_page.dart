@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_extensionz/flutter_extensionz.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
 class FeedbackPage extends StatelessWidget {
   const FeedbackPage({super.key});
+
+  void _showSnackBar(BuildContext context, Widget content) {
+    context.showSnackBar(content);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,29 +17,30 @@ class FeedbackPage extends StatelessWidget {
         children: <Widget>[
           FeedbackBar.outlined(
             header: const Text('Outlined'),
-            onChanged: print,
+            onChanged: (int i) => _showSnackBar(context, Text('Outlined: $i')),
           ),
           FeedbackBar.filled(
             header: const Text('Filled'),
-            onChanged: print,
+            onChanged: (int i) => _showSnackBar(context, Text('Filled: $i')),
           ),
           FeedbackBar.outlined(
             header: const Text('Outlined (rtl)'),
             footer: const Text('Footer'),
-            onChanged: print,
+            onChanged: (int i) => _showSnackBar(context, Text('Outlined: $i')),
             rtl: true,
           ),
           FeedbackBar.outlined(
             color: Colors.black,
             header: const Text('Outlined'),
-            onChanged: print,
+            onChanged: (int i) => _showSnackBar(context, Text('Outlined: $i')),
           ),
           SizedBox(
             width: 60,
             child: FeedbackBar.outlined(
               color: Colors.black,
               header: const Text('Outlined'),
-              onChanged: print,
+              onChanged: (int i) =>
+                  _showSnackBar(context, Text('Outlined: $i')),
               orientation: Orientation.portrait,
             ),
           ),

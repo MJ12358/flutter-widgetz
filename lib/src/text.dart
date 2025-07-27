@@ -66,7 +66,12 @@ class CustomText extends StatelessWidget {
               ),
             );
           },
-        ),
+        ).then((_) {
+          // Unfocus any input when exiting the help dialog
+          if (context.mounted) {
+            FocusManager.instance.primaryFocus?.unfocus();
+          }
+        }),
         child: Icon(
           Icons.info,
           color: _getIconColor(theme),
