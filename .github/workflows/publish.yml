@@ -9,7 +9,7 @@ jobs:
   publish:
 
     permissions:
-      # contents: write # Required to update releases
+      contents: write # Required to update releases
       id-token: write # Required for authentication using OIDC
     
     runs-on: ubuntu-latest
@@ -18,23 +18,34 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
+      - name: Read pubspec.yaml
+        id: pubspec
+        uses: nichmor/minimal-read-yaml@v0.0.2
+        with:
+          config: "./pubspec.yaml"
+
+      - name: Get Release Notes
+        id: release_notes
+        uses: kiyoon/parse-changelog-action@v1
+        with:
+          changelog-file-path: CHANGELOG.md
+          version: ${{ steps.pubspec.outputs['version'] }}
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
 
-      - name: Get dependencies
+      - name: Get Dependencies
         run: flutter pub get
 
-      # This produces too many warnings right now
-      # Run linter
-      # - name: Analyze
-      #   run: flutter analyze
+      - name: Analyze
+        run: flutter analyze
 
-      - name: Run tests
+      - name: Run Tests
         run: flutter test
         
-      - name: Get pub.dev credentials
+      - name: Get pub.dev Credentials
         uses: flutter-actions/setup-pubdev-credentials@v1
 
       - name: Check Publish Warnings
@@ -42,3 +53,13 @@ jobs:
 
       - name: Publish Package
         run: flutter pub publish -f
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          replacesArtifacts: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: v${{ steps.pubspec.outputs['version'] }}
+          commit: ${{ github.sha }}
+          body: ${{ steps.release_notes.outputs.body }}

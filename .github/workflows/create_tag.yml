@@ -1,4 +1,4 @@
-name: Release
+name: Create Tag
 
 on:
   push:
@@ -7,10 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  create_release:
-
-    permissions:
-      contents: write # Required to update releases
+  create_tag:
     
     runs-on: ubuntu-latest
 
@@ -24,13 +21,6 @@ jobs:
         with:
           config: "./pubspec.yaml"
 
-      - name: Get Release Notes
-        id: release_notes
-        uses: kiyoon/parse-changelog-action@v1
-        with:
-          changelog-file-path: CHANGELOG.md
-          version: ${{ steps.pubspec.outputs['version'] }}
-
       - name: Get Tag
         run: |
           echo "NEW_TAG=v${{ steps.pubspec.outputs['version'] }}" >> $GITHUB_ENV
@@ -38,12 +28,14 @@ jobs:
       - name: Create Tag
         uses: actions/github-script@v5
         with:
+          github-token: ${{ secrets.PAT }}
           script: |
             github.rest.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: `refs/tags/${process.env.NEW_TAG}`,
+              ref: `tags/${process.env.NEW_TAG}`,
               sha: context.sha
+              force: true
             })
 
       - name: Push Tag
@@ -52,13 +44,3 @@ jobs:
           git config user.email "github-actions@users.noreply.github.com"
           git tag $NEW_TAG
           git push origin $NEW_TAG
-
-      - name: Create Release
-        uses: ncipollo/release-action@v1
-        with:
-          allowUpdates: true
-          replacesArtifacts: false
-          token: ${{ secrets.GITHUB_TOKEN }}
-          tag: v${{ steps.pubspec.outputs['version'] }}
-          commit: ${{ github.sha }}
-          body: ${{ steps.release_notes.outputs.body }}
