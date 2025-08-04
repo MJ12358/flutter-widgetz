@@ -315,26 +315,25 @@ class SettingsTile extends StatelessWidget {
     this.leading = const Icon(Icons.timelapse),
     this.subtitle,
     this.title = const Text('Time Dilation'),
+    Widget? dialogTitle,
     Widget? trailing,
     double? value,
   })  : trailing = trailing ??
             Text(value != null ? value.toString() : timeDilation.toString()),
         onTap = (() => showDialog(
               context: context,
-              builder: (_) => SimpleDialog(
-                title: title,
-                children: <Widget>[
-                  CustomSlider(
-                    min: 1,
-                    max: 10,
-                    divisions: 9,
-                    value: value ?? timeDilation,
-                    onChanged: (num value) {
-                      timeDilation = value.toDouble();
-                      onChanged?.call(timeDilation);
-                    },
-                  ),
-                ],
+              builder: (_) => CustomDialog.simple(
+                title: dialogTitle ?? const Text('Time Dilation'),
+                child: CustomSlider(
+                  min: 1,
+                  max: 10,
+                  divisions: 9,
+                  value: value ?? timeDilation,
+                  onChanged: (num value) {
+                    timeDilation = value.toDouble();
+                    onChanged?.call(timeDilation);
+                  },
+                ),
               ),
             )) {
     // set default based on the input value

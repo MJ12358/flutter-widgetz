@@ -83,7 +83,7 @@ class _CustomSliderState extends State<CustomSlider> {
           prefixIcon: widget.prefixIcon,
           suffixIcon: widget.suffixIcon,
         ),
-        child: Slider.adaptive(
+        child: Slider(
           divisions: widget.divisions,
           label: _value.toString(),
           onChanged: _onChanged,

@@ -1,5 +1,11 @@
 # Flutter Widgetz
 
+## [11.4.2]
+
+- Fix `CustomText` help dialog styling.
+- Fix `CustomSlider` platform styles.
+- Fix `Settings.timeDilation` issues.
+
 ## [11.4.1]
 
 - Fix `CustomInputDecorator` and `CustomText` focus when closing `help` dialog.

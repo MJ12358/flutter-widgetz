@@ -57,7 +57,7 @@ class CustomText extends StatelessWidget {
         onTap: () => showDialog(
           context: context,
           builder: (_) {
-            return CustomDialog(
+            return CustomDialog.simple(
               title: labelText != null ? Text(labelText!) : null,
               contentPadding: const EdgeInsets.all(16.0),
               child: DefaultTextStyle.merge(
