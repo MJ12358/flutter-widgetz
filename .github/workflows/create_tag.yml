@@ -35,7 +35,6 @@ jobs:
               repo: context.repo.repo,
               ref: `tags/${process.env.NEW_TAG}`,
               sha: context.sha
-              force: true
             })
 
       - name: Push Tag
