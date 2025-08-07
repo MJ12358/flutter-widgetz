@@ -59,6 +59,11 @@ class DateFieldPage extends StatelessWidget {
                 labelText: 'DateTime Field',
                 onChanged: print,
               ),
+              const DateTimeField(
+                labelText: 'DateTime Field (24 Hour Format)',
+                use24HourFormat: true,
+                onChanged: print,
+              ),
               DateTimeField(
                 labelText: 'DateTime Field (Initial Value)',
                 onChanged: print,

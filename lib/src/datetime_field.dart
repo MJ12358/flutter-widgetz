@@ -111,25 +111,20 @@ class _DateTimeFieldState extends State<DateTimeField> {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    return MediaQuery(
-      data: MediaQuery.of(context).copyWith(
-        alwaysUse24HourFormat: widget.use24HourFormat,
-      ),
-      child: InkWell(
-        focusNode: _focusNode,
-        onFocusChange: _onFocusChange,
-        onTap: () => _showPickers(context),
-        child: InputDecorator(
-          isFocused: _focusNode.hasFocus,
-          decoration: InputDecoration(
-            errorText: widget.hasError ? widget.errorText : null,
-            labelText: widget.labelText,
-            prefixIcon: widget.prefixIcon,
-          ),
-          child: Text(
-            widget.displayStringForDate(_value),
-            style: theme.textTheme.titleMedium,
-          ),
+    return InkWell(
+      focusNode: _focusNode,
+      onFocusChange: _onFocusChange,
+      onTap: () => _showPickers(context),
+      child: InputDecorator(
+        isFocused: _focusNode.hasFocus,
+        decoration: InputDecoration(
+          errorText: widget.hasError ? widget.errorText : null,
+          labelText: widget.labelText,
+          prefixIcon: widget.prefixIcon,
+        ),
+        child: Text(
+          widget.displayStringForDate(_value),
+          style: theme.textTheme.titleMedium,
         ),
       ),
     );
@@ -153,11 +148,18 @@ class _DateTimeFieldState extends State<DateTimeField> {
     if (!context.mounted) {
       return;
     }
-    // ignore: use_build_context_synchronously
     final TimeOfDay? tod = await showTimePicker(
       context: context,
       initialEntryMode: widget.timeEntryMode,
       initialTime: _defaultInitialTime,
+      builder: (BuildContext context, Widget? child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            alwaysUse24HourFormat: widget.use24HourFormat,
+          ),
+          child: child!,
+        );
+      },
     );
     if (tod != null) {
       dt = dt.copyWith(

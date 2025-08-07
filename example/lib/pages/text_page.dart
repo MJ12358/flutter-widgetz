@@ -33,7 +33,7 @@ class TextPage extends StatelessWidget {
             ),
             CustomTextField(
               labelText: 'Text Field',
-              prefixIcon: Icon(Icons.missed_video_call),
+              prefixIcon: Icon(Icons.text_fields),
               help: Text('Help Text'),
             ),
             CustomInputDecorator(
@@ -44,7 +44,7 @@ class TextPage extends StatelessWidget {
                   width: 2.0,
                 ),
               ),
-              help: Text('Can you hear me now?'),
+              help: Text('Input Decorator Help1'),
               child: Text('Input Decorator Child1'),
             ),
             CustomInputDecorator(
@@ -55,10 +55,8 @@ class TextPage extends StatelessWidget {
                   width: 5.0,
                 ),
               ),
-              help: Text('Input Decorator Help'),
-              child: Center(
-                child: Text('Input Decorator Child2'),
-              ),
+              help: Text('Input Decorator Help2'),
+              child: Text('Input Decorator Child2'),
             ),
           ],
         ),

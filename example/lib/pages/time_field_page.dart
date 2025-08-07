@@ -46,6 +46,21 @@ class TimeFieldPage extends StatelessWidget {
                 displayStringForTime: (TimeOfDay? v) =>
                     v?.format(context) ?? '',
               ),
+              const TimeField(
+                labelText: 'Time Field (24 Hour Format)',
+                use24HourFormat: true,
+                onChanged: print,
+              ),
+              const TimeField(
+                labelText: 'Time Field (Dial Only)',
+                entryMode: TimePickerEntryMode.dialOnly,
+                onChanged: print,
+              ),
+              const TimeField(
+                labelText: 'Time Field (Input Only)',
+                entryMode: TimePickerEntryMode.inputOnly,
+                onChanged: print,
+              ),
               TimeField(
                 labelText: 'Time Field (Initial Value)',
                 onChanged: print,

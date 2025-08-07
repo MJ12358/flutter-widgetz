@@ -154,7 +154,13 @@ class CustomDialog<T> extends StatelessWidget {
   })  : actions = null,
         child = DefaultTextStyle.merge(
           textAlign: TextAlign.center,
-          child: child,
+          // this is necessary to prevent dialog height from being full screen
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              child,
+            ],
+          ),
         );
 
   @override

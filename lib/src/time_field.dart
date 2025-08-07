@@ -17,6 +17,7 @@ class TimeField extends StatefulWidget {
     this.hasError = false,
     this.labelText,
     this.prefixIcon = const Icon(Icons.timelapse),
+    this.use24HourFormat = false,
     this.value,
   });
 
@@ -40,6 +41,9 @@ class TimeField extends StatefulWidget {
 
   /// An icon that appears before the editable part of the text field.
   final Widget prefixIcon;
+
+  /// Determines whether to use a 24-hour format.
+  final bool use24HourFormat;
 
   /// The value of this input.
   final TimeOfDay? value;
@@ -103,6 +107,14 @@ class _TimeFieldState extends State<TimeField> {
       context: context,
       initialEntryMode: widget.entryMode,
       initialTime: _value ?? TimeOfDay.now(),
+      builder: (BuildContext context, Widget? child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            alwaysUse24HourFormat: widget.use24HourFormat,
+          ),
+          child: child!,
+        );
+      },
     ).then(_onChange);
   }
 

@@ -98,7 +98,7 @@ class _CustomSliderState extends State<CustomSlider> {
 
   void _onChanged(double value) {
     setState(() {
-      _value = _value is int ? value.toInt() : value;
+      _value = value is int ? value.toInt() : value;
     });
   }
 

@@ -1,5 +1,13 @@
 # Flutter Widgetz
 
+## [11.4.3]
+
+- Add `cacheHeight` and `cacheWidth` to `CustomImage`.
+- Add `use24HourFormat` to `TimeField`.
+- Fix `CustomDialog.simple` child sizing.
+- Fix `DateTimeField` `showTimePicker` not using `use24HourFormat` parameter properly.
+- Update example app.
+
 ## [11.4.2]
 
 - Fix `CustomText` help dialog styling.

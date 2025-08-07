@@ -59,11 +59,7 @@ class CustomText extends StatelessWidget {
           builder: (_) {
             return CustomDialog.simple(
               title: labelText != null ? Text(labelText!) : null,
-              contentPadding: const EdgeInsets.all(16.0),
-              child: DefaultTextStyle.merge(
-                textAlign: TextAlign.center,
-                child: help,
-              ),
+              child: help,
             );
           },
         ).then((_) {

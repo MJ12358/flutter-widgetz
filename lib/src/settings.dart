@@ -319,11 +319,13 @@ class SettingsTile extends StatelessWidget {
     Widget? trailing,
     double? value,
   })  : trailing = trailing ??
+            // TODO: this is not updated when timeDilation
+            // changes outside of this widget
             Text(value != null ? value.toString() : timeDilation.toString()),
         onTap = (() => showDialog(
               context: context,
               builder: (_) => CustomDialog.simple(
-                title: dialogTitle ?? const Text('Time Dilation'),
+                title: dialogTitle ?? title,
                 child: CustomSlider(
                   min: 1,
                   max: 10,

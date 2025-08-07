@@ -11,6 +11,8 @@ class CustomImage extends StatefulWidget {
     super.key,
     required this.imageProvider,
     this.alignment = _defaultAlignment,
+    this.cacheHeight,
+    this.cacheWidth,
     this.color,
     this.errorWidget,
     this.fit = _defaultBoxFit,
@@ -20,6 +22,12 @@ class CustomImage extends StatefulWidget {
 
   /// How to align the image within its bounds.
   final Alignment alignment;
+
+  /// The height of the image in pixels to cache.
+  final int? cacheHeight;
+
+  /// The width of the image in pixels to cache.
+  final int? cacheWidth;
 
   /// The color to fill in the background of the box.
   final Color? color;
@@ -63,6 +71,8 @@ class CustomImage extends StatefulWidget {
     String? name, {
     super.key,
     this.alignment = _defaultAlignment,
+    this.cacheHeight,
+    this.cacheWidth,
     this.color,
     this.errorWidget = _defaultErrorWidget,
     this.fit = _defaultBoxFit,
@@ -75,6 +85,8 @@ class CustomImage extends StatefulWidget {
           errorBuilder: (_, __, ___) => errorWidget!,
           frameBuilder: frameBuilder,
           package: package,
+          cacheHeight: cacheHeight,
+          cacheWidth: cacheWidth,
         ).image;
 
   /// {@macro flutter_widgetz.CustomImage}
@@ -84,6 +96,8 @@ class CustomImage extends StatefulWidget {
     Uint8List? bytes, {
     super.key,
     this.alignment = _defaultAlignment,
+    this.cacheHeight,
+    this.cacheWidth,
     this.color,
     this.errorWidget = _defaultErrorWidget,
     this.fit = _defaultBoxFit,
@@ -94,6 +108,8 @@ class CustomImage extends StatefulWidget {
           bytes ?? Uint8List(0),
           errorBuilder: (_, __, ___) => errorWidget!,
           frameBuilder: frameBuilder,
+          cacheHeight: cacheHeight,
+          cacheWidth: cacheWidth,
         ).image;
 
   /// {@macro flutter_widgetz.CustomImage}
@@ -103,6 +119,8 @@ class CustomImage extends StatefulWidget {
     String? source, {
     super.key,
     this.alignment = _defaultAlignment,
+    this.cacheHeight,
+    this.cacheWidth,
     this.color,
     this.errorWidget = _defaultErrorWidget,
     this.fit = _defaultBoxFit,
@@ -113,6 +131,8 @@ class CustomImage extends StatefulWidget {
           source ?? '',
           errorBuilder: (_, __, ___) => errorWidget!,
           loadingBuilder: loadingBuilder,
+          cacheHeight: cacheHeight,
+          cacheWidth: cacheWidth,
         ).image;
 
   /// {@macro flutter_widgetz.CustomImage}
@@ -122,6 +142,8 @@ class CustomImage extends StatefulWidget {
   factory CustomImage.dynamic(
     Object? input, {
     Alignment alignment = _defaultAlignment,
+    int? cacheHeight,
+    int? cacheWidth,
     Color? color,
     Widget errorWidget = _defaultErrorWidget,
     BoxFit fit = _defaultBoxFit,
@@ -133,6 +155,8 @@ class CustomImage extends StatefulWidget {
         return CustomImage.memory(
           input as Uint8List?,
           alignment: alignment,
+          cacheHeight: cacheHeight,
+          cacheWidth: cacheWidth,
           color: color,
           errorWidget: errorWidget,
           fit: fit,
@@ -146,6 +170,8 @@ class CustomImage extends StatefulWidget {
           return CustomImage.network(
             input,
             alignment: alignment,
+            cacheHeight: cacheHeight,
+            cacheWidth: cacheWidth,
             color: color,
             errorWidget: errorWidget,
             fit: fit,
@@ -158,6 +184,8 @@ class CustomImage extends StatefulWidget {
           return CustomImage.memory(
             base64Decode(input),
             alignment: alignment,
+            cacheHeight: cacheHeight,
+            cacheWidth: cacheWidth,
             color: color,
             errorWidget: errorWidget,
             fit: fit,
@@ -169,6 +197,8 @@ class CustomImage extends StatefulWidget {
         return CustomImage.asset(
           input,
           alignment: alignment,
+          cacheHeight: cacheHeight,
+          cacheWidth: cacheWidth,
           color: color,
           errorWidget: errorWidget,
           fit: fit,
@@ -184,6 +214,8 @@ class CustomImage extends StatefulWidget {
     return CustomImage(
       imageProvider: Image.memory(_kTransparentImage).image,
       alignment: alignment,
+      cacheHeight: cacheHeight,
+      cacheWidth: cacheWidth,
       color: color,
       fit: fit,
       opacity: opacity,
