@@ -64,7 +64,7 @@ part 'src/placeholder.dart';
 part 'src/poll.dart';
 part 'src/popup_menu_item.dart';
 part 'src/progress_indicator.dart';
-part 'src/radio_group.dart';
+part 'src/radio_field_group.dart';
 part 'src/rating_bar.dart';
 part 'src/rating_summary.dart';
 part 'src/reorderable_list.dart';

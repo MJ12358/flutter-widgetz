@@ -394,7 +394,10 @@ class SettingsTile extends StatelessWidget {
       enabled: enabled,
       leading: leading,
       subtitle: subtitle,
-      title: title,
+      // TODO: On devices with large text size this overflows
+      title: Flexible(
+        child: title,
+      ),
       trailing: trailing,
       onTap: onTap,
     );

@@ -14,19 +14,19 @@ class RadioPage extends StatelessWidget {
             labelText: 'Text Field (for reference)',
             prefixIcon: Icon(Icons.timelapse),
           ),
-          const RadioGroup<String>(
+          const RadioFieldGroup<String>(
             labelText: 'Radio Group',
             items: <String>['1', '2', '3'],
             onChanged: print,
             prefixIcon: Icon(Icons.gif_box),
           ),
-          const RadioGroup<BoxFit>(
+          const RadioFieldGroup<BoxFit>(
             labelText: 'Radio Group Two (Enum)',
             items: BoxFit.values,
             onChanged: print,
             initialValue: BoxFit.contain,
           ),
-          RadioGroup<BoxFit>(
+          RadioFieldGroup<BoxFit>(
             labelText: 'Radio Group Two (Enum with Formatter)',
             items: BoxFit.values,
             onChanged: print,

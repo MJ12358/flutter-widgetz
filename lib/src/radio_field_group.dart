@@ -5,9 +5,9 @@ part of flutter_widgetz;
 ///
 ///![RadioGroup](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/radio_group.png)
 /// {@endtemplate}
-class RadioGroup<T extends Object> extends StatefulWidget {
+class RadioFieldGroup<T extends Object> extends StatefulWidget {
   /// {@macro flutter_widgetz.RadioGroup}
-  const RadioGroup({
+  const RadioFieldGroup({
     super.key,
     required this.items,
     required this.onChanged,
@@ -48,10 +48,11 @@ class RadioGroup<T extends Object> extends StatefulWidget {
   }
 
   @override
-  State<RadioGroup<T>> createState() => _RadioGroupState<T>();
+  State<RadioFieldGroup<T>> createState() => _RadioFieldGroupState<T>();
 }
 
-class _RadioGroupState<T extends Object> extends State<RadioGroup<T>> {
+class _RadioFieldGroupState<T extends Object>
+    extends State<RadioFieldGroup<T>> {
   late final FocusNode _focusNode;
   T? _value;
 
@@ -90,12 +91,14 @@ class _RadioGroupState<T extends Object> extends State<RadioGroup<T>> {
 
   List<Widget> _getChildren() {
     return widget.items.map((T e) {
-      return RadioListTile<T>(
-        controlAffinity: widget.controlAffinity,
+      return RadioGroup<T>(
         groupValue: _value,
         onChanged: _onTap,
-        title: Text(widget.displayStringForItem(e)),
-        value: e,
+        child: RadioListTile<T>(
+          controlAffinity: widget.controlAffinity,
+          title: Text(widget.displayStringForItem(e)),
+          value: e,
+        ),
       );
     }).toList();
   }

@@ -144,6 +144,7 @@ class AuthButton extends StatelessWidget {
         padding: const EdgeInsets.only(right: 8.0),
       ),
       child: Container(
+        // TODO: A RenderFlex overflowed by 8.0 pixels on the right
         constraints: BoxConstraints(
           maxHeight: _height,
           minWidth: minWidth,

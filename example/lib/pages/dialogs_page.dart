@@ -195,7 +195,7 @@ class DialogsPage extends StatelessWidget {
           child: const Text('This is a custom alert dialog.'),
         );
       },
-    );
+    ).then(print);
   }
 
   void _showCustomSimpleDialog(BuildContext context) {

@@ -85,7 +85,7 @@ class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
       ),
       items: _getItems(),
       onChanged: _onChange,
-      value: _value,
+      initialValue: _value,
     );
   }
 

@@ -1,5 +1,11 @@
 # Flutter Widgetz
 
+## [12.0.0]
+
+- Upgrade Flutter SDK.
+- Rename `RadioGroup` to `RadioFieldGroup`.
+- Update example app.
+
 ## [11.4.3]
 
 - Add `cacheHeight` and `cacheWidth` to `CustomImage`.

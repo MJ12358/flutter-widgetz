@@ -56,7 +56,7 @@ class CustomDialog<T> extends StatelessWidget {
     this.titlePadding = _defaultTitlePadding,
   }) : actions = <Widget>[
           TextButton(
-            onPressed: Navigator.of(context).pop,
+            onPressed: () => Navigator.of(context).pop(false),
             child: Text(cancelText),
           ),
           TextButton(
@@ -132,11 +132,13 @@ class CustomDialog<T> extends StatelessWidget {
           shrinkWrap: shrinkWrap,
           children: <Widget>[
             ...values.map((T e) {
-              return RadioListTile<T>(
-                title: Text(displayStringForValue?.call(e) ?? e.toString()),
-                value: e,
+              return RadioGroup<T>(
                 groupValue: groupValue,
                 onChanged: onChanged,
+                child: RadioListTile<T>(
+                  title: Text(displayStringForValue?.call(e) ?? e.toString()),
+                  value: e,
+                ),
               );
             }),
           ],
