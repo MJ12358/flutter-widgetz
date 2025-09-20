@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [12.0.1]
+
+- Remove `Flexible` from `Settings` tile to avoid render issues.
+
 ## [12.0.0]
 
 - Upgrade Flutter SDK.
