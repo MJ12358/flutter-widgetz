@@ -78,14 +78,17 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: crossAxisAlignment,
-      mainAxisAlignment: mainAxisAlignment,
-      children: <Widget>[
-        Text(text, style: style),
-        const SizedBox(width: 8.0),
-        _getHelp(context),
-      ],
+    return Semantics(
+      identifier: labelText,
+      child: Row(
+        crossAxisAlignment: crossAxisAlignment,
+        mainAxisAlignment: mainAxisAlignment,
+        children: <Widget>[
+          Text(text, style: style),
+          const SizedBox(width: 8.0),
+          _getHelp(context),
+        ],
+      ),
     );
   }
 }

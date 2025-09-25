@@ -109,32 +109,36 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      autofocus: autofocus,
-      autofillHints: autofillHint != null ? <String>[autofillHint!] : null,
-      controller: controller,
-      focusNode: focusNode,
-      initialValue: initialValue,
-      inputFormatters:
-          inputFormatter != null ? <TextInputFormatter>[inputFormatter!] : null,
-      keyboardType: keyboardType,
-      maxLines: maxLines,
-      minLines: minLines,
-      obscureText: obscureText,
-      restorationId: restorationId,
-      scrollPadding: scrollPadding,
-      style: style,
-      textCapitalization: textCapitalization,
-      textInputAction: textInputAction,
-      decoration: InputDecoration(
-        errorText: hasError ? errorText : null,
-        hintText: hintText,
-        labelText: labelText,
-        prefixIcon: prefixIcon,
-        suffixIcon: _getSuffixIcon(context),
+    return Semantics(
+      identifier: labelText,
+      child: TextFormField(
+        autofocus: autofocus,
+        autofillHints: autofillHint != null ? <String>[autofillHint!] : null,
+        controller: controller,
+        focusNode: focusNode,
+        initialValue: initialValue,
+        inputFormatters: inputFormatter != null
+            ? <TextInputFormatter>[inputFormatter!]
+            : null,
+        keyboardType: keyboardType,
+        maxLines: maxLines,
+        minLines: minLines,
+        obscureText: obscureText,
+        restorationId: restorationId,
+        scrollPadding: scrollPadding,
+        style: style,
+        textCapitalization: textCapitalization,
+        textInputAction: textInputAction,
+        decoration: InputDecoration(
+          errorText: hasError ? errorText : null,
+          hintText: hintText,
+          labelText: labelText,
+          prefixIcon: prefixIcon,
+          suffixIcon: _getSuffixIcon(context),
+        ),
+        onChanged: onChanged,
+        onEditingComplete: onEditingComplete ?? () => _onFocus(context),
       ),
-      onChanged: onChanged,
-      onEditingComplete: onEditingComplete ?? () => _onFocus(context),
     );
   }
 

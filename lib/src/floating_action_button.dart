@@ -92,9 +92,9 @@ class _CustomFloatingActionButtonState extends State<CustomFloatingActionButton>
         scale: _tween.animate(_animationController),
         child: _getButton(),
       );
+    } else {
+      return _getButton();
     }
-
-    return _getButton();
   }
 
   Widget _getButton() {

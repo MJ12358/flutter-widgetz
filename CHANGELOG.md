@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [12.0.2]
+
+- Wrap some widgets in `Semantics` to expose identifier.
+
 ## [12.0.1]
 
 - Remove `Flexible` from `Settings` tile to avoid render issues.

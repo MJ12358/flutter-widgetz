@@ -64,27 +64,30 @@ class _CounterFieldState extends State<CounterField> {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    return Focus(
-      focusNode: _focusNode,
-      onFocusChange: _onFocusChange,
-      child: InputDecorator(
-        isFocused: _focusNode.hasFocus,
-        decoration: InputDecoration(
-          errorText: widget.hasError ? widget.errorText : null,
-          labelText: widget.labelText,
-          prefixIcon: InkWell(
-            child: widget.decrementIcon,
-            onTap: () => _onTap(--_value),
+    return Semantics(
+      identifier: widget.labelText,
+      child: Focus(
+        focusNode: _focusNode,
+        onFocusChange: _onFocusChange,
+        child: InputDecorator(
+          isFocused: _focusNode.hasFocus,
+          decoration: InputDecoration(
+            errorText: widget.hasError ? widget.errorText : null,
+            labelText: widget.labelText,
+            prefixIcon: InkWell(
+              child: widget.decrementIcon,
+              onTap: () => _onTap(--_value),
+            ),
+            suffixIcon: InkWell(
+              child: widget.incrementIcon,
+              onTap: () => _onTap(++_value),
+            ),
           ),
-          suffixIcon: InkWell(
-            child: widget.incrementIcon,
-            onTap: () => _onTap(++_value),
+          child: Text(
+            _value.toString(),
+            style: theme.textTheme.titleMedium,
+            textAlign: TextAlign.center,
           ),
-        ),
-        child: Text(
-          _value.toString(),
-          style: theme.textTheme.titleMedium,
-          textAlign: TextAlign.center,
         ),
       ),
     );

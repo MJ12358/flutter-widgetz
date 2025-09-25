@@ -58,21 +58,24 @@ class _CheckboxFieldState extends State<CheckboxField> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      focusNode: _focusNode,
-      onFocusChange: _onFocusChange,
-      onTap: _onInputTap,
-      child: InputDecorator(
-        isFocused: _focusNode.hasFocus,
-        textAlign: TextAlign.left,
-        decoration: InputDecoration(
-          labelText: widget.labelText,
-          prefixIcon: Checkbox(
-            value: _value,
-            onChanged: _onCheckboxTap,
+    return Semantics(
+      identifier: widget.labelText,
+      child: InkWell(
+        focusNode: _focusNode,
+        onFocusChange: _onFocusChange,
+        onTap: _onInputTap,
+        child: InputDecorator(
+          isFocused: _focusNode.hasFocus,
+          textAlign: TextAlign.left,
+          decoration: InputDecoration(
+            labelText: widget.labelText,
+            prefixIcon: Checkbox(
+              value: _value,
+              onChanged: _onCheckboxTap,
+            ),
           ),
+          child: widget.child,
         ),
-        child: widget.child,
       ),
     );
   }

@@ -70,19 +70,22 @@ class _CheckboxGroupState<T extends Object> extends State<CheckboxGroup<T>> {
 
   @override
   Widget build(BuildContext context) {
-    return Focus(
-      focusNode: _focusNode,
-      onFocusChange: _onFocusChange,
-      child: InputDecorator(
-        isFocused: _focusNode.hasFocus,
-        decoration: InputDecoration(
-          border: widget.border,
-          labelText: widget.labelText,
-          prefixIcon: widget.prefixIcon,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: _getChildren(),
+    return Semantics(
+      identifier: widget.labelText,
+      child: Focus(
+        focusNode: _focusNode,
+        onFocusChange: _onFocusChange,
+        child: InputDecorator(
+          isFocused: _focusNode.hasFocus,
+          decoration: InputDecoration(
+            border: widget.border,
+            labelText: widget.labelText,
+            prefixIcon: widget.prefixIcon,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: _getChildren(),
+          ),
         ),
       ),
     );

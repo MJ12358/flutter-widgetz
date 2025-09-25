@@ -111,20 +111,23 @@ class _DateTimeFieldState extends State<DateTimeField> {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    return InkWell(
-      focusNode: _focusNode,
-      onFocusChange: _onFocusChange,
-      onTap: () => _showPickers(context),
-      child: InputDecorator(
-        isFocused: _focusNode.hasFocus,
-        decoration: InputDecoration(
-          errorText: widget.hasError ? widget.errorText : null,
-          labelText: widget.labelText,
-          prefixIcon: widget.prefixIcon,
-        ),
-        child: Text(
-          widget.displayStringForDate(_value),
-          style: theme.textTheme.titleMedium,
+    return Semantics(
+      identifier: widget.labelText,
+      child: InkWell(
+        focusNode: _focusNode,
+        onFocusChange: _onFocusChange,
+        onTap: () => _showPickers(context),
+        child: InputDecorator(
+          isFocused: _focusNode.hasFocus,
+          decoration: InputDecoration(
+            errorText: widget.hasError ? widget.errorText : null,
+            labelText: widget.labelText,
+            prefixIcon: widget.prefixIcon,
+          ),
+          child: Text(
+            widget.displayStringForDate(_value),
+            style: theme.textTheme.titleMedium,
+          ),
         ),
       ),
     );

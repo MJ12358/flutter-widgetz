@@ -74,18 +74,21 @@ class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButtonFormField<T>(
-      icon: widget.icon,
-      isDense: widget.isDense,
-      isExpanded: widget.isExpanded,
-      decoration: InputDecoration(
+    return Semantics(
+      identifier: widget.labelText,
+      child: DropdownButtonFormField<T>(
+        icon: widget.icon,
         isDense: widget.isDense,
-        labelText: widget.labelText,
-        prefixIcon: widget.prefixIcon,
+        isExpanded: widget.isExpanded,
+        decoration: InputDecoration(
+          isDense: widget.isDense,
+          labelText: widget.labelText,
+          prefixIcon: widget.prefixIcon,
+        ),
+        items: _getItems(),
+        onChanged: _onChange,
+        initialValue: _value,
       ),
-      items: _getItems(),
-      onChanged: _onChange,
-      initialValue: _value,
     );
   }
 

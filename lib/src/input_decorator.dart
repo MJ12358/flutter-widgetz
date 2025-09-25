@@ -45,19 +45,22 @@ class CustomInputDecorator extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    return InputDecorator(
-      isFocused: isFocused,
-      decoration: InputDecoration(
-        border: border,
-        enabledBorder: border,
-        errorText: errorText,
-        labelText: labelText,
-        prefixIcon: prefixIcon,
-        suffixIcon: _getSuffixIcon(context),
-      ),
-      child: DefaultTextStyle.merge(
-        style: theme.textTheme.titleMedium,
-        child: child,
+    return Semantics(
+      identifier: labelText,
+      child: InputDecorator(
+        isFocused: isFocused,
+        decoration: InputDecoration(
+          border: border,
+          enabledBorder: border,
+          errorText: errorText,
+          labelText: labelText,
+          prefixIcon: prefixIcon,
+          suffixIcon: _getSuffixIcon(context),
+        ),
+        child: DefaultTextStyle.merge(
+          style: theme.textTheme.titleMedium,
+          child: child,
+        ),
       ),
     );
   }

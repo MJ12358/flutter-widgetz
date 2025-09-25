@@ -85,19 +85,22 @@ class _DurationFieldState extends State<DurationField> {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    return InkWell(
-      focusNode: _focusNode,
-      onFocusChange: _onFocusChange,
-      onTap: () => _showModal(context),
-      child: InputDecorator(
-        isFocused: _focusNode.hasFocus,
-        decoration: InputDecoration(
-          labelText: widget.labelText,
-          prefixIcon: widget.prefixIcon,
-        ),
-        child: Text(
-          widget.displayStringForDuration(_value),
-          style: theme.textTheme.titleMedium,
+    return Semantics(
+      identifier: widget.labelText,
+      child: InkWell(
+        focusNode: _focusNode,
+        onFocusChange: _onFocusChange,
+        onTap: () => _showModal(context),
+        child: InputDecorator(
+          isFocused: _focusNode.hasFocus,
+          decoration: InputDecoration(
+            labelText: widget.labelText,
+            prefixIcon: widget.prefixIcon,
+          ),
+          child: Text(
+            widget.displayStringForDuration(_value),
+            style: theme.textTheme.titleMedium,
+          ),
         ),
       ),
     );
