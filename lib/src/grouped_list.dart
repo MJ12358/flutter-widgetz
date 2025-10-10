@@ -51,42 +51,68 @@ class GroupedListView<T, E> extends StatelessWidget {
   /// determined by the contents being viewed.
   final bool shrinkWrap;
 
-  Map<E, List<T>> get _grouping {
-    final Map<E, List<T>> map = <E, List<T>>{};
+  List<_ListViewItem<T, E>> _buildListViewItems() {
+    if (items.isEmpty) {
+      return <_ListViewItem<T, E>>[];
+    }
+
+    // Group items
+    final Map<E, List<T>> grouping = <E, List<T>>{};
     for (final T item in items) {
-      (map[groupBy(item)] ??= <T>[]).add(item);
+      final E key = groupBy(item);
+      (grouping[key] ??= <T>[]).add(item);
     }
-    return map;
-  }
 
-  Widget _separatorBuilder(BuildContext context, int index) {
-    if (groupSeparatorBuilder == null) {
-      return const SizedBox.shrink();
+    // Build flat list of all items
+    final List<_ListViewItem<T, E>> listItems = <_ListViewItem<T, E>>[];
+    final List<MapEntry<E, List<T>>> groups = grouping.entries.toList();
+
+    for (int i = 0; i < groups.length; i++) {
+      final MapEntry<E, List<T>> group = groups[i];
+
+      // Add group header
+      listItems.add(_ListViewItem<T, E>.header(group.key));
+
+      // Add group items with separators
+      for (int j = 0; j < group.value.length; j++) {
+        listItems.add(_ListViewItem<T, E>.item(group.value[j]));
+
+        // Add item separator if not last item and separator exists
+        if (j < group.value.length - 1 && separatorBuilder != null) {
+          listItems.add(_ListViewItem<T, E>.itemSeparator(group.value[j]));
+        }
+      }
+
+      // Add group separator if not last group and separator exists
+      if (i < groups.length - 1 && groupSeparatorBuilder != null) {
+        listItems.add(_ListViewItem<T, E>.groupSeparator(group.value.last));
+      }
     }
-    final MapEntry<E, List<T>> group = _grouping.entries.elementAt(index);
-    return groupSeparatorBuilder!.call(context, group.value[index]);
-  }
 
-  Widget _itemBuilder(BuildContext context, int index) {
-    final MapEntry<E, List<T>> group = _grouping.entries.elementAt(index);
-    return Column(
-      children: <Widget>[
-        groupHeaderBuilder?.call(group.key) ?? const SizedBox.shrink(),
-        _SubList<T>(
-          items: group.value,
-          itemBuilder: itemBuilder,
-          separatorBuilder: separatorBuilder,
-        ),
-      ],
-    );
+    return listItems;
   }
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      itemCount: _grouping.length,
-      itemBuilder: _itemBuilder,
-      separatorBuilder: _separatorBuilder,
+    final List<_ListViewItem<T, E>> listItems = _buildListViewItems();
+
+    return ListView.builder(
+      itemCount: listItems.length,
+      itemBuilder: (BuildContext context, int index) {
+        final _ListViewItem<T, E> item = listItems[index];
+
+        return item.map(
+          header: (_HeaderItem<T, E> header) =>
+              groupHeaderBuilder?.call(header.value) ?? const SizedBox.shrink(),
+          item: (_ListItem<T, E> item) => itemBuilder(context, item.value),
+          itemSeparator: (_ItemSeparator<T, E> separator) =>
+              separatorBuilder?.call(context, separator.value) ??
+              const SizedBox.shrink(),
+          groupSeparator: (_GroupSeparator<T, E> separator) =>
+              groupSeparatorBuilder?.call(context, separator.value) ??
+              const SizedBox.shrink(),
+        );
+      },
       clipBehavior: clipBehavior,
       physics: physics,
       shrinkWrap: shrinkWrap,
@@ -94,36 +120,79 @@ class GroupedListView<T, E> extends StatelessWidget {
   }
 }
 
-class _SubList<T> extends StatelessWidget {
-  const _SubList({
-    super.key,
-    required this.items,
-    required this.itemBuilder,
-    this.separatorBuilder,
-  });
+// Helper sealed class for type-safe list items
+sealed class _ListViewItem<T, E> {
+  const _ListViewItem();
 
-  final List<T> items;
-  final GroupedWidgetBuilder<T> itemBuilder;
-  final GroupedWidgetBuilder<T>? separatorBuilder;
+  const factory _ListViewItem.header(E value) = _HeaderItem<T, E>._;
+  const factory _ListViewItem.item(T value) = _ListItem<T, E>._;
+  const factory _ListViewItem.itemSeparator(T value) = _ItemSeparator<T, E>._;
+  const factory _ListViewItem.groupSeparator(T value) = _GroupSeparator<T, E>._;
+
+  R map<R>({
+    required R Function(_HeaderItem<T, E>) header,
+    required R Function(_ListItem<T, E>) item,
+    required R Function(_ItemSeparator<T, E>) itemSeparator,
+    required R Function(_GroupSeparator<T, E>) groupSeparator,
+  });
+}
+
+class _HeaderItem<T, E> extends _ListViewItem<T, E> {
+  final E value;
+
+  const _HeaderItem._(this.value);
 
   @override
-  Widget build(BuildContext context) {
-    return ListView.separated(
-      clipBehavior: Clip.none,
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: items.length,
-      itemBuilder: (BuildContext context, int index) {
-        final T item = items[index];
-        return itemBuilder.call(context, item);
-      },
-      separatorBuilder: (BuildContext context, int index) {
-        if (separatorBuilder == null) {
-          return const SizedBox.shrink();
-        }
-        final T item = items[index];
-        return separatorBuilder!.call(context, item);
-      },
-    );
-  }
+  R map<R>({
+    required R Function(_HeaderItem<T, E>) header,
+    required R Function(_ListItem<T, E>) item,
+    required R Function(_ItemSeparator<T, E>) itemSeparator,
+    required R Function(_GroupSeparator<T, E>) groupSeparator,
+  }) =>
+      header(this);
+}
+
+class _ListItem<T, E> extends _ListViewItem<T, E> {
+  final T value;
+
+  const _ListItem._(this.value);
+
+  @override
+  R map<R>({
+    required R Function(_HeaderItem<T, E>) header,
+    required R Function(_ListItem<T, E>) item,
+    required R Function(_ItemSeparator<T, E>) itemSeparator,
+    required R Function(_GroupSeparator<T, E>) groupSeparator,
+  }) =>
+      item(this);
+}
+
+class _ItemSeparator<T, E> extends _ListViewItem<T, E> {
+  final T value;
+
+  const _ItemSeparator._(this.value);
+
+  @override
+  R map<R>({
+    required R Function(_HeaderItem<T, E>) header,
+    required R Function(_ListItem<T, E>) item,
+    required R Function(_ItemSeparator<T, E>) itemSeparator,
+    required R Function(_GroupSeparator<T, E>) groupSeparator,
+  }) =>
+      itemSeparator(this);
+}
+
+class _GroupSeparator<T, E> extends _ListViewItem<T, E> {
+  final T value;
+
+  const _GroupSeparator._(this.value);
+
+  @override
+  R map<R>({
+    required R Function(_HeaderItem<T, E>) header,
+    required R Function(_ListItem<T, E>) item,
+    required R Function(_ItemSeparator<T, E>) itemSeparator,
+    required R Function(_GroupSeparator<T, E>) groupSeparator,
+  }) =>
+      groupSeparator(this);
 }

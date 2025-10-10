@@ -12,6 +12,14 @@ class GroupedListViewPage extends StatelessWidget {
     <String, String>{'name': 'Mike', 'group': 'Team C'},
     <String, String>{'name': 'Danny', 'group': 'Team C'},
     <String, String>{'name': 'Dave', 'group': 'Team C'},
+    <String, String>{'name': 'Alice', 'group': 'Team A'},
+    <String, String>{'name': 'Bob', 'group': 'Team B'},
+    <String, String>{'name': 'Charlie', 'group': 'Team A'},
+    <String, String>{'name': 'Eve', 'group': 'Team B'},
+    <String, String>{'name': 'Frank', 'group': 'Team C'},
+    <String, String>{'name': 'Grace', 'group': 'Team A'},
+    <String, String>{'name': 'Hank', 'group': 'Team B'},
+    <String, String>{'name': 'Ivy', 'group': 'Team C'},
   ];
 
   @override

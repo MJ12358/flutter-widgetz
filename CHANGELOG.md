@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## [12.0.3]
+
+- Optimize `GroupedListView` and `GroupedSliverList`.
+- Update example app.
+
 ## [12.0.2]
 
 - Wrap some widgets in `Semantics` to expose identifier.
