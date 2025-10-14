@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## [12.1.0]
+
+- Modify `groupHeaderBuilder` within `GroupedListView` and `GroupedSliverList` to accomidate access to the items within said group.
+- Update example app.
+
 ## [12.0.3]
 
 - Optimize `GroupedListView` and `GroupedSliverList`.

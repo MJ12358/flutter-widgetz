@@ -19,7 +19,8 @@ class GroupedListViewPage extends StatelessWidget {
     <String, String>{'name': 'Frank', 'group': 'Team C'},
     <String, String>{'name': 'Grace', 'group': 'Team A'},
     <String, String>{'name': 'Hank', 'group': 'Team B'},
-    <String, String>{'name': 'Ivy', 'group': 'Team C'},
+    <String, String>{'name': 'Ivy', 'group': 'Team B'},
+    <String, String>{'name': 'Jack', 'group': 'Team B'},
   ];
 
   @override
@@ -35,9 +36,9 @@ class GroupedListViewPage extends StatelessWidget {
       groupBy: (Map<String, String> item) {
         return item['group']!;
       },
-      groupHeaderBuilder: (String value) {
+      groupHeaderBuilder: (_, String value, List<Map<String, String>> items) {
         return ListTile(
-          title: Text(value),
+          title: Text('$value (${items.length})'),
           tileColor: Colors.black12,
         );
       },

@@ -28,7 +28,7 @@ class GroupedSliverList<T, E> extends StatelessWidget {
   final E Function(T item) groupBy;
 
   /// Called to build group headers.
-  final Widget Function(E value)? groupHeaderBuilder;
+  final GroupHeaderBuilder<T, E>? groupHeaderBuilder;
 
   /// Called to build group separators.
   final GroupedWidgetBuilder<T>? groupSeparatorBuilder;
@@ -54,23 +54,24 @@ class GroupedSliverList<T, E> extends StatelessWidget {
 
     for (int i = 0; i < groups.length; i++) {
       final MapEntry<E, List<T>> group = groups[i];
+      final List<T> groupItems = group.value;
 
-      // Add group header
-      listItems.add(_ListViewItem<T, E>.header(group.key));
+      // Add group header with access to the items
+      listItems.add(_ListViewItem<T, E>.header(group.key, groupItems));
 
       // Add group items with separators
-      for (int j = 0; j < group.value.length; j++) {
-        listItems.add(_ListViewItem<T, E>.item(group.value[j]));
+      for (int j = 0; j < groupItems.length; j++) {
+        listItems.add(_ListViewItem<T, E>.item(groupItems[j]));
 
         // Add item separator if not last item and separator exists
-        if (j < group.value.length - 1 && separatorBuilder != null) {
-          listItems.add(_ListViewItem<T, E>.itemSeparator(group.value[j]));
+        if (j < groupItems.length - 1 && separatorBuilder != null) {
+          listItems.add(_ListViewItem<T, E>.itemSeparator(groupItems[j]));
         }
       }
 
       // Add group separator if not last group and separator exists
       if (i < groups.length - 1 && groupSeparatorBuilder != null) {
-        listItems.add(_ListViewItem<T, E>.groupSeparator(group.value.last));
+        listItems.add(_ListViewItem<T, E>.groupSeparator(groupItems.last));
       }
     }
 
@@ -88,7 +89,12 @@ class GroupedSliverList<T, E> extends StatelessWidget {
 
         return item.map(
           header: (_HeaderItem<T, E> header) =>
-              groupHeaderBuilder?.call(header.value) ?? const SizedBox.shrink(),
+              groupHeaderBuilder?.call(
+                context,
+                header.groupKey,
+                header.groupItems,
+              ) ??
+              const SizedBox.shrink(),
           item: (_ListItem<T, E> item) => itemBuilder(context, item.value),
           itemSeparator: (_ItemSeparator<T, E> separator) =>
               separatorBuilder?.call(context, separator.value) ??
