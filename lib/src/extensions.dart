@@ -19,3 +19,15 @@ extension _DurationExtension on Duration {
   int get minutes => inMinutes % Duration.minutesPerHour;
   int get seconds => inSeconds % Duration.secondsPerMinute;
 }
+
+extension _StringExtension on String {
+  bool get isUri {
+    return Uri.tryParse(this)?.isAbsolute ?? false;
+  }
+
+  bool get isBase64 {
+    return RegExp(
+      r'^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$',
+    ).hasMatch(this);
+  }
+}

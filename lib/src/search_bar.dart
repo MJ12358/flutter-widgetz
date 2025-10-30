@@ -97,18 +97,21 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
           ? const SizedBox()
           : Padding(
               padding: widget.padding,
-              child: TextFormField(
-                autofocus: widget.autofocus,
-                controller: _controller,
-                focusNode: widget.focusNode,
-                keyboardType: widget.keyboardType,
-                textInputAction: TextInputAction.search,
-                decoration: InputDecoration(
-                  labelText: widget.labelText,
-                  prefixIcon: widget.prefixIcon,
-                  suffixIcon: _getSuffix(),
+              child: Semantics(
+                identifier: widget.labelText,
+                child: TextFormField(
+                  autofocus: widget.autofocus,
+                  controller: _controller,
+                  focusNode: widget.focusNode,
+                  keyboardType: widget.keyboardType,
+                  textInputAction: TextInputAction.search,
+                  decoration: InputDecoration(
+                    labelText: widget.labelText,
+                    prefixIcon: widget.prefixIcon,
+                    suffixIcon: _getSuffix(),
+                  ),
+                  onChanged: _onChanged,
                 ),
-                onChanged: _onChanged,
               ),
             ),
     );

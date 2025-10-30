@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_extensionz: 5.0.0
+  flutter_extensionz: 5.1.1
   flutter_themez: 4.0.1
   # flutter_themez:
   #   path: ../../flutter_themez

@@ -140,45 +140,48 @@ class _CountdownState extends State<Countdown> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        _Digit(
-          color: widget.textColor,
-          decoration: widget.decoration,
-          unit: widget.daysLabel,
-          value: _duration.days,
-        ),
-        _Separator(
-          color: widget.textColor,
-          child: widget.separator,
-        ),
-        _Digit(
-          color: widget.textColor,
-          decoration: widget.decoration,
-          unit: widget.hoursLabel,
-          value: _duration.hours,
-        ),
-        _Separator(
-          color: widget.textColor,
-          child: widget.separator,
-        ),
-        _Digit(
-          color: widget.textColor,
-          decoration: widget.decoration,
-          unit: widget.minutesLabel,
-          value: _duration.minutes,
-        ),
-        _Separator(
-          color: widget.textColor,
-          child: widget.separator,
-        ),
-        _Digit(
-          color: widget.textColor,
-          decoration: widget.decoration,
-          unit: widget.secondsLabel,
-          value: _duration.seconds,
-        ),
-      ],
+    return Semantics(
+      identifier: 'countdown',
+      child: Row(
+        children: <Widget>[
+          _Digit(
+            color: widget.textColor,
+            decoration: widget.decoration,
+            unit: widget.daysLabel,
+            value: _duration.days,
+          ),
+          _Separator(
+            color: widget.textColor,
+            child: widget.separator,
+          ),
+          _Digit(
+            color: widget.textColor,
+            decoration: widget.decoration,
+            unit: widget.hoursLabel,
+            value: _duration.hours,
+          ),
+          _Separator(
+            color: widget.textColor,
+            child: widget.separator,
+          ),
+          _Digit(
+            color: widget.textColor,
+            decoration: widget.decoration,
+            unit: widget.minutesLabel,
+            value: _duration.minutes,
+          ),
+          _Separator(
+            color: widget.textColor,
+            child: widget.separator,
+          ),
+          _Digit(
+            color: widget.textColor,
+            decoration: widget.decoration,
+            unit: widget.secondsLabel,
+            value: _duration.seconds,
+          ),
+        ],
+      ),
     );
   }
 }

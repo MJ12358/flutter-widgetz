@@ -77,15 +77,18 @@ class CustomPlaceholder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: _getTheme(context),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: mainAxisAlignment,
-          children: <Widget>[
-            _getChild(context),
-            _getText(context),
-          ],
+    return Semantics(
+      identifier: text ?? 'placeholder',
+      child: Theme(
+        data: _getTheme(context),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: mainAxisAlignment,
+            children: <Widget>[
+              _getChild(context),
+              _getText(context),
+            ],
+          ),
         ),
       ),
     );
@@ -95,7 +98,6 @@ class CustomPlaceholder extends StatelessWidget {
     if (child == null) {
       return const SizedBox();
     }
-
     return SizedBox(
       height: MediaQuery.of(context).size.height / 4,
       child: child,
@@ -106,7 +108,6 @@ class CustomPlaceholder extends StatelessWidget {
     if (text == null) {
       return const SizedBox();
     }
-
     return Padding(
       padding: padding,
       child: Text(
@@ -119,7 +120,6 @@ class CustomPlaceholder extends StatelessWidget {
 
   ThemeData _getTheme(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-
     return theme.copyWith(
       colorScheme: theme.colorScheme.copyWith(
         surface: theme.scaffoldBackgroundColor,

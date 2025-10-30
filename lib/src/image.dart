@@ -54,16 +54,6 @@ class CustomImage extends StatefulWidget {
   static const double _defaultOpacity = 1.0;
   static const double _defaultScale = 1.0;
 
-  static bool _isUri(String input) {
-    return Uri.tryParse(input)?.isAbsolute ?? false;
-  }
-
-  static bool _isBase64(String input) {
-    return RegExp(
-      r'^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$',
-    ).hasMatch(input);
-  }
-
   /// {@macro flutter_widgetz.CustomImage}
   ///
   /// Uses an [AssetImage].
@@ -166,7 +156,7 @@ class CustomImage extends StatefulWidget {
       }
 
       if (input is String) {
-        if (_isUri(input)) {
+        if (input.isUri) {
           return CustomImage.network(
             input,
             alignment: alignment,
@@ -180,7 +170,7 @@ class CustomImage extends StatefulWidget {
           );
         }
 
-        if (_isBase64(input)) {
+        if (input.isBase64) {
           return CustomImage.memory(
             base64Decode(input),
             alignment: alignment,

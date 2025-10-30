@@ -81,14 +81,17 @@ class _RatingBarState extends State<RatingBar> {
     final Color color = widget.color ?? theme.colorScheme.primary;
     final Color unratedColor = widget.unratedColor ?? theme.disabledColor;
 
-    return Material(
-      color: Colors.transparent,
-      shadowColor: Colors.transparent,
-      surfaceTintColor: Colors.transparent,
-      child: Wrap(
-        children: List<Widget>.generate(
-          widget.max,
-          (int index) => _buildRating(index, color, unratedColor),
+    return Semantics(
+      identifier: 'rating_bar',
+      child: Material(
+        color: Colors.transparent,
+        shadowColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+        child: Wrap(
+          children: List<Widget>.generate(
+            widget.max,
+            (int index) => _buildRating(index, color, unratedColor),
+          ),
         ),
       ),
     );

@@ -333,55 +333,64 @@ class _PlayStationButton extends StatelessWidget {
     required this.padding,
     required this.path,
     required this.size,
+    required this.identifier,
   });
 
   final Color color;
   final double padding;
   final String path;
   final double size;
+  final String identifier;
 
   const _PlayStationButton.triangle({
     required this.size,
   })  : color = const Color(0xFF3f8b86),
         padding = 38.0,
-        path = _kTriangleIcon;
+        path = _kTriangleIcon,
+        identifier = 'triangle';
 
   const _PlayStationButton.circle({
     required this.size,
   })  : color = const Color(0xFFbc3f32),
         padding = 28.0,
-        path = _kCircleIcon;
+        path = _kCircleIcon,
+        identifier = 'circle';
 
   const _PlayStationButton.cross({
     required this.size,
   })  : color = const Color(0xFF6773a8),
         padding = 48.0,
-        path = _kCrossIcon;
+        path = _kCrossIcon,
+        identifier = 'cross';
 
   const _PlayStationButton.square({
     required this.size,
   })  : color = const Color(0xFFc06c9a),
         padding = 56.0,
-        path = _kSquareIcon;
+        path = _kSquareIcon,
+        identifier = 'square';
 
   @override
   Widget build(BuildContext context) {
     final double cSize = size / 3.0;
-    return Container(
-      height: cSize,
-      width: cSize,
-      decoration: const BoxDecoration(
-        color: Color(0xFF28282a),
-        shape: BoxShape.circle,
-      ),
-      child: FittedBox(
-        fit: BoxFit.fill,
-        child: Padding(
-          padding: EdgeInsets.all(padding),
-          child: Image.asset(
-            path,
-            color: color,
-            package: _kPackage,
+    return Semantics(
+      identifier: identifier,
+      child: Container(
+        height: cSize,
+        width: cSize,
+        decoration: const BoxDecoration(
+          color: Color(0xFF28282a),
+          shape: BoxShape.circle,
+        ),
+        child: FittedBox(
+          fit: BoxFit.fill,
+          child: Padding(
+            padding: EdgeInsets.all(padding),
+            child: Image.asset(
+              path,
+              color: color,
+              package: _kPackage,
+            ),
           ),
         ),
       ),
@@ -394,50 +403,59 @@ class _XboxButton extends StatelessWidget {
     required this.color,
     required this.path,
     required this.size,
+    required this.identifier,
   });
 
   final Color color;
   final String path;
   final double size;
+  final String identifier;
 
   const _XboxButton.y({
     required this.size,
   })  : color = const Color(0xFFceb133),
-        path = _kYIcon;
+        path = _kYIcon,
+        identifier = 'y';
 
   const _XboxButton.b({
     required this.size,
   })  : color = const Color(0xFFd23727),
-        path = _kBIcon;
+        path = _kBIcon,
+        identifier = 'b';
 
   const _XboxButton.a({
     required this.size,
   })  : color = const Color(0xFF397957),
-        path = _kAIcon;
+        path = _kAIcon,
+        identifier = 'a';
 
   const _XboxButton.x({
     required this.size,
   })  : color = const Color(0xFF344e9f),
-        path = _kXIcon;
+        path = _kXIcon,
+        identifier = 'x';
 
   @override
   Widget build(BuildContext context) {
     final double cSize = size / 3.0;
-    return Container(
-      height: cSize,
-      width: cSize,
-      decoration: BoxDecoration(
-        color: color,
-        shape: BoxShape.circle,
-      ),
-      child: FittedBox(
-        fit: BoxFit.fill,
-        child: Padding(
-          padding: const EdgeInsets.all(58.0),
-          child: Image.asset(
-            path,
-            color: Colors.white,
-            package: _kPackage,
+    return Semantics(
+      identifier: identifier,
+      child: Container(
+        height: cSize,
+        width: cSize,
+        decoration: BoxDecoration(
+          color: color,
+          shape: BoxShape.circle,
+        ),
+        child: FittedBox(
+          fit: BoxFit.fill,
+          child: Padding(
+            padding: const EdgeInsets.all(58.0),
+            child: Image.asset(
+              path,
+              color: Colors.white,
+              package: _kPackage,
+            ),
           ),
         ),
       ),

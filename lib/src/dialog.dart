@@ -167,21 +167,24 @@ class CustomDialog<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      actions: actions,
-      contentPadding: EdgeInsets.zero,
-      titlePadding: EdgeInsets.zero,
-      title: title != null
-          ? _Title(
-              padding: titlePadding,
-              child: title!,
-            )
-          : null,
-      content: Container(
-        padding: contentPadding,
-        // this is necessary to prevent render box issues
-        width: double.minPositive,
-        child: child,
+    return Semantics(
+      identifier: 'dialog',
+      child: AlertDialog(
+        actions: actions,
+        contentPadding: EdgeInsets.zero,
+        titlePadding: EdgeInsets.zero,
+        title: title != null
+            ? _Title(
+                padding: titlePadding,
+                child: title!,
+              )
+            : null,
+        content: Container(
+          padding: contentPadding,
+          // this is necessary to prevent render box issues
+          width: double.minPositive,
+          child: child,
+        ),
       ),
     );
   }

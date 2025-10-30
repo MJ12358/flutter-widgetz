@@ -72,25 +72,28 @@ class _CustomSliderState extends State<CustomSlider> {
 
   @override
   Widget build(BuildContext context) {
-    return Focus(
-      focusNode: _focusNode,
-      onFocusChange: _onFocusChange,
-      child: InputDecorator(
-        isFocused: _focusNode.hasFocus,
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          labelText: widget.labelText,
-          prefixIcon: widget.prefixIcon,
-          suffixIcon: widget.suffixIcon,
-        ),
-        child: Slider(
-          divisions: widget.divisions,
-          label: _value.toString(),
-          onChanged: _onChanged,
-          onChangeEnd: widget.onChanged,
-          max: widget.max,
-          min: widget.min,
-          value: _value.toDouble(),
+    return Semantics(
+      identifier: widget.labelText,
+      child: Focus(
+        focusNode: _focusNode,
+        onFocusChange: _onFocusChange,
+        child: InputDecorator(
+          isFocused: _focusNode.hasFocus,
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            labelText: widget.labelText,
+            prefixIcon: widget.prefixIcon,
+            suffixIcon: widget.suffixIcon,
+          ),
+          child: Slider(
+            divisions: widget.divisions,
+            label: _value.toString(),
+            onChanged: _onChanged,
+            onChangeEnd: widget.onChanged,
+            max: widget.max,
+            min: widget.min,
+            value: _value.toDouble(),
+          ),
         ),
       ),
     );

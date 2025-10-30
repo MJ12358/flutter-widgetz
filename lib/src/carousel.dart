@@ -132,16 +132,19 @@ class _CarouselState extends State<Carousel> {
 
   @override
   Widget build(BuildContext context) {
-    return NotificationListener<UserScrollNotification>(
-      onNotification: _onNotification,
-      child: PageView.custom(
-        clipBehavior: widget.clipBehavior,
-        controller: _controller,
-        childrenDelegate: widget.delegate,
-        onPageChanged: _onPageChanged,
-        physics: widget.physics,
-        reverse: _isReverse,
-        scrollDirection: widget.scrollDirection,
+    return Semantics(
+      label: 'carousel',
+      child: NotificationListener<UserScrollNotification>(
+        onNotification: _onNotification,
+        child: PageView.custom(
+          clipBehavior: widget.clipBehavior,
+          controller: _controller,
+          childrenDelegate: widget.delegate,
+          onPageChanged: _onPageChanged,
+          physics: widget.physics,
+          reverse: _isReverse,
+          scrollDirection: widget.scrollDirection,
+        ),
       ),
     );
   }

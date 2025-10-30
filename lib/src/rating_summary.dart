@@ -107,72 +107,75 @@ class RatingSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Expanded(
-          child: SpacedColumn(
-            spacer: SizedBox(height: spacing),
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              _RatingIndicator(
-                backgroundColor: backgroundColor,
-                borderRadius: borderRadius,
-                color: color,
-                height: height,
-                title: fiveStarLabel,
-                total: _total,
-                value: fiveStarCount,
-              ),
-              _RatingIndicator(
-                backgroundColor: backgroundColor,
-                borderRadius: borderRadius,
-                color: color,
-                height: height,
-                title: fourStarLabel,
-                total: _total,
-                value: fourStarCount,
-              ),
-              _RatingIndicator(
-                backgroundColor: backgroundColor,
-                borderRadius: borderRadius,
-                color: color,
-                height: height,
-                title: threeStarLabel,
-                total: _total,
-                value: threeStarCount,
-              ),
-              _RatingIndicator(
-                backgroundColor: backgroundColor,
-                borderRadius: borderRadius,
-                color: color,
-                height: height,
-                title: twoStarLabel,
-                total: _total,
-                value: twoStarCount,
-              ),
-              _RatingIndicator(
-                backgroundColor: backgroundColor,
-                borderRadius: borderRadius,
-                color: color,
-                height: height,
-                title: oneStarLabel,
-                total: _total,
-                value: oneStarCount,
-              ),
-            ],
+    return Semantics(
+      identifier: 'rating_summary',
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            child: SpacedColumn(
+              spacer: SizedBox(height: spacing),
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                _RatingIndicator(
+                  backgroundColor: backgroundColor,
+                  borderRadius: borderRadius,
+                  color: color,
+                  height: height,
+                  title: fiveStarLabel,
+                  total: _total,
+                  value: fiveStarCount,
+                ),
+                _RatingIndicator(
+                  backgroundColor: backgroundColor,
+                  borderRadius: borderRadius,
+                  color: color,
+                  height: height,
+                  title: fourStarLabel,
+                  total: _total,
+                  value: fourStarCount,
+                ),
+                _RatingIndicator(
+                  backgroundColor: backgroundColor,
+                  borderRadius: borderRadius,
+                  color: color,
+                  height: height,
+                  title: threeStarLabel,
+                  total: _total,
+                  value: threeStarCount,
+                ),
+                _RatingIndicator(
+                  backgroundColor: backgroundColor,
+                  borderRadius: borderRadius,
+                  color: color,
+                  height: height,
+                  title: twoStarLabel,
+                  total: _total,
+                  value: twoStarCount,
+                ),
+                _RatingIndicator(
+                  backgroundColor: backgroundColor,
+                  borderRadius: borderRadius,
+                  color: color,
+                  height: height,
+                  title: oneStarLabel,
+                  total: _total,
+                  value: oneStarCount,
+                ),
+              ],
+            ),
           ),
-        ),
-        const SizedBox(width: 16.0),
-        Flexible(
-          flex: 0,
-          child: _RatingSummary(
-            color: color,
-            rating: rating ?? _rating,
-            total: _total,
+          const SizedBox(width: 16.0),
+          Flexible(
+            flex: 0,
+            child: _RatingSummary(
+              color: color,
+              rating: rating ?? _rating,
+              total: _total,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
