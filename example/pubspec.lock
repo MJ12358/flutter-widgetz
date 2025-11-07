@@ -66,10 +66,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_extensionz
-      sha256: "514160d543f205ae962c50ca7cbeeed70dde30eeccc2c21d81c7ac0e7b39b8be"
+      sha256: "1721398d3ae36c0962fff6da39222bc2bd32e88428fa8cf61dec075d4607f452"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.1.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter

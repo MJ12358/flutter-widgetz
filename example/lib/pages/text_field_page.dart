@@ -155,6 +155,44 @@ class _Portrait extends StatelessWidget {
           prefixIcon: Icon(Icons.four_k),
           textInputAction: TextInputAction.done,
         ),
+        const _StatefulText(),
+      ],
+    );
+  }
+}
+
+class _StatefulText extends StatefulWidget {
+  const _StatefulText();
+
+  @override
+  State<_StatefulText> createState() => __StatefulTextState();
+}
+
+class __StatefulTextState extends State<_StatefulText> {
+  String _value = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        CustomTextField(
+          labelText: 'Stateful Text Field',
+          prefixIcon: const Icon(Icons.text_fields),
+          value: _value,
+          onChanged: (String v) {
+            setState(() {
+              _value = v;
+            });
+          },
+        ),
+        Button.brand(
+          onPressed: () {
+            setState(() {
+              _value = 'Rebuilt at ${DateTime.now()}';
+            });
+          },
+          child: const Text('Rebuild'),
+        ),
       ],
     );
   }

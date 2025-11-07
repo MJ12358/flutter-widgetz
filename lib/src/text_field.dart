@@ -4,7 +4,7 @@ part of flutter_widgetz;
 /// A [TextFormField] with a single [TextInputFormatter].
 /// Utilizing [hasError] to show [errorText].
 /// {@endtemplate}
-class CustomTextField extends StatelessWidget {
+class CustomTextField extends StatefulWidget {
   /// {@macro flutter_widgetz.CustomTextField}
   const CustomTextField({
     super.key,
@@ -16,7 +16,6 @@ class CustomTextField extends StatelessWidget {
     this.hasError = false,
     this.help,
     this.hintText,
-    this.initialValue,
     this.inputFormatter,
     this.keyboardType,
     this.labelText,
@@ -32,6 +31,7 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.textCapitalization = TextCapitalization.none,
     this.textInputAction,
+    this.value,
   });
 
   /// Determines what the input field expects.
@@ -57,9 +57,6 @@ class CustomTextField extends StatelessWidget {
 
   /// Text that suggests what sort of input the field accepts.
   final String? hintText;
-
-  /// The initial value of this input.
-  final String? initialValue;
 
   /// Provides as-you-type validation and formatting of the text being edited.
   final TextInputFormatter? inputFormatter;
@@ -107,46 +104,81 @@ class CustomTextField extends StatelessWidget {
   /// An action the user has requested the text input control to perform.
   final TextInputAction? textInputAction;
 
+  /// The value of the input.
+  final String? value;
+
+  @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  late final TextEditingController _controller;
+
+  @override
+  void initState() {
+    _controller = widget.controller ?? TextEditingController();
+    _controller.value = _textEditingValue;
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(CustomTextField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.value != widget.value) {
+      _controller.value = _textEditingValue;
+    }
+  }
+
+  TextEditingValue get _textEditingValue {
+    final String _value = widget.value ?? '';
+    return TextEditingValue(
+      text: _value,
+      selection: TextSelection.collapsed(
+        offset: _value.length,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Semantics(
-      identifier: labelText,
+      identifier: widget.labelText,
       child: TextFormField(
-        autofocus: autofocus,
-        autofillHints: autofillHint != null ? <String>[autofillHint!] : null,
-        controller: controller,
-        focusNode: focusNode,
-        initialValue: initialValue,
-        inputFormatters: inputFormatter != null
-            ? <TextInputFormatter>[inputFormatter!]
+        autofocus: widget.autofocus,
+        autofillHints:
+            widget.autofillHint != null ? <String>[widget.autofillHint!] : null,
+        controller: _controller,
+        focusNode: widget.focusNode,
+        inputFormatters: widget.inputFormatter != null
+            ? <TextInputFormatter>[widget.inputFormatter!]
             : null,
-        keyboardType: keyboardType,
-        maxLines: maxLines,
-        minLines: minLines,
-        obscureText: obscureText,
-        restorationId: restorationId,
-        scrollPadding: scrollPadding,
-        style: style,
-        textCapitalization: textCapitalization,
-        textInputAction: textInputAction,
+        keyboardType: widget.keyboardType,
+        maxLines: widget.maxLines,
+        minLines: widget.minLines,
+        obscureText: widget.obscureText,
+        restorationId: widget.restorationId,
+        scrollPadding: widget.scrollPadding,
+        style: widget.style,
+        textCapitalization: widget.textCapitalization,
+        textInputAction: widget.textInputAction,
         decoration: InputDecoration(
-          errorText: hasError ? errorText : null,
-          hintText: hintText,
-          labelText: labelText,
-          prefixIcon: prefixIcon,
+          errorText: widget.hasError ? widget.errorText : null,
+          hintText: widget.hintText,
+          labelText: widget.labelText,
+          prefixIcon: widget.prefixIcon,
           suffixIcon: _getSuffixIcon(context),
         ),
-        onChanged: onChanged,
-        onEditingComplete: onEditingComplete ?? () => _onFocus(context),
+        onChanged: widget.onChanged,
+        onEditingComplete: widget.onEditingComplete ?? () => _onFocus(context),
       ),
     );
   }
 
   Widget? _getSuffixIcon(BuildContext context) {
-    if (suffixIcon != null) {
-      return suffixIcon;
+    if (widget.suffixIcon != null) {
+      return widget.suffixIcon;
     }
-    if (help == null) {
+    if (widget.help == null) {
       return null;
     }
     return ExcludeFocus(
@@ -155,8 +187,8 @@ class CustomTextField extends StatelessWidget {
           context: context,
           builder: (_) {
             return CustomDialog.simple(
-              title: labelText != null ? Text(labelText!) : null,
-              child: help!,
+              title: widget.labelText != null ? Text(widget.labelText!) : null,
+              child: widget.help!,
             );
           },
         ),
@@ -167,7 +199,7 @@ class CustomTextField extends StatelessWidget {
 
   void _onFocus(BuildContext context) {
     final FocusScopeNode node = FocusScope.of(context);
-    switch (textInputAction) {
+    switch (widget.textInputAction) {
       case TextInputAction.next:
         node.nextFocus();
       case TextInputAction.previous:

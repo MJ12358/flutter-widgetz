@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## [13.0.0]
+
+- **BREAKING**:
+  - Remove `initialValue` from `CustomTextField` in favor of `value`.
+
 ## [12.1.1]
 
 - Improve semantics.
