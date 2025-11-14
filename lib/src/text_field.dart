@@ -181,19 +181,17 @@ class _CustomTextFieldState extends State<CustomTextField> {
     if (widget.help == null) {
       return null;
     }
-    return ExcludeFocus(
-      child: InkWell(
-        onTap: () => showDialog(
-          context: context,
-          builder: (_) {
-            return CustomDialog.simple(
-              title: widget.labelText != null ? Text(widget.labelText!) : null,
-              child: widget.help!,
-            );
-          },
-        ),
-        child: const Icon(Icons.info),
+    return InkWell(
+      onTap: () => showDialog(
+        context: context,
+        builder: (_) {
+          return CustomDialog.simple(
+            title: widget.labelText != null ? Text(widget.labelText!) : null,
+            child: widget.help!,
+          );
+        },
       ),
+      child: const Icon(Icons.info),
     );
   }
 

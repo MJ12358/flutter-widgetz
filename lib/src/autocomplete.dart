@@ -139,14 +139,12 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
     if (controller.value == TextEditingValue.empty) {
       return null;
     }
-    return ExcludeFocus(
-      child: IconButton(
-        icon: const Icon(Icons.close),
-        onPressed: () {
-          controller.value = TextEditingValue.empty;
-          onChanged(controller.text);
-        },
-      ),
+    return IconButton(
+      icon: const Icon(Icons.close),
+      onPressed: () {
+        controller.value = TextEditingValue.empty;
+        onChanged(controller.text);
+      },
     );
   }
 }

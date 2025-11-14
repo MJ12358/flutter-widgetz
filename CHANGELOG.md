@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [13.0.1]
+
+- Stop using `ExcludeFocus` on suffix icons.
+
 ## [13.0.0]
 
 - **BREAKING**:

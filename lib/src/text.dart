@@ -52,26 +52,24 @@ class CustomText extends StatelessWidget {
   Widget _getHelp(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    return ExcludeFocus(
-      child: InkWell(
-        onTap: () => showDialog(
-          context: context,
-          builder: (_) {
-            return CustomDialog.simple(
-              title: labelText != null ? Text(labelText!) : null,
-              child: help,
-            );
-          },
-        ).then((_) {
-          // Unfocus any input when exiting the help dialog
-          if (context.mounted) {
-            FocusManager.instance.primaryFocus?.unfocus();
-          }
-        }),
-        child: Icon(
-          Icons.info,
-          color: _getIconColor(theme),
-        ),
+    return InkWell(
+      onTap: () => showDialog(
+        context: context,
+        builder: (_) {
+          return CustomDialog.simple(
+            title: labelText != null ? Text(labelText!) : null,
+            child: help,
+          );
+        },
+      ).then((_) {
+        // Unfocus any input when exiting the help dialog
+        if (context.mounted) {
+          FocusManager.instance.primaryFocus?.unfocus();
+        }
+      }),
+      child: Icon(
+        Icons.info,
+        color: _getIconColor(theme),
       ),
     );
   }

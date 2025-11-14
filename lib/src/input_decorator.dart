@@ -72,24 +72,22 @@ class CustomInputDecorator extends StatelessWidget {
     if (help == null) {
       return null;
     }
-    return ExcludeFocus(
-      child: InkWell(
-        onTap: () => showDialog(
-          context: context,
-          builder: (_) {
-            return CustomDialog.simple(
-              title: labelText != null ? Text(labelText!) : null,
-              child: help!,
-            );
-          },
-        ).then((_) {
-          // Unfocus any input when exiting the help dialog
-          if (context.mounted) {
-            FocusManager.instance.primaryFocus?.unfocus();
-          }
-        }),
-        child: const Icon(Icons.info),
-      ),
+    return InkWell(
+      onTap: () => showDialog(
+        context: context,
+        builder: (_) {
+          return CustomDialog.simple(
+            title: labelText != null ? Text(labelText!) : null,
+            child: help!,
+          );
+        },
+      ).then((_) {
+        // Unfocus any input when exiting the help dialog
+        if (context.mounted) {
+          FocusManager.instance.primaryFocus?.unfocus();
+        }
+      }),
+      child: const Icon(Icons.info),
     );
   }
 }
