@@ -67,7 +67,7 @@ class SpacedRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (children.isEmpty) {
-      return const SizedBox();
+      return const SizedBox.shrink();
     }
 
     final ThemeData theme = Theme.of(context);

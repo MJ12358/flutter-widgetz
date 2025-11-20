@@ -94,7 +94,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
           ? const Duration(milliseconds: 1)
           : widget.duration,
       child: !widget.isVisible
-          ? const SizedBox()
+          ? const SizedBox.shrink()
           : Padding(
               padding: widget.padding,
               child: Semantics(

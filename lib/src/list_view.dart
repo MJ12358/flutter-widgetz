@@ -28,7 +28,7 @@ class CustomListView extends StatelessWidget {
   /// determined by the contents being viewed.
   final bool shrinkWrap;
 
-  static const Widget _defaultSeparator = SizedBox();
+  static const Widget _defaultSeparator = SizedBox.shrink();
 
   /// {@macro flutter_widgetz.CustomListView}
   ///

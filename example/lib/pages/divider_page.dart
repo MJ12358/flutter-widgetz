@@ -20,8 +20,8 @@ class DividerPage extends StatelessWidget {
             thickness: 4.0,
             child: Text('Divider Two'),
           ),
-          const SizedBox(),
-          const SizedBox(),
+          const SizedBox.shrink(),
+          const SizedBox.shrink(),
           CustomDivider(
             thickness: 4.0,
             color: theme.colorScheme.primary,
@@ -46,7 +46,7 @@ class DividerPage extends StatelessWidget {
             ),
           ),
           const _TestWidget(),
-          const SizedBox(),
+          const SizedBox.shrink(),
         ],
       ),
     );
@@ -58,6 +58,6 @@ class _TestWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox();
+    return const SizedBox.shrink();
   }
 }

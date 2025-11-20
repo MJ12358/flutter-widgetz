@@ -165,7 +165,7 @@ class _Label extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (child == null) {
-      return const SizedBox();
+      return const SizedBox.shrink();
     }
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),

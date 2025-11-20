@@ -195,7 +195,7 @@ class _Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (title == null) {
-      return const SizedBox();
+      return const SizedBox.shrink();
     }
 
     return Container(
@@ -324,7 +324,7 @@ class _Dot extends StatelessWidget {
                   Icons.check,
                   color: color.blackOrWhite,
                 )
-              : const SizedBox(),
+              : const SizedBox.shrink(),
         ),
       ),
     );

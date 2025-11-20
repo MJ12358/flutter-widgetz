@@ -10,7 +10,7 @@ class Alert extends StatefulWidget {
   const Alert({
     super.key,
     this.alignment = _defaultAlignment,
-    this.child = const SizedBox(),
+    this.child = const SizedBox.shrink(),
     this.closeIcon = _defaultCloseIcon,
     this.color = _defaultColor,
     this.duration = _defaultDuration,
@@ -145,7 +145,7 @@ class _AlertState extends State<Alert> {
             ? const Duration(milliseconds: 1)
             : widget.duration,
         child: !_isVisible
-            ? const SizedBox()
+            ? const SizedBox.shrink()
             : Container(
                 color: widget.color,
                 padding: widget.padding,

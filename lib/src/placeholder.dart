@@ -96,7 +96,7 @@ class CustomPlaceholder extends StatelessWidget {
 
   Widget _getChild(BuildContext context) {
     if (child == null) {
-      return const SizedBox();
+      return const SizedBox.shrink();
     }
     return SizedBox(
       height: MediaQuery.of(context).size.height / 4,
@@ -106,7 +106,7 @@ class CustomPlaceholder extends StatelessWidget {
 
   Widget _getText(BuildContext context) {
     if (text == null) {
-      return const SizedBox();
+      return const SizedBox.shrink();
     }
     return Padding(
       padding: padding,

@@ -50,7 +50,7 @@ class CustomImage extends StatefulWidget {
 
   static const Alignment _defaultAlignment = Alignment.center;
   static const BoxFit _defaultBoxFit = BoxFit.cover;
-  static const Widget _defaultErrorWidget = SizedBox();
+  static const Widget _defaultErrorWidget = SizedBox.shrink();
   static const double _defaultOpacity = 1.0;
   static const double _defaultScale = 1.0;
 

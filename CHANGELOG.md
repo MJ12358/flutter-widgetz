@@ -1,5 +1,11 @@
 # Flutter Widgetz
 
+## [13.0.2]
+
+- Fix `CustomAutocomplete` suffix icon.
+- Utilize `SizedBox.shrink` to better communicate intent.
+- Update example app.
+
 ## [13.0.1]
 
 - Stop using `ExcludeFocus` on suffix icons.

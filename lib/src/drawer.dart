@@ -78,7 +78,7 @@ class CustomDrawer extends StatelessWidget {
 
   Widget _getHeader(BuildContext context) {
     if (header == null) {
-      return const SizedBox();
+      return const SizedBox.shrink();
     }
 
     final Color _color = color ?? Theme.of(context).colorScheme.primary;

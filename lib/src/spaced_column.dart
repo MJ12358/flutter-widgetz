@@ -62,7 +62,7 @@ class SpacedColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (children.isEmpty) {
-      return const SizedBox();
+      return const SizedBox.shrink();
     }
 
     return Column(

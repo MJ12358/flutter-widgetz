@@ -108,7 +108,10 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
               textCapitalization: textCapitalization,
               textInputAction: textInputAction,
               onChanged: onChanged,
-              suffixIcon: _getSuffixIcon(textEditingController),
+              suffixIcon: _SuffixIcon(
+                controller: textEditingController,
+                onChanged: onChanged,
+              ),
             );
           },
           optionsBuilder: (TextEditingValue textEditingValue) {
@@ -131,19 +134,6 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
           },
           onSelected: onSelected,
         );
-      },
-    );
-  }
-
-  Widget? _getSuffixIcon(TextEditingController controller) {
-    if (controller.value == TextEditingValue.empty) {
-      return null;
-    }
-    return IconButton(
-      icon: const Icon(Icons.close),
-      onPressed: () {
-        controller.value = TextEditingValue.empty;
-        onChanged(controller.text);
       },
     );
   }
@@ -208,6 +198,54 @@ class _AutocompleteOptions<T extends Object> extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _SuffixIcon extends StatefulWidget {
+  const _SuffixIcon({
+    required this.controller,
+    required this.onChanged,
+  });
+
+  final TextEditingController controller;
+  final ValueChanged<String> onChanged;
+
+  @override
+  State<_SuffixIcon> createState() => __SuffixIconState();
+}
+
+class __SuffixIconState extends State<_SuffixIcon> {
+  @override
+  void initState() {
+    super.initState();
+    widget.controller.addListener(_onTextChanged);
+  }
+
+  @override
+  void dispose() {
+    widget.controller.removeListener(_onTextChanged);
+    super.dispose();
+  }
+
+  void _onTextChanged() {
+    setState(() {});
+  }
+
+  void _clearText() {
+    widget.controller.clear();
+    widget.onChanged('');
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (widget.controller.text.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    return IconButton(
+      icon: const Icon(Icons.close),
+      onPressed: _clearText,
     );
   }
 }

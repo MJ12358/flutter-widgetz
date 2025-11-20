@@ -9,7 +9,7 @@ class Accordion extends StatefulWidget {
   /// {@macro flutter_widgetz.Accordion}
   const Accordion({
     super.key,
-    this.child = const SizedBox(),
+    this.child = const SizedBox.shrink(),
     this.childPadding = const EdgeInsets.all(8.0),
     this.duration = kThemeChangeDuration,
     this.isOpen = false,

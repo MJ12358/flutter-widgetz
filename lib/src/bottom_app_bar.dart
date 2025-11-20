@@ -71,7 +71,9 @@ class CustomBottomAppBar extends StatelessWidget {
         child: Row(
           crossAxisAlignment: crossAxisAlignment,
           mainAxisAlignment: mainAxisAlignment,
-          children: children.isNotEmpty ? children : <Widget>[const SizedBox()],
+          children: children.isNotEmpty
+              ? children
+              : <Widget>[const SizedBox.shrink()],
         ),
       ),
     );
