@@ -138,6 +138,15 @@ class _Portrait extends StatelessWidget {
           optionsBuilder: (String v) =>
               _autocompletes.where((String e) => e.contains(v)).toList(),
         ),
+        CustomAutocomplete<String>(
+          onChanged: print,
+          onSelected: print,
+          initialValue: _autocompletes[2],
+          labelText: 'Custom Autocomplete 2',
+          prefixIcon: const Icon(Icons.search),
+          optionsBuilder: (String v) =>
+              _autocompletes.where((String e) => e.contains(v)).toList(),
+        ),
         const CustomTextField(
           labelText: 'Three (Next)',
           prefixIcon: Icon(Icons.three_k),

@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [13.0.3]
+
+- Fix `CustomAutocomplete` initial value.
+
 ## [13.0.2]
 
 - Fix `CustomAutocomplete` suffix icon.

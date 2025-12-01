@@ -112,6 +112,7 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
                 controller: textEditingController,
                 onChanged: onChanged,
               ),
+              value: initialValue,
             );
           },
           optionsBuilder: (TextEditingValue textEditingValue) {
