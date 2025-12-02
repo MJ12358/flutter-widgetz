@@ -54,13 +54,19 @@ class CustomDialog<T> extends StatelessWidget {
     ),
     this.title,
     this.titlePadding = _defaultTitlePadding,
+    VoidCallback? onAccept,
+    VoidCallback? onCancel,
   }) : actions = <Widget>[
           TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
+            onPressed: () => onCancel != null
+                ? onCancel.call()
+                : Navigator.of(context).pop(false),
             child: Text(cancelText),
           ),
           TextButton(
-            onPressed: () => Navigator.of(context).pop(true),
+            onPressed: () => onAccept != null
+                ? onAccept.call()
+                : Navigator.of(context).pop(true),
             child: Text(acceptText),
           ),
         ];

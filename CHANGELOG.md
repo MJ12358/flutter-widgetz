@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [13.1.0]
+
+- Add optional `onAccept` and `onCancel` to `CustomDialog.alert`.
+
 ## [13.0.3]
 
 - Fix `CustomAutocomplete` initial value.
@@ -18,6 +22,7 @@
 
 - **BREAKING**:
   - Remove `initialValue` from `CustomTextField` in favor of `value`.
+  - This is to allow for a built-in `TextEditingController`.
 
 ## [12.1.1]
 
