@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## [13.1.1]
+
+- Revert change to exclude `ExcludeFocus` on suffix icons.
+- This is to allow better keyboard navigation.
+
 ## [13.1.0]
 
 - Add optional `onAccept` and `onCancel` to `CustomDialog.alert`.

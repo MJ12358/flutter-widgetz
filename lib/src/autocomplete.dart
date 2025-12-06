@@ -244,9 +244,11 @@ class __SuffixIconState extends State<_SuffixIcon> {
     if (widget.controller.text.isEmpty) {
       return const SizedBox.shrink();
     }
-    return IconButton(
-      icon: const Icon(Icons.close),
-      onPressed: _clearText,
+    return ExcludeFocus(
+      child: IconButton(
+        icon: const Icon(Icons.close),
+        onPressed: _clearText,
+      ),
     );
   }
 }
