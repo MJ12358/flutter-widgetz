@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [13.1.2]
+
+- Fix `colorPicker` bottom sheet overlapping software keys on Android >= 15.
+
 ## [13.1.1]
 
 - Revert change to exclude `ExcludeFocus` on suffix icons.

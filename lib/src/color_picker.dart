@@ -138,38 +138,40 @@ class _ColorPickerState extends State<ColorPicker> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: SizedBox(
-        width: double.maxFinite,
-        child: CustomScrollView(
-          shrinkWrap: true,
-          slivers: <Widget>[
-            SliverToBoxAdapter(
-              child: _Header(
-                title: widget.title,
-                padding: widget.padding,
+    return SafeArea(
+      child: Material(
+        child: SizedBox(
+          width: double.maxFinite,
+          child: CustomScrollView(
+            shrinkWrap: true,
+            slivers: <Widget>[
+              SliverToBoxAdapter(
+                child: _Header(
+                  title: widget.title,
+                  padding: widget.padding,
+                ),
               ),
-            ),
-            SliverPadding(
-              padding: widget.padding,
-              sliver: widget.isCompact
-                  ? _List(
-                      colors: widget.colors,
-                      decoration: widget.decoration,
-                      onTap: _onTap,
-                      selectedColor: _selectedColor,
-                      spacing: widget.spacing,
-                    )
-                  : _Grid(
-                      colors: widget.colors,
-                      decoration: widget.decoration,
-                      extent: widget.extent,
-                      onTap: _onTap,
-                      selectedColor: _selectedColor,
-                      spacing: widget.spacing,
-                    ),
-            ),
-          ],
+              SliverPadding(
+                padding: widget.padding,
+                sliver: widget.isCompact
+                    ? _List(
+                        colors: widget.colors,
+                        decoration: widget.decoration,
+                        onTap: _onTap,
+                        selectedColor: _selectedColor,
+                        spacing: widget.spacing,
+                      )
+                    : _Grid(
+                        colors: widget.colors,
+                        decoration: widget.decoration,
+                        extent: widget.extent,
+                        onTap: _onTap,
+                        selectedColor: _selectedColor,
+                        spacing: widget.spacing,
+                      ),
+              ),
+            ],
+          ),
         ),
       ),
     );
