@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [13.1.3]
+
+- Add `controller` to `SettingsList`.
+
 ## [13.1.2]
 
 - Fix `colorPicker` bottom sheet overlapping software keys on Android >= 15.

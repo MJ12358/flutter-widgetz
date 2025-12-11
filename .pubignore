@@ -1,4 +1,5 @@
 .dart_tool/
+.github/
 .idea/
 .vscode/
 android/
