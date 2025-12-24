@@ -112,11 +112,22 @@ class CustomDialog<T> extends StatelessWidget {
     bool shrinkWrap = true,
     this.title,
     this.titlePadding = _defaultTitlePadding,
-  }) : child = ListView(
-          physics: physics,
-          shrinkWrap: shrinkWrap,
-          children: children,
-        );
+    IndexedWidgetBuilder? separatorBuilder,
+  }) : child = separatorBuilder != null
+            ? ListView.separated(
+                physics: physics,
+                shrinkWrap: shrinkWrap,
+                itemCount: children.length,
+                itemBuilder: (_, int index) {
+                  return children[index];
+                },
+                separatorBuilder: separatorBuilder,
+              )
+            : ListView(
+                physics: physics,
+                shrinkWrap: shrinkWrap,
+                children: children,
+              );
 
   /// {@macro flutter_widgetz.CustomDialog}
   ///

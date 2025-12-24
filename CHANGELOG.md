@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## [13.2.0]
+
+- Add `separatorBuilder` to `CustomDialog.List`.
+- Add default constructor for `CustomReorderableListView`.
+
 ## [13.1.3]
 
 - Add `controller` to `SettingsList`.

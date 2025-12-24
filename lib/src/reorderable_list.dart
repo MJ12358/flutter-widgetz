@@ -12,6 +12,24 @@ part of flutter_widgetz;
 /// {@endtemplate}
 class CustomReorderableListView extends ReorderableListView {
   /// {@macro flutter_widgetz.CustomReorderableListView}
+  CustomReorderableListView({
+    super.key,
+    required super.children,
+    required ReorderCallback onReorder,
+    super.clipBehavior,
+    super.footer,
+    super.header,
+    super.padding,
+    super.physics,
+    super.proxyDecorator,
+    super.shrinkWrap,
+  }) : super(
+          onReorder: (int oldIndex, int newIndex) {
+            _defaultReorderCallback(oldIndex, newIndex, onReorder);
+          },
+        );
+
+  /// {@macro flutter_widgetz.CustomReorderableListView}
   CustomReorderableListView.builder({
     super.key,
     required super.itemCount,
@@ -26,10 +44,7 @@ class CustomReorderableListView extends ReorderableListView {
     super.shrinkWrap,
   }) : super.builder(
           onReorder: (int oldIndex, int newIndex) {
-            if (oldIndex < newIndex) {
-              newIndex -= 1;
-            }
-            onReorder.call(oldIndex, newIndex);
+            _defaultReorderCallback(oldIndex, newIndex, onReorder);
           },
         );
 
@@ -86,5 +101,18 @@ class CustomReorderableListView extends ReorderableListView {
   // for the separated constructor.
   static int _computeActualChildCount(int itemCount) {
     return math.max(0, itemCount * 2 - 1);
+  }
+
+  // Helper method to adjust indices for reordering.
+  static void _defaultReorderCallback(
+    int oldIndex,
+    int newIndex,
+    ReorderCallback onReorder,
+  ) {
+    int adjustedIndex = newIndex;
+    if (oldIndex < newIndex) {
+      adjustedIndex -= 1;
+    }
+    onReorder(oldIndex, adjustedIndex);
   }
 }
