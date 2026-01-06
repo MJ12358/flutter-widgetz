@@ -13,6 +13,7 @@ class CustomInputDecorator extends StatelessWidget {
     this.help,
     this.isFocused = false,
     this.labelText,
+    this.onTap,
     this.suffixIcon,
     this.prefixIcon,
   });
@@ -35,6 +36,9 @@ class CustomInputDecorator extends StatelessWidget {
   /// Optional text that describes the input field.
   final String? labelText;
 
+  /// Called when the input field is tapped.
+  final VoidCallback? onTap;
+
   /// An icon that appears after the input field.
   final Widget? suffixIcon;
 
@@ -47,19 +51,22 @@ class CustomInputDecorator extends StatelessWidget {
 
     return Semantics(
       identifier: labelText,
-      child: InputDecorator(
-        isFocused: isFocused,
-        decoration: InputDecoration(
-          border: border,
-          enabledBorder: border,
-          errorText: errorText,
-          labelText: labelText,
-          prefixIcon: prefixIcon,
-          suffixIcon: _getSuffixIcon(context),
-        ),
-        child: DefaultTextStyle.merge(
-          style: theme.textTheme.titleMedium,
-          child: child,
+      child: InkWell(
+        onTap: onTap,
+        child: InputDecorator(
+          isFocused: isFocused,
+          decoration: InputDecoration(
+            border: border,
+            enabledBorder: border,
+            errorText: errorText,
+            labelText: labelText,
+            prefixIcon: prefixIcon,
+            suffixIcon: _getSuffixIcon(context),
+          ),
+          child: DefaultTextStyle.merge(
+            style: theme.textTheme.titleMedium,
+            child: child,
+          ),
         ),
       ),
     );

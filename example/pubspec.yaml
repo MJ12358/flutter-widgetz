@@ -14,7 +14,7 @@ dependencies:
   flutter_themez: 4.0.1
   # flutter_themez:
   #   path: ../../flutter_themez
-  # flutter_widgetz: 13.0.1
+  # flutter_widgetz: 13.2.1
   flutter_widgetz:
     path: ../.
 

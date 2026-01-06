@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [13.2.1]
+
+- Add `onTap` to `CustomInputDecorator`.
+
 ## [13.2.0]
 
 - Add `separatorBuilder` to `CustomDialog.List`.
