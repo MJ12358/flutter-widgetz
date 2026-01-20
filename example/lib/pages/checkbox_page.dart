@@ -20,6 +20,7 @@ class CheckboxPage extends StatelessWidget {
               CustomTextField(
                 labelText: 'Text Field (for reference)',
                 prefixIcon: Icon(Icons.gif_box),
+                textInputAction: TextInputAction.next,
               ),
             ],
           );
@@ -30,6 +31,7 @@ class CheckboxPage extends StatelessWidget {
               const CustomTextField(
                 labelText: 'Text Field (for reference)',
                 prefixIcon: Icon(Icons.timelapse),
+                textInputAction: TextInputAction.next,
               ),
               const CheckboxGroup<String>(
                 labelText: 'Checkbox Group',

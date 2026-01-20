@@ -19,6 +19,7 @@ class DurationFieldPage extends StatelessWidget {
               CustomTextField(
                 labelText: 'Text Field (for reference)',
                 prefixIcon: Icon(Icons.timelapse),
+                textInputAction: TextInputAction.next,
               ),
             ],
           );
@@ -34,6 +35,7 @@ class DurationFieldPage extends StatelessWidget {
               const CustomTextField(
                 labelText: 'Text Field (for reference)',
                 prefixIcon: Icon(Icons.timelapse),
+                textInputAction: TextInputAction.next,
               ),
               const DurationField(
                 labelText: 'Duration Field',

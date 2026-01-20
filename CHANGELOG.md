@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## [14.0.1]
+
+- Fix `DropdownField` input height.
+- Add separators to `DropdownField` `items`.
+
 ## [14.0.0]
 
 - **BREAKING**:

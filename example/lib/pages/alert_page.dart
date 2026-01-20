@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
@@ -11,6 +9,7 @@ class AlertPage extends StatelessWidget {
     return CustomSingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
       // TODO: This is a good example of how "filtered" does/does not
+      // filtered should remove any SizedBox from the column, but does not
       child: SpacedColumn.filtered(
         children: const <Widget>[
           Alert(

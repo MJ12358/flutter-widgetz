@@ -21,7 +21,7 @@ class DropdownField<T extends Object> extends StatefulWidget {
   });
 
   /// The list of items the user can select.
-  final Iterable<T> items;
+  final List<T> items;
 
   /// Called when the user selects an item.
   final ValueChanged<T> onChanged;
@@ -77,6 +77,8 @@ class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return Semantics(
       identifier: widget.labelText,
       child: InkWell(
@@ -92,6 +94,7 @@ class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
           ),
           child: Text(
             _value != null ? widget.displayStringForItem(_value!) : '',
+            style: theme.textTheme.titleMedium,
           ),
         ),
       ),
@@ -103,24 +106,22 @@ class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
       context: context,
       builder: (_) {
         return SafeArea(
-          child: ListView(
+          child: ListView.separated(
             shrinkWrap: true,
-            children: _getItems(),
+            itemCount: widget.items.length,
+            itemBuilder: (_, int index) {
+              return _DropdownTile<T>(
+                item: widget.items[index],
+                displayStringForItem: widget.displayStringForItem,
+              );
+            },
+            separatorBuilder: (_, __) {
+              return const Divider();
+            },
           ),
         );
       },
     ).then(_onChange);
-  }
-
-  List<Widget> _getItems() {
-    return widget.items.map(
-      (T item) {
-        return ListTile(
-          title: Text(widget.displayStringForItem(item)),
-          onTap: () => Navigator.of(context).pop(item),
-        );
-      },
-    ).toList();
   }
 
   void _onChange(T? value) {
@@ -141,5 +142,23 @@ class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
       _focusNode.unfocus();
     }
     setState(() {});
+  }
+}
+
+class _DropdownTile<T extends Object> extends StatelessWidget {
+  const _DropdownTile({
+    required this.item,
+    required this.displayStringForItem,
+  });
+
+  final T item;
+  final String Function(T) displayStringForItem;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(displayStringForItem(item)),
+      onTap: () => Navigator.of(context).pop(item),
+    );
   }
 }
