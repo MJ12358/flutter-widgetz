@@ -21,6 +21,7 @@ class DropdownFieldPage extends StatelessWidget {
               CustomTextField(
                 labelText: 'Text Field (for reference)',
                 prefixIcon: Icon(Icons.abc),
+                textInputAction: TextInputAction.next,
               ),
             ],
           );
@@ -31,6 +32,7 @@ class DropdownFieldPage extends StatelessWidget {
               const CustomTextField(
                 labelText: 'Text Field (for reference)',
                 prefixIcon: Icon(Icons.gif_box),
+                textInputAction: TextInputAction.next,
               ),
               const DropdownField<String>(
                 labelText: 'Dropdown',
@@ -81,6 +83,15 @@ class DropdownFieldPage extends StatelessWidget {
                 onChanged: print,
                 prefixIcon: Icon(Icons.density_large),
               ),
+              DropdownField<String>(
+                labelText: 'Dropdown Six (Long List)',
+                items: List<String>.generate(
+                  50,
+                  (int index) => 'Item ${index + 1}',
+                ),
+                onChanged: print,
+                prefixIcon: const Icon(Icons.select_all),
+              ),
               const _DropdownTest(),
             ],
           );
@@ -111,7 +122,7 @@ class __DropdownTestState extends State<_DropdownTest> {
     return Column(
       children: <Widget>[
         DropdownField<BoxFit>(
-          labelText: 'Dropdown Six (On State Changed)',
+          labelText: 'Dropdown Seven (On State Changed)',
           items: const <BoxFit>[
             BoxFit.contain,
             BoxFit.cover,

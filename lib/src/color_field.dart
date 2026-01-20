@@ -65,7 +65,7 @@ class ColorField extends StatefulWidget {
     return showModalBottomSheet<Color?>(
       context: context,
       builder: (_) {
-        return widget;
+        return SafeArea(child: widget);
       },
     );
   }

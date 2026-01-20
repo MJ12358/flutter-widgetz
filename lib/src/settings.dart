@@ -158,7 +158,7 @@ class SettingsTile extends StatelessWidget {
     return showModalBottomSheet<void>(
       context: context,
       builder: (_) {
-        return widget;
+        return SafeArea(child: widget);
       },
     );
   }
@@ -325,8 +325,7 @@ class SettingsTile extends StatelessWidget {
     Widget? trailing,
     double? value,
   })  : trailing = trailing ??
-            // TODO: this is not updated when timeDilation
-            // changes outside of this widget
+            // TODO: This is not updated when timeDilation changes outside of this widget
             Text(value != null ? value.toString() : timeDilation.toString()),
         onTap = (() => showDialog(
               context: context,

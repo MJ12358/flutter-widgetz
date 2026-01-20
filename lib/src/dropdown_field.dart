@@ -1,7 +1,7 @@
 part of flutter_widgetz;
 
 /// {@template flutter_widgetz.DropdownField}
-/// Wraps a [DropdownButton] in an [InputDecorator].
+/// Uses an [InputDecorator] to show a bottom sheet.
 ///
 ///![DropdownField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/dropdown_field1.png)
 ///
@@ -14,11 +14,9 @@ class DropdownField<T extends Object> extends StatefulWidget {
     required this.items,
     required this.onChanged,
     this.displayStringForItem = _defaultStringForItem,
-    this.icon,
-    this.isDense = true,
-    this.isExpanded = true,
     this.labelText = '',
     this.prefixIcon,
+    this.suffixIcon = const Icon(Icons.arrow_drop_down),
     this.value,
   });
 
@@ -31,22 +29,16 @@ class DropdownField<T extends Object> extends StatefulWidget {
   /// The string that is displayed for each item.
   final String Function(T) displayStringForItem;
 
-  /// The drop-down button's icon.
-  final Widget? icon;
-
-  /// Reduce the widgets height.
-  final bool isDense;
-
-  /// Set the dropdown's inner contents to horizontally fill its parent.
-  final bool isExpanded;
-
   /// Optional text that describes the input field.
   final String? labelText;
 
   /// An icon that appears before the editable part of the text field.
   final Widget? prefixIcon;
 
-  /// The value of the currently selected [DropdownMenuItem].
+  /// An icon that appears after the editable part of the text field.
+  final Widget? suffixIcon;
+
+  /// The value of the currently selected item.
   final T? value;
 
   static String _defaultStringForItem(Object? item) {
@@ -58,52 +50,81 @@ class DropdownField<T extends Object> extends StatefulWidget {
 }
 
 class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
+  late final FocusNode _focusNode;
   T? _value;
 
   @override
   void initState() {
     super.initState();
+    _focusNode = FocusNode();
     _value = widget.value;
   }
 
   @override
   void didUpdateWidget(DropdownField<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
-    _value = widget.value;
+    // workround: i dont know why the oldWidget.value is null here
+    if (oldWidget.value != null) {
+      _value = widget.value;
+    }
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Semantics(
       identifier: widget.labelText,
-      child: DropdownButtonFormField<T>(
-        icon: widget.icon,
-        isDense: widget.isDense,
-        isExpanded: widget.isExpanded,
-        decoration: InputDecoration(
-          isDense: widget.isDense,
-          labelText: widget.labelText,
-          prefixIcon: widget.prefixIcon,
+      child: InkWell(
+        focusNode: _focusNode,
+        onFocusChange: _onFocusChange,
+        onTap: _onTap,
+        child: InputDecorator(
+          isFocused: _focusNode.hasFocus,
+          decoration: InputDecoration(
+            labelText: widget.labelText,
+            prefixIcon: widget.prefixIcon,
+            suffixIcon: widget.suffixIcon,
+          ),
+          child: Text(
+            _value != null ? widget.displayStringForItem(_value!) : '',
+          ),
         ),
-        items: _getItems(),
-        onChanged: _onChange,
-        initialValue: _value,
       ),
     );
   }
 
-  List<DropdownMenuItem<T>> _getItems() {
+  void _onTap() {
+    showModalBottomSheet<T>(
+      context: context,
+      builder: (_) {
+        return SafeArea(
+          child: ListView(
+            shrinkWrap: true,
+            children: _getItems(),
+          ),
+        );
+      },
+    ).then(_onChange);
+  }
+
+  List<Widget> _getItems() {
     return widget.items.map(
       (T item) {
-        return DropdownMenuItem<T>(
-          value: item,
-          child: Text(widget.displayStringForItem(item)),
+        return ListTile(
+          title: Text(widget.displayStringForItem(item)),
+          onTap: () => Navigator.of(context).pop(item),
         );
       },
     ).toList();
   }
 
   void _onChange(T? value) {
+    _onFocusChange(true);
     if (value == null) {
       return;
     }
@@ -111,5 +132,14 @@ class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
       _value = value;
     });
     widget.onChanged(value);
+  }
+
+  void _onFocusChange(bool value) {
+    if (value) {
+      _focusNode.requestFocus();
+    } else {
+      _focusNode.unfocus();
+    }
+    setState(() {});
   }
 }

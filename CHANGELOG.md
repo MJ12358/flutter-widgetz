@@ -1,5 +1,15 @@
 # Flutter Widgetz
 
+## [14.0.0]
+
+- **BREAKING**:
+  - Utilize a bottom sheet within `DropdownField`.
+    - Remove `icon` param in favor of `suffixIcon`.
+    - Remove `isDense` param.
+    - Remove `isExpanded` param.
+  - Add `SafeArea` around modals.
+  - Update example.
+
 ## [13.2.1]
 
 - Add `onTap` to `CustomInputDecorator`.
