@@ -90,6 +90,7 @@ class _TimeFieldState extends State<TimeField> {
         onFocusChange: _onFocusChange,
         onTap: () => _showTimePicker(context),
         child: InputDecorator(
+          isEmpty: _value == null,
           isFocused: _focusNode.hasFocus,
           decoration: InputDecoration(
             errorText: widget.hasError ? widget.errorText : null,

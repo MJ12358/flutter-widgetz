@@ -27,9 +27,9 @@ class CustomDrawer extends StatelessWidget {
   /// The semantic label of the drawer.
   final String? semanticLabel;
 
-  /// {@macro flutter_widgetz.CustomDrawer}
-  ///
   /// Count uses [SliverChildListDelegate].
+  ///
+  /// {@macro flutter_widgetz.CustomDrawer}
   CustomDrawer.count({
     super.key,
     required List<Widget> children,
@@ -40,9 +40,9 @@ class CustomDrawer extends StatelessWidget {
           children,
         );
 
-  /// {@macro flutter_widgetz.CustomDrawer}
-  ///
   /// Builder uses [SliverChildBuilderDelegate].
+  ///
+  /// {@macro flutter_widgetz.CustomDrawer}
   CustomDrawer.builder({
     super.key,
     required int itemCount,

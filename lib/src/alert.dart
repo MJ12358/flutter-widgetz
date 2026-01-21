@@ -55,9 +55,9 @@ class Alert extends StatefulWidget {
   static const bool _defaultIsVisible = true;
   static const EdgeInsets _defaultPadding = EdgeInsets.all(8.0);
 
-  /// {@macro flutter_widgetz.Alert}
+  /// Error uses [Icons.block] and a red color.
   ///
-  /// An error uses [Icons.block] and a red color.
+  /// {@macro flutter_widgetz.Alert}
   const Alert.error({
     super.key,
     required this.child,
@@ -70,9 +70,9 @@ class Alert extends StatefulWidget {
   })  : color = const Color(0xFFEA001E),
         icon = const Icon(Icons.block);
 
-  /// {@macro flutter_widgetz.Alert}
-  ///
   /// Info uses [Icons.info] and a light grey color.
+  ///
+  /// {@macro flutter_widgetz.Alert}
   const Alert.info({
     super.key,
     required this.child,
@@ -85,9 +85,9 @@ class Alert extends StatefulWidget {
   })  : color = const Color(0xFF9B9B9B),
         icon = const Icon(Icons.info);
 
-  /// {@macro flutter_widgetz.Alert}
-  ///
   /// Offline uses [Icons.wifi] and a dark grey color.
+  ///
+  /// {@macro flutter_widgetz.Alert}
   const Alert.offline({
     super.key,
     required this.child,
@@ -100,9 +100,9 @@ class Alert extends StatefulWidget {
   })  : color = const Color(0xFF444444),
         icon = const Icon(Icons.wifi);
 
-  /// {@macro flutter_widgetz.Alert}
+  /// Warning uses [Icons.warning] and a yellow color.
   ///
-  /// A warning uses [Icons.warning] and a yellow color.
+  /// {@macro flutter_widgetz.Alert}
   const Alert.warning({
     super.key,
     required this.child,

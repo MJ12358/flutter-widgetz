@@ -22,9 +22,9 @@ class CustomSliverList extends StatelessWidget {
 
   static const EdgeInsets _defaultPadding = EdgeInsets.zero;
 
-  /// {@macro flutter_widgetz.CustomSliverList}
-  ///
   /// Builder uses a [SliverChildBuilderDelegate].
+  ///
+  /// {@macro flutter_widgetz.CustomSliverList}
   CustomSliverList.builder({
     super.key,
     required int itemCount,
@@ -37,9 +37,9 @@ class CustomSliverList extends StatelessWidget {
           addAutomaticKeepAlives: addAutomaticKeepAlives,
         );
 
-  /// {@macro flutter_widgetz.CustomSliverList}
-  ///
   /// List uses a [SliverChildListDelegate].
+  ///
+  /// {@macro flutter_widgetz.CustomSliverList}
   CustomSliverList.list({
     super.key,
     required List<Widget> children,
@@ -50,10 +50,10 @@ class CustomSliverList extends StatelessWidget {
           addAutomaticKeepAlives: addAutomaticKeepAlives,
         );
 
-  /// {@macro flutter_widgetz.CustomSliverList}
-  ///
   /// Separated uses a [SliverChildBuilderDelegate]
   /// and inserts a separator between widgets.
+  ///
+  /// {@macro flutter_widgetz.CustomSliverList}
   CustomSliverList.separated({
     super.key,
     required int itemCount,

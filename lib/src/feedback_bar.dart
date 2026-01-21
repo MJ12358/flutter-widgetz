@@ -48,9 +48,9 @@ class FeedbackBar extends StatelessWidget {
   static const BoxShape _defaultShape = BoxShape.rectangle;
   static const double _defaultSpacing = 20.0;
 
-  /// {@macro flutter_widgetz.FeedbackBar}
-  ///
   /// Outlined uses an outlined icon.
+  ///
+  /// {@macro flutter_widgetz.FeedbackBar}
   FeedbackBar.outlined({
     super.key,
     required this.onChanged,
@@ -69,9 +69,9 @@ class FeedbackBar extends StatelessWidget {
           _Image(asset: _kVeryGoodEmojiOutlined, color: color),
         ];
 
-  /// {@macro flutter_widgetz.FeedbackBar}
-  ///
   /// Filled uses a filled icon.
+  ///
+  /// {@macro flutter_widgetz.FeedbackBar}
   FeedbackBar.filled({
     super.key,
     required this.onChanged,

@@ -18,9 +18,9 @@ class CustomSimpleDialogOption extends SimpleDialogOption {
     ),
   });
 
-  /// {@macro flutter_widgetz.CustomSimpleDialogOption}
-  ///
   /// Checked uses a checkmark based on the [checked] property.
+  ///
+  /// {@macro flutter_widgetz.CustomSimpleDialogOption}
   CustomSimpleDialogOption.checked({
     super.key,
     required Widget child,
@@ -38,9 +38,9 @@ class CustomSimpleDialogOption extends SimpleDialogOption {
           ),
         );
 
-  /// {@macro flutter_widgetz.CustomSimpleDialogOption}
+  /// Icon uses an [Icon].
   ///
-  /// Icon uses an icon.
+  /// {@macro flutter_widgetz.CustomSimpleDialogOption}
   CustomSimpleDialogOption.icon({
     super.key,
     required Widget child,
@@ -54,9 +54,9 @@ class CustomSimpleDialogOption extends SimpleDialogOption {
           ),
         );
 
-  /// {@macro flutter_widgetz.CustomSimpleDialogOption}
-  ///
   /// Tile wraps the child in a [ListTile].
+  ///
+  /// {@macro flutter_widgetz.CustomSimpleDialogOption}
   CustomSimpleDialogOption.tile({
     super.key,
     required Widget child,

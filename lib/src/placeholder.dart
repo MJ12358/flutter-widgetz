@@ -30,9 +30,9 @@ class CustomPlaceholder extends StatelessWidget {
   static const MainAxisAlignment _defaultAlignment = MainAxisAlignment.center;
   static const EdgeInsets _defaultPadding = EdgeInsets.all(20.0);
 
-  /// {@macro flutter_widgetz.CustomPlaceholder}
-  ///
   /// Asset uses [Image.asset] as [child].
+  ///
+  /// {@macro flutter_widgetz.CustomPlaceholder}
   CustomPlaceholder.asset(
     String name, {
     super.key,
@@ -45,9 +45,9 @@ class CustomPlaceholder extends StatelessWidget {
           color: color,
         );
 
-  /// {@macro flutter_widgetz.CustomPlaceholder}
-  ///
   /// Network uses [Image.network] as [child].
+  ///
+  /// {@macro flutter_widgetz.CustomPlaceholder}
   CustomPlaceholder.network(
     String source, {
     super.key,
@@ -60,9 +60,9 @@ class CustomPlaceholder extends StatelessWidget {
           color: color,
         );
 
-  /// {@macro flutter_widgetz.CustomPlaceholder}
-  ///
   /// Flashlight uses a "flashlight" image as [child].
+  ///
+  /// {@macro flutter_widgetz.CustomPlaceholder}
   CustomPlaceholder.flashlight({
     super.key,
     this.text,

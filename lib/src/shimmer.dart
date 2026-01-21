@@ -53,9 +53,9 @@ class Shimmer extends StatefulWidget {
     );
   }
 
-  /// {@macro flutter_widgetz.Shimmer}
-  ///
   /// Banner uses a [Container] as a [child].
+  ///
+  /// {@macro flutter_widgetz.Shimmer}
   Shimmer.banner({
     super.key,
     Color backgroundColor = _defaultBackgroundColor,
@@ -70,9 +70,9 @@ class Shimmer extends StatefulWidget {
           height: height,
         );
 
-  /// {@macro flutter_widgetz.Shimmer}
-  ///
   /// List tile uses a [ListTile] as a [child].
+  ///
+  /// {@macro flutter_widgetz.Shimmer}
   Shimmer.listTile({
     super.key,
     Color backgroundColor = _defaultBackgroundColor,
@@ -102,9 +102,9 @@ class Shimmer extends StatefulWidget {
           ),
         );
 
-  /// {@macro flutter_widgetz.Shimmer}
-  ///
   /// Title uses a [Column] as a [child].
+  ///
+  /// {@macro flutter_widgetz.Shimmer}
   Shimmer.title({
     super.key,
     Color backgroundColor = _defaultBackgroundColor,

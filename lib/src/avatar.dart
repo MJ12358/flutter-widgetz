@@ -31,9 +31,9 @@ class CustomAvatar extends StatelessWidget {
   static const Widget _defaultIcon = Icon(Icons.person);
   static void _defaultImageErrorBuilder(Object o, StackTrace? s) {}
 
-  /// {@macro flutter_widgetz.CustomAvatar}
-  ///
   /// Asset uses [Image.asset].
+  ///
+  /// {@macro flutter_widgetz.CustomAvatar}
   CustomAvatar.asset(
     String? name, {
     super.key,
@@ -42,9 +42,9 @@ class CustomAvatar extends StatelessWidget {
     this.radius,
   }) : imageProvider = CustomImage.asset(name).imageProvider;
 
-  /// {@macro flutter_widgetz.CustomAvatar}
-  ///
   /// Memory uses [Image.memory].
+  ///
+  /// {@macro flutter_widgetz.CustomAvatar}
   CustomAvatar.memory(
     Uint8List? bytes, {
     super.key,
@@ -53,9 +53,9 @@ class CustomAvatar extends StatelessWidget {
     this.radius,
   }) : imageProvider = CustomImage.memory(bytes).imageProvider;
 
-  /// {@macro flutter_widgetz.CustomAvatar}
-  ///
   /// Network uses [Image.network].
+  ///
+  /// {@macro flutter_widgetz.CustomAvatar}
   CustomAvatar.network(
     String? source, {
     super.key,

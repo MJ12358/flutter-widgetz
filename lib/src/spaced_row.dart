@@ -49,10 +49,10 @@ class SpacedRow extends StatelessWidget {
     return true;
   }
 
-  /// {@macro flutter_widgetz.SpacedRow}
-  ///
   /// Filtered is used to filter out undesirable widgets.
   /// This defaults to removing [SizedBox] with 0 height/width.
+  ///
+  /// {@macro flutter_widgetz.SpacedRow}
   SpacedRow.filtered({
     super.key,
     required List<Widget> children,

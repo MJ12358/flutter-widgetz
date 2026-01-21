@@ -27,6 +27,8 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
   }
 
   /// A [PopupMenuItem] with a checkmark.
+  ///
+  /// {@macro flutter_widgetz.CustomPopupMenuItem}
   CustomPopupMenuItem.checked({
     super.key,
     required Widget child,
@@ -46,6 +48,8 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
         );
 
   /// A [PopupMenuItem] with an icon.
+  ///
+  /// {@macro flutter_widgetz.CustomPopupMenuItem}
   CustomPopupMenuItem.icon({
     super.key,
     required Widget child,
@@ -61,6 +65,8 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
 
   /// A [PopupMenuItem] with an leading icon
   /// and a trailing checkmark.
+  ///
+  /// {@macro flutter_widgetz.CustomPopupMenuItem}
   CustomPopupMenuItem.iconChecked({
     super.key,
     required Widget child,

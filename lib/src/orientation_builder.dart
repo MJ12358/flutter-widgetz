@@ -30,9 +30,9 @@ class CustomOrientationBuilder extends StatefulWidget {
     SystemChrome.setPreferredOrientations(<DeviceOrientation>[]);
   }
 
-  /// {@macro flutter_widgetz.CustomOrientationBuilder}
-  ///
   /// Forces [Orientation.landscape].
+  ///
+  /// {@macro flutter_widgetz.CustomOrientationBuilder}
   CustomOrientationBuilder.landscape({
     super.key,
     required WidgetBuilder builder,
@@ -46,9 +46,9 @@ class CustomOrientationBuilder extends StatefulWidget {
     ]);
   }
 
-  /// {@macro flutter_widgetz.CustomOrientationBuilder}
-  ///
   /// Forces [Orientation.portrait].
+  ///
+  /// {@macro flutter_widgetz.CustomOrientationBuilder}
   CustomOrientationBuilder.portrait({
     super.key,
     required WidgetBuilder builder,

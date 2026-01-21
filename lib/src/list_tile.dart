@@ -35,9 +35,9 @@ class CustomListTile extends StatelessWidget {
   /// Internal prop to hold the widget to be built.
   final Widget _content;
 
-  /// {@macro flutter_widgetz.CustomListTile}
-  ///
   /// Dismissible wraps the [ListTile] inside a [Dismissible].
+  ///
+  /// {@macro flutter_widgetz.CustomListTile}
   CustomListTile.dismissible({
     required super.key,
     required VoidCallback onDismissed,

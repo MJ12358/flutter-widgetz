@@ -118,6 +118,7 @@ class _DateTimeFieldState extends State<DateTimeField> {
         onFocusChange: _onFocusChange,
         onTap: () => _showPickers(context),
         child: InputDecorator(
+          isEmpty: _value == null,
           isFocused: _focusNode.hasFocus,
           decoration: InputDecoration(
             errorText: widget.hasError ? widget.errorText : null,

@@ -30,9 +30,9 @@ class Button extends StatelessWidget {
   static const Color _defaultColor = Color(0xFF0176D3);
   static const BorderSide _defaultBorder = BorderSide.none;
 
-  /// {@macro flutter_widgetz.Button}
-  ///
   /// Brand uses a blue color.
+  ///
+  /// {@macro flutter_widgetz.Button}
   const Button.brand({
     super.key,
     this.child,
@@ -40,9 +40,9 @@ class Button extends StatelessWidget {
   })  : border = _defaultBorder,
         color = _defaultColor;
 
-  /// {@macro flutter_widgetz.Button}
-  ///
   /// Destructive uses a red color.
+  ///
+  /// {@macro flutter_widgetz.Button}
   const Button.destructive({
     super.key,
     this.child,
@@ -50,9 +50,9 @@ class Button extends StatelessWidget {
   })  : border = _defaultBorder,
         color = const Color(0xFFBA0517);
 
-  /// {@macro flutter_widgetz.Button}
-  ///
   /// Inverse uses a dark blue color.
+  ///
+  /// {@macro flutter_widgetz.Button}
   const Button.inverse({
     super.key,
     this.child,
@@ -60,9 +60,9 @@ class Button extends StatelessWidget {
   })  : border = _defaultBorder,
         color = const Color(0xFF16325C);
 
-  /// {@macro flutter_widgetz.Button}
-  ///
   /// Neutral uses the default color with a border.
+  ///
+  /// {@macro flutter_widgetz.Button}
   const Button.neutral({
     super.key,
     this.child,
@@ -70,9 +70,9 @@ class Button extends StatelessWidget {
   })  : border = const BorderSide(color: Color(0xFFC9C9C9)),
         color = null;
 
-  /// {@macro flutter_widgetz.Button}
-  ///
   /// Outline uses a [color] to create a border.
+  ///
+  /// {@macro flutter_widgetz.Button}
   Button.outline({
     super.key,
     Color? color,
@@ -81,9 +81,9 @@ class Button extends StatelessWidget {
   })  : border = BorderSide(color: color ?? _defaultColor),
         color = null;
 
-  /// {@macro flutter_widgetz.Button}
-  ///
   /// Success uses a green color.
+  ///
+  /// {@macro flutter_widgetz.Button}
   const Button.success({
     super.key,
     this.child,

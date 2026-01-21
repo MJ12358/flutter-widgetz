@@ -191,10 +191,10 @@ class SettingsTile extends StatelessWidget {
     );
   }
 
-  /// {@macro flutter_widgetz.SettingsTile}
-  ///
   /// DarkMode uses a [Switch] as the trailing widget
   /// and alternates between dark_mode and light_mode icons.
+  ///
+  /// {@macro flutter_widgetz.SettingsTile}
   SettingsTile.darkMode({
     super.key,
     required ValueChanged<bool> onChanged,
@@ -210,11 +210,11 @@ class SettingsTile extends StatelessWidget {
           onChanged: onChanged,
         );
 
-  /// {@macro flutter_widgetz.SettingsTile}
-  ///
   /// ImmersiveMode uses a [Switch] as the trailing widget
   /// and alternates between fullscreen_exit and fullscreen icons,
   /// while setting [SystemUiMode].
+  ///
+  /// {@macro flutter_widgetz.SettingsTile}
   SettingsTile.immersiveMode({
     super.key,
     required ValueChanged<bool> onChanged,
@@ -241,10 +241,10 @@ class SettingsTile extends StatelessWidget {
     }
   }
 
-  /// {@macro flutter_widgetz.SettingsTile}
-  ///
   /// Orientation uses a [Switch] as the trailing widget
   /// and locks the screen to the current orientation.
+  ///
+  /// {@macro flutter_widgetz.SettingsTile}
   SettingsTile.orientation({
     super.key,
     required BuildContext context,
@@ -270,9 +270,9 @@ class SettingsTile extends StatelessWidget {
     }
   }
 
-  /// {@macro flutter_widgetz.SettingsTile}
-  ///
   /// Licenses utilizes [showLicensePage] when tapped.
+  ///
+  /// {@macro flutter_widgetz.SettingsTile}
   SettingsTile.licenses({
     super.key,
     required BuildContext context,
@@ -293,9 +293,9 @@ class SettingsTile extends StatelessWidget {
               applicationLegalese: applicationLegalese,
             ));
 
-  /// {@macro flutter_widgetz.SettingsTile}
-  ///
   /// Switched uses a [Switch] as the trailing widget.
+  ///
+  /// {@macro flutter_widgetz.SettingsTile}
   SettingsTile.switched({
     super.key,
     required ValueChanged<bool> onChanged,
@@ -310,9 +310,9 @@ class SettingsTile extends StatelessWidget {
           onChanged: onChanged,
         );
 
-  /// {@macro flutter_widgetz.SettingsTile}
-  ///
   /// TimeDilation shows a simple dialog that changes [timeDilation].
+  ///
+  /// {@macro flutter_widgetz.SettingsTile}
   SettingsTile.timeDilation({
     super.key,
     required BuildContext context,
@@ -325,7 +325,7 @@ class SettingsTile extends StatelessWidget {
     Widget? trailing,
     double? value,
   })  : trailing = trailing ??
-            // TODO: This is not updated when timeDilation changes outside of this widget
+            // TODO: This is not updated when timeDilation changes outside
             Text(value != null ? value.toString() : timeDilation.toString()),
         onTap = (() => showDialog(
               context: context,
@@ -349,10 +349,10 @@ class SettingsTile extends StatelessWidget {
     }
   }
 
-  /// {@macro flutter_widgetz.SettingsTile}
-  ///
   /// Color picker shows a bottom sheet when tapped
   /// and a close button when color != defaultColor.
+  ///
+  /// {@macro flutter_widgetz.SettingsTile}
   SettingsTile.colorPicker({
     super.key,
     required BuildContext context,

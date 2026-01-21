@@ -85,9 +85,9 @@ class ColorField extends StatefulWidget {
     );
   }
 
-  /// {@macro flutter_widgetz.ColorField}
-  ///
   /// BottomSheet uses [showModalBottomSheet].
+  ///
+  /// {@macro flutter_widgetz.ColorField}
   const ColorField.bottomSheet({
     super.key,
     required this.onChanged,
@@ -100,9 +100,9 @@ class ColorField extends StatefulWidget {
     this.value,
   }) : modalBuilder = _showBottomSheet;
 
-  /// {@macro flutter_widgetz.ColorField}
-  ///
   /// Dialog uses [showDialog] with [AlertDialog].
+  ///
+  /// {@macro flutter_widgetz.ColorField}
   const ColorField.dialog({
     super.key,
     required this.onChanged,
@@ -153,6 +153,7 @@ class _ColorFieldState extends State<ColorField> {
         onFocusChange: _onFocusChange,
         onTap: () => _showModal(context),
         child: InputDecorator(
+          isEmpty: _value == null,
           isFocused: _focusNode.hasFocus,
           decoration: InputDecoration(
             labelText: widget.labelText,

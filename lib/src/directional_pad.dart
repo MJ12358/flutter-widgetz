@@ -57,9 +57,9 @@ class DirectionalPad extends StatelessWidget {
     return size * 0.1;
   }
 
-  /// {@macro flutter_widgetz.DirectionalPad}
-  ///
   /// Arrow uses material `Icons.arrow`.
+  ///
+  /// {@macro flutter_widgetz.DirectionalPad}
   DirectionalPad.arrow({
     super.key,
     this.backgroundColor,
@@ -78,9 +78,9 @@ class DirectionalPad extends StatelessWidget {
           Icon(Icons.arrow_back),
         ];
 
-  /// {@macro flutter_widgetz.DirectionalPad}
-  ///
   /// Chevron uses material `Icons.chevron`.
+  ///
+  /// {@macro flutter_widgetz.DirectionalPad}
   DirectionalPad.chevron({
     super.key,
     this.backgroundColor,
@@ -105,9 +105,9 @@ class DirectionalPad extends StatelessWidget {
           Icon(Icons.chevron_left),
         ];
 
-  /// {@macro flutter_widgetz.DirectionalPad}
-  ///
   /// Attempts to emulate a classic d-pad.
+  ///
+  /// {@macro flutter_widgetz.DirectionalPad}
   DirectionalPad.classic({
     super.key,
     this.buttonColor,
@@ -141,9 +141,9 @@ class DirectionalPad extends StatelessWidget {
           ),
         ];
 
-  /// {@macro flutter_widgetz.DirectionalPad}
-  ///
   /// Attempts to emulate the look of an PlayStation controller.
+  ///
+  /// {@macro flutter_widgetz.DirectionalPad}
   DirectionalPad.playstation({
     super.key,
     this.onTap,
@@ -161,9 +161,9 @@ class DirectionalPad extends StatelessWidget {
           _PlayStationButton.square(size: size),
         ];
 
-  /// {@macro flutter_widgetz.DirectionalPad}
-  ///
   /// Attempts to emulate the look of an Xbox controller.
+  ///
+  /// {@macro flutter_widgetz.DirectionalPad}
   DirectionalPad.xbox({
     super.key,
     this.onTap,

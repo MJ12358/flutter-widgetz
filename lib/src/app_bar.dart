@@ -20,10 +20,10 @@ class CustomAppBar extends AppBar {
 
   static const bool _defaultCenterTitle = false;
 
-  /// {@macro flutter_widgetz.CustomAppBar}
-  ///
   /// Subtitled also requires a [subtitle] and places
   /// the [title] and [subtitle] in a column.
+  ///
+  /// {@macro flutter_widgetz.CustomAppBar}
   CustomAppBar.subtitled({
     super.key,
     super.actions,

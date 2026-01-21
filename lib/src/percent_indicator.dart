@@ -56,9 +56,9 @@ class PercentIndicator extends StatelessWidget {
     return Text('$result%');
   }
 
-  /// {@macro flutter_widgetz.PercentIndicator}
-  ///
   /// Circular uses a [CircularProgressIndicator].
+  ///
+  /// {@macro flutter_widgetz.PercentIndicator}
   PercentIndicator.circular({
     super.key,
     required double value,
@@ -86,9 +86,9 @@ class PercentIndicator extends StatelessWidget {
         child = child ?? _defaultChild(value),
         value = _computeValue(value);
 
-  /// {@macro flutter_widgetz.PercentIndicator}
-  ///
   /// Linear uses a [LinearProgressIndicator].
+  ///
+  /// {@macro flutter_widgetz.PercentIndicator}
   PercentIndicator.linear({
     super.key,
     required double value,

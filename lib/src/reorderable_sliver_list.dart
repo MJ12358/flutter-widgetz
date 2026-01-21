@@ -20,9 +20,9 @@ class CustomSliverReorderableList extends StatelessWidget {
 
   static const EdgeInsets _defaultPadding = EdgeInsets.zero;
 
-  /// {@macro flutter_widgetz.CustomSLiverReorderableList}
-  ///
   /// Builder uses [itemBuilder] to build widgets.
+  ///
+  /// {@macro flutter_widgetz.CustomSLiverReorderableList}
   const CustomSliverReorderableList.builder({
     super.key,
     required this.itemCount,
@@ -31,9 +31,9 @@ class CustomSliverReorderableList extends StatelessWidget {
     this.padding = _defaultPadding,
   });
 
-  /// {@macro flutter_widgetz.CustomSLiverReorderableList}
-  ///
   /// List uses [children] to build widgets.
+  ///
+  /// {@macro flutter_widgetz.CustomSLiverReorderableList}
   CustomSliverReorderableList.list({
     super.key,
     required List<Widget> children,
@@ -44,9 +44,9 @@ class CustomSliverReorderableList extends StatelessWidget {
           return children[index];
         });
 
-  /// {@macro flutter_widgetz.CustomSLiverReorderableList}
-  ///
   /// Separated inserts a separator between widgets.
+  ///
+  /// {@macro flutter_widgetz.CustomSLiverReorderableList}
   CustomSliverReorderableList.separated({
     super.key,
     required int itemCount,

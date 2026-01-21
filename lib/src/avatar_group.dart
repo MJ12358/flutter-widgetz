@@ -37,9 +37,9 @@ class AvatarGroup extends StatelessWidget {
   static const Widget _defaultIcon = Icon(Icons.person);
   static const double _defaultRadius = kRadialReactionRadius;
 
-  /// {@macro flutter_widgetz.AvatarGroup}
-  ///
   /// Asset uses [Image.asset].
+  ///
+  /// {@macro flutter_widgetz.AvatarGroup}
   AvatarGroup.asset(
     String name, {
     super.key,
@@ -56,9 +56,9 @@ class AvatarGroup extends StatelessWidget {
           radius: _computeRadius(radius),
         );
 
-  /// {@macro flutter_widgetz.AvatarGroup}
-  ///
   /// Memory uses [Image.memory].
+  ///
+  /// {@macro flutter_widgetz.AvatarGroup}
   AvatarGroup.memory(
     Uint8List? bytes, {
     super.key,
@@ -75,9 +75,9 @@ class AvatarGroup extends StatelessWidget {
           radius: _computeRadius(radius),
         );
 
-  /// {@macro flutter_widgetz.AvatarGroup}
-  ///
   /// Network uses [Image.network].
+  ///
+  /// {@macro flutter_widgetz.AvatarGroup}
   AvatarGroup.network(
     String source, {
     super.key,

@@ -29,6 +29,8 @@ class CustomReorderableListView extends ReorderableListView {
           },
         );
 
+  /// Builder uses [ReorderableListView.builder].
+  ///
   /// {@macro flutter_widgetz.CustomReorderableListView}
   CustomReorderableListView.builder({
     super.key,
@@ -48,6 +50,8 @@ class CustomReorderableListView extends ReorderableListView {
           },
         );
 
+  /// Separated uses [ReorderableListView.builder] with separators.
+  ///
   /// {@macro flutter_widgetz.CustomReorderableListView}
   CustomReorderableListView.separated({
     super.key,

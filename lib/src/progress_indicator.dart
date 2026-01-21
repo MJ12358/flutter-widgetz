@@ -17,9 +17,9 @@ class CustomProgressIndicator extends StatelessWidget {
 
   static const String _defaultSemanticsLabel = 'Loading';
 
-  /// {@macro flutter_widgetz.CustomProgressIndicator}
-  ///
   /// Circular uses a [CircularProgressIndicator].
+  ///
+  /// {@macro flutter_widgetz.CustomProgressIndicator}
   CustomProgressIndicator.circular({
     super.key,
     Color? backgroundColor,
@@ -33,9 +33,9 @@ class CustomProgressIndicator extends StatelessWidget {
           value: _computeValue(value),
         );
 
-  /// {@macro flutter_widgetz.CustomProgressIndicator}
-  ///
   /// Linear uses a [LinearProgressIndicator].
+  ///
+  /// {@macro flutter_widgetz.CustomProgressIndicator}
   CustomProgressIndicator.linear({
     super.key,
     Color? backgroundColor,
@@ -53,9 +53,9 @@ class CustomProgressIndicator extends StatelessWidget {
           value: _computeValue(value),
         );
 
-  /// {@macro flutter_widgetz.CustomProgressIndicator}
-  ///
   /// Refresh uses a [RefreshProgressIndicator].
+  ///
+  /// {@macro flutter_widgetz.CustomProgressIndicator}
   CustomProgressIndicator.refresh({
     super.key,
     Color? backgroundColor,

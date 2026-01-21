@@ -23,45 +23,45 @@ class CustomBadge extends StatelessWidget {
   /// The badge's content.
   final Widget? label;
 
-  /// {@macro flutter_widgetz.CustomBadge}
-  ///
   /// Inverse uses a grey color.
+  ///
+  /// {@macro flutter_widgetz.CustomBadge}
   const CustomBadge.inverse({
     super.key,
     this.child,
     this.label,
   }) : color = const Color(0xFF747474);
 
-  /// {@macro flutter_widgetz.CustomBadge}
-  ///
   /// Lightest uses a white color.
+  ///
+  /// {@macro flutter_widgetz.CustomBadge}
   const CustomBadge.lightest({
     super.key,
     this.child,
     this.label,
   }) : color = const Color(0xFFFFFFFF);
 
-  /// {@macro flutter_widgetz.CustomBadge}
-  ///
   /// Success uses a green color.
+  ///
+  /// {@macro flutter_widgetz.CustomBadge}
   const CustomBadge.success({
     super.key,
     this.child,
     this.label,
   }) : color = const Color(0xFF2E844A);
 
-  /// {@macro flutter_widgetz.CustomBadge}
-  ///
   /// Warning uses an orange color.
+  ///
+  /// {@macro flutter_widgetz.CustomBadge}
   const CustomBadge.warning({
     super.key,
     this.child,
     this.label,
   }) : color = const Color(0xFFFE9339);
 
-  /// {@macro flutter_widgetz.CustomBadge}
-  ///
   /// Error uses a red color.
+  ///
+  /// {@macro flutter_widgetz.CustomBadge}
   const CustomBadge.error({
     super.key,
     this.child,

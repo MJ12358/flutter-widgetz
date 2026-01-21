@@ -38,9 +38,9 @@ class CustomDialog<T> extends StatelessWidget {
       EdgeInsets.all(_defaultPadding);
   static const EdgeInsets _defaultContentPadding = EdgeInsets.zero;
 
-  /// {@macro flutter_widgetz.CustomDialog}
-  ///
   /// Alert mimics the default alert dialog.
+  ///
+  /// {@macro flutter_widgetz.CustomDialog}
   CustomDialog.alert({
     super.key,
     required this.child,
@@ -71,9 +71,9 @@ class CustomDialog<T> extends StatelessWidget {
           ),
         ];
 
-  /// {@macro flutter_widgetz.CustomDialog}
-  ///
   /// Checkbox uses a [ListView] with [CheckboxListTile]s.
+  ///
+  /// {@macro flutter_widgetz.CustomDialog}
   CustomDialog.checkbox({
     super.key,
     required List<T> initialValues,
@@ -100,9 +100,9 @@ class CustomDialog<T> extends StatelessWidget {
           ],
         );
 
-  /// {@macro flutter_widgetz.CustomDialog}
-  ///
   /// List uses a list of widgets inside a [ListView].
+  ///
+  /// {@macro flutter_widgetz.CustomDialog}
   CustomDialog.list({
     super.key,
     required List<Widget> children,
@@ -129,9 +129,9 @@ class CustomDialog<T> extends StatelessWidget {
                 children: children,
               );
 
-  /// {@macro flutter_widgetz.CustomDialog}
-  ///
   /// Radio uses a [ListView] with [RadioListTile]s.
+  ///
+  /// {@macro flutter_widgetz.CustomDialog}
   CustomDialog.radio({
     super.key,
     required List<T> values,
@@ -161,9 +161,9 @@ class CustomDialog<T> extends StatelessWidget {
           ],
         );
 
-  /// {@macro flutter_widgetz.CustomDialog}
-  ///
   /// Simple mimics the default simple dialog.
+  ///
+  /// {@macro flutter_widgetz.CustomDialog}
   CustomDialog.simple({
     super.key,
     required Widget child,

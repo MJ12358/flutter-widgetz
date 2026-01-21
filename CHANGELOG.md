@@ -1,19 +1,19 @@
 # Flutter Widgetz
 
-## [14.0.1]
-
-- Fix `DropdownField` input height.
-- Add separators to `DropdownField` `items`.
-
-## [14.0.0]
+## [14.0.2]
 
 - **BREAKING**:
-  - Utilize a bottom sheet within `DropdownField`.
+  - Add `DropdownField` `bottomSheet` and `dialog` constructors.
     - Remove `icon` param in favor of `suffixIcon`.
     - Remove `isDense` param.
     - Remove `isExpanded` param.
-  - Add `SafeArea` around modals.
-  - Update example.
+
+- Add `SafeArea` around modals.
+- Add separators to `DropdownField` `items`.
+- Add `isEmpty` to some `InputDecorator`s.
+- Fix `DropdownField` input height.
+- Update comments.
+- Update example.
 
 ## [13.2.1]
 

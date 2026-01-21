@@ -54,9 +54,9 @@ class CustomImage extends StatefulWidget {
   static const double _defaultOpacity = 1.0;
   static const double _defaultScale = 1.0;
 
-  /// {@macro flutter_widgetz.CustomImage}
-  ///
   /// Uses an [AssetImage].
+  ///
+  /// {@macro flutter_widgetz.CustomImage}
   CustomImage.asset(
     String? name, {
     super.key,
@@ -79,9 +79,9 @@ class CustomImage extends StatefulWidget {
           cacheWidth: cacheWidth,
         ).image;
 
-  /// {@macro flutter_widgetz.CustomImage}
-  ///
   /// Uses a [MemoryImage].
+  ///
+  /// {@macro flutter_widgetz.CustomImage}
   CustomImage.memory(
     Uint8List? bytes, {
     super.key,
@@ -102,9 +102,9 @@ class CustomImage extends StatefulWidget {
           cacheWidth: cacheWidth,
         ).image;
 
-  /// {@macro flutter_widgetz.CustomImage}
-  ///
   /// Uses a [NetworkImage].
+  ///
+  /// {@macro flutter_widgetz.CustomImage}
   CustomImage.network(
     String? source, {
     super.key,
@@ -125,10 +125,10 @@ class CustomImage extends StatefulWidget {
           cacheWidth: cacheWidth,
         ).image;
 
-  /// {@macro flutter_widgetz.CustomImage}
-  ///
   /// This factory attempts to determine the input
   /// type to construct the proper image for you.
+  ///
+  /// {@macro flutter_widgetz.CustomImage}
   factory CustomImage.dynamic(
     Object? input, {
     Alignment alignment = _defaultAlignment,

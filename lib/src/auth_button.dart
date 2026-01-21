@@ -45,11 +45,11 @@ class AuthButton extends StatelessWidget {
     );
   }
 
-  /// {@macro flutter_widgetz.AuthButton}
-  ///
   /// This creates an Apple themed button.
   ///
   /// https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple
+  ///
+  /// {@macro flutter_widgetz.AuthButton}
   AuthButton.apple({
     super.key,
     required this.onTap,
@@ -59,11 +59,11 @@ class AuthButton extends StatelessWidget {
   })  : color = const Color(0xFF000000),
         icon = _getAsset(_kAppleIcon);
 
-  /// {@macro flutter_widgetz.AuthButton}
-  ///
   /// This creates a Facebook themed button.
   ///
   /// https://about.meta.com/brand/resources/facebookapp/logo/
+  ///
+  /// {@macro flutter_widgetz.AuthButton}
   AuthButton.facebook({
     super.key,
     required this.onTap,
@@ -73,11 +73,11 @@ class AuthButton extends StatelessWidget {
   })  : color = const Color(0xFF43549D),
         icon = _getAsset(_kFacebookIcon);
 
-  /// {@macro flutter_widgetz.AuthButton}
-  ///
   /// This creates a GitHub themed button.
   ///
   /// https://github.com/logos
+  ///
+  /// {@macro flutter_widgetz.AuthButton}
   AuthButton.github({
     super.key,
     required this.onTap,
@@ -87,11 +87,11 @@ class AuthButton extends StatelessWidget {
   })  : color = const Color(0xFF24292E),
         icon = _getAsset(_kGithubIcon);
 
-  /// {@macro flutter_widgetz.AuthButton}
-  ///
   /// This creates a Google themed button.
   ///
   /// https://developers.google.com/identity/branding-guidelines
+  ///
+  /// {@macro flutter_widgetz.AuthButton}
   AuthButton.google({
     super.key,
     required this.onTap,
@@ -101,11 +101,11 @@ class AuthButton extends StatelessWidget {
   })  : color = const Color(0xFF4285F4),
         icon = _getAsset(_kGoogleIcon);
 
-  /// {@macro flutter_widgetz.AuthButton}
-  ///
   /// This creates a Microsoft themed button.
   ///
   /// https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-add-branding-in-apps
+  ///
+  /// {@macro flutter_widgetz.AuthButton}
   AuthButton.microsoft({
     super.key,
     required this.onTap,
@@ -115,11 +115,11 @@ class AuthButton extends StatelessWidget {
   })  : color = const Color(0xFF2F2F2F),
         icon = _getAsset(_kMicrosoftIcon);
 
-  /// {@macro flutter_widgetz.AuthButton}
-  ///
   /// This creates a Twitter themed button.
   ///
   /// https://about.twitter.com/content/dam/about-twitter/en/brand-toolkit/downloads/twitter-external-brand-guidelines-01272021.pdf
+  ///
+  /// {@macro flutter_widgetz.AuthButton}
   AuthButton.twitter({
     super.key,
     required this.onTap,

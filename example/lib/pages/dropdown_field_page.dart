@@ -12,7 +12,7 @@ class DropdownFieldPage extends StatelessWidget {
         landscapeBuilder: (_) {
           return const SpacedRow(
             children: <Widget>[
-              DropdownField<String>(
+              DropdownField<String>.bottomSheet(
                 labelText: 'Dropdown',
                 items: <String>['1', '2', '3'],
                 onChanged: print,
@@ -34,13 +34,13 @@ class DropdownFieldPage extends StatelessWidget {
                 prefixIcon: Icon(Icons.gif_box),
                 textInputAction: TextInputAction.next,
               ),
-              const DropdownField<String>(
+              const DropdownField<String>.bottomSheet(
                 labelText: 'Dropdown',
                 items: <String>['1', '2', '3'],
                 onChanged: print,
                 prefixIcon: Icon(Icons.gif_box),
               ),
-              const DropdownField<BoxFit>(
+              const DropdownField<BoxFit>.dialog(
                 labelText: 'Dropdown Two',
                 items: <BoxFit>[
                   BoxFit.contain,
@@ -50,7 +50,7 @@ class DropdownFieldPage extends StatelessWidget {
                 onChanged: print,
                 prefixIcon: Icon(Icons.gif_outlined),
               ),
-              DropdownField<BoxFit>(
+              DropdownField<BoxFit>.bottomSheet(
                 labelText: 'Dropdown Three (Formatted)',
                 items: const <BoxFit>[
                   BoxFit.contain,
@@ -61,7 +61,7 @@ class DropdownFieldPage extends StatelessWidget {
                 displayStringForItem: (BoxFit v) => v.name,
                 prefixIcon: const Icon(Icons.gif_box),
               ),
-              DropdownField<BoxFit>(
+              DropdownField<BoxFit>.bottomSheet(
                 labelText: 'Dropdown Four (Initial Value)',
                 items: const <BoxFit>[
                   BoxFit.contain,
@@ -73,8 +73,8 @@ class DropdownFieldPage extends StatelessWidget {
                 prefixIcon: const Icon(Icons.select_all),
                 value: BoxFit.fill,
               ),
-              const DropdownField<String>(
-                labelText: 'Dropdown Five (Large Content)',
+              const DropdownField<String>.bottomSheet(
+                labelText: 'Dropdown Five (Large Content)[bottomSheet]',
                 items: <String>[
                   'Lorem ipsum dolor sit amet',
                   'consectetur adipiscing elit',
@@ -83,8 +83,27 @@ class DropdownFieldPage extends StatelessWidget {
                 onChanged: print,
                 prefixIcon: Icon(Icons.density_large),
               ),
-              DropdownField<String>(
-                labelText: 'Dropdown Six (Long List)',
+              const DropdownField<String>.dialog(
+                labelText: 'Dropdown Five (Large Content)[dialog]',
+                items: <String>[
+                  'Lorem ipsum dolor sit amet',
+                  'consectetur adipiscing elit',
+                  'sed do eiusmod tempor incididunt ut labore et dolore magna',
+                ],
+                onChanged: print,
+                prefixIcon: Icon(Icons.density_large),
+              ),
+              DropdownField<String>.bottomSheet(
+                labelText: 'Dropdown Six (Long List)[bottomSheet]',
+                items: List<String>.generate(
+                  50,
+                  (int index) => 'Item ${index + 1}',
+                ),
+                onChanged: print,
+                prefixIcon: const Icon(Icons.select_all),
+              ),
+              DropdownField<String>.dialog(
+                labelText: 'Dropdown Six (Long List)[dialog]',
                 items: List<String>.generate(
                   50,
                   (int index) => 'Item ${index + 1}',
@@ -121,7 +140,7 @@ class __DropdownTestState extends State<_DropdownTest> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        DropdownField<BoxFit>(
+        DropdownField<BoxFit>.bottomSheet(
           labelText: 'Dropdown Seven (On State Changed)',
           items: const <BoxFit>[
             BoxFit.contain,

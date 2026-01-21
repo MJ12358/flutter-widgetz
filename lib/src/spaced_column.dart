@@ -45,10 +45,10 @@ class SpacedColumn extends StatelessWidget {
     return true;
   }
 
-  /// {@macro flutter_widgetz.SpacedColumn}
-  ///
   /// Filtered is used to filter out undesirable widgets.
   /// This defaults to removing [SizedBox] with 0 height/width.
+  ///
+  /// {@macro flutter_widgetz.SpacedColumn}
   SpacedColumn.filtered({
     super.key,
     required List<Widget> children,

@@ -60,9 +60,9 @@ class Carousel extends StatefulWidget {
   static const Axis _defaultScrollDirection = Axis.horizontal;
   static const Duration _defaultTransitionDuration = Duration(seconds: 1);
 
-  /// {@macro flutter_widgetz.Carousel}
-  ///
   /// Count uses [SliverChildListDelegate].
+  ///
+  /// {@macro flutter_widgetz.Carousel}
   Carousel.count({
     super.key,
     required List<Widget> children,
@@ -79,9 +79,9 @@ class Carousel extends StatefulWidget {
           children,
         );
 
-  /// {@macro flutter_widgetz.Carousel}
-  ///
   /// Builder uses [SliverChildBuilderDelegate].
+  ///
+  /// {@macro flutter_widgetz.Carousel}
   Carousel.builder({
     super.key,
     required int itemCount,

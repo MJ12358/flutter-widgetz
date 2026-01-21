@@ -30,9 +30,9 @@ class CustomListView extends StatelessWidget {
 
   static const Widget _defaultSeparator = SizedBox.shrink();
 
-  /// {@macro flutter_widgetz.CustomListView}
-  ///
   /// Static never scrolls.
+  ///
+  /// {@macro flutter_widgetz.CustomListView}
   CustomListView.static({
     super.key,
     required List<Widget> children,

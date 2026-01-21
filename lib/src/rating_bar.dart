@@ -42,9 +42,9 @@ class RatingBar extends StatefulWidget {
   static const double _defaultSize = 40.0;
   static const num _defaultValue = 0;
 
-  /// {@macro flutter_widgetz.RatingBar}
-  ///
   /// Static is not tappable aka. read only.
+  ///
+  /// {@macro flutter_widgetz.RatingBar}
   const RatingBar.static({
     super.key,
     this.color,

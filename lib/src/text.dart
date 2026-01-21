@@ -23,6 +23,8 @@ class CustomText extends StatelessWidget {
   /// The text to display.
   final String text;
 
+  /// Help shows a suffix icon with dialog alongside some [text].
+  ///
   /// {@macro flutter_widgetz.CustomText}
   const CustomText.help(
     this.text, {

@@ -25,9 +25,9 @@ class CustomSliverGrid extends StatelessWidget {
 
   static const EdgeInsets _defaultPadding = EdgeInsets.zero;
 
-  /// {@macro flutter_widgetz.CustomSliverGrid}
-  ///
   /// Builder uses [SliverChildBuilderDelegate].
+  ///
+  /// {@macro flutter_widgetz.CustomSliverGrid}
   CustomSliverGrid.builder({
     super.key,
     required this.gridDelegate,
@@ -39,9 +39,9 @@ class CustomSliverGrid extends StatelessWidget {
           childCount: itemCount,
         );
 
-  /// {@macro flutter_widgetz.CustomSliverGrid}
-  ///
   /// Count uses [SliverGridDelegateWithFixedCrossAxisCount].
+  ///
+  /// {@macro flutter_widgetz.CustomSliverGrid}
   CustomSliverGrid.count({
     super.key,
     required List<Widget> children,
@@ -62,9 +62,9 @@ class CustomSliverGrid extends StatelessWidget {
           children,
         );
 
-  /// {@macro flutter_widgetz.CustomSliverGrid}
-  ///
   /// Extent uses [SliverGridDelegateWithMaxCrossAxisExtent].
+  ///
+  /// {@macro flutter_widgetz.CustomSliverGrid}
   CustomSliverGrid.extent({
     super.key,
     required List<Widget> children,

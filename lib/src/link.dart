@@ -25,9 +25,9 @@ class Link extends StatelessWidget {
 
   static const Color _defaultColor = Color(0xFF0000EE);
 
-  /// {@macro flutter_widgetz.Link}
-  ///
   /// With an included underline.
+  ///
+  /// {@macro flutter_widgetz.Link}
   Link.underline(
     Widget child, {
     super.key,

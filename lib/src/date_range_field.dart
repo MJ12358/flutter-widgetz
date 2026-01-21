@@ -97,6 +97,7 @@ class _DateRangeFieldState extends State<DateRangeField> {
         onFocusChange: _onFocusChange,
         onTap: () => _showDatePicker(context),
         child: InputDecorator(
+          isEmpty: _value == null,
           isFocused: _focusNode.hasFocus,
           decoration: InputDecoration(
             errorText: widget.hasError ? widget.errorText : null,

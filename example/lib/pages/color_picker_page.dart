@@ -85,11 +85,19 @@ class ColorPickerPage extends StatelessWidget {
               ),
               const ColorField.dialog(
                 labelText: 'Dialog',
-                value: Colors.amber,
                 onChanged: print,
               ),
               ColorField.bottomSheet(
-                labelText: 'Color (Formatted)',
+                labelText: 'Color (Formatted)[bottomSheet]',
+                pickerShape: BoxShape.rectangle,
+                value: Colors.blue,
+                onChanged: print,
+                displayStringForColor: (Color? color) {
+                  return color?.toString() ?? '';
+                },
+              ),
+              ColorField.dialog(
+                labelText: 'Color (Formatted)[dialog]',
                 pickerShape: BoxShape.rectangle,
                 value: Colors.blue,
                 onChanged: print,

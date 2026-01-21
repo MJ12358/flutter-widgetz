@@ -58,9 +58,9 @@ class Countdown extends StatefulWidget {
   static const Widget _defaultSeparator = Text(':');
   static final Color _defaultBackgroundColor = Colors.grey.shade200;
 
-  /// {@macro flutter_widgetz.Countdown}
-  ///
   /// Circular uses a box decoration with [BoxShape.circle].
+  ///
+  /// {@macro flutter_widgetz.Countdown}
   Countdown.circle({
     super.key,
     required this.target,
@@ -78,9 +78,9 @@ class Countdown extends StatefulWidget {
           shape: BoxShape.circle,
         );
 
-  /// {@macro flutter_widgetz.Countdown}
-  ///
   /// Rectangle uses a box decoration with [BoxShape.rectangle].
+  ///
+  /// {@macro flutter_widgetz.Countdown}
   Countdown.rectangle({
     super.key,
     required this.target,

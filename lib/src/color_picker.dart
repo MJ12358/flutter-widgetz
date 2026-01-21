@@ -57,9 +57,9 @@ class ColorPicker extends StatefulWidget {
   static const EdgeInsets _defaultPadding = EdgeInsets.all(16.0);
   static const double _defaultSpacing = 10.0;
 
-  /// {@macro flutter_widgetz.ColorPicker}
-  ///
   /// Circle uses a [BoxDecoration] with [BoxShape.circle].
+  ///
+  /// {@macro flutter_widgetz.ColorPicker}
   ColorPicker.circle({
     super.key,
     required this.onTap,
@@ -76,9 +76,9 @@ class ColorPicker extends StatefulWidget {
           shape: BoxShape.circle,
         );
 
-  /// {@macro flutter_widgetz.ColorPicker}
-  ///
   /// Circle uses a [BoxDecoration] with [BoxShape.rectangle].
+  ///
+  /// {@macro flutter_widgetz.ColorPicker}
   ColorPicker.rectangle({
     super.key,
     required this.onTap,
@@ -94,9 +94,9 @@ class ColorPicker extends StatefulWidget {
           border: Border.all(),
         );
 
-  /// {@macro flutter_widgetz.ColorPicker}
-  ///
   /// Compact uses a horizontal list.
+  ///
+  /// {@macro flutter_widgetz.ColorPicker}
   ColorPicker.compact({
     super.key,
     required this.onTap,
