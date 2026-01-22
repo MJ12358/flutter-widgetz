@@ -5,6 +5,7 @@ import 'package:flutter_widgetz_example/pages/auth_button_page.dart';
 import 'package:flutter_widgetz_example/pages/avatar_page.dart';
 import 'package:flutter_widgetz_example/pages/badge_page.dart';
 import 'package:flutter_widgetz_example/pages/button_page.dart';
+import 'package:flutter_widgetz_example/pages/card_page.dart';
 import 'package:flutter_widgetz_example/pages/carousel_page.dart';
 import 'package:flutter_widgetz_example/pages/checkbox_page.dart';
 import 'package:flutter_widgetz_example/pages/color_picker_page.dart';
@@ -63,6 +64,7 @@ final List<Page> pages = <Page>[
   const Page(Icons.person, AvatarPage(), 'Avatars'),
   const Page(Icons.badge, BadgePage(), 'Badges'),
   const Page(Icons.gamepad, ButtonPage(), 'Buttons'),
+  const Page(Icons.card_giftcard, CardPage(), 'Cards'),
   const Page(Icons.roundabout_left, CarouselPage(), 'Carousel'),
   const Page(Icons.check_box, CheckboxPage(), 'Checkboxes'),
   const Page(Icons.color_lens, ColorPickerPage(), 'Color Picker'),

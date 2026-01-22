@@ -21,6 +21,7 @@ part 'src/badge.dart';
 part 'src/bottom_app_bar.dart';
 part 'src/bottom_navigation_bar.dart';
 part 'src/button.dart';
+part 'src/card.dart';
 part 'src/carousel.dart';
 part 'src/checkbox_field.dart';
 part 'src/checkbox_group.dart';

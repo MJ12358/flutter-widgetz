@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [14.1.0]
+
+- Add `CustomCard` widget.
+
 ## [14.0.2]
 
 - **BREAKING**:
