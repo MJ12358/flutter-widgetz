@@ -91,7 +91,7 @@ class _CardTitle extends StatelessWidget {
       ),
       child: DefaultTextStyle(
         style: theme.textTheme.labelLarge!.copyWith(
-          color: theme.colorScheme.onPrimary,
+          color: theme.colorScheme.primary.blackOrWhite,
           fontWeight: FontWeight.bold,
         ),
         child: title,

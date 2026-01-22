@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [14.1.1]
+
+- Use `primary`.`blackOrWhite` in `CustomCard` title.
+
 ## [14.1.0]
 
 - Add `CustomCard` widget.
