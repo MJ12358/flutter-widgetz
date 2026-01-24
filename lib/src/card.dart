@@ -31,10 +31,10 @@ class CustomCard extends StatelessWidget {
     vertical: 8.0,
   );
 
-  /// Title adds a title above the card.
+  /// Titled adds a title above the card.
   ///
   /// {@macro flutter_widgetz.Card}
-  const CustomCard.title({
+  const CustomCard.titled({
     super.key,
     required this.child,
     required this.title,

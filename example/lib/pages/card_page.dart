@@ -12,26 +12,26 @@ class CardPage extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: SpacedColumn(
         children: <Widget>[
-          const CustomCard.title(
+          const CustomCard.titled(
             title: Text('Card (Title)'),
             child: Text(
               'This is a custom card with a title above it.',
             ),
           ),
-          CustomCard.title(
+          CustomCard.titled(
             title: const Text('Card (onTap)'),
             onTap: () => print('Card tapped!'),
             child: const Text(
               'This card has an onTap callback.',
             ),
           ),
-          CustomCard.title(
+          CustomCard.titled(
             title: Text('Card (Long Title)' * 8),
             child: const Text(
               'This is a custom card with a longer title to demonstrate how the title section adapts to more content.',
             ),
           ),
-          CustomCard.title(
+          CustomCard.titled(
             title: const Text('Card (Long Content)'),
             child: Text(
               'This is a custom card with a lot of content. ' *

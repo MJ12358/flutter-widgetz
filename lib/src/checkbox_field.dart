@@ -12,7 +12,6 @@ class CheckboxField extends StatefulWidget {
     super.key,
     required this.onChanged,
     required this.value,
-    this.child = const Text(''),
     this.labelText,
   });
 
@@ -21,10 +20,6 @@ class CheckboxField extends StatefulWidget {
 
   /// Whether this checkbox is checked.
   final bool value;
-
-  /// Displayed where the text would be in a [TextField].
-  /// Typically this is an empty [Text] widget in a [CheckboxField].
-  final Widget child;
 
   /// Optional text that describes the input field.
   final String? labelText;
@@ -58,6 +53,8 @@ class _CheckboxFieldState extends State<CheckboxField> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return Semantics(
       identifier: widget.labelText,
       child: InkWell(
@@ -65,16 +62,24 @@ class _CheckboxFieldState extends State<CheckboxField> {
         onFocusChange: _onFocusChange,
         onTap: _onInputTap,
         child: InputDecorator(
+          isEmpty: true,
           isFocused: _focusNode.hasFocus,
           textAlign: TextAlign.left,
           decoration: InputDecoration(
-            labelText: widget.labelText,
+            floatingLabelBehavior: FloatingLabelBehavior.never,
             prefixIcon: Checkbox(
               value: _value,
               onChanged: _onCheckboxTap,
             ),
           ),
-          child: widget.child,
+          child: Text(
+            widget.labelText ?? '',
+            style: theme.textTheme.titleMedium?.copyWith(
+              color: _focusNode.hasFocus
+                  ? theme.colorScheme.primary
+                  : theme.colorScheme.onSurface.withValues(alpha: 0.6),
+            ),
+          ),
         ),
       ),
     );

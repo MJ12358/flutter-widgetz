@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [14.1.2]
+
+- Modify `CheckboxField` styling.
+
 ## [14.1.1]
 
 - Use `primary`.`blackOrWhite` in `CustomCard` title.

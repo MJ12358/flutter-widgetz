@@ -63,7 +63,7 @@ class CheckboxPage extends StatelessWidget {
                 value: true,
               ),
               const CustomTextField(
-                labelText: 'Text Field (for reference)',
+                // labelText: 'Text Field (for reference)',
                 prefixIcon: Icon(Icons.abc),
                 textInputAction: TextInputAction.next,
                 value: 'Testing',
