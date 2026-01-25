@@ -16,6 +16,7 @@ class SaveButton extends StatelessWidget {
     super.key,
     this.child = const Text('Save'),
     this.duration = const Duration(milliseconds: 500),
+    this.isDisabled = false,
     this.isSaving = false,
     this.onPressed,
     this.progressIndicator = const CircularProgressIndicator(),
@@ -26,6 +27,9 @@ class SaveButton extends StatelessWidget {
 
   /// The duration of the transition.
   final Duration duration;
+
+  /// Determines whether the button is disabled.
+  final bool isDisabled;
 
   /// Determines when to show the [progressIndicator].
   final bool isSaving;
@@ -47,7 +51,8 @@ class SaveButton extends StatelessWidget {
         child: isSaving
             ? progressIndicator
             : CustomElevatedButton(
-                onPressed: onPressed,
+                color: isDisabled ? Theme.of(context).disabledColor : null,
+                onPressed: isDisabled ? null : onPressed,
                 child: child,
               ),
       ),

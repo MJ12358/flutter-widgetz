@@ -63,6 +63,10 @@ class _ButtonPageState extends State<ButtonPage> {
             onPressed: _onSaveButtonPressed,
             isSaving: _isSaving,
           ),
+          SaveButton(
+            isDisabled: true,
+            onPressed: _onSaveButtonPressed,
+          ),
           const CustomDivider(
             child: Text('Factories'),
           ),

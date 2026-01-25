@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [14.1.3]
+
+- Add `isDisabled` param to `SaveButton`.
+
 ## [14.1.2]
 
 - Modify `CheckboxField` styling.
