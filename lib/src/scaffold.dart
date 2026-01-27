@@ -3,7 +3,7 @@ part of flutter_widgetz;
 /// {@template flutter_widgetz.CustomScaffold}
 /// A [Scaffold] wrapped in [Semantics] with a [SafeArea].
 ///
-/// Also includes [WillPopScope] and a [RefreshIndicator]
+/// Also includes [PopScope] and a [RefreshIndicator]
 /// to be used when necessary.
 /// {@endtemplate}
 class CustomScaffold extends StatefulWidget {
@@ -49,6 +49,8 @@ class CustomScaffold extends StatefulWidget {
   /// A panel displayed to the side of the [body].
   final Widget? drawer;
 
+  /// Whether the floating action button should dynamically hide/show
+  /// based on scroll notifications.
   final bool dynamicFab;
 
   /// A panel displayed to the side of the [body].
@@ -96,8 +98,33 @@ class CustomScaffold extends StatefulWidget {
 }
 
 class _CustomScaffoldState extends State<CustomScaffold> {
-  bool get _canRefresh => widget.onRefresh != null;
+  late double _sheetHeight;
+  late final GlobalKey _sheetKey;
   bool _showFab = true;
+
+  bool get _canRefresh => widget.onRefresh != null;
+  bool get _hasBottomSheet => widget.bottomSheet != null;
+
+  @override
+  void initState() {
+    super.initState();
+    _sheetHeight = 84.0; // default to a known good height
+    _sheetKey = GlobalKey();
+
+    if (!_hasBottomSheet) {
+      return;
+    }
+
+    // get the height of the bottom sheet
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final double sheetHeight = _sheetKey.currentContext?.size?.height ?? 0;
+      if (sheetHeight != _sheetHeight) {
+        setState(() {
+          _sheetHeight = sheetHeight;
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +133,12 @@ class _CustomScaffoldState extends State<CustomScaffold> {
       child: Scaffold(
         appBar: widget.appBar,
         bottomNavigationBar: widget.bottomNavigationBar,
-        bottomSheet: widget.bottomSheet,
+        bottomSheet: _hasBottomSheet
+            ? _WidgetWrapper(
+                key: _sheetKey,
+                child: widget.bottomSheet!,
+              )
+            : null,
         drawer: widget.drawer,
         endDrawer: widget.endDrawer,
         floatingActionButton: _showFab ? widget.floatingActionButton : null,
@@ -117,10 +149,18 @@ class _CustomScaffoldState extends State<CustomScaffold> {
           onNotification: _onScrollNotification,
           child: Builder(
             builder: (BuildContext context) {
-              return WillPopScope(
-                onWillPop: () => _onWillPop(context),
+              return PopScope(
+                onPopInvokedWithResult: (bool didPop, _) async {
+                  if (didPop) {
+                    return;
+                  }
+                  final bool shouldPop = await _onWillPop(context);
+                  if (shouldPop && context.mounted) {
+                    Navigator.of(context).pop();
+                  }
+                },
                 child: SafeArea(
-                  bottom: widget.bottom,
+                  bottom: widget.bottom && !_hasBottomSheet,
                   left: widget.left,
                   right: widget.right,
                   top: widget.top,
@@ -129,7 +169,11 @@ class _CustomScaffoldState extends State<CustomScaffold> {
                         widget.onRefresh ?? CustomScaffold._defaultOnRefresh,
                     notificationPredicate: (_) => _canRefresh,
                     child: Padding(
-                      padding: widget.padding,
+                      padding: widget.padding.copyWith(
+                        bottom: _hasBottomSheet
+                            ? _sheetHeight
+                            : widget.padding.bottom,
+                      ),
                       child: widget.body,
                     ),
                   ),
@@ -164,12 +208,26 @@ class _CustomScaffoldState extends State<CustomScaffold> {
   }
 
   Future<bool> _onWillPop(BuildContext context) async {
-    if (widget.onWillPop != null) {
-      return widget.onWillPop!();
-    }
     Scaffold.of(context).closeDrawer();
     ScaffoldMessenger.of(context).clearMaterialBanners();
     ScaffoldMessenger.of(context).clearSnackBars();
+    if (widget.onWillPop != null) {
+      return widget.onWillPop!();
+    }
     return true;
+  }
+}
+
+class _WidgetWrapper extends StatelessWidget {
+  const _WidgetWrapper({
+    super.key,
+    required this.child,
+  });
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return child;
   }
 }

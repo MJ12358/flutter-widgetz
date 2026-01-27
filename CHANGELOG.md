@@ -1,5 +1,11 @@
 # Flutter Widgetz
 
+## [14.2.0]
+
+- Implement `bottomSheet` inside `CustomScaffold` that does not cover body.
+- Remove deprecated `WillPopScope` for `PopScope`.
+- Update example app.
+
 ## [14.1.3]
 
 - Add `isDisabled` param to `SaveButton`.
