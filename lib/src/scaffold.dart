@@ -150,14 +150,9 @@ class _CustomScaffoldState extends State<CustomScaffold> {
           child: Builder(
             builder: (BuildContext context) {
               return PopScope(
+                canPop: widget.onWillPop == null,
                 onPopInvokedWithResult: (bool didPop, _) async {
-                  if (didPop) {
-                    return;
-                  }
-                  final bool shouldPop = await _onWillPop(context);
-                  if (shouldPop && context.mounted) {
-                    Navigator.of(context).pop();
-                  }
+                  await _onPopInvoked(context, didPop);
                 },
                 child: SafeArea(
                   bottom: widget.bottom && !_hasBottomSheet,
@@ -207,14 +202,21 @@ class _CustomScaffoldState extends State<CustomScaffold> {
     return true;
   }
 
-  Future<bool> _onWillPop(BuildContext context) async {
-    Scaffold.of(context).closeDrawer();
-    ScaffoldMessenger.of(context).clearMaterialBanners();
-    ScaffoldMessenger.of(context).clearSnackBars();
-    if (widget.onWillPop != null) {
-      return widget.onWillPop!();
+  Future<void> _onPopInvoked(BuildContext context, bool didPop) async {
+    if (didPop) {
+      Scaffold.of(context).closeDrawer();
+      ScaffoldMessenger.of(context).clearMaterialBanners();
+      ScaffoldMessenger.of(context).clearSnackBars();
+      return;
     }
-    return true;
+    // Pop was prevented, check if we should allow it
+    if (widget.onWillPop != null) {
+      final bool shouldPop = await widget.onWillPop!();
+      if (shouldPop && context.mounted) {
+        // Trigger pop again
+        Navigator.of(context).pop();
+      }
+    }
   }
 }
 

@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## [14.2.1]
+
+- Fix `PopScope` callback issue in `CustomScaffold`.
+- Update example app to account for this scenario.
+
 ## [14.2.0]
 
 - Implement `bottomSheet` inside `CustomScaffold` that does not cover body.

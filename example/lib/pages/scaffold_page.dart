@@ -78,6 +78,28 @@ class _TestBottomSheetListPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Test Scaffold Page'),
       ),
+      onWillPop: () async {
+        return showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('Are you sure you want to leave?'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child: const Text('Stay'),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(true),
+                  child: const Text('Leave'),
+                ),
+              ],
+            );
+          },
+        ).then((bool? value) {
+          return value ?? false;
+        });
+      },
       bottomSheet: Container(
         height: 60.0,
         color: Colors.blueGrey,
