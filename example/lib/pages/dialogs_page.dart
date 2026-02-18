@@ -133,7 +133,6 @@ class DialogsPage extends StatelessWidget {
       builder: (_) {
         return CustomDialog.list(
           title: const Text('Custom Dialog'),
-          // contentPadding: const EdgeInsets.all(8.0),
           children: <Widget>[
             const CustomSimpleDialogOption(
               child: Text('Custom'),
@@ -173,11 +172,12 @@ class DialogsPage extends StatelessWidget {
       builder: (_) {
         return CustomDialog.list(
           title: const Text('Scrollable Dialog'),
+          fadedScrollable: true,
           children: <Widget>[
             for (int i = 0; i < 25; i++)
               CustomSimpleDialogOption.icon(
                 icon: const Icon(Icons.abc),
-                child: Text('Icon $i'),
+                child: Text('Index $i'),
               ),
           ],
         );

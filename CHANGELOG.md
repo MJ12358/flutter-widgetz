@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## [14.3.1]
+
+- Add `fadedScrollable` param to `CustomDialog`.
+- Update example.
+
 ## [14.3.0]
 
 - Add `FadedScrollable` widget.
