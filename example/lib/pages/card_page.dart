@@ -28,7 +28,8 @@ class CardPage extends StatelessWidget {
           CustomCard.titled(
             title: Text('Card (Long Title)' * 8),
             child: const Text(
-              'This is a custom card with a longer title to demonstrate how the title section adapts to more content.',
+              'This is a custom card with a longer title to demonstrate how '
+              'the title section adapts to more content.',
             ),
           ),
           CustomCard.titled(

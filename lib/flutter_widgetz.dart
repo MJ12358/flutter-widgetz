@@ -45,6 +45,7 @@ part 'src/duration_picker.dart';
 part 'src/elevated_button.dart';
 part 'src/expandable_fab.dart';
 part 'src/extensions.dart';
+part 'src/faded_scrollable.dart';
 part 'src/feedback_bar.dart';
 part 'src/flavor_banner.dart';
 part 'src/floating_action_button.dart';

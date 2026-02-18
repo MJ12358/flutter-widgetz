@@ -1,6 +1,6 @@
 name: flutter_widgetz
 description: A set of Flutter widgets I use in various projects. Including date and checkbox inputs, bottom navigation bar, color picker, divider and more!
-version: 14.2.1
+version: 14.3.0
 repository: https://github.com/mj12358/flutter-widgetz
 funding:
   - https://www.buymeacoffee.com/mj12358

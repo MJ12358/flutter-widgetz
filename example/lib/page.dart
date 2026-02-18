@@ -17,6 +17,7 @@ import 'package:flutter_widgetz_example/pages/directional_pad_page.dart';
 import 'package:flutter_widgetz_example/pages/divider_page.dart';
 import 'package:flutter_widgetz_example/pages/dropdown_field_page.dart';
 import 'package:flutter_widgetz_example/pages/duration_picker_page.dart';
+import 'package:flutter_widgetz_example/pages/faded_scrollable_page.dart';
 import 'package:flutter_widgetz_example/pages/feedback_page.dart';
 import 'package:flutter_widgetz_example/pages/grouped_list_view_page.dart';
 import 'package:flutter_widgetz_example/pages/image_page.dart';
@@ -76,6 +77,7 @@ final List<Page> pages = <Page>[
   const Page(Icons.space_bar, DividerPage(), 'Dividers'),
   const Page(Icons.arrow_drop_down, DropdownFieldPage(), 'Dropdown Field'),
   const Page(Icons.timelapse, DurationFieldPage(), 'Duration Picker'),
+  const Page(Icons.fax_rounded, FadedScrollablePage(), 'Faded Scrollable'),
   const Page(Icons.feedback, FeedbackPage(), 'Feedback'),
   const Page(Icons.group, GroupedListViewPage(), 'Grouped List'),
   const Page(Icons.image, ImagePage(), 'Images'),

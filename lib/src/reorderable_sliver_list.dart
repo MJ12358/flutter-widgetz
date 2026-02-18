@@ -69,22 +69,24 @@ class CustomSliverReorderableList extends StatelessWidget {
           return itemBuilder.call(context, index ~/ 2);
         }),
         onReorder = ((int oldIndex, int newIndex) {
-          if (oldIndex < newIndex) {
-            newIndex -= 1;
+          int _oldIndex = oldIndex;
+          int _newIndex = newIndex;
+          if (_oldIndex < _newIndex) {
+            _newIndex -= 1;
           }
-          if (oldIndex.isOdd) {
+          if (_oldIndex.isOdd) {
             // separator - should never happen
             return;
           }
-          if ((oldIndex - newIndex).abs() == 1) {
+          if ((_oldIndex - _newIndex).abs() == 1) {
             // moved behind the top/bottom separator
             return;
           }
-          newIndex = oldIndex > newIndex && newIndex.isOdd
-              ? (newIndex + 1) ~/ 2
-              : newIndex ~/ 2;
-          oldIndex = oldIndex ~/ 2;
-          onReorder.call(oldIndex, newIndex);
+          _newIndex = _oldIndex > _newIndex && _newIndex.isOdd
+              ? (_newIndex + 1) ~/ 2
+              : _newIndex ~/ 2;
+          _oldIndex = _oldIndex ~/ 2;
+          onReorder.call(_oldIndex, _newIndex);
         });
 
   // Helper method to compute the actual child count

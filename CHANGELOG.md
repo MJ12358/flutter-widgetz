@@ -1,5 +1,12 @@
 # Flutter Widgetz
 
+## [14.3.0]
+
+- Add `FadedScrollable` widget.
+- Add `CustomProgressIndicator`.`positioned` factory.
+- Update example app.
+- Update Flutter.
+
 ## [14.2.1]
 
 - Fix `PopScope` callback issue in `CustomScaffold`.

@@ -6,14 +6,8 @@ part of flutter_widgetz;
 ///![CustomProgressIndicator](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/progress_indicator.png)
 /// {@endtemplate}
 class CustomProgressIndicator extends StatelessWidget {
-  /// {@macro flutter_widgetz.CustomProgressIndicator}
-  const CustomProgressIndicator({
-    super.key,
-    required this.indicator,
-  });
-
-  /// The progress indicator to be shown.
-  final ProgressIndicator indicator;
+  /// The child to be shown.
+  final Widget _child;
 
   static const String _defaultSemanticsLabel = 'Loading';
 
@@ -26,7 +20,7 @@ class CustomProgressIndicator extends StatelessWidget {
     Color? color,
     String semanticsLabel = _defaultSemanticsLabel,
     double? value,
-  }) : indicator = CircularProgressIndicator(
+  }) : _child = CircularProgressIndicator(
           backgroundColor: backgroundColor,
           color: color,
           semanticsLabel: semanticsLabel,
@@ -44,13 +38,31 @@ class CustomProgressIndicator extends StatelessWidget {
     double? minHeight,
     String semanticsLabel = _defaultSemanticsLabel,
     double? value,
-  }) : indicator = LinearProgressIndicator(
+  }) : _child = LinearProgressIndicator(
           backgroundColor: backgroundColor,
           borderRadius: borderRadius,
           color: color,
           minHeight: minHeight,
           semanticsLabel: semanticsLabel,
           value: _computeValue(value),
+        );
+
+  /// Positioned uses a [Positioned] with a [ProgressIndicator].
+  ///
+  /// {@macro flutter_widgetz.CustomProgressIndicator}
+  CustomProgressIndicator.positioned({
+    super.key,
+    double? bottom,
+    double? left,
+    double? right,
+    double? top,
+    ProgressIndicator indicator = const LinearProgressIndicator(),
+  }) : _child = Positioned(
+          bottom: bottom,
+          left: left,
+          right: right,
+          top: top,
+          child: indicator,
         );
 
   /// Refresh uses a [RefreshProgressIndicator].
@@ -62,7 +74,7 @@ class CustomProgressIndicator extends StatelessWidget {
     Color? color,
     String semanticsLabel = _defaultSemanticsLabel,
     double? value,
-  }) : indicator = RefreshProgressIndicator(
+  }) : _child = RefreshProgressIndicator(
           backgroundColor: backgroundColor,
           color: color,
           semanticsLabel: semanticsLabel,
@@ -72,7 +84,7 @@ class CustomProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: indicator,
+      child: _child,
     );
   }
 
