@@ -123,17 +123,22 @@ class FadedScrollable extends StatefulWidget {
 
 class _FadedScrollableState extends State<FadedScrollable> {
   double scrollRatio = 0;
+  Timer? _debounceTimer;
+
+  /// The duration to debounce scroll notifications.
+  /// This is set to 8ms, which is twice every frame at 60fps.
+  final Duration _debounceDuration = const Duration(milliseconds: 8);
 
   (List<double>, List<Color>) _getGradientConfig() {
     final double upperStop = widget.maxStartRatioFade;
     final double lowerStop = 1 - widget.maxEndRatioFade;
 
-    final bool shouldFadeStart = scrollRatio > widget.scrollRatioStart;
-    final bool shouldFadeEnd = scrollRatio < widget.scrollRatioEnd;
+    final bool canFadeStart = scrollRatio > widget.scrollRatioStart;
+    final bool canFadeEnd = scrollRatio < widget.scrollRatioEnd;
     final List<double> stops = <double>[];
     final List<Color> colors = <Color>[];
 
-    if (shouldFadeStart) {
+    if (canFadeStart) {
       stops.add(0);
       colors.add(widget.fadeColor);
 
@@ -148,7 +153,7 @@ class _FadedScrollableState extends State<FadedScrollable> {
       colors.add(Colors.transparent);
     }
 
-    if (shouldFadeEnd) {
+    if (canFadeEnd) {
       if (widget.proportionalFade) {
         stops.add(
           math.min(
@@ -188,17 +193,29 @@ class _FadedScrollableState extends State<FadedScrollable> {
 
   bool _onNotification(ScrollNotification notification) {
     if (notification is ScrollUpdateNotification) {
-      setState(() {
-        final double currentScroll = notification.metrics.pixels;
-        final double maxScroll = notification.metrics.maxScrollExtent;
-        if (maxScroll > 0) {
-          scrollRatio = currentScroll / maxScroll;
-        } else {
-          scrollRatio = 0;
-        }
+      // Cancel any existing timer
+      _debounceTimer?.cancel();
+
+      // Start a new timer
+      _debounceTimer = Timer(_debounceDuration, () {
+        setState(() {
+          final double currentScroll = notification.metrics.pixels;
+          final double maxScroll = notification.metrics.maxScrollExtent;
+          if (maxScroll > 0) {
+            scrollRatio = currentScroll / maxScroll;
+          } else {
+            scrollRatio = 0;
+          }
+        });
       });
     }
-    return true;
+    return false; // Important: Don't consume the notification
+  }
+
+  @override
+  void dispose() {
+    _debounceTimer?.cancel();
+    super.dispose();
   }
 
   @override

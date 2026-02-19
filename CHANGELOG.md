@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## [14.3.2]
+
+- Debounce scroll notifications within `FadedScrollable`.
+- Propagate the scroll notification within `FadedScrollable`.
+
 ## [14.3.1]
 
 - Add `fadedScrollable` param to `CustomDialog`.

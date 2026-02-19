@@ -1,7 +1,7 @@
 library flutter_widgetz;
 
 import 'dart:async';
-import 'dart:convert';
+import 'dart:convert' as convert;
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';

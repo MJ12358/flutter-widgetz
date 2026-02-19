@@ -37,6 +37,10 @@ class DialogsPage extends StatelessWidget {
             onPressed: () => _showScrollableDialog(context),
           ),
           CustomElevatedButton(
+            child: const Text('Reorderable'),
+            onPressed: () => _showReorderableDialog(context),
+          ),
+          CustomElevatedButton(
             child: const Text('Custom Alert Dialog'),
             onPressed: () => _showCustomAlertDialog(context),
           ),
@@ -133,6 +137,7 @@ class DialogsPage extends StatelessWidget {
       builder: (_) {
         return CustomDialog.list(
           title: const Text('Custom Dialog'),
+          fadedScrollable: true,
           children: <Widget>[
             const CustomSimpleDialogOption(
               child: Text('Custom'),
@@ -180,6 +185,32 @@ class DialogsPage extends StatelessWidget {
                 child: Text('Index $i'),
               ),
           ],
+        );
+      },
+    );
+  }
+
+  void _showReorderableDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) {
+        return CustomDialog(
+          title: const Text('Reorderable Dialog'),
+          fadedScrollable: true,
+          child: CustomReorderableListView(
+            shrinkWrap: true,
+            onReorder: (int oldIndex, int newIndex) {
+              print('oldIndex: $oldIndex, newIndex: $newIndex');
+            },
+            children: <Widget>[
+              for (int i = 0; i < 25; i++)
+                ListTile(
+                  key: ValueKey<int>(i),
+                  tileColor: i.isOdd ? Colors.grey[200] : null,
+                  title: Text('Index $i'),
+                ),
+            ],
+          ),
         );
       },
     );

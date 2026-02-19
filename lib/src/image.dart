@@ -172,7 +172,7 @@ class CustomImage extends StatefulWidget {
 
         if (input.isBase64) {
           return CustomImage.memory(
-            base64Decode(input),
+            convert.base64Decode(input),
             alignment: alignment,
             cacheHeight: cacheHeight,
             cacheWidth: cacheWidth,
