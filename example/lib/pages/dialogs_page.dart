@@ -21,16 +21,12 @@ class DialogsPage extends StatelessWidget {
             onPressed: () => _showCustomDialog(context),
           ),
           CustomElevatedButton(
-            child: const Text('Custom Icon'),
-            onPressed: () => _showCustomIconDialog(context),
+            child: const Text('Checkbox'),
+            onPressed: () => _showCustomCheckboxDialog(context),
           ),
           CustomElevatedButton(
-            child: const Text('Custom Checked'),
-            onPressed: () => _showCustomCheckedDialog(context),
-          ),
-          CustomElevatedButton(
-            child: const Text('Custom All'),
-            onPressed: () => _showCustomAllDialog(context),
+            child: const Text('Radio'),
+            onPressed: () => _showCustomRadioDialog(context),
           ),
           CustomElevatedButton(
             child: const Text('Scrollable'),
@@ -41,11 +37,11 @@ class DialogsPage extends StatelessWidget {
             onPressed: () => _showReorderableDialog(context),
           ),
           CustomElevatedButton(
-            child: const Text('Custom Alert Dialog'),
+            child: const Text('Alert'),
             onPressed: () => _showCustomAlertDialog(context),
           ),
           CustomElevatedButton(
-            child: const Text('Custom Simple Dialog'),
+            child: const Text('Simple'),
             onPressed: () => _showCustomSimpleDialog(context),
           ),
         ],
@@ -76,67 +72,7 @@ class DialogsPage extends StatelessWidget {
       context: context,
       builder: (_) {
         return CustomDialog.list(
-          title: const Text('Custom Dialog'),
-          children: const <Widget>[
-            CustomSimpleDialogOption(
-              child: Text('One'),
-            ),
-            CustomSimpleDialogOption(
-              child: Text('Two'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  void _showCustomIconDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (_) {
-        return CustomDialog.list(
-          title: const Text('Custom Dialog'),
-          children: <Widget>[
-            CustomSimpleDialogOption.icon(
-              icon: const Icon(Icons.abc),
-              child: const Text('One'),
-            ),
-            CustomSimpleDialogOption.icon(
-              icon: const Icon(Icons.yard),
-              child: const Text('Two'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  void _showCustomCheckedDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (_) {
-        return CustomDialog.list(
-          title: const Text('Custom Checked'),
-          children: <Widget>[
-            CustomSimpleDialogOption.checked(
-              checked: false,
-              child: const Text('One'),
-            ),
-            CustomSimpleDialogOption.checked(
-              child: const Text('Two'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  void _showCustomAllDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (_) {
-        return CustomDialog.list(
-          title: const Text('Custom Dialog'),
+          title: const Text('Custom'),
           fadedScrollable: true,
           children: <Widget>[
             const CustomSimpleDialogOption(
@@ -165,7 +101,41 @@ class DialogsPage extends StatelessWidget {
               onPressed: () => print('tile one'),
               child: const Text('Tile one'),
             ),
+            CustomSimpleDialogOption.tile(
+              onPressed: () => print('tile two'),
+              child: const Text('Tile two'),
+            ),
           ],
+        );
+      },
+    );
+  }
+
+  void _showCustomCheckboxDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) {
+        return CustomDialog.checkbox(
+          title: const Text('Checkbox'),
+          initialValues: const <String>['One', 'Two', 'Three'],
+          currentValues: const <String>['One'],
+          onChanged: (String? value) => print('value: $value'),
+          displayStringForValue: (String value) => 'Value $value',
+        );
+      },
+    );
+  }
+
+  void _showCustomRadioDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) {
+        return CustomDialog<String>.radio(
+          title: const Text('Radio'),
+          values: const <String>['One', 'Two', 'Three'],
+          groupValue: 'One',
+          onChanged: (String? value) => print('value: $value'),
+          displayStringForValue: (String value) => 'Value $value',
         );
       },
     );
@@ -176,7 +146,7 @@ class DialogsPage extends StatelessWidget {
       context: context,
       builder: (_) {
         return CustomDialog.list(
-          title: const Text('Scrollable Dialog'),
+          title: const Text('Scrollable'),
           fadedScrollable: true,
           children: <Widget>[
             for (int i = 0; i < 25; i++)
@@ -194,23 +164,20 @@ class DialogsPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (_) {
-        return CustomDialog(
-          title: const Text('Reorderable Dialog'),
+        return CustomDialog.reorderable(
+          title: const Text('Reorderable'),
           fadedScrollable: true,
-          child: CustomReorderableListView(
-            shrinkWrap: true,
-            onReorder: (int oldIndex, int newIndex) {
-              print('oldIndex: $oldIndex, newIndex: $newIndex');
-            },
-            children: <Widget>[
-              for (int i = 0; i < 25; i++)
-                ListTile(
-                  key: ValueKey<int>(i),
-                  tileColor: i.isOdd ? Colors.grey[200] : null,
-                  title: Text('Index $i'),
-                ),
-            ],
-          ),
+          onReorder: (int oldIndex, int newIndex) {
+            print('oldIndex: $oldIndex, newIndex: $newIndex');
+          },
+          children: <Widget>[
+            for (int i = 0; i < 25; i++)
+              ListTile(
+                key: ValueKey<int>(i),
+                tileColor: i.isOdd ? Colors.grey[200] : null,
+                title: Text('Index $i'),
+              ),
+          ],
         );
       },
     );
@@ -222,7 +189,7 @@ class DialogsPage extends StatelessWidget {
       builder: (_) {
         return CustomDialog.alert(
           context: context,
-          title: const Text('Custom Alert'),
+          title: const Text('Alert'),
           child: const Text('This is a custom alert dialog.'),
         );
       },
@@ -234,7 +201,7 @@ class DialogsPage extends StatelessWidget {
       context: context,
       builder: (_) {
         return CustomDialog.simple(
-          title: const Text('Custom Simple'),
+          title: const Text('Simple'),
           child: const Text('This is a custom simple dialog.'),
         );
       },

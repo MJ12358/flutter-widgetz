@@ -37,11 +37,13 @@ class CustomDialog<T> extends StatelessWidget {
   /// The padding of the title.
   final EdgeInsets titlePadding;
 
+  static const EdgeInsets _defaultContentPadding = EdgeInsets.zero;
   static const bool _defaultFadedScrollable = false;
   static const double _defaultPadding = 20.0;
+  static const ScrollPhysics _defaultPhysics = RangeMaintainingScrollPhysics();
+  static const bool _defaultShrinkWrap = true;
   static const EdgeInsets _defaultTitlePadding =
       EdgeInsets.all(_defaultPadding);
-  static const EdgeInsets _defaultContentPadding = EdgeInsets.zero;
 
   /// Alert mimics the default alert dialog.
   ///
@@ -89,8 +91,8 @@ class CustomDialog<T> extends StatelessWidget {
     String Function(T)? displayStringForValue,
     this.contentPadding = _defaultContentPadding,
     this.fadedScrollable = _defaultFadedScrollable,
-    ScrollPhysics physics = const RangeMaintainingScrollPhysics(),
-    bool shrinkWrap = true,
+    ScrollPhysics physics = _defaultPhysics,
+    bool shrinkWrap = _defaultShrinkWrap,
     this.title,
     this.titlePadding = _defaultTitlePadding,
   }) : child = ListView(
@@ -116,8 +118,8 @@ class CustomDialog<T> extends StatelessWidget {
     this.actions,
     this.contentPadding = _defaultContentPadding,
     this.fadedScrollable = _defaultFadedScrollable,
-    ScrollPhysics physics = const RangeMaintainingScrollPhysics(),
-    bool shrinkWrap = true,
+    ScrollPhysics physics = _defaultPhysics,
+    bool shrinkWrap = _defaultShrinkWrap,
     this.title,
     this.titlePadding = _defaultTitlePadding,
     IndexedWidgetBuilder? separatorBuilder,
@@ -149,8 +151,8 @@ class CustomDialog<T> extends StatelessWidget {
     String Function(T)? displayStringForValue,
     this.contentPadding = _defaultContentPadding,
     this.fadedScrollable = _defaultFadedScrollable,
-    ScrollPhysics physics = const RangeMaintainingScrollPhysics(),
-    bool shrinkWrap = true,
+    ScrollPhysics physics = _defaultPhysics,
+    bool shrinkWrap = _defaultShrinkWrap,
     this.title,
     this.titlePadding = _defaultTitlePadding,
   }) : child = ListView(
@@ -168,6 +170,50 @@ class CustomDialog<T> extends StatelessWidget {
               );
             }),
           ],
+        );
+
+  /// Reorderable uses a [CustomReorderableListView].
+  ///
+  /// {@macro flutter_widgetz.CustomDialog}
+  CustomDialog.reorderable({
+    super.key,
+    required List<Widget> children,
+    required ReorderCallback onReorder,
+    this.actions,
+    this.contentPadding = _defaultContentPadding,
+    this.fadedScrollable = _defaultFadedScrollable,
+    ScrollPhysics physics = _defaultPhysics,
+    bool shrinkWrap = _defaultShrinkWrap,
+    this.title,
+    this.titlePadding = _defaultTitlePadding,
+  }) : child = CustomReorderableListView(
+          physics: physics,
+          shrinkWrap: shrinkWrap,
+          onReorder: onReorder,
+          children: children,
+        );
+
+  /// ReorderableBuilder uses a [CustomReorderableListView.builder].
+  ///
+  /// {@macro flutter_widgetz.CustomDialog}
+  CustomDialog.reorderableBuilder({
+    super.key,
+    required int itemCount,
+    required IndexedWidgetBuilder itemBuilder,
+    required ReorderCallback onReorder,
+    this.actions,
+    this.contentPadding = _defaultContentPadding,
+    this.fadedScrollable = _defaultFadedScrollable,
+    ScrollPhysics physics = _defaultPhysics,
+    bool shrinkWrap = _defaultShrinkWrap,
+    this.title,
+    this.titlePadding = _defaultTitlePadding,
+  }) : child = CustomReorderableListView.builder(
+          physics: physics,
+          shrinkWrap: shrinkWrap,
+          onReorder: onReorder,
+          itemCount: itemCount,
+          itemBuilder: itemBuilder,
         );
 
   /// Simple mimics the default simple dialog.

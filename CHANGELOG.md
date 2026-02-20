@@ -1,5 +1,11 @@
 # Flutter Widgetz
 
+## [14.4.0]
+
+- Add `CustomDialog`.`reorderable` factory.
+- Add `CustomDialog`.`reorderableBuilder` factory.
+- Update example app.
+
 ## [14.3.2]
 
 - Debounce scroll notifications within `FadedScrollable`.
