@@ -1,10 +1,8 @@
 # Flutter Widgetz
 
-## [14.4.0]
+## [14.3.3]
 
-- Add `CustomDialog`.`reorderable` factory.
-- Add `CustomDialog`.`reorderableBuilder` factory.
-- Update example app.
+- Fix `FadedScrollable` when used inside dialogs.
 
 ## [14.3.2]
 

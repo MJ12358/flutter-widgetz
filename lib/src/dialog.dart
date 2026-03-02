@@ -172,50 +172,6 @@ class CustomDialog<T> extends StatelessWidget {
           ],
         );
 
-  /// Reorderable uses a [CustomReorderableListView].
-  ///
-  /// {@macro flutter_widgetz.CustomDialog}
-  CustomDialog.reorderable({
-    super.key,
-    required List<Widget> children,
-    required ReorderCallback onReorder,
-    this.actions,
-    this.contentPadding = _defaultContentPadding,
-    this.fadedScrollable = _defaultFadedScrollable,
-    ScrollPhysics physics = _defaultPhysics,
-    bool shrinkWrap = _defaultShrinkWrap,
-    this.title,
-    this.titlePadding = _defaultTitlePadding,
-  }) : child = CustomReorderableListView(
-          physics: physics,
-          shrinkWrap: shrinkWrap,
-          onReorder: onReorder,
-          children: children,
-        );
-
-  /// ReorderableBuilder uses a [CustomReorderableListView.builder].
-  ///
-  /// {@macro flutter_widgetz.CustomDialog}
-  CustomDialog.reorderableBuilder({
-    super.key,
-    required int itemCount,
-    required IndexedWidgetBuilder itemBuilder,
-    required ReorderCallback onReorder,
-    this.actions,
-    this.contentPadding = _defaultContentPadding,
-    this.fadedScrollable = _defaultFadedScrollable,
-    ScrollPhysics physics = _defaultPhysics,
-    bool shrinkWrap = _defaultShrinkWrap,
-    this.title,
-    this.titlePadding = _defaultTitlePadding,
-  }) : child = CustomReorderableListView.builder(
-          physics: physics,
-          shrinkWrap: shrinkWrap,
-          onReorder: onReorder,
-          itemCount: itemCount,
-          itemBuilder: itemBuilder,
-        );
-
   /// Simple mimics the default simple dialog.
   ///
   /// {@macro flutter_widgetz.CustomDialog}

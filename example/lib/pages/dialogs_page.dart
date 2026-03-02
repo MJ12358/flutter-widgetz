@@ -117,6 +117,7 @@ class DialogsPage extends StatelessWidget {
       builder: (_) {
         return CustomDialog.checkbox(
           title: const Text('Checkbox'),
+          fadedScrollable: true,
           initialValues: const <String>['One', 'Two', 'Three'],
           currentValues: const <String>['One'],
           onChanged: (String? value) => print('value: $value'),
@@ -132,6 +133,7 @@ class DialogsPage extends StatelessWidget {
       builder: (_) {
         return CustomDialog<String>.radio(
           title: const Text('Radio'),
+          fadedScrollable: true,
           values: const <String>['One', 'Two', 'Three'],
           groupValue: 'One',
           onChanged: (String? value) => print('value: $value'),
@@ -164,20 +166,23 @@ class DialogsPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (_) {
-        return CustomDialog.reorderable(
+        return CustomDialog(
           title: const Text('Reorderable'),
           fadedScrollable: true,
-          onReorder: (int oldIndex, int newIndex) {
-            print('oldIndex: $oldIndex, newIndex: $newIndex');
-          },
-          children: <Widget>[
-            for (int i = 0; i < 25; i++)
-              ListTile(
-                key: ValueKey<int>(i),
-                tileColor: i.isOdd ? Colors.grey[200] : null,
-                title: Text('Index $i'),
-              ),
-          ],
+          child: CustomReorderableListView(
+            shrinkWrap: true,
+            onReorder: (int oldIndex, int newIndex) {
+              print('oldIndex: $oldIndex, newIndex: $newIndex');
+            },
+            children: <Widget>[
+              for (int i = 0; i < 25; i++)
+                ListTile(
+                  key: ValueKey<int>(i),
+                  tileColor: i.isOdd ? Colors.grey[200] : null,
+                  title: Text('Index $i'),
+                ),
+            ],
+          ),
         );
       },
     );

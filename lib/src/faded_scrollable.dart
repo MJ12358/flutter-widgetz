@@ -61,6 +61,9 @@ class FadedScrollable extends StatefulWidget {
 
   /// The widget that will be faded at the top and bottom.
   /// Either this widget or some of its children should be scrollable.
+  ///
+  /// When using [Axis.horizontal], the child should be wrapped in a
+  /// [Builder] that provides use of [PrimaryScrollController.of(context)].
   final Widget child;
 
   /// The axis along which the child is scrollable.
@@ -122,19 +125,66 @@ class FadedScrollable extends StatefulWidget {
 }
 
 class _FadedScrollableState extends State<FadedScrollable> {
-  double scrollRatio = 0;
-  Timer? _debounceTimer;
+  final ScrollController _controller = ScrollController();
 
-  /// The duration to debounce scroll notifications.
-  /// This is set to 8ms, which is twice every frame at 60fps.
-  final Duration _debounceDuration = const Duration(milliseconds: 8);
+  double _scrollRatio = 0;
+  bool _isScrollable = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller.addListener(_handleScroll);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || !_controller.hasClients) {
+        return;
+      }
+
+      final ScrollPosition position = _controller.position;
+
+      if (position.maxScrollExtent > 0) {
+        setState(() {
+          _isScrollable = true;
+          _scrollRatio = position.pixels / position.maxScrollExtent;
+        });
+      }
+    });
+  }
+
+  void _handleScroll() {
+    if (!_controller.hasClients) {
+      return;
+    }
+
+    final ScrollPosition position = _controller.position;
+
+    if (!_isScrollable || position.maxScrollExtent == 0) {
+      return;
+    }
+
+    final double ratio = position.pixels / position.maxScrollExtent;
+
+    if (ratio != _scrollRatio) {
+      setState(() {
+        _scrollRatio = ratio;
+      });
+    }
+  }
 
   (List<double>, List<Color>) _getGradientConfig() {
+    if (!_isScrollable) {
+      return (
+        <double>[0.0, 1.0],
+        <Color>[Colors.transparent, Colors.transparent],
+      );
+    }
+
     final double upperStop = widget.maxStartRatioFade;
     final double lowerStop = 1 - widget.maxEndRatioFade;
 
-    final bool canFadeStart = scrollRatio > widget.scrollRatioStart;
-    final bool canFadeEnd = scrollRatio < widget.scrollRatioEnd;
+    final bool canFadeStart = _scrollRatio > widget.scrollRatioStart;
+    final bool canFadeEnd = _scrollRatio < widget.scrollRatioEnd;
     final List<double> stops = <double>[];
     final List<Color> colors = <Color>[];
 
@@ -144,7 +194,7 @@ class _FadedScrollableState extends State<FadedScrollable> {
 
       if (widget.proportionalFade) {
         stops.add(
-          math.max(widget.minStartRatioFade, upperStop * scrollRatio),
+          math.max(widget.minStartRatioFade, upperStop * _scrollRatio),
         );
       } else {
         stops.add(upperStop);
@@ -158,7 +208,7 @@ class _FadedScrollableState extends State<FadedScrollable> {
         stops.add(
           math.min(
             1 - widget.minEndRatioFade,
-            lowerStop + (1 - lowerStop) * scrollRatio,
+            lowerStop + (1 - lowerStop) * _scrollRatio,
           ),
         );
       } else {
@@ -191,30 +241,9 @@ class _FadedScrollableState extends State<FadedScrollable> {
     }
   }
 
-  bool _onNotification(ScrollNotification notification) {
-    if (notification is ScrollUpdateNotification) {
-      // Cancel any existing timer
-      _debounceTimer?.cancel();
-
-      // Start a new timer
-      _debounceTimer = Timer(_debounceDuration, () {
-        setState(() {
-          final double currentScroll = notification.metrics.pixels;
-          final double maxScroll = notification.metrics.maxScrollExtent;
-          if (maxScroll > 0) {
-            scrollRatio = currentScroll / maxScroll;
-          } else {
-            scrollRatio = 0;
-          }
-        });
-      });
-    }
-    return false; // Important: Don't consume the notification
-  }
-
   @override
   void dispose() {
-    _debounceTimer?.cancel();
+    _controller.dispose();
     super.dispose();
   }
 
@@ -222,18 +251,18 @@ class _FadedScrollableState extends State<FadedScrollable> {
   Widget build(BuildContext context) {
     final (List<double> stops, List<Color> colors) = _getGradientConfig();
 
-    return NotificationListener<ScrollNotification>(
-      onNotification: _onNotification,
-      child: ShaderMask(
-        shaderCallback: (Rect rect) {
-          return LinearGradient(
-            begin: _getStartAlignment(),
-            end: _getEndAlignment(),
-            colors: colors,
-            stops: stops,
-          ).createShader(rect);
-        },
-        blendMode: widget.blendMode,
+    return ShaderMask(
+      blendMode: widget.blendMode,
+      shaderCallback: (Rect rect) {
+        return LinearGradient(
+          begin: _getStartAlignment(),
+          end: _getEndAlignment(),
+          colors: colors,
+          stops: stops,
+        ).createShader(rect);
+      },
+      child: PrimaryScrollController(
+        controller: _controller,
         child: widget.child,
       ),
     );

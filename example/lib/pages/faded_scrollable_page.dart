@@ -45,20 +45,27 @@ class _Horizontal extends StatelessWidget {
           height: height,
           child: FadedScrollable(
             axis: Axis.horizontal,
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              itemCount: 50,
-              itemBuilder: (BuildContext context, int index) {
-                return SizedBox(
-                  width: 100,
-                  height: height,
-                  child: ListTile(
-                    title: Text('Title $index'),
-                    subtitle: Text('Subtitle $index'),
-                  ),
+            // This is necessary to give the ListView a controller
+            // as horizontal ListViews don't automatically get a controller.
+            child: Builder(
+              builder: (BuildContext context) {
+                return ListView.separated(
+                  controller: PrimaryScrollController.of(context),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 50,
+                  itemBuilder: (BuildContext context, int index) {
+                    return SizedBox(
+                      width: 100,
+                      height: height,
+                      child: ListTile(
+                        title: Text('Title $index'),
+                        subtitle: Text('Subtitle $index'),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (_, __) => const VerticalDivider(),
                 );
               },
-              separatorBuilder: (_, __) => const VerticalDivider(),
             ),
           ),
         ),
