@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [14.3.4]
+
+- Add `controller` param to `FadedScrollable`.
+
 ## [14.3.3]
 
 - Fix `FadedScrollable` when used inside dialogs.

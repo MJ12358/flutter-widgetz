@@ -16,6 +16,7 @@ class FadedScrollable extends StatefulWidget {
     required this.child,
     this.axis = Axis.vertical,
     this.blendMode = BlendMode.dstOut,
+    this.controller,
     this.scrollRatioStart = 0.0,
     this.scrollRatioEnd = 1.0,
     this.minStartRatioFade = 0.05,
@@ -76,6 +77,10 @@ class FadedScrollable extends StatefulWidget {
   /// Defaults to [BlendMode.dstOut].
   final BlendMode blendMode;
 
+  /// An optional controller for the scrollable child. If not provided,
+  /// a [ScrollController] will be created internally.
+  final ScrollController? controller;
+
   /// Scroll ratio greater than this will cause top fade to appear.
   ///
   /// Defaults to 0.0.
@@ -125,24 +130,30 @@ class FadedScrollable extends StatefulWidget {
 }
 
 class _FadedScrollableState extends State<FadedScrollable> {
-  final ScrollController _controller = ScrollController();
+  late final ScrollController _controller;
 
   double _scrollRatio = 0;
   bool _isScrollable = false;
+  bool _ownsController = false;
 
   @override
   void initState() {
     super.initState();
 
-    _controller.addListener(_handleScroll);
+    if (widget.controller != null) {
+      _controller = widget.controller!;
+    } else {
+      _controller = ScrollController();
+      _ownsController = true;
+    }
+
+    _controller.addListener(_onScroll);
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted || !_controller.hasClients) {
         return;
       }
-
       final ScrollPosition position = _controller.position;
-
       if (position.maxScrollExtent > 0) {
         setState(() {
           _isScrollable = true;
@@ -152,7 +163,7 @@ class _FadedScrollableState extends State<FadedScrollable> {
     });
   }
 
-  void _handleScroll() {
+  void _onScroll() {
     if (!_controller.hasClients) {
       return;
     }
@@ -243,7 +254,10 @@ class _FadedScrollableState extends State<FadedScrollable> {
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller.removeListener(_onScroll);
+    if (_ownsController) {
+      _controller.dispose();
+    }
     super.dispose();
   }
 
