@@ -1,14 +1,14 @@
 part of flutter_widgetz;
 
-/// {@template flutter_widgetz.CustomSimpleDialogOption}
+/// {@template flutter_widgetz.CustomDialogOption}
 /// A [SimpleDialogOption] with built in padding.
 /// This fixes an accessibility warning in the Google Play Console.
 ///
-///![CustomSimpleDialogOption](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/simple_dialog_option.png)
+///![CustomDialogOption](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/dialog_option.png)
 /// {@endtemplate}
-class CustomSimpleDialogOption extends SimpleDialogOption {
-  /// {@macro flutter_widgetz.CustomSimpleDialogOption}
-  const CustomSimpleDialogOption({
+class CustomDialogOption extends SimpleDialogOption {
+  /// {@macro flutter_widgetz.CustomDialogOption}
+  const CustomDialogOption({
     super.key,
     super.child,
     super.onPressed,
@@ -20,8 +20,8 @@ class CustomSimpleDialogOption extends SimpleDialogOption {
 
   /// Checked uses a checkmark based on the [checked] property.
   ///
-  /// {@macro flutter_widgetz.CustomSimpleDialogOption}
-  CustomSimpleDialogOption.checked({
+  /// {@macro flutter_widgetz.CustomDialogOption}
+  CustomDialogOption.checked({
     super.key,
     required Widget child,
     bool checked = true,
@@ -40,8 +40,8 @@ class CustomSimpleDialogOption extends SimpleDialogOption {
 
   /// Icon uses an [Icon].
   ///
-  /// {@macro flutter_widgetz.CustomSimpleDialogOption}
-  CustomSimpleDialogOption.icon({
+  /// {@macro flutter_widgetz.CustomDialogOption}
+  CustomDialogOption.icon({
     super.key,
     required Widget child,
     required Widget icon,
@@ -56,8 +56,8 @@ class CustomSimpleDialogOption extends SimpleDialogOption {
 
   /// Tile wraps the child in a [ListTile].
   ///
-  /// {@macro flutter_widgetz.CustomSimpleDialogOption}
-  CustomSimpleDialogOption.tile({
+  /// {@macro flutter_widgetz.CustomDialogOption}
+  CustomDialogOption.tile({
     super.key,
     required Widget child,
     super.onPressed,

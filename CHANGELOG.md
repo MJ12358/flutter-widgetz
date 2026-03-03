@@ -1,5 +1,14 @@
 # Flutter Widgetz
 
+## [15.0.0]
+
+- **BREAKING**:
+  - Remove `controller` param from `SettingsList`.
+  - Rename `FadedScroll` widget.
+  - Rename `CustomDialogOption` widget.
+- Update comments.
+- Update example.
+
 ## [14.3.4]
 
 - Add `controller` param to `FadedScrollable`.

@@ -11,7 +11,6 @@ class SettingsList extends StatelessWidget {
     super.key,
     required this.sections,
     this.clipBehavior = Clip.hardEdge,
-    this.controller,
     this.padding,
     this.physics,
     this.shrinkWrap = false,
@@ -23,10 +22,6 @@ class SettingsList extends StatelessWidget {
 
   /// The content will be clipped (or not) according to this option.
   final Clip clipBehavior;
-
-  /// An object that can be used to control the position to which this
-  /// scroll view is scrolled.
-  final ScrollController? controller;
 
   /// The amount of space to surround the child.
   final EdgeInsets? padding;
@@ -42,7 +37,6 @@ class SettingsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       clipBehavior: clipBehavior,
-      controller: controller,
       padding: padding,
       physics: physics,
       shrinkWrap: shrinkWrap,

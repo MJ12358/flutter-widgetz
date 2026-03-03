@@ -86,6 +86,10 @@ The [generated documentation](https://pub.dev/documentation/flutter_widgetz/late
 
 ![Dialog](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/dialog.png)
 
+### Dialog Option
+
+![DialogOption](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/dialog_option.png)
+
 ### Directional Pad
 
 ![DirectionalPad](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/directional_pad.png)
@@ -193,10 +197,6 @@ The [generated documentation](https://pub.dev/documentation/flutter_widgetz/late
 ### Shimmer
 
 ![Shimmer](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/shimmer.png)
-
-### Simple Dialog Option
-
-![SimpleDialogOption](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/simple_dialog_option.png)
 
 ### Slider
 

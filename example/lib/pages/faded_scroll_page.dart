@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
-class FadedScrollablePage extends StatelessWidget {
-  const FadedScrollablePage({super.key});
+class FadedScrollPage extends StatelessWidget {
+  const FadedScrollPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -17,6 +17,7 @@ class FadedScrollablePage extends StatelessWidget {
               tabs: <Widget>[
                 Tab(text: 'Horizontal'),
                 Tab(text: 'Vertical'),
+                Tab(text: 'Updatable'),
               ],
             ),
           ),
@@ -25,6 +26,7 @@ class FadedScrollablePage extends StatelessWidget {
           children: <Widget>[
             _Horizontal(),
             _Vertical(),
+            _Updatable(),
           ],
         ),
       ),
@@ -43,7 +45,7 @@ class _Horizontal extends StatelessWidget {
       children: <Widget>[
         SizedBox(
           height: height,
-          child: FadedScrollable(
+          child: FadedScroll(
             axis: Axis.horizontal,
             // This is necessary to give the ListView a controller
             // as horizontal ListViews don't automatically get a controller.
@@ -79,7 +81,7 @@ class _Vertical extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FadedScrollable(
+    return FadedScroll(
       child: ListView.separated(
         itemCount: 50,
         itemBuilder: (BuildContext context, int index) {
@@ -90,6 +92,48 @@ class _Vertical extends StatelessWidget {
         },
         separatorBuilder: (_, __) => const Divider(),
       ),
+    );
+  }
+}
+
+class _Updatable extends StatefulWidget {
+  const _Updatable();
+
+  @override
+  State<_Updatable> createState() => _UpdatableState();
+}
+
+class _UpdatableState extends State<_Updatable> {
+  int itemCount = 4;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CustomElevatedButton(
+            child: const Text('Add Item'),
+            onPressed: () => setState(() {
+              itemCount++;
+            }),
+          ),
+        ),
+        Expanded(
+          child: FadedScroll(
+            child: ListView.separated(
+              itemCount: itemCount,
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                  title: Text('Title $index'),
+                  subtitle: Text('Subtitle $index'),
+                );
+              },
+              separatorBuilder: (_, __) => const Divider(),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

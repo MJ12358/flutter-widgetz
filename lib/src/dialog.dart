@@ -13,7 +13,7 @@ class CustomDialog<T> extends StatelessWidget {
     required this.child,
     this.actions,
     this.contentPadding = _defaultContentPadding,
-    this.fadedScrollable = _defaultFadedScrollable,
+    this.fadedScroll = _defaultFadedScroll,
     this.title,
     this.titlePadding = _defaultTitlePadding,
   });
@@ -29,7 +29,7 @@ class CustomDialog<T> extends StatelessWidget {
   final EdgeInsets contentPadding;
 
   /// Whether the child of this dialog should be faded at the top and bottom.
-  final bool fadedScrollable;
+  final bool fadedScroll;
 
   /// The title of this dialog.
   final Widget? title;
@@ -38,7 +38,7 @@ class CustomDialog<T> extends StatelessWidget {
   final EdgeInsets titlePadding;
 
   static const EdgeInsets _defaultContentPadding = EdgeInsets.zero;
-  static const bool _defaultFadedScrollable = false;
+  static const bool _defaultFadedScroll = false;
   static const double _defaultPadding = 20.0;
   static const ScrollPhysics _defaultPhysics = RangeMaintainingScrollPhysics();
   static const bool _defaultShrinkWrap = true;
@@ -59,7 +59,7 @@ class CustomDialog<T> extends StatelessWidget {
       left: _defaultPadding,
       right: _defaultPadding,
     ),
-    this.fadedScrollable = _defaultFadedScrollable,
+    this.fadedScroll = _defaultFadedScroll,
     this.title,
     this.titlePadding = _defaultTitlePadding,
     VoidCallback? onAccept,
@@ -90,7 +90,7 @@ class CustomDialog<T> extends StatelessWidget {
     this.actions,
     String Function(T)? displayStringForValue,
     this.contentPadding = _defaultContentPadding,
-    this.fadedScrollable = _defaultFadedScrollable,
+    this.fadedScroll = _defaultFadedScroll,
     ScrollPhysics physics = _defaultPhysics,
     bool shrinkWrap = _defaultShrinkWrap,
     this.title,
@@ -117,7 +117,7 @@ class CustomDialog<T> extends StatelessWidget {
     required List<Widget> children,
     this.actions,
     this.contentPadding = _defaultContentPadding,
-    this.fadedScrollable = _defaultFadedScrollable,
+    this.fadedScroll = _defaultFadedScroll,
     ScrollPhysics physics = _defaultPhysics,
     bool shrinkWrap = _defaultShrinkWrap,
     this.title,
@@ -150,7 +150,7 @@ class CustomDialog<T> extends StatelessWidget {
     this.actions,
     String Function(T)? displayStringForValue,
     this.contentPadding = _defaultContentPadding,
-    this.fadedScrollable = _defaultFadedScrollable,
+    this.fadedScroll = _defaultFadedScroll,
     ScrollPhysics physics = _defaultPhysics,
     bool shrinkWrap = _defaultShrinkWrap,
     this.title,
@@ -182,7 +182,7 @@ class CustomDialog<T> extends StatelessWidget {
     this.title,
     this.titlePadding = _defaultTitlePadding,
   })  : actions = null,
-        fadedScrollable = false,
+        fadedScroll = false,
         child = DefaultTextStyle.merge(
           textAlign: TextAlign.center,
           // this is necessary to prevent dialog height from being full screen
@@ -212,7 +212,7 @@ class CustomDialog<T> extends StatelessWidget {
           padding: contentPadding,
           // this is necessary to prevent render box issues
           width: double.minPositive,
-          child: fadedScrollable ? FadedScrollable(child: child) : child,
+          child: fadedScroll ? FadedScroll(child: child) : child,
         ),
       ),
     );

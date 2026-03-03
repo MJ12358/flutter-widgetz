@@ -12,12 +12,12 @@ import 'package:flutter_widgetz_example/pages/color_picker_page.dart';
 import 'package:flutter_widgetz_example/pages/countdown_page.dart';
 import 'package:flutter_widgetz_example/pages/counter_field_page.dart';
 import 'package:flutter_widgetz_example/pages/date_field_page.dart';
-import 'package:flutter_widgetz_example/pages/dialogs_page.dart';
+import 'package:flutter_widgetz_example/pages/dialog_page.dart';
 import 'package:flutter_widgetz_example/pages/directional_pad_page.dart';
 import 'package:flutter_widgetz_example/pages/divider_page.dart';
 import 'package:flutter_widgetz_example/pages/dropdown_field_page.dart';
 import 'package:flutter_widgetz_example/pages/duration_picker_page.dart';
-import 'package:flutter_widgetz_example/pages/faded_scrollable_page.dart';
+import 'package:flutter_widgetz_example/pages/faded_scroll_page.dart';
 import 'package:flutter_widgetz_example/pages/feedback_page.dart';
 import 'package:flutter_widgetz_example/pages/grouped_list_view_page.dart';
 import 'package:flutter_widgetz_example/pages/image_page.dart';
@@ -72,12 +72,12 @@ final List<Page> pages = <Page>[
   const Page(Icons.downhill_skiing, CountdownPage(), 'Countdown'),
   const Page(Icons.numbers, CounterPage(), 'Counter Field'),
   const Page(Icons.date_range, DateFieldPage(), 'Date Field'),
-  const Page(Icons.dialpad_outlined, DialogsPage(), 'Dialogs'),
+  const Page(Icons.dialpad_outlined, DialogPage(), 'Dialogs'),
   const Page(Icons.directions, DirectionalPadPage(), 'Directional Pad'),
   const Page(Icons.space_bar, DividerPage(), 'Dividers'),
   const Page(Icons.arrow_drop_down, DropdownFieldPage(), 'Dropdown Field'),
   const Page(Icons.timelapse, DurationFieldPage(), 'Duration Picker'),
-  const Page(Icons.fax_rounded, FadedScrollablePage(), 'Faded Scrollable'),
+  const Page(Icons.fax_rounded, FadedScrollPage(), 'Faded Scroll'),
   const Page(Icons.feedback, FeedbackPage(), 'Feedback'),
   const Page(Icons.group, GroupedListViewPage(), 'Grouped List'),
   const Page(Icons.image, ImagePage(), 'Images'),

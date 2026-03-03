@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
-class DialogsPage extends StatelessWidget {
-  const DialogsPage({super.key});
+class DialogPage extends StatelessWidget {
+  const DialogPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -73,35 +73,35 @@ class DialogsPage extends StatelessWidget {
       builder: (_) {
         return CustomDialog.list(
           title: const Text('Custom'),
-          fadedScrollable: true,
+          fadedScroll: true,
           children: <Widget>[
-            const CustomSimpleDialogOption(
+            const CustomDialogOption(
               child: Text('Custom'),
             ),
-            CustomSimpleDialogOption.checked(
+            CustomDialogOption.checked(
               checked: false,
               onPressed: () => print('checked false'),
               child: const Text('Checked false'),
             ),
-            CustomSimpleDialogOption.checked(
+            CustomDialogOption.checked(
               onPressed: () => print('checked true'),
               child: const Text('Checked true'),
             ),
-            CustomSimpleDialogOption.icon(
+            CustomDialogOption.icon(
               icon: const Icon(Icons.abc),
               onPressed: () => print('icon one'),
               child: const Text('Icon One'),
             ),
-            CustomSimpleDialogOption.icon(
+            CustomDialogOption.icon(
               icon: const Icon(Icons.yard),
               onPressed: () => print('icon two'),
               child: const Text('Icon Two'),
             ),
-            CustomSimpleDialogOption.tile(
+            CustomDialogOption.tile(
               onPressed: () => print('tile one'),
               child: const Text('Tile one'),
             ),
-            CustomSimpleDialogOption.tile(
+            CustomDialogOption.tile(
               onPressed: () => print('tile two'),
               child: const Text('Tile two'),
             ),
@@ -117,7 +117,7 @@ class DialogsPage extends StatelessWidget {
       builder: (_) {
         return CustomDialog.checkbox(
           title: const Text('Checkbox'),
-          fadedScrollable: true,
+          fadedScroll: true,
           initialValues: const <String>['One', 'Two', 'Three'],
           currentValues: const <String>['One'],
           onChanged: (String? value) => print('value: $value'),
@@ -133,7 +133,7 @@ class DialogsPage extends StatelessWidget {
       builder: (_) {
         return CustomDialog<String>.radio(
           title: const Text('Radio'),
-          fadedScrollable: true,
+          fadedScroll: true,
           values: const <String>['One', 'Two', 'Three'],
           groupValue: 'One',
           onChanged: (String? value) => print('value: $value'),
@@ -149,10 +149,10 @@ class DialogsPage extends StatelessWidget {
       builder: (_) {
         return CustomDialog.list(
           title: const Text('Scrollable'),
-          fadedScrollable: true,
+          fadedScroll: true,
           children: <Widget>[
             for (int i = 0; i < 25; i++)
-              CustomSimpleDialogOption.icon(
+              CustomDialogOption.icon(
                 icon: const Icon(Icons.abc),
                 child: Text('Index $i'),
               ),
@@ -168,7 +168,7 @@ class DialogsPage extends StatelessWidget {
       builder: (_) {
         return CustomDialog(
           title: const Text('Reorderable'),
-          fadedScrollable: true,
+          fadedScroll: true,
           child: CustomReorderableListView(
             shrinkWrap: true,
             onReorder: (int oldIndex, int newIndex) {

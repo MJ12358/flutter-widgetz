@@ -1,6 +1,6 @@
 part of flutter_widgetz;
 
-/// {@template flutter_widgetz.FadedScrollable}
+/// {@template flutter_widgetz.FadedScroll}
 /// A widget that applies a fade effect to the edges of a scrollable child.
 ///
 /// The fade effect is applied using a [ShaderMask] with a [LinearGradient]
@@ -9,9 +9,9 @@ part of flutter_widgetz;
 ///
 /// Inspired by https://pub.dev/packages/faded_scrollable
 /// {@endtemplate}
-class FadedScrollable extends StatefulWidget {
-  /// {@macro flutter_widgetz.FadedScrollable}
-  const FadedScrollable({
+class FadedScroll extends StatefulWidget {
+  /// {@macro flutter_widgetz.FadedScroll}
+  const FadedScroll({
     super.key,
     required this.child,
     this.axis = Axis.vertical,
@@ -126,10 +126,10 @@ class FadedScrollable extends StatefulWidget {
   final Color fadeColor;
 
   @override
-  State<FadedScrollable> createState() => _FadedScrollableState();
+  State<FadedScroll> createState() => _FadedScrollState();
 }
 
-class _FadedScrollableState extends State<FadedScrollable> {
+class _FadedScrollState extends State<FadedScroll> {
   late final ScrollController _controller;
 
   double _scrollRatio = 0;
@@ -139,46 +139,66 @@ class _FadedScrollableState extends State<FadedScrollable> {
   @override
   void initState() {
     super.initState();
-
     if (widget.controller != null) {
       _controller = widget.controller!;
     } else {
       _controller = ScrollController();
       _ownsController = true;
     }
-
     _controller.addListener(_onScroll);
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted || !_controller.hasClients) {
-        return;
-      }
-      final ScrollPosition position = _controller.position;
-      if (position.maxScrollExtent > 0) {
-        setState(() {
-          _isScrollable = true;
-          _scrollRatio = position.pixels / position.maxScrollExtent;
-        });
-      }
+      _updateScrollability();
     });
+  }
+
+  @override
+  void didUpdateWidget(FadedScroll oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _updateScrollability();
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(_onScroll);
+    if (_ownsController) {
+      _controller.dispose();
+    }
+    super.dispose();
   }
 
   void _onScroll() {
     if (!_controller.hasClients) {
       return;
     }
-
     final ScrollPosition position = _controller.position;
-
     if (!_isScrollable || position.maxScrollExtent == 0) {
       return;
     }
-
     final double ratio = position.pixels / position.maxScrollExtent;
-
+    // 1% opacity change threshold to prevent excessive rebuilds
+    if ((ratio - _scrollRatio).abs() < 0.01) {
+      return;
+    }
     if (ratio != _scrollRatio) {
       setState(() {
         _scrollRatio = ratio;
+      });
+    }
+  }
+
+  void _updateScrollability() {
+    if (!mounted || !_controller.hasClients) {
+      return;
+    }
+    final ScrollPosition position = _controller.position;
+    final bool scrollable = position.maxScrollExtent > 0;
+    if (scrollable != _isScrollable) {
+      setState(() {
+        _isScrollable = scrollable;
+        _scrollRatio =
+            scrollable ? position.pixels / position.maxScrollExtent : 0;
       });
     }
   }
@@ -250,15 +270,6 @@ class _FadedScrollableState extends State<FadedScrollable> {
       case Axis.horizontal:
         return Alignment.centerRight;
     }
-  }
-
-  @override
-  void dispose() {
-    _controller.removeListener(_onScroll);
-    if (_ownsController) {
-      _controller.dispose();
-    }
-    super.dispose();
   }
 
   @override
