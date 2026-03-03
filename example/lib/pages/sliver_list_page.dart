@@ -54,7 +54,7 @@ class _SliverListPageState extends State<SliverListPage> {
         const SliverToBoxAdapter(
           child: _Header(text: 'Sliver Reorder'),
         ),
-        CustomSliverReorderableList.separated(
+        CustomReorderableSliverList.separated(
           itemCount: _widgets.length,
           itemBuilder: (_, int index) {
             return ListTile(

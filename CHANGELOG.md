@@ -1,11 +1,12 @@
 # Flutter Widgetz
 
-## [15.0.0]
+## [15.0.1]
 
 - **BREAKING**:
-  - Remove `controller` param from `SettingsList`.
-  - Rename `FadedScroll` widget.
   - Rename `CustomDialogOption` widget.
+  - Rename `CustomReorderableSliverList` widget.
+  - Rename `FadedScroll` widget.
+- Refactor `FadedScroll`.
 - Update comments.
 - Update example.
 

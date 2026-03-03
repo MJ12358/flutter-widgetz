@@ -1,11 +1,11 @@
 part of flutter_widgetz;
 
-/// {@template flutter_widgetz.CustomSLiverReorderableList}
-/// Wraps [SliverReorderableList] to allow a separator.
+/// {@template flutter_widgetz.CustomReorderableSliverList}
+/// Wraps [SliverReorderableList] and allows for more control and concise usage.
 ///
-///![CustomSliverReorderableList](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/list_view.png)
+///![CustomReorderableSliverList](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/list_view.png)
 /// {@endtemplate}
-class CustomSliverReorderableList extends StatelessWidget {
+class CustomReorderableSliverList extends StatelessWidget {
   /// Used to build the items.
   final IndexedWidgetBuilder itemBuilder;
 
@@ -22,8 +22,8 @@ class CustomSliverReorderableList extends StatelessWidget {
 
   /// Builder uses [itemBuilder] to build widgets.
   ///
-  /// {@macro flutter_widgetz.CustomSLiverReorderableList}
-  const CustomSliverReorderableList.builder({
+  /// {@macro flutter_widgetz.CustomReorderableSliverList}
+  const CustomReorderableSliverList.builder({
     super.key,
     required this.itemCount,
     required this.itemBuilder,
@@ -33,8 +33,8 @@ class CustomSliverReorderableList extends StatelessWidget {
 
   /// List uses [children] to build widgets.
   ///
-  /// {@macro flutter_widgetz.CustomSLiverReorderableList}
-  CustomSliverReorderableList.list({
+  /// {@macro flutter_widgetz.CustomReorderableSliverList}
+  CustomReorderableSliverList.list({
     super.key,
     required List<Widget> children,
     required this.onReorder,
@@ -46,8 +46,8 @@ class CustomSliverReorderableList extends StatelessWidget {
 
   /// Separated inserts a separator between widgets.
   ///
-  /// {@macro flutter_widgetz.CustomSLiverReorderableList}
-  CustomSliverReorderableList.separated({
+  /// {@macro flutter_widgetz.CustomReorderableSliverList}
+  CustomReorderableSliverList.separated({
     super.key,
     required int itemCount,
     required IndexedWidgetBuilder itemBuilder,
