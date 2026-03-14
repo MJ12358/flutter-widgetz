@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [15.0.2]
+
+- Utilize `maybePop` within `CustomScaffold`.
+
 ## [15.0.1]
 
 - **BREAKING**:

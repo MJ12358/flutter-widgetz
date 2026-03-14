@@ -214,7 +214,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
       final bool shouldPop = await widget.onWillPop!();
       if (shouldPop && context.mounted) {
         // Trigger pop again
-        Navigator.of(context).pop();
+        await Navigator.of(context).maybePop();
       }
     }
   }
