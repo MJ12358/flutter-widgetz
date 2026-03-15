@@ -213,8 +213,12 @@ class _CustomScaffoldState extends State<CustomScaffold> {
     if (widget.onWillPop != null) {
       final bool shouldPop = await widget.onWillPop!();
       if (shouldPop && context.mounted) {
-        // Trigger pop again
-        await Navigator.of(context).maybePop();
+        final NavigatorState navigator = Navigator.of(context);
+        if (navigator.canPop()) {
+          navigator.pop();
+        } else {
+          await SystemNavigator.pop();
+        }
       }
     }
   }

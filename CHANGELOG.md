@@ -1,8 +1,8 @@
 # Flutter Widgetz
 
-## [15.0.2]
+## [15.0.3]
 
-- Utilize `maybePop` within `CustomScaffold`.
+- Fix issues with `PopScope` within `CustomScaffold`.
 
 ## [15.0.1]
 
