@@ -1,5 +1,12 @@
 # Flutter Widgetz
 
+## [15.1.0]
+
+- Add `semanticsLabel` to `CheckboxField`.
+- Add `semanticsLabel` to `CustomTextField` `suffixIcon` when using help.
+- Fix issues with focus within `CustomSearchBar`.
+- Simplify scroll controller ownership within `FadedScroll`.
+
 ## [15.0.3]
 
 - Fix issues with `PopScope` within `CustomScaffold`.
@@ -73,7 +80,6 @@
     - Remove `icon` param in favor of `suffixIcon`.
     - Remove `isDense` param.
     - Remove `isExpanded` param.
-
 - Add `SafeArea` around modals.
 - Add separators to `DropdownField` `items`.
 - Add `isEmpty` to some `InputDecorator`s.

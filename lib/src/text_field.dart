@@ -192,7 +192,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
             );
           },
         ),
-        child: const Icon(Icons.info),
+        child: Icon(
+          Icons.info,
+          semanticLabel: widget.labelText,
+        ),
       ),
     );
   }

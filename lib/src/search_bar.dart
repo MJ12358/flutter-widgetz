@@ -69,19 +69,43 @@ class CustomSearchBar extends StatefulWidget {
 
 class _CustomSearchBarState extends State<CustomSearchBar> {
   late final TextEditingController _controller;
+  late final FocusNode _focusNode;
   Timer? _timer;
 
   @override
   void initState() {
     super.initState();
-    _controller = TextEditingController();
-    _controller.text = widget.value;
+    _controller = TextEditingController(text: widget.value);
+    _focusNode = widget.focusNode ?? FocusNode();
+  }
+
+  @override
+  void didUpdateWidget(CustomSearchBar oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    // When search bar becomes visible → request focus
+    if (!oldWidget.isVisible && widget.isVisible && widget.autofocus) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && !_focusNode.hasFocus) {
+          _focusNode.requestFocus();
+        }
+      });
+    }
+
+    // When search bar becomes invisible → unfocus
+    if (oldWidget.isVisible && !widget.isVisible) {
+      _focusNode.unfocus();
+    }
   }
 
   @override
   void dispose() {
     _controller.dispose();
     _timer?.cancel();
+    // Dispose only if we created it
+    if (widget.focusNode == null) {
+      _focusNode.dispose();
+    }
     super.dispose();
   }
 
@@ -102,7 +126,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
                 child: TextFormField(
                   autofocus: widget.autofocus,
                   controller: _controller,
-                  focusNode: widget.focusNode,
+                  focusNode: _focusNode,
                   keyboardType: widget.keyboardType,
                   textInputAction: TextInputAction.search,
                   decoration: InputDecoration(

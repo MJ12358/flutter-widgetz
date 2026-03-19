@@ -68,6 +68,7 @@ class _CheckboxFieldState extends State<CheckboxField> {
           decoration: InputDecoration(
             floatingLabelBehavior: FloatingLabelBehavior.never,
             prefixIcon: Checkbox(
+              semanticLabel: widget.labelText,
               value: _value,
               onChanged: _onCheckboxTap,
             ),

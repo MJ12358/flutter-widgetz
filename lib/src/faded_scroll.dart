@@ -134,17 +134,11 @@ class _FadedScrollState extends State<FadedScroll> {
 
   double _scrollRatio = 0;
   bool _isScrollable = false;
-  bool _ownsController = false;
 
   @override
   void initState() {
     super.initState();
-    if (widget.controller != null) {
-      _controller = widget.controller!;
-    } else {
-      _controller = ScrollController();
-      _ownsController = true;
-    }
+    _controller = widget.controller ?? ScrollController();
     _controller.addListener(_onScroll);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateScrollability();
@@ -162,7 +156,8 @@ class _FadedScrollState extends State<FadedScroll> {
   @override
   void dispose() {
     _controller.removeListener(_onScroll);
-    if (_ownsController) {
+    // Dispose only if we created it
+    if (widget.controller == null) {
       _controller.dispose();
     }
     super.dispose();
