@@ -142,7 +142,7 @@ class _Portrait extends StatelessWidget {
           onChanged: print,
           onSelected: print,
           initialValue: _autocompletes[2],
-          labelText: 'Custom Autocomplete 2',
+          labelText: 'Custom Autocomplete (Initial Value)',
           prefixIcon: const Icon(Icons.search),
           optionsBuilder: (String v) =>
               _autocompletes.where((String e) => e.contains(v)).toList(),
@@ -162,7 +162,13 @@ class _Portrait extends StatelessWidget {
         ),
         const CustomTextField(
           labelText: 'Five (Done)',
-          prefixIcon: Icon(Icons.four_k),
+          prefixIcon: Icon(Icons.five_k),
+          textInputAction: TextInputAction.done,
+        ),
+        const CustomTextField(
+          labelText: 'Six (Initial Value)',
+          value: 'Initial Value',
+          prefixIcon: Icon(Icons.six_k),
           textInputAction: TextInputAction.done,
         ),
         const _StatefulText(),

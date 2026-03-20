@@ -117,26 +117,24 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   void initState() {
     _controller = widget.controller ?? TextEditingController();
-    _controller.value = _textEditingValue;
+    if (widget.value != null) {
+      _controller.text = widget.value!;
+    }
     super.initState();
   }
 
   @override
   void didUpdateWidget(CustomTextField oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.value != widget.value) {
-      _controller.value = _textEditingValue;
+    if (widget.value != null && widget.value != _controller.text) {
+      final int selectionIndex = _controller.selection.baseOffset;
+      _controller.value = TextEditingValue(
+        text: widget.value!,
+        selection: TextSelection.collapsed(
+          offset: selectionIndex.clamp(0, widget.value!.length),
+        ),
+      );
     }
-  }
-
-  TextEditingValue get _textEditingValue {
-    final String _value = widget.value ?? '';
-    return TextEditingValue(
-      text: _value,
-      selection: TextSelection.collapsed(
-        offset: _value.length,
-      ),
-    );
   }
 
   @override

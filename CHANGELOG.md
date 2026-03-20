@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## [15.1.1]
+
+- Optimize `CustomTextField` to only update when necessary and avoid unnecessary writes to the controller.
+- Update example.
+
 ## [15.1.0]
 
 - Add `semanticsLabel` to `CheckboxField`.
