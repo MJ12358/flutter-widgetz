@@ -57,6 +57,7 @@ class _CheckboxFieldState extends State<CheckboxField> {
 
     return Semantics(
       identifier: widget.labelText,
+      checked: _value,
       child: InkWell(
         focusNode: _focusNode,
         onFocusChange: _onFocusChange,
@@ -68,7 +69,6 @@ class _CheckboxFieldState extends State<CheckboxField> {
           decoration: InputDecoration(
             floatingLabelBehavior: FloatingLabelBehavior.never,
             prefixIcon: Checkbox(
-              semanticLabel: widget.labelText,
               value: _value,
               onChanged: _onCheckboxTap,
             ),
