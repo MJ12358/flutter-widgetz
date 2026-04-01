@@ -11,10 +11,11 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_extensionz: 5.1.4
+  # flutter_extensionz:
+  #   path: ../../flutter_extensionz
   flutter_themez: 4.0.1
   # flutter_themez:
   #   path: ../../flutter_themez
-  # flutter_widgetz: 13.2.1
   flutter_widgetz:
     path: ../.
 
