@@ -175,6 +175,9 @@ class _DateTimeFieldState extends State<DateTimeField> {
   }
 
   void _onChange(DateTime value) {
+    if (!mounted) {
+      return;
+    }
     _onFocusChange(true);
     setState(() {
       _value = value;

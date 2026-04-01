@@ -124,6 +124,9 @@ class _DateRangeFieldState extends State<DateRangeField> {
   }
 
   void _onChange(DateTimeRange? value) {
+    if (!mounted) {
+      return;
+    }
     _onFocusChange(true);
     if (value == null) {
       return;

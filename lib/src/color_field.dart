@@ -187,6 +187,9 @@ class _ColorFieldState extends State<ColorField> {
   }
 
   void _onChange(Color? value) {
+    if (!mounted) {
+      return;
+    }
     _onFocusChange(true);
     if (value == null) {
       return;

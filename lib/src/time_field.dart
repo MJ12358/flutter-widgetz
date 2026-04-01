@@ -123,6 +123,9 @@ class _TimeFieldState extends State<TimeField> {
   }
 
   void _onChange(TimeOfDay? value) {
+    if (!mounted) {
+      return;
+    }
     _onFocusChange(true);
     if (value == null) {
       return;

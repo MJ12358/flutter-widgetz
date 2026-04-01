@@ -162,6 +162,9 @@ class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
   }
 
   void _onChange(T? value) {
+    if (!mounted) {
+      return;
+    }
     _onFocusChange(true);
     if (value == null) {
       return;
