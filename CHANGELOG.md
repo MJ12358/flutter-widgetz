@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [15.1.3]
+
+- Add mounted safeguards inside `onChange` within Fields.
+
 ## [15.1.2]
 
 - Update semantics in `CheckboxField`.
