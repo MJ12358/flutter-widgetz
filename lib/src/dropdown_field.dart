@@ -6,6 +6,8 @@ enum _DropdownModalType {
 }
 
 /// {@template flutter_widgetz.DropdownField}
+/// A dropdown field widget that allows users to
+/// select an item from a list of items.
 ///
 ///![DropdownField](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/dropdown_field1.png)
 ///
@@ -87,7 +89,6 @@ class _DropdownFieldState<T extends Object> extends State<DropdownField<T>> {
   @override
   void didUpdateWidget(DropdownField<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
-    // workround: i dont know why the oldWidget.value is null here
     if (oldWidget.value != null) {
       _value = widget.value;
     }

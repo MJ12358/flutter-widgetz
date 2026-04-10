@@ -76,6 +76,7 @@ part 'src/restart.dart';
 part 'src/save_button.dart';
 part 'src/scaffold.dart';
 part 'src/search_bar.dart';
+part 'src/segmented_switch.dart';
 part 'src/settings.dart';
 part 'src/shimmer.dart';
 part 'src/single_child_scroll_view.dart';

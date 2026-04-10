@@ -35,6 +35,7 @@ import 'package:flutter_widgetz_example/pages/radio_page.dart';
 import 'package:flutter_widgetz_example/pages/rating_page.dart';
 import 'package:flutter_widgetz_example/pages/scaffold_page.dart';
 import 'package:flutter_widgetz_example/pages/search_bar_page.dart';
+import 'package:flutter_widgetz_example/pages/segmented_switch_page.dart';
 import 'package:flutter_widgetz_example/pages/settings_page.dart';
 import 'package:flutter_widgetz_example/pages/shimmer_page.dart';
 import 'package:flutter_widgetz_example/pages/slider_page.dart';
@@ -96,6 +97,7 @@ final List<Page> pages = <Page>[
   const Page(Icons.star, RatingPage(), 'Ratings'),
   const Page(Icons.scale, ScaffoldPage(), 'Scaffold'),
   const Page(Icons.search, SearchBarPage(), 'Search Bar'),
+  const Page(Icons.segment, SegmentedSwitchPage(), 'Segmented Switch'),
   const Page(Icons.shield, ShimmerPage(), 'Shimmer'),
   const Page(Icons.tune, SliderPage(), 'Sliders'),
   const Page(Icons.grid_4x4, SliverGridPage(), 'Sliver Grid'),

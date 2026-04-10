@@ -190,6 +190,10 @@ The [generated documentation](https://pub.dev/documentation/flutter_widgetz/late
 
 ![SearchBar](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/search_bar.png)
 
+### Segmented Switch
+
+![SegmentedSwitch](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/segmented_switch.png)
+
 ### Settings
 
 ![Settings](https://raw.githubusercontent.com/MJ12358/flutter-widgetz/main/screenshots/settings.png)

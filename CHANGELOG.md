@@ -1,5 +1,10 @@
 # Flutter Widgetz
 
+## [15.2.0]
+
+- Introduce `SegmentedSwitch` widget.
+- Update dependencies.
+
 ## [15.1.3]
 
 - Add mounted safeguards inside `onChange` within Fields.
