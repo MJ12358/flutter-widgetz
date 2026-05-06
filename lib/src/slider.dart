@@ -51,6 +51,12 @@ class _CustomSliderState extends State<CustomSlider> {
   late final FocusNode _focusNode;
   late num _value;
 
+  String get _label {
+    final String result = _value.toStringAsFixed(2);
+    // Strip trailing zeros but preserve .50, .10, .01 etc.
+    return result.replaceAll(RegExp(r'\.0+$'), '');
+  }
+
   @override
   void initState() {
     super.initState();
@@ -87,7 +93,7 @@ class _CustomSliderState extends State<CustomSlider> {
           ),
           child: Slider(
             divisions: widget.divisions,
-            label: _value.toString(),
+            label: _label,
             onChanged: _onChanged,
             onChangeEnd: widget.onChanged,
             max: widget.max,

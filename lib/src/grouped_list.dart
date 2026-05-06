@@ -19,6 +19,7 @@ class GroupedListView<T, E> extends StatelessWidget {
     this.groupHeaderBuilder,
     this.groupSeparatorBuilder,
     this.separatorBuilder,
+    this.controller,
     this.clipBehavior = Clip.hardEdge,
     this.physics,
     this.shrinkWrap = false,
@@ -41,6 +42,9 @@ class GroupedListView<T, E> extends StatelessWidget {
 
   /// Called to build list separators.
   final GroupedWidgetBuilder<T>? separatorBuilder;
+
+  /// An optional controller for the scroll view.
+  final ScrollController? controller;
 
   /// The content will be clipped (or not) according to this option.
   final Clip clipBehavior;
@@ -99,6 +103,7 @@ class GroupedListView<T, E> extends StatelessWidget {
     final List<_ListViewItem<T, E>> listItems = _buildListViewItems();
 
     return ListView.builder(
+      controller: controller,
       itemCount: listItems.length,
       itemBuilder: (BuildContext context, int index) {
         final _ListViewItem<T, E> item = listItems[index];
