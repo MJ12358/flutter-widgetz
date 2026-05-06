@@ -40,6 +40,7 @@ class _SettingsViewState extends State<SettingsView>
         SettingsTile.timeDilation(
           context: context,
           title: const Text('Set Time Dilation'),
+          onChanged: print,
         ),
       ],
     );

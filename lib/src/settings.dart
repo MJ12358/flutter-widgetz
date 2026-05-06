@@ -325,32 +325,23 @@ class SettingsTile extends StatelessWidget {
     double? value,
   })  : trailing = trailing ??
             Text(value != null ? value.toString() : timeDilation.toString()),
-        onTap = (() => showDialog(
-              context: context,
-              builder: (_) {
-                double tmpValue = value ?? timeDilation;
-                return StatefulBuilder(
-                  builder: (BuildContext context, StateSetter setState) {
-                    return CustomDialog.simple(
-                      title: dialogTitle ?? title,
-                      child: CustomSlider(
-                        min: 1,
-                        max: 10,
-                        divisions: 9,
-                        value: tmpValue,
-                        onChanged: (num value) {
-                          setState(() {
-                            tmpValue = value.toDouble();
-                          });
-                          timeDilation = tmpValue;
-                          onChanged?.call(timeDilation);
-                        },
-                      ),
-                    );
-                  },
-                );
-              },
-            )) {
+        onTap = (() {
+          showDialog(
+            context: context,
+            builder: (_) => CustomDialog.simple(
+              title: dialogTitle ?? title,
+              child: CustomSlider(
+                min: 1,
+                max: 10,
+                divisions: 9,
+                value: value ?? timeDilation,
+                onChanged: (num value) {
+                  timeDilation = value.toDouble();
+                },
+              ),
+            ),
+          ).then((_) => onChanged?.call(timeDilation));
+        }) {
     // set default based on the input value
     if (value != null) {
       timeDilation = value;

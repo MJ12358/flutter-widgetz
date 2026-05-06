@@ -1,10 +1,13 @@
 # Flutter Widgetz
 
+## [15.2.2]
+
+- Fix `SettingsTile` time dilation tile.
+
 ## [15.2.1]
 
 - Add optional `ScrollController` param to `GroupedListView`.
 - Fix `CustomSlider` label.
-- Fix `SettingsTile` time dilation tile.
 
 ## [15.2.0]
 
