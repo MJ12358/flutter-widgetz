@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [15.2.3]
+
+- Remove reliance on nested `ListView` inside `SettingsSection`.
+
 ## [15.2.2]
 
 - Fix `SettingsTile` time dilation tile.

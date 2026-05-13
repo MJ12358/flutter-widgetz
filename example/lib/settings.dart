@@ -23,24 +23,45 @@ class _SettingsViewState extends State<SettingsView>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return ListView(
-      children: <Widget>[
-        SettingsTile.switched(
-          title: const Text('Toggle Dark Mode'),
-          leading: const Icon(Icons.dark_mode),
-          value: false,
-          onChanged: (_) => widget.onDarkModeChanged(),
+    return SettingsList(
+      sections: <Widget>[
+        SettingsSection(
+          title: 'General',
+          tiles: <Widget>[
+            SettingsTile.switched(
+              title: const Text('Toggle Dark Mode'),
+              leading: const Icon(Icons.dark_mode),
+              value: false,
+              onChanged: (_) => widget.onDarkModeChanged(),
+            ),
+          ],
         ),
-        SettingsTile.switched(
-          title: const Text('Show Material Grid'),
-          leading: const Icon(Icons.grid_3x3),
-          value: false,
-          onChanged: (_) => widget.onShowMaterialGrid(),
+        SettingsSection(
+          title: 'Developer',
+          tiles: <Widget>[
+            SettingsTile.switched(
+              title: const Text('Show Material Grid'),
+              leading: const Icon(Icons.grid_3x3),
+              value: false,
+              onChanged: (_) => widget.onShowMaterialGrid(),
+            ),
+            SettingsTile.timeDilation(
+              context: context,
+              title: const Text('Set Time Dilation'),
+              onChanged: print,
+            ),
+          ],
         ),
-        SettingsTile.timeDilation(
-          context: context,
-          title: const Text('Set Time Dilation'),
-          onChanged: print,
+        SettingsSection(
+          title: 'Testing',
+          tiles: <Widget>[
+            ...List<Widget>.generate(10, (int index) {
+              return SettingsTile(
+                title: Text('Item $index'),
+                leading: const Icon(Icons.settings),
+              );
+            }),
+          ],
         ),
       ],
     );

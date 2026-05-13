@@ -96,17 +96,9 @@ class SettingsSection extends StatelessWidget {
             ),
           ),
         ),
-        ListView.separated(
-          clipBehavior: Clip.none,
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          itemCount: tiles.length,
-          itemBuilder: (_, int index) {
-            return tiles[index];
-          },
-          separatorBuilder: (_, __) {
-            return const Divider();
-          },
+        SpacedColumn(
+          spacer: const Divider(),
+          children: tiles,
         ),
       ],
     );
