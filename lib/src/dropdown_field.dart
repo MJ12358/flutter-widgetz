@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 enum _DropdownModalType {
   bottomSheet,

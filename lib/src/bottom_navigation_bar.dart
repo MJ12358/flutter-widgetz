@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 /// {@template flutter_widgetz.CustomBottomNavigationBar}
 /// Creates a bottom navigation bar which is typically

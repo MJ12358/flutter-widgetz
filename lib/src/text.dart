@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 /// {@template flutter_widgetz.CustomText}
 /// This is meant to mimic the [CustomTextField] but without the input.

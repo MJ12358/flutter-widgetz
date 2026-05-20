@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 /// {@template flutter_widgetz.CustomSliverList}
 /// Wraps [SliverList] in order to present it in a

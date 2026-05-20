@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 /// {@template flutter_widgetz.SegmentedSwitch}
 /// A segmented switch that allows users to select

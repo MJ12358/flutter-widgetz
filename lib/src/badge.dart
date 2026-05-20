@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 /// {@template flutter_widgetz.CustomBadge}
 /// Create a Badge that stacks [label] on top of [child].

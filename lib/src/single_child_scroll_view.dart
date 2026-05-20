@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 /// {@template flutter_widgetz.CustomSingleChildScrollView}
 /// Wraps a [SingleChildScrollView] in a

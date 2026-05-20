@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 /// {@template flutter_widgetz.CustomSliverGrid}
 /// Wraps [SliverGrid] in order to present it in a

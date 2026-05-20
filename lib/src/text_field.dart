@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 /// {@template flutter_widgetz.CustomTextField}
 /// A [TextFormField] with a single [TextInputFormatter].

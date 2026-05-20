@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 const double _kDurationPickerWidthPortrait = 328.0;
 const double _kDurationPickerHeightPortrait = 380.0;

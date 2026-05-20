@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 typedef GroupedWidgetBuilder<T> = Widget Function(BuildContext, T);
 typedef GroupHeaderBuilder<T, E> = Widget Function(BuildContext, E, List<T>);

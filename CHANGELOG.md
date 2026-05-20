@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [15.2.4]
+
+- Fix static analysis warning: "part-of directive uses a library name"
+
 ## [15.2.3]
 
 - Remove reliance on nested `ListView` inside `SettingsSection`.

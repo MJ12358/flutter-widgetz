@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 /// {@template flutter_widgetz.RadioGroup}
 /// Wraps a list of [RadioListTile] in an [InputDecorator].

@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 /// {@template flutter_widgetz.SpacedRow}
 /// Spaces a row of [children] with the given spacing.

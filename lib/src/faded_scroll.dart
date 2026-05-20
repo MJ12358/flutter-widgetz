@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 /// {@template flutter_widgetz.FadedScroll}
 /// A widget that applies a fade effect to the edges of a scrollable child.

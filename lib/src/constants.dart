@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 const String _kPackage = 'flutter_widgetz';
 

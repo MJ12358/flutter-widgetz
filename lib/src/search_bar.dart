@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 /// {@template flutter_widgetz.SearchBar}
 /// A [TextFormField] made to appear like a search bar.

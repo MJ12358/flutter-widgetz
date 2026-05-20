@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 extension _ColorExtension on Color {
   Brightness get brightness {

@@ -1,4 +1,4 @@
-part of flutter_widgetz;
+part of '../flutter_widgetz.dart';
 
 /// {@template flutter_widgetz.CustomFloatingActionButton}
 /// A [FloatingActionButton] that uses a [ScaleTransition]
