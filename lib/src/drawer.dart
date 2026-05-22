@@ -58,7 +58,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      top: header == null || false,
+      top: header == null,
       child: Drawer(
         semanticLabel: semanticLabel,
         child: CustomScrollView(
@@ -81,15 +81,15 @@ class CustomDrawer extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    final Color _color = color ?? Theme.of(context).colorScheme.primary;
+    final Color clr = color ?? Theme.of(context).colorScheme.primary;
 
     return DrawerHeader(
       decoration: BoxDecoration(
-        color: _color,
+        color: clr,
       ),
       child: DefaultTextStyle(
         style: TextStyle(
-          color: _color.blackOrWhite,
+          color: clr.blackOrWhite,
           fontSize: 24.0,
         ),
         child: header!,

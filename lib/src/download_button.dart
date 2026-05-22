@@ -1,5 +1,7 @@
 part of '../flutter_widgetz.dart';
 
+/// The status of a download,
+/// used to determine the visual presentation of a [DownloadButton].
 enum DownloadStatus {
   /// The initial status of a download.
   initial,

@@ -304,9 +304,7 @@ class _PicklistState<T extends Object> extends State<_Picklist<T>> {
 
   void _onTap(T item) {
     _selection.contains(item) ? _selection.remove(item) : _selection.add(item);
-    setState(() {
-      _selection = _selection;
-    });
+    setState(() {});
     widget.onChanged(_selection);
   }
 }

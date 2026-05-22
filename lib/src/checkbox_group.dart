@@ -109,9 +109,7 @@ class _CheckboxGroupState<T extends Object> extends State<CheckboxGroup<T>> {
     } else {
       _values.add(item);
     }
-    setState(() {
-      _values = _values;
-    });
+    setState(() {});
     widget.onChanged(_values);
   }
 

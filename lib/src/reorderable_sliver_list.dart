@@ -69,24 +69,22 @@ class CustomReorderableSliverList extends StatelessWidget {
           return itemBuilder.call(context, index ~/ 2);
         }),
         onReorder = ((int oldIndex, int newIndex) {
-          int _oldIndex = oldIndex;
-          int _newIndex = newIndex;
-          if (_oldIndex < _newIndex) {
-            _newIndex -= 1;
+          int oi = oldIndex;
+          int ni = newIndex;
+          if (oi < ni) {
+            ni -= 1;
           }
-          if (_oldIndex.isOdd) {
+          if (oi.isOdd) {
             // separator - should never happen
             return;
           }
-          if ((_oldIndex - _newIndex).abs() == 1) {
+          if ((oi - ni).abs() == 1) {
             // moved behind the top/bottom separator
             return;
           }
-          _newIndex = _oldIndex > _newIndex && _newIndex.isOdd
-              ? (_newIndex + 1) ~/ 2
-              : _newIndex ~/ 2;
-          _oldIndex = _oldIndex ~/ 2;
-          onReorder.call(_oldIndex, _newIndex);
+          ni = oi > ni && ni.isOdd ? (ni + 1) ~/ 2 : ni ~/ 2;
+          oi = oi ~/ 2;
+          onReorder.call(oi, ni);
         });
 
   // Helper method to compute the actual child count
@@ -101,7 +99,7 @@ class CustomReorderableSliverList extends StatelessWidget {
     final Widget item = itemBuilder(context, index);
     assert(
       item.key != null,
-      'Every item of SliverReorderableList must have a key.',
+      'Every item of ReorderableSliverList must have a key.',
     );
 
     final Key itemGlobalKey = _GlobalKey(item.key!, this);

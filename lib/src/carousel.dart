@@ -162,9 +162,7 @@ class _CarouselState extends State<Carousel> {
       }
     }
 
-    setState(() {
-      _isReverse = _isReverse;
-    });
+    setState(() {});
 
     return true;
   }

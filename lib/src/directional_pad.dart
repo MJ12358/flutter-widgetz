@@ -184,17 +184,17 @@ class DirectionalPad extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final Color _backgroundColor = backgroundColor ?? theme.colorScheme.primary;
-    final Color _borderColor = borderColor ?? _backgroundColor.withAlpha(80);
-    final Color _buttonColor = buttonColor ?? _backgroundColor.blackOrWhite;
+    final Color bkgColor = backgroundColor ?? theme.colorScheme.primary;
+    final Color brdColor = borderColor ?? bkgColor.withAlpha(80);
+    final Color btnColor = buttonColor ?? bkgColor.blackOrWhite;
 
     return IconTheme(
-      data: theme.iconTheme.copyWith(color: _buttonColor),
+      data: theme.iconTheme.copyWith(color: btnColor),
       child: Padding(
         padding: padding,
-        child: Container(
+        child: DecoratedBox(
           decoration: BoxDecoration(
-            color: _borderColor,
+            color: brdColor,
             shape: shape,
           ),
           child: Padding(
@@ -203,7 +203,7 @@ class DirectionalPad extends StatelessWidget {
               height: size,
               width: size,
               decoration: BoxDecoration(
-                color: _backgroundColor,
+                color: bkgColor,
                 shape: shape,
               ),
               child: _Buttons(

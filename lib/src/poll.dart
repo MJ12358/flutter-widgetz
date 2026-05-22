@@ -161,7 +161,7 @@ class _PollState extends State<Poll> {
   }
 
   Future<void> _onVoted(PollOption option) async {
-    if (_isLoading == true) {
+    if (_isLoading) {
       return;
     }
     _isLoading = true;
@@ -174,7 +174,6 @@ class _PollState extends State<Poll> {
       await widget.onVoted(option);
       setState(() {
         _hasVoted = true;
-        _options = _options;
       });
     } finally {
       _isLoading = false;

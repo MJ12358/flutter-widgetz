@@ -118,7 +118,7 @@ class _RatingBarState extends State<RatingBar> {
       );
     }
 
-    final num _result = index + 1;
+    final num result = index + 1;
 
     if (widget._readOnly) {
       return child;
@@ -127,9 +127,9 @@ class _RatingBarState extends State<RatingBar> {
     return InkWell(
       onTap: () {
         setState(() {
-          _value = _result;
+          _value = result;
         });
-        widget.onChanged?.call(_result);
+        widget.onChanged?.call(result);
       },
       child: child,
     );

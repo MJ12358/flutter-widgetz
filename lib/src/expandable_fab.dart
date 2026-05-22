@@ -276,11 +276,22 @@ class ExpandedActionButton extends StatelessWidget {
     this.tooltip,
   });
 
+  /// The callback for when this action button is pressed.
   final VoidCallback onPressed;
+
+  /// The icon shown inside this action button.
   final Widget icon;
+
+  /// The clip behavior of this action button.
   final Clip clipBehavior;
+
+  /// The elevation of this action button.
   final double elevation;
+
+  /// The shape of this action button.
   final ShapeBorder shape;
+
+  /// The tooltip of this action button.
   final String? tooltip;
 
   @override

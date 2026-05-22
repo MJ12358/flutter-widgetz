@@ -249,7 +249,7 @@ class _CustomImageState extends State<CustomImage> {
     final Color color = widget.color ?? theme.colorScheme.secondary;
 
     try {
-      return Container(
+      return DecoratedBox(
         decoration: BoxDecoration(
           color: color,
           image: DecorationImage(
@@ -265,7 +265,7 @@ class _CustomImageState extends State<CustomImage> {
         child: _hasError ? widget.errorWidget : null,
       );
     } catch (_) {
-      return Container(
+      return DecoratedBox(
         decoration: BoxDecoration(
           color: color,
         ),

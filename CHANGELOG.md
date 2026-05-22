@@ -1,5 +1,11 @@
 # Flutter Widgetz
 
+## [15.2.5]
+
+- Fix some lints.
+- Add more comments.
+- Update dev dependencies.
+
 ## [15.2.4]
 
 - Fix static analysis warning: "part-of directive uses a library name"

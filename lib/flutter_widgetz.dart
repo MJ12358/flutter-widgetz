@@ -1,4 +1,5 @@
-library flutter_widgetz;
+/// A set of Flutter widgets I use in various projects.
+library;
 
 import 'dart:async';
 import 'dart:convert' as convert;

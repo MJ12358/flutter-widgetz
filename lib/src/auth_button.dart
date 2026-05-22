@@ -135,7 +135,7 @@ class AuthButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double _height = Theme.of(context).buttonTheme.height;
+    final double height = Theme.of(context).buttonTheme.height;
 
     return ElevatedButton(
       onPressed: onTap,
@@ -145,7 +145,7 @@ class AuthButton extends StatelessWidget {
       ),
       child: Container(
         constraints: BoxConstraints(
-          maxHeight: _height,
+          maxHeight: height,
           minWidth: minWidth,
           maxWidth: maxWidth,
         ),
@@ -158,8 +158,8 @@ class AuthButton extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
-                  height: _height,
-                  width: _height,
+                  height: height,
+                  width: height,
                   child: icon,
                 ),
               ),

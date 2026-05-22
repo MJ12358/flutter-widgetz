@@ -130,13 +130,13 @@ class _AlertState extends State<Alert> {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData _theme = Theme.of(context);
-    final MediaQueryData _mediaQuery = MediaQuery.of(context);
-    final Color _color = widget.color.blackOrWhite;
+    final ThemeData theme = Theme.of(context);
+    final MediaQueryData mediaQuery = MediaQuery.of(context);
+    final Color color = widget.color.blackOrWhite;
 
     return IconTheme(
-      data: _theme.iconTheme.copyWith(
-        color: _color,
+      data: theme.iconTheme.copyWith(
+        color: color,
       ),
       child: AnimatedSize(
         alignment: widget.alignment,
@@ -149,7 +149,7 @@ class _AlertState extends State<Alert> {
             : Container(
                 color: widget.color,
                 padding: widget.padding,
-                width: _mediaQuery.size.width,
+                width: mediaQuery.size.width,
                 child: Row(
                   children: <Widget>[
                     Padding(
@@ -158,8 +158,8 @@ class _AlertState extends State<Alert> {
                     ),
                     Expanded(
                       child: DefaultTextStyle.merge(
-                        style: _theme.textTheme.bodyMedium?.copyWith(
-                          color: _color,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: color,
                         ),
                         child: widget.child,
                       ),
