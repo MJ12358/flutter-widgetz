@@ -10,17 +10,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_extensionz: 5.1.5
+  flutter_extensionz: 5.1.7
   # flutter_extensionz:
   #   path: ../../flutter_extensionz
-  flutter_themez: 4.0.2
+  flutter_themez: 4.1.0
   # flutter_themez:
   #   path: ../../flutter_themez
   flutter_widgetz:
     path: ../.
 
 dev_dependencies:
-  dart_lintz: 1.2.3
+  dart_lintz: 2.2.0
   flutter_test:
     sdk: flutter
 

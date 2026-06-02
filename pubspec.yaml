@@ -20,7 +20,7 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
-  dart_lintz: 2.0.2
+  dart_lintz: 2.2.0
   flutter_test:
     sdk: flutter
 
