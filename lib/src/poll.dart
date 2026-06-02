@@ -436,15 +436,23 @@ class _PollFooter extends StatelessWidget {
   }
 }
 
+/// {@template flutter_widgetz.PollOption}
 /// A class to hold poll option information.
+/// {@endtemplate}
 class PollOption {
+  /// {@macro flutter_widgetz.PollOption}
   PollOption({
     this.id,
     required this.name,
     required this.votes,
   });
 
+  /// An optional id for this option.
   final String? id;
+
+  /// The name of this option.
   final String name;
+
+  /// The amount of votes for this option.
   int votes;
 }

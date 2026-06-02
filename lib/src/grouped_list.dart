@@ -1,6 +1,9 @@
 part of '../flutter_widgetz.dart';
 
+/// A typedef for the item builder of [GroupedListView].
 typedef GroupedWidgetBuilder<T> = Widget Function(BuildContext, T);
+
+/// A typedef for the group header builder of [GroupedListView].
 typedef GroupHeaderBuilder<T, E> = Widget Function(BuildContext, E, List<T>);
 
 /// {@template flutter_widgetz.GroupedListView}

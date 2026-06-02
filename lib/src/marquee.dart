@@ -55,7 +55,7 @@ class _MarqueeState extends State<Marquee> {
     super.dispose();
   }
 
-  Future<void> _scroll(_) async {
+  Future<void> _scroll(Duration _) async {
     while (_scrollController.hasClients) {
       await Future<void>.delayed(widget.pauseDuration);
       if (_scrollController.hasClients) {
