@@ -24,6 +24,7 @@ class CustomTextField extends StatefulWidget {
     this.obscureText = false,
     this.onChanged,
     this.onEditingComplete,
+    this.onTap,
     this.prefixIcon,
     this.restorationId,
     this.scrollPadding = const EdgeInsets.all(20.0),
@@ -82,6 +83,9 @@ class CustomTextField extends StatefulWidget {
   /// Called when the user submits editable content
   /// (e.g., user presses the "done" button on the keyboard).
   final VoidCallback? onEditingComplete;
+
+  /// Called when the user taps this input.
+  final VoidCallback? onTap;
 
   /// An icon that appers before the editable part of the text field.
   final Widget? prefixIcon;
@@ -168,6 +172,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
         onChanged: widget.onChanged,
         onEditingComplete: widget.onEditingComplete ?? () => _onFocus(context),
+        onTap: widget.onTap,
       ),
     );
   }
