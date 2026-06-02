@@ -11,7 +11,7 @@ class FadedScrollPage extends StatelessWidget {
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
-          child: Container(
+          child: ColoredBox(
             color: Theme.of(context).primaryColor,
             child: const TabBar(
               tabs: <Widget>[

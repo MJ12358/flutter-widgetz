@@ -30,18 +30,18 @@ class _NavigationRailPageState extends State<NavigationRailPage> {
     ),
   ];
 
-  static final List<Widget> _pages = <Widget>[
-    Container(
+  static const List<Widget> _pages = <Widget>[
+    ColoredBox(
       color: Colors.amber,
-      child: const Text('One'),
+      child: Text('One'),
     ),
-    Container(
+    ColoredBox(
       color: Colors.purple,
-      child: const Text('Two'),
+      child: Text('Two'),
     ),
-    Container(
+    ColoredBox(
       color: Colors.teal,
-      child: const Text('Three'),
+      child: Text('Three'),
     ),
   ];
 

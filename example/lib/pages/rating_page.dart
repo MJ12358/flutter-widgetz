@@ -29,9 +29,9 @@ class RatingPage extends StatelessWidget {
           const RatingBar.static(
             value: 2.5,
           ),
-          Container(
+          const ColoredBox(
             color: Colors.lime,
-            child: const RatingBar(
+            child: RatingBar(
               value: 4,
             ),
           ),

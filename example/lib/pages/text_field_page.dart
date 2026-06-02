@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 
@@ -110,10 +112,11 @@ class _Portrait extends StatelessWidget {
   Widget build(BuildContext context) {
     return SpacedColumn(
       children: <Widget>[
-        const CustomTextField(
+        CustomTextField(
           labelText: 'One (Next)',
-          prefixIcon: Icon(Icons.one_k),
+          prefixIcon: const Icon(Icons.one_k),
           textInputAction: TextInputAction.next,
+          onTap: () => print('Tapped One'),
         ),
         const CustomTextField(
           labelText: 'Two (Previous)',

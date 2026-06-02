@@ -27,7 +27,7 @@ class AccordionPage extends StatelessWidget {
           Accordion(
             onTap: print,
             title: const Text('Accordion Three'),
-            child: Container(
+            child: ColoredBox(
               color: Theme.of(context).colorScheme.primary,
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
