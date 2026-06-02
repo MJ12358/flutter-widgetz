@@ -1,5 +1,12 @@
 # Flutter Widgetz
 
+## [15.3.0]
+
+- Add `onTap` to `CustomTextField`.
+- Add more comments.
+- Fix more lints.
+- Update dependencies.
+
 ## [15.2.5]
 
 - Fix some lints.
