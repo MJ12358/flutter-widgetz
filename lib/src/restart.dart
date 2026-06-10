@@ -12,8 +12,10 @@ class RestartWidget extends StatefulWidget {
     required this.child,
   });
 
+  /// The child widget to restart.
   final Widget child;
 
+  /// Restarts the widget tree.
   static void restart(BuildContext context) {
     context.findAncestorStateOfType<_RestartWidgetState>()?.restart();
   }

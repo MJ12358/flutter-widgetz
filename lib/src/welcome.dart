@@ -164,9 +164,16 @@ class WelcomeBackground extends StatelessWidget {
     this.fit = StackFit.loose,
   });
 
+  /// The children widgets.
   final List<Widget> children;
+
+  /// The alignment of the background images.
   final AlignmentDirectional alignment;
+
+  /// The clip behavior of the background images.
   final Clip clipBehavior;
+
+  /// The fit of the background images.
   final StackFit fit;
 
   @override
