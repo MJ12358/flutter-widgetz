@@ -207,7 +207,7 @@ class _DropdownList<T extends Object> extends StatelessWidget {
             displayStringForItem: displayStringForItem,
           );
         },
-        separatorBuilder: (_, __) {
+        separatorBuilder: (_, _) {
           return const Divider();
         },
       ),

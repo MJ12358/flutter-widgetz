@@ -71,7 +71,7 @@ class PercentIndicator extends StatelessWidget {
     this.padding = _defaultPadding,
     double strokeWidth = 16.0,
   })  : borderRadius = height * 3,
-        builder = ((_, double value, __) {
+        builder = ((_, double value, _) {
           return SizedBox(
             height: height,
             width: height,
@@ -100,7 +100,7 @@ class PercentIndicator extends StatelessWidget {
     this.duration = _defaultDuration,
     this.height = _defaultHeight,
     this.padding = _defaultPadding,
-  })  : builder = ((_, double value, __) {
+  })  : builder = ((_, double value, _) {
           return LinearProgressIndicator(
             backgroundColor: backgroundColor,
             color: color,

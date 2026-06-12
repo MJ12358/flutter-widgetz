@@ -285,7 +285,7 @@ class _List extends StatelessWidget {
                   onTap: onTap,
                 );
               },
-              separatorBuilder: (_, __) {
+              separatorBuilder: (_, _) {
                 return SizedBox(width: spacing);
               },
             ),

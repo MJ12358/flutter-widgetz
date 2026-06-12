@@ -99,7 +99,7 @@ class FeedbackBar extends StatelessWidget {
       child: SpacedColumn(
         spacer: const SizedBox(height: 8.0),
         children: <Widget>[
-          if (header != null) header!,
+          ?header,
           if (orientation == Orientation.landscape)
             SpacedRow(
               spacer: SizedBox(width: spacing),
@@ -110,7 +110,7 @@ class FeedbackBar extends StatelessWidget {
               spacer: SizedBox(height: spacing),
               children: _buildChildren(),
             ),
-          if (footer != null) footer!,
+          ?footer,
         ],
       ),
     );

@@ -219,7 +219,7 @@ class _ProgressIndicator extends StatelessWidget {
       child: TweenAnimationBuilder<double>(
         tween: Tween<double>(begin: 0.0, end: progress),
         duration: const Duration(milliseconds: 200),
-        builder: (_, double progress, __) {
+        builder: (_, double progress, _) {
           return CircularProgressIndicator(
             backgroundColor: isDownloading
                 ? primaryColor

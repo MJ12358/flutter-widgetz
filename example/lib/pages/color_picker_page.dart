@@ -43,7 +43,7 @@ class ColorPickerPage extends StatelessWidget {
                 child: const Text('General Dialog'),
                 onPressed: () => showGeneralDialog(
                   context: context,
-                  pageBuilder: (_, __, ___) {
+                  pageBuilder: (_, _, _) {
                     return CustomScaffold(
                       body: ColorPicker.circle(
                         onTap: print,

@@ -47,7 +47,7 @@ class _SliverListPageState extends State<SliverListPage> {
               title: _widgets[index],
             );
           },
-          separatorBuilder: (_, __) {
+          separatorBuilder: (_, _) {
             return const Divider();
           },
         ),
@@ -62,7 +62,7 @@ class _SliverListPageState extends State<SliverListPage> {
               title: _widgets[index],
             );
           },
-          separatorBuilder: (_, __) {
+          separatorBuilder: (_, _) {
             return const Divider();
           },
           onReorder: (int oldIndex, int newIndex) {

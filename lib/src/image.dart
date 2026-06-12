@@ -72,7 +72,7 @@ class CustomImage extends StatefulWidget {
     this.scale = _defaultScale,
   }) : imageProvider = Image.asset(
           name ?? '',
-          errorBuilder: (_, __, ___) => errorWidget!,
+          errorBuilder: (_, _, _) => errorWidget!,
           frameBuilder: frameBuilder,
           package: package,
           cacheHeight: cacheHeight,
@@ -96,7 +96,7 @@ class CustomImage extends StatefulWidget {
     this.scale = _defaultScale,
   }) : imageProvider = Image.memory(
           bytes ?? Uint8List(0),
-          errorBuilder: (_, __, ___) => errorWidget!,
+          errorBuilder: (_, _, _) => errorWidget!,
           frameBuilder: frameBuilder,
           cacheHeight: cacheHeight,
           cacheWidth: cacheWidth,
@@ -119,7 +119,7 @@ class CustomImage extends StatefulWidget {
     this.scale = _defaultScale,
   }) : imageProvider = Image.network(
           source ?? '',
-          errorBuilder: (_, __, ___) => errorWidget!,
+          errorBuilder: (_, _, _) => errorWidget!,
           loadingBuilder: loadingBuilder,
           cacheHeight: cacheHeight,
           cacheWidth: cacheWidth,

@@ -42,7 +42,7 @@ class GroupedListViewPage extends StatelessWidget {
           tileColor: Colors.black12,
         );
       },
-      separatorBuilder: (_, __) {
+      separatorBuilder: (_, _) {
         return const Divider();
       },
     );

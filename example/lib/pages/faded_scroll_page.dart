@@ -65,7 +65,7 @@ class _Horizontal extends StatelessWidget {
                       ),
                     );
                   },
-                  separatorBuilder: (_, __) => const VerticalDivider(),
+                  separatorBuilder: (_, _) => const VerticalDivider(),
                 );
               },
             ),
@@ -90,7 +90,7 @@ class _Vertical extends StatelessWidget {
             subtitle: Text('Subtitle $index'),
           );
         },
-        separatorBuilder: (_, __) => const Divider(),
+        separatorBuilder: (_, _) => const Divider(),
       ),
     );
   }
@@ -129,7 +129,7 @@ class _UpdatableState extends State<_Updatable> {
                   subtitle: Text('Subtitle $index'),
                 );
               },
-              separatorBuilder: (_, __) => const Divider(),
+              separatorBuilder: (_, _) => const Divider(),
             ),
           ),
         ),
