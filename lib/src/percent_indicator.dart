@@ -17,8 +17,8 @@ class PercentIndicator extends StatelessWidget {
     this.duration = _defaultDuration,
     this.height = _defaultHeight,
     this.padding = _defaultPadding,
-  })  : child = child ?? _defaultChild(value),
-        value = _computeValue(value);
+  }) : child = child ?? _defaultChild(value),
+       value = _computeValue(value);
 
   /// This builds the progress indicator.
   final ValueWidgetBuilder<double> builder;
@@ -70,21 +70,21 @@ class PercentIndicator extends StatelessWidget {
     this.height = _defaultHeight,
     this.padding = _defaultPadding,
     double strokeWidth = 16.0,
-  })  : borderRadius = height * 3,
-        builder = ((_, double value, _) {
-          return SizedBox(
-            height: height,
-            width: height,
-            child: CircularProgressIndicator(
-              backgroundColor: backgroundColor,
-              color: color,
-              strokeWidth: strokeWidth,
-              value: value,
-            ),
-          );
-        }),
-        child = child ?? _defaultChild(value),
-        value = _computeValue(value);
+  }) : borderRadius = height * 3,
+       builder = ((_, double value, _) {
+         return SizedBox(
+           height: height,
+           width: height,
+           child: CircularProgressIndicator(
+             backgroundColor: backgroundColor,
+             color: color,
+             strokeWidth: strokeWidth,
+             value: value,
+           ),
+         );
+       }),
+       child = child ?? _defaultChild(value),
+       value = _computeValue(value);
 
   /// Linear uses a [LinearProgressIndicator].
   ///
@@ -100,16 +100,16 @@ class PercentIndicator extends StatelessWidget {
     this.duration = _defaultDuration,
     this.height = _defaultHeight,
     this.padding = _defaultPadding,
-  })  : builder = ((_, double value, _) {
-          return LinearProgressIndicator(
-            backgroundColor: backgroundColor,
-            color: color,
-            minHeight: height,
-            value: value,
-          );
-        }),
-        child = child ?? _defaultChild(value),
-        value = _computeValue(value);
+  }) : builder = ((_, double value, _) {
+         return LinearProgressIndicator(
+           backgroundColor: backgroundColor,
+           color: color,
+           minHeight: height,
+           value: value,
+         );
+       }),
+       child = child ?? _defaultChild(value),
+       value = _computeValue(value);
 
   @override
   Widget build(BuildContext context) {

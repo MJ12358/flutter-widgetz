@@ -37,8 +37,8 @@ class CustomDrawer extends StatelessWidget {
     this.header,
     this.semanticLabel,
   }) : delegate = SliverChildListDelegate(
-          children,
-        );
+         children,
+       );
 
   /// Builder uses [SliverChildBuilderDelegate].
   ///
@@ -51,9 +51,9 @@ class CustomDrawer extends StatelessWidget {
     this.header,
     this.semanticLabel,
   }) : delegate = SliverChildBuilderDelegate(
-          itemBuilder,
-          childCount: itemCount,
-        );
+         itemBuilder,
+         childCount: itemCount,
+       );
 
   @override
   Widget build(BuildContext context) {

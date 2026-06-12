@@ -60,14 +60,14 @@ class FeedbackBar extends StatelessWidget {
     this.orientation = _defaultOrientation,
     this.rtl = _defaultRtl,
     this.spacing = _defaultSpacing,
-  })  : shape = BoxShape.circle,
-        items = <Widget>[
-          _Image(asset: _kVeryBadEmojiOutlined, color: color),
-          _Image(asset: _kBadEmojiOutlined, color: color),
-          _Image(asset: _kOkayEmojiOutlined, color: color),
-          _Image(asset: _kGoodEmojiOutlined, color: color),
-          _Image(asset: _kVeryGoodEmojiOutlined, color: color),
-        ];
+  }) : shape = BoxShape.circle,
+       items = <Widget>[
+         _Image(asset: _kVeryBadEmojiOutlined, color: color),
+         _Image(asset: _kBadEmojiOutlined, color: color),
+         _Image(asset: _kOkayEmojiOutlined, color: color),
+         _Image(asset: _kGoodEmojiOutlined, color: color),
+         _Image(asset: _kVeryGoodEmojiOutlined, color: color),
+       ];
 
   /// Filled uses a filled icon.
   ///
@@ -81,14 +81,14 @@ class FeedbackBar extends StatelessWidget {
     this.orientation = _defaultOrientation,
     this.rtl = _defaultRtl,
     this.spacing = _defaultSpacing,
-  })  : shape = BoxShape.circle,
-        items = <Widget>[
-          _Image(asset: _kVeryBadEmojiFilled, color: color),
-          _Image(asset: _kBadEmojiFilled, color: color),
-          _Image(asset: _kOkayEmojiFilled, color: color),
-          _Image(asset: _kGoodEmojiFilled, color: color),
-          _Image(asset: _kVeryGoodEmojiFilled, color: color),
-        ];
+  }) : shape = BoxShape.circle,
+       items = <Widget>[
+         _Image(asset: _kVeryBadEmojiFilled, color: color),
+         _Image(asset: _kBadEmojiFilled, color: color),
+         _Image(asset: _kOkayEmojiFilled, color: color),
+         _Image(asset: _kGoodEmojiFilled, color: color),
+         _Image(asset: _kVeryGoodEmojiFilled, color: color),
+       ];
 
   @override
   Widget build(BuildContext context) {

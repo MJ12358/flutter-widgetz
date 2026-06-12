@@ -37,15 +37,15 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
     super.onTap,
     super.value,
   }) : super(
-          child: ListTile(
-            leading: AnimatedOpacity(
-              opacity: _getOpacity(checked),
-              duration: kThemeChangeDuration,
-              child: const Icon(Icons.done),
-            ),
-            title: child,
-          ),
-        );
+         child: ListTile(
+           leading: AnimatedOpacity(
+             opacity: _getOpacity(checked),
+             duration: kThemeChangeDuration,
+             child: const Icon(Icons.done),
+           ),
+           title: child,
+         ),
+       );
 
   /// A [PopupMenuItem] with an icon.
   ///
@@ -57,11 +57,11 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
     super.onTap,
     super.value,
   }) : super(
-          child: ListTile(
-            leading: Icon(icon),
-            title: child,
-          ),
-        );
+         child: ListTile(
+           leading: Icon(icon),
+           title: child,
+         ),
+       );
 
   /// A [PopupMenuItem] with an leading icon
   /// and a trailing checkmark.
@@ -75,14 +75,14 @@ class CustomPopupMenuItem<T> extends PopupMenuItem<T> {
     super.onTap,
     super.value,
   }) : super(
-          child: ListTile(
-            leading: Icon(icon),
-            title: child,
-            trailing: AnimatedOpacity(
-              opacity: _getOpacity(checked),
-              duration: kThemeChangeDuration,
-              child: const Icon(Icons.done),
-            ),
-          ),
-        );
+         child: ListTile(
+           leading: Icon(icon),
+           title: child,
+           trailing: AnimatedOpacity(
+             opacity: _getOpacity(checked),
+             duration: kThemeChangeDuration,
+             child: const Icon(Icons.done),
+           ),
+         ),
+       );
 }

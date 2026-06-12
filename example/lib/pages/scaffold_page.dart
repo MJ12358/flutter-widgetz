@@ -68,9 +68,9 @@ class _TestBottomSheetListPage extends StatelessWidget {
   const _TestBottomSheetListPage();
 
   List<String> get items => List<String>.generate(
-        31,
-        (int index) => 'Item $index',
-      );
+    31,
+    (int index) => 'Item $index',
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -131,9 +131,9 @@ class _TestBottomSheetWidgetPage extends StatelessWidget {
   const _TestBottomSheetWidgetPage();
 
   List<String> get items => List<String>.generate(
-        31,
-        (int index) => 'Field $index',
-      );
+    31,
+    (int index) => 'Field $index',
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -145,10 +145,9 @@ class _TestBottomSheetWidgetPage extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border(
             top: BorderSide(
-              color: Theme.of(context)
-                  .colorScheme
-                  .onSurface
-                  .withValues(alpha: 0.1),
+              color: Theme.of(
+                context,
+              ).colorScheme.onSurface.withValues(alpha: 0.1),
             ),
           ),
         ),

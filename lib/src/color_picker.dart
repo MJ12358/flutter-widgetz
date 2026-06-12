@@ -18,9 +18,9 @@ class ColorPicker extends StatefulWidget {
     this.padding = _defaultPadding,
     double? spacing,
     this.title,
-  })  : colors = colors ?? _defaultColors,
-        spacing = spacing ?? _defaultSpacing,
-        isCompact = false;
+  }) : colors = colors ?? _defaultColors,
+       spacing = spacing ?? _defaultSpacing,
+       isCompact = false;
 
   /// Callback when a color is tapped.
   final ValueChanged<Color> onTap;
@@ -69,12 +69,12 @@ class ColorPicker extends StatefulWidget {
     this.padding = _defaultPadding,
     this.spacing = _defaultSpacing,
     this.title,
-  })  : colors = colors ?? _defaultColors,
-        isCompact = false,
-        decoration = BoxDecoration(
-          border: Border.all(),
-          shape: BoxShape.circle,
-        );
+  }) : colors = colors ?? _defaultColors,
+       isCompact = false,
+       decoration = BoxDecoration(
+         border: Border.all(),
+         shape: BoxShape.circle,
+       );
 
   /// Circle uses a [BoxDecoration] with [BoxShape.rectangle].
   ///
@@ -88,11 +88,11 @@ class ColorPicker extends StatefulWidget {
     this.padding = _defaultPadding,
     this.spacing = _defaultSpacing,
     this.title,
-  })  : colors = colors ?? _defaultColors,
-        isCompact = false,
-        decoration = BoxDecoration(
-          border: Border.all(),
-        );
+  }) : colors = colors ?? _defaultColors,
+       isCompact = false,
+       decoration = BoxDecoration(
+         border: Border.all(),
+       );
 
   /// Compact uses a horizontal list.
   ///
@@ -107,12 +107,12 @@ class ColorPicker extends StatefulWidget {
     BoxShape? shape,
     this.spacing = _defaultSpacing,
     this.title,
-  })  : colors = colors ?? _defaultColors,
-        isCompact = true,
-        decoration = BoxDecoration(
-          border: Border.all(),
-          shape: shape ?? BoxShape.circle,
-        );
+  }) : colors = colors ?? _defaultColors,
+       isCompact = true,
+       decoration = BoxDecoration(
+         border: Border.all(),
+         shape: shape ?? BoxShape.circle,
+       );
 
   @override
   State<ColorPicker> createState() => _ColorPickerState();

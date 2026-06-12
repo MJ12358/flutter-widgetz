@@ -25,40 +25,40 @@ class FadedScroll extends StatefulWidget {
     this.maxEndRatioFade = 0.175,
     this.proportionalFade = true,
     this.fadeColor = Colors.white,
-  })  : assert(
-          scrollRatioStart >= 0 && scrollRatioStart <= 1,
-          'scrollRatioStart must be between 0 and 1',
-        ),
-        assert(
-          scrollRatioEnd >= 0 && scrollRatioEnd <= 1,
-          'scrollRatioEnd must be between 0 and 1',
-        ),
-        assert(
-          minStartRatioFade >= 0 && minStartRatioFade <= 1,
-          'minStartRatioFade must be between 0 and 1',
-        ),
-        assert(
-          maxStartRatioFade >= 0 && maxStartRatioFade <= 1,
-          'maxStartRatioFade must be between 0 and 1',
-        ),
-        assert(
-          minEndRatioFade >= 0 && minEndRatioFade <= 1,
-          'minEndRatioFade must be between 0 and 1',
-        ),
-        assert(
-          maxEndRatioFade >= 0 && maxEndRatioFade <= 1,
-          'maxEndRatioFade must be between 0 and 1',
-        ),
-        assert(
-          minStartRatioFade <= maxStartRatioFade,
-          'minStartRatioFade must be less than or equal '
-          'to maxStartRatioFade',
-        ),
-        assert(
-          minEndRatioFade <= maxEndRatioFade,
-          'minEndRatioFade must be less than or equal '
-          'to maxEndRatioFade',
-        );
+  }) : assert(
+         scrollRatioStart >= 0 && scrollRatioStart <= 1,
+         'scrollRatioStart must be between 0 and 1',
+       ),
+       assert(
+         scrollRatioEnd >= 0 && scrollRatioEnd <= 1,
+         'scrollRatioEnd must be between 0 and 1',
+       ),
+       assert(
+         minStartRatioFade >= 0 && minStartRatioFade <= 1,
+         'minStartRatioFade must be between 0 and 1',
+       ),
+       assert(
+         maxStartRatioFade >= 0 && maxStartRatioFade <= 1,
+         'maxStartRatioFade must be between 0 and 1',
+       ),
+       assert(
+         minEndRatioFade >= 0 && minEndRatioFade <= 1,
+         'minEndRatioFade must be between 0 and 1',
+       ),
+       assert(
+         maxEndRatioFade >= 0 && maxEndRatioFade <= 1,
+         'maxEndRatioFade must be between 0 and 1',
+       ),
+       assert(
+         minStartRatioFade <= maxStartRatioFade,
+         'minStartRatioFade must be less than or equal '
+         'to maxStartRatioFade',
+       ),
+       assert(
+         minEndRatioFade <= maxEndRatioFade,
+         'minEndRatioFade must be less than or equal '
+         'to maxEndRatioFade',
+       );
 
   /// The widget that will be faded at the top and bottom.
   /// Either this widget or some of its children should be scrollable.
@@ -192,8 +192,9 @@ class _FadedScrollState extends State<FadedScroll> {
     if (scrollable != _isScrollable) {
       setState(() {
         _isScrollable = scrollable;
-        _scrollRatio =
-            scrollable ? position.pixels / position.maxScrollExtent : 0;
+        _scrollRatio = scrollable
+            ? position.pixels / position.maxScrollExtent
+            : 0;
       });
     }
   }

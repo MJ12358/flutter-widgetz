@@ -36,7 +36,8 @@ class ColorField extends StatefulWidget {
   final Future<Color?> Function({
     required BuildContext context,
     required Widget widget,
-  }) modalBuilder;
+  })
+  modalBuilder;
 
   /// Called whenever the value changes.
   final ValueChanged<Color> onChanged;

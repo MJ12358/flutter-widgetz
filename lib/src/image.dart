@@ -71,13 +71,13 @@ class CustomImage extends StatefulWidget {
     String? package,
     this.scale = _defaultScale,
   }) : imageProvider = Image.asset(
-          name ?? '',
-          errorBuilder: (_, _, _) => errorWidget!,
-          frameBuilder: frameBuilder,
-          package: package,
-          cacheHeight: cacheHeight,
-          cacheWidth: cacheWidth,
-        ).image;
+         name ?? '',
+         errorBuilder: (_, _, _) => errorWidget!,
+         frameBuilder: frameBuilder,
+         package: package,
+         cacheHeight: cacheHeight,
+         cacheWidth: cacheWidth,
+       ).image;
 
   /// Uses a [MemoryImage].
   ///
@@ -95,12 +95,12 @@ class CustomImage extends StatefulWidget {
     this.opacity = _defaultOpacity,
     this.scale = _defaultScale,
   }) : imageProvider = Image.memory(
-          bytes ?? Uint8List(0),
-          errorBuilder: (_, _, _) => errorWidget!,
-          frameBuilder: frameBuilder,
-          cacheHeight: cacheHeight,
-          cacheWidth: cacheWidth,
-        ).image;
+         bytes ?? Uint8List(0),
+         errorBuilder: (_, _, _) => errorWidget!,
+         frameBuilder: frameBuilder,
+         cacheHeight: cacheHeight,
+         cacheWidth: cacheWidth,
+       ).image;
 
   /// Uses a [NetworkImage].
   ///
@@ -118,12 +118,12 @@ class CustomImage extends StatefulWidget {
     this.opacity = _defaultOpacity,
     this.scale = _defaultScale,
   }) : imageProvider = Image.network(
-          source ?? '',
-          errorBuilder: (_, _, _) => errorWidget!,
-          loadingBuilder: loadingBuilder,
-          cacheHeight: cacheHeight,
-          cacheWidth: cacheWidth,
-        ).image;
+         source ?? '',
+         errorBuilder: (_, _, _) => errorWidget!,
+         loadingBuilder: loadingBuilder,
+         cacheHeight: cacheHeight,
+         cacheWidth: cacheWidth,
+       ).image;
 
   /// This factory attempts to determine the input
   /// type to construct the proper image for you.

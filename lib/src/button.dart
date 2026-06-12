@@ -37,8 +37,8 @@ class Button extends StatelessWidget {
     super.key,
     this.child,
     this.onPressed,
-  })  : border = _defaultBorder,
-        color = _defaultColor;
+  }) : border = _defaultBorder,
+       color = _defaultColor;
 
   /// Destructive uses a red color.
   ///
@@ -47,8 +47,8 @@ class Button extends StatelessWidget {
     super.key,
     this.child,
     this.onPressed,
-  })  : border = _defaultBorder,
-        color = const Color(0xFFBA0517);
+  }) : border = _defaultBorder,
+       color = const Color(0xFFBA0517);
 
   /// Inverse uses a dark blue color.
   ///
@@ -57,8 +57,8 @@ class Button extends StatelessWidget {
     super.key,
     this.child,
     this.onPressed,
-  })  : border = _defaultBorder,
-        color = const Color(0xFF16325C);
+  }) : border = _defaultBorder,
+       color = const Color(0xFF16325C);
 
   /// Neutral uses the default color with a border.
   ///
@@ -67,8 +67,8 @@ class Button extends StatelessWidget {
     super.key,
     this.child,
     this.onPressed,
-  })  : border = const BorderSide(color: Color(0xFFC9C9C9)),
-        color = null;
+  }) : border = const BorderSide(color: Color(0xFFC9C9C9)),
+       color = null;
 
   /// Outline uses a [color] to create a border.
   ///
@@ -78,8 +78,8 @@ class Button extends StatelessWidget {
     Color? color,
     this.child,
     this.onPressed,
-  })  : border = BorderSide(color: color ?? _defaultColor),
-        color = null;
+  }) : border = BorderSide(color: color ?? _defaultColor),
+       color = null;
 
   /// Success uses a green color.
   ///
@@ -88,8 +88,8 @@ class Button extends StatelessWidget {
     super.key,
     this.child,
     this.onPressed,
-  })  : border = _defaultBorder,
-        color = const Color(0xFF45C65A);
+  }) : border = _defaultBorder,
+       color = const Color(0xFF45C65A);
 
   @override
   Widget build(BuildContext context) {

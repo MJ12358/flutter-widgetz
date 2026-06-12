@@ -27,16 +27,16 @@ class CustomDialogOption extends SimpleDialogOption {
     bool checked = true,
     super.onPressed,
   }) : super(
-          padding: EdgeInsets.zero,
-          child: ListTile(
-            leading: AnimatedOpacity(
-              opacity: checked ? 1.0 : 0.15,
-              duration: kThemeChangeDuration,
-              child: const Icon(Icons.done),
-            ),
-            title: child,
-          ),
-        );
+         padding: EdgeInsets.zero,
+         child: ListTile(
+           leading: AnimatedOpacity(
+             opacity: checked ? 1.0 : 0.15,
+             duration: kThemeChangeDuration,
+             child: const Icon(Icons.done),
+           ),
+           title: child,
+         ),
+       );
 
   /// Icon uses an [Icon].
   ///
@@ -47,12 +47,12 @@ class CustomDialogOption extends SimpleDialogOption {
     required Widget icon,
     super.onPressed,
   }) : super(
-          padding: EdgeInsets.zero,
-          child: ListTile(
-            leading: icon,
-            title: child,
-          ),
-        );
+         padding: EdgeInsets.zero,
+         child: ListTile(
+           leading: icon,
+           title: child,
+         ),
+       );
 
   /// Tile wraps the child in a [ListTile].
   ///
@@ -62,9 +62,9 @@ class CustomDialogOption extends SimpleDialogOption {
     required Widget child,
     super.onPressed,
   }) : super(
-          padding: EdgeInsets.zero,
-          child: ListTile(
-            title: child,
-          ),
-        );
+         padding: EdgeInsets.zero,
+         child: ListTile(
+           title: child,
+         ),
+       );
 }

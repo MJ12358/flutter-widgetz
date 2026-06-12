@@ -56,8 +56,8 @@ class AuthButton extends StatelessWidget {
     this.child = const Text('Sign in with Apple'),
     this.maxWidth = _defaultMaxWidth,
     this.minWidth = _defaultMinWidth,
-  })  : color = const Color(0xFF000000),
-        icon = _getAsset(_kAppleIcon);
+  }) : color = const Color(0xFF000000),
+       icon = _getAsset(_kAppleIcon);
 
   /// This creates a Facebook themed button.
   ///
@@ -70,8 +70,8 @@ class AuthButton extends StatelessWidget {
     this.child = const Text('Sign in with Facebook'),
     this.maxWidth = _defaultMaxWidth,
     this.minWidth = _defaultMinWidth,
-  })  : color = const Color(0xFF43549D),
-        icon = _getAsset(_kFacebookIcon);
+  }) : color = const Color(0xFF43549D),
+       icon = _getAsset(_kFacebookIcon);
 
   /// This creates a GitHub themed button.
   ///
@@ -84,8 +84,8 @@ class AuthButton extends StatelessWidget {
     this.child = const Text('Sign in with GitHub'),
     this.maxWidth = _defaultMaxWidth,
     this.minWidth = _defaultMinWidth,
-  })  : color = const Color(0xFF24292E),
-        icon = _getAsset(_kGithubIcon);
+  }) : color = const Color(0xFF24292E),
+       icon = _getAsset(_kGithubIcon);
 
   /// This creates a Google themed button.
   ///
@@ -98,8 +98,8 @@ class AuthButton extends StatelessWidget {
     this.child = const Text('Sign in with Google'),
     this.maxWidth = _defaultMaxWidth,
     this.minWidth = _defaultMinWidth,
-  })  : color = const Color(0xFF4285F4),
-        icon = _getAsset(_kGoogleIcon);
+  }) : color = const Color(0xFF4285F4),
+       icon = _getAsset(_kGoogleIcon);
 
   /// This creates a Microsoft themed button.
   ///
@@ -112,8 +112,8 @@ class AuthButton extends StatelessWidget {
     this.child = const Text('Sign in with Microsoft'),
     this.maxWidth = _defaultMaxWidth,
     this.minWidth = _defaultMinWidth,
-  })  : color = const Color(0xFF2F2F2F),
-        icon = _getAsset(_kMicrosoftIcon);
+  }) : color = const Color(0xFF2F2F2F),
+       icon = _getAsset(_kMicrosoftIcon);
 
   /// This creates a Twitter themed button.
   ///
@@ -126,12 +126,12 @@ class AuthButton extends StatelessWidget {
     Widget child = const Text('Sign in with Twitter'),
     this.maxWidth = _defaultMaxWidth,
     this.minWidth = _defaultMinWidth,
-  })  : color = const Color(0xFF55ACEE),
-        icon = _getAsset(_kTwitterIcon),
-        child = DefaultTextStyle.merge(
-          style: const TextStyle(color: Colors.white),
-          child: child,
-        );
+  }) : color = const Color(0xFF55ACEE),
+       icon = _getAsset(_kTwitterIcon),
+       child = DefaultTextStyle.merge(
+         style: const TextStyle(color: Colors.white),
+         child: child,
+       );
 
   @override
   Widget build(BuildContext context) {

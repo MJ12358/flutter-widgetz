@@ -20,17 +20,17 @@ class CustomListTile extends StatelessWidget {
     Widget? trailing,
     String? trailingText,
   }) : _content = _Tile(
-          color: primaryColor,
-          dense: dense,
-          leading: leading,
-          onTap: onTap,
-          onLongPress: onLongPress,
-          selected: selected,
-          subtitle: subtitle,
-          title: title,
-          trailing: trailing,
-          trailingText: trailingText,
-        );
+         color: primaryColor,
+         dense: dense,
+         leading: leading,
+         onTap: onTap,
+         onLongPress: onLongPress,
+         selected: selected,
+         subtitle: subtitle,
+         title: title,
+         trailing: trailing,
+         trailingText: trailingText,
+       );
 
   /// Internal prop to hold the widget to be built.
   final Widget _content;
@@ -57,30 +57,30 @@ class CustomListTile extends StatelessWidget {
     Widget? trailing,
     String? trailingText,
   }) : _content = Dismissible(
-          key: key!,
-          direction: dismissDirection,
-          background: Container(
-            alignment: Alignment.centerRight,
-            color: color,
-            padding: padding,
-            child: Icon(icon),
-          ),
-          onDismissed: (_) => onDismissed(),
-          confirmDismiss: (_) =>
-              confirmDismiss?.call() ?? Future<bool>.value(true),
-          child: _Tile(
-            color: primaryColor,
-            dense: dense,
-            leading: leading,
-            onTap: onTap,
-            onLongPress: onLongPress,
-            selected: selected,
-            subtitle: subtitle,
-            title: title,
-            trailing: trailing,
-            trailingText: trailingText,
-          ),
-        );
+         key: key!,
+         direction: dismissDirection,
+         background: Container(
+           alignment: Alignment.centerRight,
+           color: color,
+           padding: padding,
+           child: Icon(icon),
+         ),
+         onDismissed: (_) => onDismissed(),
+         confirmDismiss: (_) =>
+             confirmDismiss?.call() ?? Future<bool>.value(true),
+         child: _Tile(
+           color: primaryColor,
+           dense: dense,
+           leading: leading,
+           onTap: onTap,
+           onLongPress: onLongPress,
+           selected: selected,
+           subtitle: subtitle,
+           title: title,
+           trailing: trailing,
+           trailingText: trailingText,
+         ),
+       );
 
   @override
   Widget build(BuildContext context) {
@@ -101,20 +101,21 @@ class _Tile extends ListTile {
     Widget? trailing,
     String? trailingText,
   }) : super(
-          leading: leading != null
-              ? _Avatar(
-                  color: color,
-                  child: leading,
-                )
-              : null,
-          trailing: trailing ??
-              (trailingText != null
-                  ? _Avatar(
-                      color: color,
-                      child: Text(trailingText),
-                    )
-                  : null),
-        );
+         leading: leading != null
+             ? _Avatar(
+                 color: color,
+                 child: leading,
+               )
+             : null,
+         trailing:
+             trailing ??
+             (trailingText != null
+                 ? _Avatar(
+                     color: color,
+                     child: Text(trailingText),
+                   )
+                 : null),
+       );
 }
 
 class _Avatar extends StatelessWidget {

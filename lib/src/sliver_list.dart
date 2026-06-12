@@ -32,10 +32,10 @@ class CustomSliverList extends StatelessWidget {
     this.padding = _defaultPadding,
     bool addAutomaticKeepAlives = true,
   }) : delegate = SliverChildBuilderDelegate(
-          itemBuilder,
-          childCount: itemCount,
-          addAutomaticKeepAlives: addAutomaticKeepAlives,
-        );
+         itemBuilder,
+         childCount: itemCount,
+         addAutomaticKeepAlives: addAutomaticKeepAlives,
+       );
 
   /// List uses a [SliverChildListDelegate].
   ///
@@ -46,9 +46,9 @@ class CustomSliverList extends StatelessWidget {
     this.padding = _defaultPadding,
     bool addAutomaticKeepAlives = true,
   }) : delegate = SliverChildListDelegate(
-          children,
-          addAutomaticKeepAlives: addAutomaticKeepAlives,
-        );
+         children,
+         addAutomaticKeepAlives: addAutomaticKeepAlives,
+       );
 
   /// Separated uses a [SliverChildBuilderDelegate]
   /// and inserts a separator between widgets.
@@ -62,22 +62,22 @@ class CustomSliverList extends StatelessWidget {
     this.padding = _defaultPadding,
     bool addAutomaticKeepAlives = true,
   }) : delegate = SliverChildBuilderDelegate(
-          (BuildContext context, int index) {
-            final int itemIndex = index ~/ 2;
-            final Widget widget;
-            if (index.isEven) {
-              widget = itemBuilder(context, itemIndex);
-            } else {
-              widget = separatorBuilder(context, itemIndex);
-            }
-            return widget;
-          },
-          addAutomaticKeepAlives: addAutomaticKeepAlives,
-          childCount: _computeActualChildCount(itemCount),
-          semanticIndexCallback: (_, int index) {
-            return index.isEven ? index ~/ 2 : null;
-          },
-        );
+         (BuildContext context, int index) {
+           final int itemIndex = index ~/ 2;
+           final Widget widget;
+           if (index.isEven) {
+             widget = itemBuilder(context, itemIndex);
+           } else {
+             widget = separatorBuilder(context, itemIndex);
+           }
+           return widget;
+         },
+         addAutomaticKeepAlives: addAutomaticKeepAlives,
+         childCount: _computeActualChildCount(itemCount),
+         semanticIndexCallback: (_, int index) {
+           return index.isEven ? index ~/ 2 : null;
+         },
+       );
 
   @override
   Widget build(BuildContext context) {

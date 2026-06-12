@@ -389,23 +389,24 @@ class _PollFooter extends StatelessWidget {
     }
     final DateTime now = DateTime.now();
 
-    final Duration d = DateTime(
-      endDate!.year,
-      endDate!.month,
-      endDate!.day,
-      endDate!.hour,
-      endDate!.minute,
-      endDate!.second,
-    ).difference(
-      DateTime(
-        now.year,
-        now.month,
-        now.day,
-        now.hour,
-        now.minute,
-        now.second,
-      ),
-    );
+    final Duration d =
+        DateTime(
+          endDate!.year,
+          endDate!.month,
+          endDate!.day,
+          endDate!.hour,
+          endDate!.minute,
+          endDate!.second,
+        ).difference(
+          DateTime(
+            now.year,
+            now.month,
+            now.day,
+            now.hour,
+            now.minute,
+            now.second,
+          ),
+        );
 
     if (d.inDays >= 1) {
       return '${d.inDays} ${d.inDays == 1 ? "day" : "days"}';

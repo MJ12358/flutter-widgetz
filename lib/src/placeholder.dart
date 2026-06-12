@@ -41,9 +41,9 @@ class CustomPlaceholder extends StatelessWidget {
     this.mainAxisAlignment = _defaultAlignment,
     this.padding = _defaultPadding,
   }) : child = Image.asset(
-          name,
-          color: color,
-        );
+         name,
+         color: color,
+       );
 
   /// Network uses [Image.network] as [child].
   ///
@@ -56,9 +56,9 @@ class CustomPlaceholder extends StatelessWidget {
     this.mainAxisAlignment = _defaultAlignment,
     this.padding = _defaultPadding,
   }) : child = Image.network(
-          source,
-          color: color,
-        );
+         source,
+         color: color,
+       );
 
   /// Flashlight uses a "flashlight" image as [child].
   ///
@@ -70,10 +70,10 @@ class CustomPlaceholder extends StatelessWidget {
     this.mainAxisAlignment = _defaultAlignment,
     this.padding = _defaultPadding,
   }) : child = Image.asset(
-          _kFlashlightImage,
-          color: color,
-          package: _kPackage,
-        );
+         _kFlashlightImage,
+         color: color,
+         package: _kPackage,
+       );
 
   @override
   Widget build(BuildContext context) {

@@ -39,15 +39,15 @@ class CustomListView extends StatelessWidget {
     this.clipBehavior = Clip.none,
     this.padding,
     Widget? separator,
-  })  : itemCount = children.length,
-        itemBuilder = ((BuildContext context, int index) {
-          return children[index];
-        }),
-        physics = const NeverScrollableScrollPhysics(),
-        separatorBuilder = ((BuildContext context, int index) {
-          return separator ?? _defaultSeparator;
-        }),
-        shrinkWrap = true;
+  }) : itemCount = children.length,
+       itemBuilder = ((BuildContext context, int index) {
+         return children[index];
+       }),
+       physics = const NeverScrollableScrollPhysics(),
+       separatorBuilder = ((BuildContext context, int index) {
+         return separator ?? _defaultSeparator;
+       }),
+       shrinkWrap = true;
 
   @override
   Widget build(BuildContext context) {

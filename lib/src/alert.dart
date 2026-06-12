@@ -67,8 +67,8 @@ class Alert extends StatefulWidget {
     this.isVisible = _defaultIsVisible,
     this.onClose,
     this.padding = _defaultPadding,
-  })  : color = const Color(0xFFEA001E),
-        icon = const Icon(Icons.block);
+  }) : color = const Color(0xFFEA001E),
+       icon = const Icon(Icons.block);
 
   /// Info uses [Icons.info] and a light grey color.
   ///
@@ -82,8 +82,8 @@ class Alert extends StatefulWidget {
     this.isVisible = _defaultIsVisible,
     this.onClose,
     this.padding = _defaultPadding,
-  })  : color = const Color(0xFF9B9B9B),
-        icon = const Icon(Icons.info);
+  }) : color = const Color(0xFF9B9B9B),
+       icon = const Icon(Icons.info);
 
   /// Offline uses [Icons.wifi] and a dark grey color.
   ///
@@ -97,8 +97,8 @@ class Alert extends StatefulWidget {
     this.isVisible = _defaultIsVisible,
     this.onClose,
     this.padding = _defaultPadding,
-  })  : color = const Color(0xFF444444),
-        icon = const Icon(Icons.wifi);
+  }) : color = const Color(0xFF444444),
+       icon = const Icon(Icons.wifi);
 
   /// Warning uses [Icons.warning] and a yellow color.
   ///
@@ -112,8 +112,8 @@ class Alert extends StatefulWidget {
     this.isVisible = _defaultIsVisible,
     this.onClose,
     this.padding = _defaultPadding,
-  })  : color = const Color(0xFFF89038),
-        icon = const Icon(Icons.warning);
+  }) : color = const Color(0xFFF89038),
+       icon = const Icon(Icons.warning);
 
   @override
   State<Alert> createState() => _AlertState();

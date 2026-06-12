@@ -25,9 +25,9 @@ class DurationPicker extends StatefulWidget {
     int? snapToMins,
     DurationPickerUnit? unit,
     this.width,
-  })  : value = value ?? Duration.zero,
-        snapToMins = snapToMins ?? 1,
-        unit = unit ?? DurationPickerUnit.minute;
+  }) : value = value ?? Duration.zero,
+       snapToMins = snapToMins ?? 1,
+       unit = unit ?? DurationPickerUnit.minute;
 
   /// Called whenever the value changes.
   final ValueChanged<Duration> onChanged;
@@ -216,8 +216,11 @@ class _DialState extends State<_Dial> with SingleTickerProviderStateMixin {
 
   void _animateTo(double targetTheta) {
     final double currentTheta = _theta.value;
-    double beginTheta =
-        _nearest(targetTheta, currentTheta, currentTheta + _kTwoPi);
+    double beginTheta = _nearest(
+      targetTheta,
+      currentTheta,
+      currentTheta + _kTwoPi,
+    );
     beginTheta = _nearest(targetTheta, beginTheta, currentTheta - _kTwoPi);
     _thetaTween
       ..begin = beginTheta
@@ -443,8 +446,9 @@ class _DialPainter extends CustomPainter {
 
     // Draw the Text in the center of the circle
     // which displays the duration string.
-    final String secondaryUnits =
-        (unitMultiplier == 0) ? '' : '$unitMultiplier${unit.secondaryString} ';
+    final String secondaryUnits = (unitMultiplier == 0)
+        ? ''
+        : '$unitMultiplier${unit.secondaryString} ';
 
     final String units = '$unitHand';
 
@@ -452,8 +456,9 @@ class _DialPainter extends CustomPainter {
       textAlign: TextAlign.center,
       text: TextSpan(
         text: '$secondaryUnits$units',
-        style: theme.textTheme.displayMedium!
-            .copyWith(fontSize: size.shortestSide * 0.15),
+        style: theme.textTheme.displayMedium!.copyWith(
+          fontSize: size.shortestSide * 0.15,
+        ),
       ),
       textDirection: TextDirection.ltr,
     )..layout();
@@ -532,8 +537,10 @@ class _DialPainter extends CustomPainter {
     double labelTheta = _kPiByTwo;
 
     for (final TextPainter label in labels) {
-      final Offset labelOffset =
-          Offset(-label.width / 2.0, -label.height / 2.0);
+      final Offset labelOffset = Offset(
+        -label.width / 2.0,
+        -label.height / 2.0,
+      );
 
       label.paint(
         canvas,

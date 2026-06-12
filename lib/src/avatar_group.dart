@@ -13,14 +13,14 @@ class AvatarGroup extends StatelessWidget {
     super.key,
     this.icon = _defaultIcon,
     this.radius = _defaultRadius,
-  })  : child1 = CustomAvatar(
-          icon: icon,
-          radius: radius,
-        ),
-        child2 = CustomAvatar(
-          icon: icon,
-          radius: _computeRadius(radius),
-        );
+  }) : child1 = CustomAvatar(
+         icon: icon,
+         radius: radius,
+       ),
+       child2 = CustomAvatar(
+         icon: icon,
+         radius: _computeRadius(radius),
+       );
 
   /// The widget below this widget in the tree.
   final Widget child1;
@@ -45,16 +45,16 @@ class AvatarGroup extends StatelessWidget {
     super.key,
     this.icon = _defaultIcon,
     this.radius = _defaultRadius,
-  })  : child1 = CustomAvatar.asset(
-          name,
-          icon: icon,
-          radius: radius,
-        ),
-        child2 = CustomAvatar.asset(
-          name,
-          icon: icon,
-          radius: _computeRadius(radius),
-        );
+  }) : child1 = CustomAvatar.asset(
+         name,
+         icon: icon,
+         radius: radius,
+       ),
+       child2 = CustomAvatar.asset(
+         name,
+         icon: icon,
+         radius: _computeRadius(radius),
+       );
 
   /// Memory uses [Image.memory].
   ///
@@ -64,16 +64,16 @@ class AvatarGroup extends StatelessWidget {
     super.key,
     this.icon = _defaultIcon,
     this.radius = _defaultRadius,
-  })  : child1 = CustomAvatar.memory(
-          bytes,
-          icon: icon,
-          radius: radius,
-        ),
-        child2 = CustomAvatar.memory(
-          bytes,
-          icon: icon,
-          radius: _computeRadius(radius),
-        );
+  }) : child1 = CustomAvatar.memory(
+         bytes,
+         icon: icon,
+         radius: radius,
+       ),
+       child2 = CustomAvatar.memory(
+         bytes,
+         icon: icon,
+         radius: _computeRadius(radius),
+       );
 
   /// Network uses [Image.network].
   ///
@@ -83,16 +83,16 @@ class AvatarGroup extends StatelessWidget {
     super.key,
     this.icon = _defaultIcon,
     this.radius = _defaultRadius,
-  })  : child1 = CustomAvatar.network(
-          source,
-          icon: icon,
-          radius: radius,
-        ),
-        child2 = CustomAvatar.network(
-          source,
-          icon: icon,
-          radius: _computeRadius(radius),
-        );
+  }) : child1 = CustomAvatar.network(
+         source,
+         icon: icon,
+         radius: radius,
+       ),
+       child2 = CustomAvatar.network(
+         source,
+         icon: icon,
+         radius: _computeRadius(radius),
+       );
 
   @override
   Widget build(BuildContext context) {

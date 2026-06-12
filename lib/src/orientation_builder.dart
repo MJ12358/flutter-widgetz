@@ -37,9 +37,9 @@ class CustomOrientationBuilder extends StatefulWidget {
     super.key,
     required WidgetBuilder builder,
     this.onChanged,
-  })  : landscapeBuilder = builder,
-        portraitBuilder = builder,
-        onDispose = _defaultOnDispose {
+  }) : landscapeBuilder = builder,
+       portraitBuilder = builder,
+       onDispose = _defaultOnDispose {
     SystemChrome.setPreferredOrientations(<DeviceOrientation>[
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
@@ -53,9 +53,9 @@ class CustomOrientationBuilder extends StatefulWidget {
     super.key,
     required WidgetBuilder builder,
     this.onChanged,
-  })  : landscapeBuilder = builder,
-        portraitBuilder = builder,
-        onDispose = _defaultOnDispose {
+  }) : landscapeBuilder = builder,
+       portraitBuilder = builder,
+       onDispose = _defaultOnDispose {
     SystemChrome.setPreferredOrientations(<DeviceOrientation>[
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,

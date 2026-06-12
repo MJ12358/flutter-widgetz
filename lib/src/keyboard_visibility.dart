@@ -21,7 +21,8 @@ class KeyboardVisibility extends StatefulWidget {
   /// Called when the keyboard is shown or hidden.
   final Function(
     bool isKeyboardVisible,
-  ) listener;
+  )
+  listener;
 
   @override
   State<KeyboardVisibility> createState() => _KeyboardVisibilityState();

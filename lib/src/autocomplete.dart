@@ -88,51 +88,53 @@ class CustomAutocomplete<T extends Object> extends StatelessWidget {
         return RawAutocomplete<T>(
           displayStringForOption: displayStringForOption,
           initialValue: TextEditingValue(text: initialValue),
-          fieldViewBuilder: (
-            BuildContext context,
-            TextEditingController textEditingController,
-            FocusNode focusNode,
-            VoidCallback onFieldSubmitted,
-          ) {
-            return CustomTextField(
-              autofocus: autofocus,
-              controller: textEditingController,
-              errorText: errorText,
-              focusNode: focusNode,
-              keyboardType: keyboardType,
-              labelText: labelText,
-              prefixIcon: prefixIcon,
-              scrollPadding: scrollPadding,
-              hasError: hasError,
-              restorationId: restorationId,
-              textCapitalization: textCapitalization,
-              textInputAction: textInputAction,
-              onChanged: onChanged,
-              suffixIcon: _SuffixIcon(
-                controller: textEditingController,
-                onChanged: onChanged,
-              ),
-              value: initialValue,
-            );
-          },
+          fieldViewBuilder:
+              (
+                BuildContext context,
+                TextEditingController textEditingController,
+                FocusNode focusNode,
+                VoidCallback onFieldSubmitted,
+              ) {
+                return CustomTextField(
+                  autofocus: autofocus,
+                  controller: textEditingController,
+                  errorText: errorText,
+                  focusNode: focusNode,
+                  keyboardType: keyboardType,
+                  labelText: labelText,
+                  prefixIcon: prefixIcon,
+                  scrollPadding: scrollPadding,
+                  hasError: hasError,
+                  restorationId: restorationId,
+                  textCapitalization: textCapitalization,
+                  textInputAction: textInputAction,
+                  onChanged: onChanged,
+                  suffixIcon: _SuffixIcon(
+                    controller: textEditingController,
+                    onChanged: onChanged,
+                  ),
+                  value: initialValue,
+                );
+              },
           optionsBuilder: (TextEditingValue textEditingValue) {
             if (textEditingValue.text.isEmpty) {
               return <T>[];
             }
             return optionsBuilder(textEditingValue.text);
           },
-          optionsViewBuilder: (
-            BuildContext context,
-            ValueChanged<T> onSelected,
-            Iterable<T> options,
-          ) {
-            return _AutocompleteOptions<T>(
-              onSelected: onSelected,
-              options: options,
-              constraints: constraints,
-              displayStringForOption: displayStringForOption,
-            );
-          },
+          optionsViewBuilder:
+              (
+                BuildContext context,
+                ValueChanged<T> onSelected,
+                Iterable<T> options,
+              ) {
+                return _AutocompleteOptions<T>(
+                  onSelected: onSelected,
+                  options: options,
+                  constraints: constraints,
+                  displayStringForOption: displayStringForOption,
+                );
+              },
           onSelected: onSelected,
         );
       },

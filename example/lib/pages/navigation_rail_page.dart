@@ -13,22 +13,22 @@ class _NavigationRailPageState extends State<NavigationRailPage> {
 
   static const List<NavigationRailDestination> _destinations =
       <NavigationRailDestination>[
-    NavigationRailDestination(
-      icon: Icon(Icons.home_outlined),
-      label: Text('Home'),
-      selectedIcon: Icon(Icons.home),
-    ),
-    NavigationRailDestination(
-      icon: Icon(Icons.star_border),
-      label: Text('Favorites'),
-      selectedIcon: Icon(Icons.star),
-    ),
-    NavigationRailDestination(
-      icon: Icon(Icons.person_outline),
-      label: Text('Account'),
-      selectedIcon: Icon(Icons.person),
-    ),
-  ];
+        NavigationRailDestination(
+          icon: Icon(Icons.home_outlined),
+          label: Text('Home'),
+          selectedIcon: Icon(Icons.home),
+        ),
+        NavigationRailDestination(
+          icon: Icon(Icons.star_border),
+          label: Text('Favorites'),
+          selectedIcon: Icon(Icons.star),
+        ),
+        NavigationRailDestination(
+          icon: Icon(Icons.person_outline),
+          label: Text('Account'),
+          selectedIcon: Icon(Icons.person),
+        ),
+      ];
 
   static const List<Widget> _pages = <Widget>[
     ColoredBox(

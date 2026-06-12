@@ -35,9 +35,9 @@ class CustomSliverGrid extends StatelessWidget {
     required IndexedWidgetBuilder itemBuilder,
     this.padding = _defaultPadding,
   }) : delegate = SliverChildBuilderDelegate(
-          itemBuilder,
-          childCount: itemCount,
-        );
+         itemBuilder,
+         childCount: itemCount,
+       );
 
   /// Count uses [SliverGridDelegateWithFixedCrossAxisCount].
   ///
@@ -51,16 +51,16 @@ class CustomSliverGrid extends StatelessWidget {
     double? mainAxisExtent,
     double mainAxisSpacing = 0.0,
     this.padding = _defaultPadding,
-  })  : gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: crossAxisCount,
-          childAspectRatio: childAspectRatio,
-          crossAxisSpacing: crossAxisSpacing,
-          mainAxisExtent: mainAxisExtent,
-          mainAxisSpacing: mainAxisSpacing,
-        ),
-        delegate = SliverChildListDelegate(
-          children,
-        );
+  }) : gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
+         crossAxisCount: crossAxisCount,
+         childAspectRatio: childAspectRatio,
+         crossAxisSpacing: crossAxisSpacing,
+         mainAxisExtent: mainAxisExtent,
+         mainAxisSpacing: mainAxisSpacing,
+       ),
+       delegate = SliverChildListDelegate(
+         children,
+       );
 
   /// Extent uses [SliverGridDelegateWithMaxCrossAxisExtent].
   ///
@@ -74,16 +74,16 @@ class CustomSliverGrid extends StatelessWidget {
     double? mainAxisExtent,
     double mainAxisSpacing = 0.0,
     this.padding = _defaultPadding,
-  })  : gridDelegate = SliverGridDelegateWithMaxCrossAxisExtent(
-          childAspectRatio: childAspectRatio,
-          crossAxisSpacing: crossAxisSpacing,
-          mainAxisExtent: mainAxisExtent,
-          mainAxisSpacing: mainAxisSpacing,
-          maxCrossAxisExtent: maxCrossAxisExtent,
-        ),
-        delegate = SliverChildListDelegate(
-          children,
-        );
+  }) : gridDelegate = SliverGridDelegateWithMaxCrossAxisExtent(
+         childAspectRatio: childAspectRatio,
+         crossAxisSpacing: crossAxisSpacing,
+         mainAxisExtent: mainAxisExtent,
+         mainAxisSpacing: mainAxisSpacing,
+         maxCrossAxisExtent: maxCrossAxisExtent,
+       ),
+       delegate = SliverChildListDelegate(
+         children,
+       );
 
   @override
   Widget build(BuildContext context) {

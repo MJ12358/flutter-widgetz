@@ -18,8 +18,8 @@ class DirectionalPad extends StatelessWidget {
     this.padding = _defaultPadding,
     this.shape = _defaultShape,
     this.size = _defaultSize,
-  })  : borderSize = borderSize ?? _getDefaultBorderSize(size),
-        assert(buttons.length == 4, 'Button length must be four.');
+  }) : borderSize = borderSize ?? _getDefaultBorderSize(size),
+       assert(buttons.length == 4, 'Button length must be four.');
 
   /// The list of buttons in a clockwise direction.
   final List<Widget> buttons;
@@ -70,13 +70,13 @@ class DirectionalPad extends StatelessWidget {
     this.padding = _defaultPadding,
     this.shape = _defaultShape,
     this.size = _defaultSize,
-  })  : borderSize = borderSize ?? _getDefaultBorderSize(size),
-        buttons = const <Icon>[
-          Icon(Icons.arrow_upward),
-          Icon(Icons.arrow_forward),
-          Icon(Icons.arrow_downward),
-          Icon(Icons.arrow_back),
-        ];
+  }) : borderSize = borderSize ?? _getDefaultBorderSize(size),
+       buttons = const <Icon>[
+         Icon(Icons.arrow_upward),
+         Icon(Icons.arrow_forward),
+         Icon(Icons.arrow_downward),
+         Icon(Icons.arrow_back),
+       ];
 
   /// Chevron uses material `Icons.chevron`.
   ///
@@ -91,19 +91,19 @@ class DirectionalPad extends StatelessWidget {
     this.padding = _defaultPadding,
     this.shape = _defaultShape,
     this.size = _defaultSize,
-  })  : borderSize = borderSize ?? _getDefaultBorderSize(size),
-        buttons = const <Widget>[
-          RotatedBox(
-            quarterTurns: 1,
-            child: Icon(Icons.chevron_left),
-          ),
-          Icon(Icons.chevron_right),
-          RotatedBox(
-            quarterTurns: 3,
-            child: Icon(Icons.chevron_left),
-          ),
-          Icon(Icons.chevron_left),
-        ];
+  }) : borderSize = borderSize ?? _getDefaultBorderSize(size),
+       buttons = const <Widget>[
+         RotatedBox(
+           quarterTurns: 1,
+           child: Icon(Icons.chevron_left),
+         ),
+         Icon(Icons.chevron_right),
+         RotatedBox(
+           quarterTurns: 3,
+           child: Icon(Icons.chevron_left),
+         ),
+         Icon(Icons.chevron_left),
+       ];
 
   /// Attempts to emulate a classic d-pad.
   ///
@@ -114,32 +114,32 @@ class DirectionalPad extends StatelessWidget {
     this.onTap,
     this.padding = _defaultPadding,
     this.size = _defaultSize,
-  })  : backgroundColor = Colors.transparent,
-        borderColor = Colors.transparent,
-        borderSize = 0.0,
-        shape = BoxShape.rectangle,
-        buttons = <Widget>[
-          _PadButton(
-            color: buttonColor,
-            path: _kPadUpIcon,
-            size: size,
-          ),
-          _PadButton(
-            color: buttonColor,
-            path: _kPadRightIcon,
-            size: size,
-          ),
-          _PadButton(
-            color: buttonColor,
-            path: _kPadDownIcon,
-            size: size,
-          ),
-          _PadButton(
-            color: buttonColor,
-            path: _kPadLeftIcon,
-            size: size,
-          ),
-        ];
+  }) : backgroundColor = Colors.transparent,
+       borderColor = Colors.transparent,
+       borderSize = 0.0,
+       shape = BoxShape.rectangle,
+       buttons = <Widget>[
+         _PadButton(
+           color: buttonColor,
+           path: _kPadUpIcon,
+           size: size,
+         ),
+         _PadButton(
+           color: buttonColor,
+           path: _kPadRightIcon,
+           size: size,
+         ),
+         _PadButton(
+           color: buttonColor,
+           path: _kPadDownIcon,
+           size: size,
+         ),
+         _PadButton(
+           color: buttonColor,
+           path: _kPadLeftIcon,
+           size: size,
+         ),
+       ];
 
   /// Attempts to emulate the look of an PlayStation controller.
   ///
@@ -149,17 +149,17 @@ class DirectionalPad extends StatelessWidget {
     this.onTap,
     this.padding = _defaultPadding,
     this.size = _defaultSize,
-  })  : backgroundColor = Colors.transparent,
-        borderColor = Colors.transparent,
-        borderSize = 0.0,
-        buttonColor = null,
-        shape = BoxShape.circle,
-        buttons = <Widget>[
-          _PlayStationButton.triangle(size: size),
-          _PlayStationButton.circle(size: size),
-          _PlayStationButton.cross(size: size),
-          _PlayStationButton.square(size: size),
-        ];
+  }) : backgroundColor = Colors.transparent,
+       borderColor = Colors.transparent,
+       borderSize = 0.0,
+       buttonColor = null,
+       shape = BoxShape.circle,
+       buttons = <Widget>[
+         _PlayStationButton.triangle(size: size),
+         _PlayStationButton.circle(size: size),
+         _PlayStationButton.cross(size: size),
+         _PlayStationButton.square(size: size),
+       ];
 
   /// Attempts to emulate the look of an Xbox controller.
   ///
@@ -169,17 +169,17 @@ class DirectionalPad extends StatelessWidget {
     this.onTap,
     this.padding = _defaultPadding,
     this.size = _defaultSize,
-  })  : backgroundColor = Colors.transparent,
-        borderColor = Colors.transparent,
-        borderSize = 0.0,
-        buttonColor = null,
-        shape = BoxShape.circle,
-        buttons = <Widget>[
-          _XboxButton.y(size: size),
-          _XboxButton.b(size: size),
-          _XboxButton.a(size: size),
-          _XboxButton.x(size: size),
-        ];
+  }) : backgroundColor = Colors.transparent,
+       borderColor = Colors.transparent,
+       borderSize = 0.0,
+       buttonColor = null,
+       shape = BoxShape.circle,
+       buttons = <Widget>[
+         _XboxButton.y(size: size),
+         _XboxButton.b(size: size),
+         _XboxButton.a(size: size),
+         _XboxButton.x(size: size),
+       ];
 
   @override
   Widget build(BuildContext context) {
@@ -344,31 +344,31 @@ class _PlayStationButton extends StatelessWidget {
 
   const _PlayStationButton.triangle({
     required this.size,
-  })  : color = const Color(0xFF3f8b86),
-        padding = 38.0,
-        path = _kTriangleIcon,
-        identifier = 'triangle';
+  }) : color = const Color(0xFF3f8b86),
+       padding = 38.0,
+       path = _kTriangleIcon,
+       identifier = 'triangle';
 
   const _PlayStationButton.circle({
     required this.size,
-  })  : color = const Color(0xFFbc3f32),
-        padding = 28.0,
-        path = _kCircleIcon,
-        identifier = 'circle';
+  }) : color = const Color(0xFFbc3f32),
+       padding = 28.0,
+       path = _kCircleIcon,
+       identifier = 'circle';
 
   const _PlayStationButton.cross({
     required this.size,
-  })  : color = const Color(0xFF6773a8),
-        padding = 48.0,
-        path = _kCrossIcon,
-        identifier = 'cross';
+  }) : color = const Color(0xFF6773a8),
+       padding = 48.0,
+       path = _kCrossIcon,
+       identifier = 'cross';
 
   const _PlayStationButton.square({
     required this.size,
-  })  : color = const Color(0xFFc06c9a),
-        padding = 56.0,
-        path = _kSquareIcon,
-        identifier = 'square';
+  }) : color = const Color(0xFFc06c9a),
+       padding = 56.0,
+       path = _kSquareIcon,
+       identifier = 'square';
 
   @override
   Widget build(BuildContext context) {
@@ -413,27 +413,27 @@ class _XboxButton extends StatelessWidget {
 
   const _XboxButton.y({
     required this.size,
-  })  : color = const Color(0xFFceb133),
-        path = _kYIcon,
-        identifier = 'y';
+  }) : color = const Color(0xFFceb133),
+       path = _kYIcon,
+       identifier = 'y';
 
   const _XboxButton.b({
     required this.size,
-  })  : color = const Color(0xFFd23727),
-        path = _kBIcon,
-        identifier = 'b';
+  }) : color = const Color(0xFFd23727),
+       path = _kBIcon,
+       identifier = 'b';
 
   const _XboxButton.a({
     required this.size,
-  })  : color = const Color(0xFF397957),
-        path = _kAIcon,
-        identifier = 'a';
+  }) : color = const Color(0xFF397957),
+       path = _kAIcon,
+       identifier = 'a';
 
   const _XboxButton.x({
     required this.size,
-  })  : color = const Color(0xFF344e9f),
-        path = _kXIcon,
-        identifier = 'x';
+  }) : color = const Color(0xFF344e9f),
+       path = _kXIcon,
+       identifier = 'x';
 
   @override
   Widget build(BuildContext context) {

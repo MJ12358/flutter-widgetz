@@ -165,8 +165,7 @@ class _HeaderItem<T, E> extends _ListViewItem<T, E> {
     required R Function(_ListItem<T, E>) item,
     required R Function(_ItemSeparator<T, E>) itemSeparator,
     required R Function(_GroupSeparator<T, E>) groupSeparator,
-  }) =>
-      header(this);
+  }) => header(this);
 }
 
 class _ListItem<T, E> extends _ListViewItem<T, E> {
@@ -180,8 +179,7 @@ class _ListItem<T, E> extends _ListViewItem<T, E> {
     required R Function(_ListItem<T, E>) item,
     required R Function(_ItemSeparator<T, E>) itemSeparator,
     required R Function(_GroupSeparator<T, E>) groupSeparator,
-  }) =>
-      item(this);
+  }) => item(this);
 }
 
 class _ItemSeparator<T, E> extends _ListViewItem<T, E> {
@@ -195,8 +193,7 @@ class _ItemSeparator<T, E> extends _ListViewItem<T, E> {
     required R Function(_ListItem<T, E>) item,
     required R Function(_ItemSeparator<T, E>) itemSeparator,
     required R Function(_GroupSeparator<T, E>) groupSeparator,
-  }) =>
-      itemSeparator(this);
+  }) => itemSeparator(this);
 }
 
 class _GroupSeparator<T, E> extends _ListViewItem<T, E> {
@@ -210,6 +207,5 @@ class _GroupSeparator<T, E> extends _ListViewItem<T, E> {
     required R Function(_ListItem<T, E>) item,
     required R Function(_ItemSeparator<T, E>) itemSeparator,
     required R Function(_GroupSeparator<T, E>) groupSeparator,
-  }) =>
-      groupSeparator(this);
+  }) => groupSeparator(this);
 }

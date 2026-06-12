@@ -147,8 +147,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
       identifier: widget.labelText,
       child: TextFormField(
         autofocus: widget.autofocus,
-        autofillHints:
-            widget.autofillHint != null ? <String>[widget.autofillHint!] : null,
+        autofillHints: widget.autofillHint != null
+            ? <String>[widget.autofillHint!]
+            : null,
         controller: _controller,
         focusNode: widget.focusNode,
         inputFormatters: widget.inputFormatter != null

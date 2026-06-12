@@ -169,8 +169,8 @@ class SettingsTile extends StatelessWidget {
     final Orientation orientation = MediaQuery.of(context).orientation;
     final DeviceOrientation deviceOrientation =
         orientation == Orientation.portrait
-            ? DeviceOrientation.portraitUp
-            : DeviceOrientation.landscapeRight;
+        ? DeviceOrientation.portraitUp
+        : DeviceOrientation.landscapeRight;
     SystemChrome.setPreferredOrientations(
       <DeviceOrientation>[deviceOrientation],
     );
@@ -194,12 +194,12 @@ class SettingsTile extends StatelessWidget {
     Widget? leading,
     this.subtitle,
     this.title = const Text('Dark Mode'),
-  })  : onTap = null,
-        leading = leading ?? Icon(value ? Icons.dark_mode : Icons.light_mode),
-        trailing = Switch(
-          value: value,
-          onChanged: onChanged,
-        );
+  }) : onTap = null,
+       leading = leading ?? Icon(value ? Icons.dark_mode : Icons.light_mode),
+       trailing = Switch(
+         value: value,
+         onChanged: onChanged,
+       );
 
   /// ImmersiveMode uses a [Switch] as the trailing widget
   /// and alternates between fullscreen_exit and fullscreen icons,
@@ -214,16 +214,16 @@ class SettingsTile extends StatelessWidget {
     Widget? leading,
     this.subtitle,
     this.title = const Text('Immersive Mode'),
-  })  : onTap = null,
-        leading =
-            leading ?? Icon(value ? Icons.fullscreen : Icons.fullscreen_exit),
-        trailing = Switch(
-          value: value,
-          onChanged: (bool value) {
-            value ? _setImmersiveMode() : _unsetImmersiveMode();
-            onChanged.call(value);
-          },
-        ) {
+  }) : onTap = null,
+       leading =
+           leading ?? Icon(value ? Icons.fullscreen : Icons.fullscreen_exit),
+       trailing = Switch(
+         value: value,
+         onChanged: (bool value) {
+           value ? _setImmersiveMode() : _unsetImmersiveMode();
+           onChanged.call(value);
+         },
+       ) {
     // set default mode based on the input value
     if (value) {
       _setImmersiveMode();
@@ -245,14 +245,14 @@ class SettingsTile extends StatelessWidget {
     this.leading = const Icon(Icons.screen_rotation),
     this.subtitle,
     this.title = const Text('Lock Orientation'),
-  })  : onTap = null,
-        trailing = Switch(
-          value: value,
-          onChanged: (bool value) {
-            value ? _setOrientation(context) : _unsetOrientation();
-            onChanged.call(value);
-          },
-        ) {
+  }) : onTap = null,
+       trailing = Switch(
+         value: value,
+         onChanged: (bool value) {
+           value ? _setOrientation(context) : _unsetOrientation();
+           onChanged.call(value);
+         },
+       ) {
     // set default mode based on the input value
     if (value) {
       _setOrientation(context);
@@ -277,12 +277,12 @@ class SettingsTile extends StatelessWidget {
     this.title = const Text('Licenses'),
     this.trailing,
   }) : onTap = (() => showLicensePage(
-              context: context,
-              applicationName: applicationName,
-              applicationVersion: applicationVersion,
-              applicationIcon: applicationIcon,
-              applicationLegalese: applicationLegalese,
-            ));
+         context: context,
+         applicationName: applicationName,
+         applicationVersion: applicationVersion,
+         applicationIcon: applicationIcon,
+         applicationLegalese: applicationLegalese,
+       ));
 
   /// Switched uses a [Switch] as the trailing widget.
   ///
@@ -297,9 +297,9 @@ class SettingsTile extends StatelessWidget {
     this.onTap,
     this.subtitle,
   }) : trailing = Switch(
-          value: value,
-          onChanged: onChanged,
-        );
+         value: value,
+         onChanged: onChanged,
+       );
 
   /// TimeDilation shows a simple dialog that changes [timeDilation].
   ///
@@ -315,25 +315,26 @@ class SettingsTile extends StatelessWidget {
     Widget? dialogTitle,
     Widget? trailing,
     double? value,
-  })  : trailing = trailing ??
-            Text(value != null ? value.toString() : timeDilation.toString()),
-        onTap = (() {
-          showDialog(
-            context: context,
-            builder: (_) => CustomDialog.simple(
-              title: dialogTitle ?? title,
-              child: CustomSlider(
-                min: 1,
-                max: 10,
-                divisions: 9,
-                value: value ?? timeDilation,
-                onChanged: (num value) {
-                  timeDilation = value.toDouble();
-                },
-              ),
-            ),
-          ).then((_) => onChanged?.call(timeDilation));
-        }) {
+  }) : trailing =
+           trailing ??
+           Text(value != null ? value.toString() : timeDilation.toString()),
+       onTap = (() {
+         showDialog(
+           context: context,
+           builder: (_) => CustomDialog.simple(
+             title: dialogTitle ?? title,
+             child: CustomSlider(
+               min: 1,
+               max: 10,
+               divisions: 9,
+               value: value ?? timeDilation,
+               onChanged: (num value) {
+                 timeDilation = value.toDouble();
+               },
+             ),
+           ),
+         ).then((_) => onChanged?.call(timeDilation));
+       }) {
     // set default based on the input value
     if (value != null) {
       timeDilation = value;
@@ -356,33 +357,34 @@ class SettingsTile extends StatelessWidget {
     BoxShape shape = BoxShape.rectangle,
     double? spacing,
     this.subtitle,
-  })  : onTap = (() => _showBottomSheet(
-              context: context,
-              widget: ColorPicker(
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                  shape: shape,
-                ),
-                initialColor: color,
-                spacing: spacing,
-                title: title,
-                onTap: (Color value) {
-                  onChanged.call(value);
-                  Navigator.of(context).pop();
-                },
-              ),
-            )),
-        leading = leading ??
-            Icon(
-              Icons.color_lens,
-              color: color,
-            ),
-        trailing = defaultColor != color
-            ? InkWell(
-                child: const Icon(Icons.close),
-                onTap: () => onChanged.call(defaultColor),
-              )
-            : null;
+  }) : onTap = (() => _showBottomSheet(
+         context: context,
+         widget: ColorPicker(
+           decoration: BoxDecoration(
+             border: Border.all(),
+             shape: shape,
+           ),
+           initialColor: color,
+           spacing: spacing,
+           title: title,
+           onTap: (Color value) {
+             onChanged.call(value);
+             Navigator.of(context).pop();
+           },
+         ),
+       )),
+       leading =
+           leading ??
+           Icon(
+             Icons.color_lens,
+             color: color,
+           ),
+       trailing = defaultColor != color
+           ? InkWell(
+               child: const Icon(Icons.close),
+               onTap: () => onChanged.call(defaultColor),
+             )
+           : null;
 
   @override
   Widget build(BuildContext context) {

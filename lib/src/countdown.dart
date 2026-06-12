@@ -74,9 +74,9 @@ class Countdown extends StatefulWidget {
     this.timer,
     this.onDone,
   }) : decoration = BoxDecoration(
-          color: backgroundColor ?? _defaultBackgroundColor,
-          shape: BoxShape.circle,
-        );
+         color: backgroundColor ?? _defaultBackgroundColor,
+         shape: BoxShape.circle,
+       );
 
   /// Rectangle uses a box decoration with [BoxShape.rectangle].
   ///
@@ -94,8 +94,8 @@ class Countdown extends StatefulWidget {
     this.timer,
     this.onDone,
   }) : decoration = BoxDecoration(
-          color: backgroundColor ?? _defaultBackgroundColor,
-        );
+         color: backgroundColor ?? _defaultBackgroundColor,
+       );
 
   @override
   State<Countdown> createState() => _CountdownState();

@@ -76,8 +76,8 @@ class Carousel extends StatefulWidget {
     this.scrollDirection = _defaultScrollDirection,
     this.transitionDuration = _defaultTransitionDuration,
   }) : delegate = SliverChildListDelegate(
-          children,
-        );
+         children,
+       );
 
   /// Builder uses [SliverChildBuilderDelegate].
   ///
@@ -96,9 +96,9 @@ class Carousel extends StatefulWidget {
     this.scrollDirection = _defaultScrollDirection,
     this.transitionDuration = _defaultTransitionDuration,
   }) : delegate = SliverChildBuilderDelegate((BuildContext context, int index) {
-          final int page = index % itemCount;
-          return itemBuilder.call(context, page);
-        });
+         final int page = index % itemCount;
+         return itemBuilder.call(context, page);
+       });
 
   @override
   State<Carousel> createState() => _CarouselState();

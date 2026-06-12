@@ -15,8 +15,8 @@ class RatingBar extends StatefulWidget {
     this.size = 40.0,
     this.unratedColor,
     num? value,
-  })  : value = value ?? _defaultValue,
-        _readOnly = false;
+  }) : value = value ?? _defaultValue,
+       _readOnly = false;
 
   /// The color of the stars.
   final Color? color;
@@ -52,9 +52,9 @@ class RatingBar extends StatefulWidget {
     this.size = _defaultSize,
     this.unratedColor,
     num? value,
-  })  : onChanged = null,
-        value = value ?? _defaultValue,
-        _readOnly = true;
+  }) : onChanged = null,
+       value = value ?? _defaultValue,
+       _readOnly = true;
 
   @override
   State<RatingBar> createState() => _RatingBarState();

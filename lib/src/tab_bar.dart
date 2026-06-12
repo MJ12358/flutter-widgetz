@@ -16,9 +16,9 @@ class CustomTabBar extends TabBar {
     super.splashFactory,
     super.tabAlignment,
   }) : super(
-          onTap: (int i) {
-            onTap?.call(i);
-            FocusManager.instance.primaryFocus?.unfocus();
-          },
-        );
+         onTap: (int i) {
+           onTap?.call(i);
+           FocusManager.instance.primaryFocus?.unfocus();
+         },
+       );
 }

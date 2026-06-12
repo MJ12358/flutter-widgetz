@@ -47,7 +47,8 @@ class PollPage extends StatelessWidget {
             borderRadius: 48.0,
             color: Colors.amber,
             endDate: DateTime.now().add(const Duration(minutes: 5)),
-            question: 'Is Flutter the best framework for building '
+            question:
+                'Is Flutter the best framework for building '
                 'cross-platform applications?',
             options: <PollOption>[
               PollOption(id: '1', name: 'Yes', votes: 88),

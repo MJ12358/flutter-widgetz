@@ -63,12 +63,12 @@ class Shimmer extends StatefulWidget {
     Gradient? gradient,
     double height = 200.0,
     this.period = _defaultPeriod,
-  })  : gradient = gradient ?? _getDefaultGradient(backgroundColor),
-        child = _Container(
-          borderRadius: borderRadius,
-          color: backgroundColor,
-          height: height,
-        );
+  }) : gradient = gradient ?? _getDefaultGradient(backgroundColor),
+       child = _Container(
+         borderRadius: borderRadius,
+         color: backgroundColor,
+         height: height,
+       );
 
   /// List tile uses a [ListTile] as a [child].
   ///
@@ -79,28 +79,28 @@ class Shimmer extends StatefulWidget {
     double borderRadius = _defaultBorderRadius,
     Gradient? gradient,
     this.period = _defaultPeriod,
-  })  : gradient = gradient ?? _getDefaultGradient(backgroundColor),
-        child = ListTile(
-          contentPadding: EdgeInsets.zero,
-          leading: CircleAvatar(
-            backgroundColor: backgroundColor,
-          ),
-          title: _Container(
-            borderRadius: borderRadius,
-            color: backgroundColor,
-          ),
-          subtitle: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              _Container(
-                borderRadius: borderRadius,
-                color: backgroundColor,
-                width: 50.0,
-              ),
-            ],
-          ),
-        );
+  }) : gradient = gradient ?? _getDefaultGradient(backgroundColor),
+       child = ListTile(
+         contentPadding: EdgeInsets.zero,
+         leading: CircleAvatar(
+           backgroundColor: backgroundColor,
+         ),
+         title: _Container(
+           borderRadius: borderRadius,
+           color: backgroundColor,
+         ),
+         subtitle: Column(
+           crossAxisAlignment: CrossAxisAlignment.start,
+           mainAxisSize: MainAxisSize.min,
+           children: <Widget>[
+             _Container(
+               borderRadius: borderRadius,
+               color: backgroundColor,
+               width: 50.0,
+             ),
+           ],
+         ),
+       );
 
   /// Title uses a [Column] as a [child].
   ///
@@ -111,22 +111,22 @@ class Shimmer extends StatefulWidget {
     double borderRadius = _defaultBorderRadius,
     Gradient? gradient,
     this.period = _defaultPeriod,
-  })  : gradient = gradient ?? _getDefaultGradient(backgroundColor),
-        child = Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            _Container(
-              borderRadius: borderRadius,
-              color: backgroundColor,
-            ),
-            const SizedBox(height: 8.0),
-            _Container(
-              borderRadius: borderRadius,
-              color: backgroundColor,
-            ),
-          ],
-        );
+  }) : gradient = gradient ?? _getDefaultGradient(backgroundColor),
+       child = Column(
+         crossAxisAlignment: CrossAxisAlignment.start,
+         mainAxisSize: MainAxisSize.min,
+         children: <Widget>[
+           _Container(
+             borderRadius: borderRadius,
+             color: backgroundColor,
+           ),
+           const SizedBox(height: 8.0),
+           _Container(
+             borderRadius: borderRadius,
+             color: backgroundColor,
+           ),
+         ],
+       );
 
   @override
   State<Shimmer> createState() => _ShimmerState();
@@ -138,15 +138,16 @@ class _ShimmerState extends State<Shimmer> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: widget.period,
-    )..addStatusListener((AnimationStatus status) {
-        if (status != AnimationStatus.completed) {
-          return;
-        }
-        _controller.repeat();
-      });
+    _controller =
+        AnimationController(
+          vsync: this,
+          duration: widget.period,
+        )..addStatusListener((AnimationStatus status) {
+          if (status != AnimationStatus.completed) {
+            return;
+          }
+          _controller.repeat();
+        });
     _controller.forward();
   }
 

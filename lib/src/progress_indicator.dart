@@ -21,11 +21,11 @@ class CustomProgressIndicator extends StatelessWidget {
     String semanticsLabel = _defaultSemanticsLabel,
     double? value,
   }) : _child = CircularProgressIndicator(
-          backgroundColor: backgroundColor,
-          color: color,
-          semanticsLabel: semanticsLabel,
-          value: _computeValue(value),
-        );
+         backgroundColor: backgroundColor,
+         color: color,
+         semanticsLabel: semanticsLabel,
+         value: _computeValue(value),
+       );
 
   /// Linear uses a [LinearProgressIndicator].
   ///
@@ -39,13 +39,13 @@ class CustomProgressIndicator extends StatelessWidget {
     String semanticsLabel = _defaultSemanticsLabel,
     double? value,
   }) : _child = LinearProgressIndicator(
-          backgroundColor: backgroundColor,
-          borderRadius: borderRadius,
-          color: color,
-          minHeight: minHeight,
-          semanticsLabel: semanticsLabel,
-          value: _computeValue(value),
-        );
+         backgroundColor: backgroundColor,
+         borderRadius: borderRadius,
+         color: color,
+         minHeight: minHeight,
+         semanticsLabel: semanticsLabel,
+         value: _computeValue(value),
+       );
 
   /// Positioned uses a [Positioned] with a [ProgressIndicator].
   ///
@@ -58,12 +58,12 @@ class CustomProgressIndicator extends StatelessWidget {
     double? top,
     ProgressIndicator indicator = const LinearProgressIndicator(),
   }) : _child = Positioned(
-          bottom: bottom,
-          left: left,
-          right: right,
-          top: top,
-          child: indicator,
-        );
+         bottom: bottom,
+         left: left,
+         right: right,
+         top: top,
+         child: indicator,
+       );
 
   /// Refresh uses a [RefreshProgressIndicator].
   ///
@@ -75,11 +75,11 @@ class CustomProgressIndicator extends StatelessWidget {
     String semanticsLabel = _defaultSemanticsLabel,
     double? value,
   }) : _child = RefreshProgressIndicator(
-          backgroundColor: backgroundColor,
-          color: color,
-          semanticsLabel: semanticsLabel,
-          value: _computeValue(value),
-        );
+         backgroundColor: backgroundColor,
+         color: color,
+         semanticsLabel: semanticsLabel,
+         value: _computeValue(value),
+       );
 
   @override
   Widget build(BuildContext context) {

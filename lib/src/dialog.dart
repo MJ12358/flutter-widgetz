@@ -42,8 +42,9 @@ class CustomDialog<T> extends StatelessWidget {
   static const double _defaultPadding = 20.0;
   static const ScrollPhysics _defaultPhysics = RangeMaintainingScrollPhysics();
   static const bool _defaultShrinkWrap = true;
-  static const EdgeInsets _defaultTitlePadding =
-      EdgeInsets.all(_defaultPadding);
+  static const EdgeInsets _defaultTitlePadding = EdgeInsets.all(
+    _defaultPadding,
+  );
 
   /// Alert mimics the default alert dialog.
   ///
@@ -65,19 +66,19 @@ class CustomDialog<T> extends StatelessWidget {
     VoidCallback? onAccept,
     VoidCallback? onCancel,
   }) : actions = <Widget>[
-          TextButton(
-            onPressed: () => onCancel != null
-                ? onCancel.call()
-                : Navigator.of(context).pop(false),
-            child: Text(cancelText),
-          ),
-          TextButton(
-            onPressed: () => onAccept != null
-                ? onAccept.call()
-                : Navigator.of(context).pop(true),
-            child: Text(acceptText),
-          ),
-        ];
+         TextButton(
+           onPressed: () => onCancel != null
+               ? onCancel.call()
+               : Navigator.of(context).pop(false),
+           child: Text(cancelText),
+         ),
+         TextButton(
+           onPressed: () => onAccept != null
+               ? onAccept.call()
+               : Navigator.of(context).pop(true),
+           child: Text(acceptText),
+         ),
+       ];
 
   /// Checkbox uses a [ListView] with [CheckboxListTile]s.
   ///
@@ -96,18 +97,18 @@ class CustomDialog<T> extends StatelessWidget {
     this.title,
     this.titlePadding = _defaultTitlePadding,
   }) : child = ListView(
-          physics: physics,
-          shrinkWrap: shrinkWrap,
-          children: <Widget>[
-            ...initialValues.map((T e) {
-              return CheckboxListTile(
-                title: Text(displayStringForValue?.call(e) ?? e.toString()),
-                value: currentValues.contains(e),
-                onChanged: (_) => onChanged.call(e),
-              );
-            }),
-          ],
-        );
+         physics: physics,
+         shrinkWrap: shrinkWrap,
+         children: <Widget>[
+           ...initialValues.map((T e) {
+             return CheckboxListTile(
+               title: Text(displayStringForValue?.call(e) ?? e.toString()),
+               value: currentValues.contains(e),
+               onChanged: (_) => onChanged.call(e),
+             );
+           }),
+         ],
+       );
 
   /// List uses a list of widgets inside a [ListView].
   ///
@@ -124,20 +125,20 @@ class CustomDialog<T> extends StatelessWidget {
     this.titlePadding = _defaultTitlePadding,
     IndexedWidgetBuilder? separatorBuilder,
   }) : child = separatorBuilder != null
-            ? ListView.separated(
-                physics: physics,
-                shrinkWrap: shrinkWrap,
-                itemCount: children.length,
-                itemBuilder: (_, int index) {
-                  return children[index];
-                },
-                separatorBuilder: separatorBuilder,
-              )
-            : ListView(
-                physics: physics,
-                shrinkWrap: shrinkWrap,
-                children: children,
-              );
+           ? ListView.separated(
+               physics: physics,
+               shrinkWrap: shrinkWrap,
+               itemCount: children.length,
+               itemBuilder: (_, int index) {
+                 return children[index];
+               },
+               separatorBuilder: separatorBuilder,
+             )
+           : ListView(
+               physics: physics,
+               shrinkWrap: shrinkWrap,
+               children: children,
+             );
 
   /// Radio uses a [ListView] with [RadioListTile]s.
   ///
@@ -156,21 +157,21 @@ class CustomDialog<T> extends StatelessWidget {
     this.title,
     this.titlePadding = _defaultTitlePadding,
   }) : child = ListView(
-          physics: physics,
-          shrinkWrap: shrinkWrap,
-          children: <Widget>[
-            ...values.map((T e) {
-              return RadioGroup<T>(
-                groupValue: groupValue,
-                onChanged: onChanged,
-                child: RadioListTile<T>(
-                  title: Text(displayStringForValue?.call(e) ?? e.toString()),
-                  value: e,
-                ),
-              );
-            }),
-          ],
-        );
+         physics: physics,
+         shrinkWrap: shrinkWrap,
+         children: <Widget>[
+           ...values.map((T e) {
+             return RadioGroup<T>(
+               groupValue: groupValue,
+               onChanged: onChanged,
+               child: RadioListTile<T>(
+                 title: Text(displayStringForValue?.call(e) ?? e.toString()),
+                 value: e,
+               ),
+             );
+           }),
+         ],
+       );
 
   /// Simple mimics the default simple dialog.
   ///
@@ -181,18 +182,18 @@ class CustomDialog<T> extends StatelessWidget {
     this.contentPadding = const EdgeInsets.all(_defaultPadding),
     this.title,
     this.titlePadding = _defaultTitlePadding,
-  })  : actions = null,
-        fadedScroll = false,
-        child = DefaultTextStyle.merge(
-          textAlign: TextAlign.center,
-          // this is necessary to prevent dialog height from being full screen
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              child,
-            ],
-          ),
-        );
+  }) : actions = null,
+       fadedScroll = false,
+       child = DefaultTextStyle.merge(
+         textAlign: TextAlign.center,
+         // this is necessary to prevent dialog height from being full screen
+         child: Column(
+           mainAxisSize: MainAxisSize.min,
+           children: <Widget>[
+             child,
+           ],
+         ),
+       );
 
   @override
   Widget build(BuildContext context) {

@@ -59,15 +59,16 @@ class _AccordionState extends State<Accordion> with TickerProviderStateMixin {
       vsync: this,
     );
 
-    _animation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(
-      CurvedAnimation(
-        parent: _animationController,
-        curve: Curves.fastOutSlowIn,
-      ),
-    );
+    _animation =
+        Tween<double>(
+          begin: 0.0,
+          end: 1.0,
+        ).animate(
+          CurvedAnimation(
+            parent: _animationController,
+            curve: Curves.fastOutSlowIn,
+          ),
+        );
 
     if (_isOpen) {
       _animationController.forward();

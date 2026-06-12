@@ -38,21 +38,21 @@ class CustomAppBar extends AppBar {
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.center,
     TextAlign textAlign = TextAlign.left,
   }) : super(
-          title: Column(
-            crossAxisAlignment: crossAxisAlignment,
-            mainAxisAlignment: mainAxisAlignment,
-            children: <Widget>[
-              DefaultTextStyle.merge(
-                textAlign: textAlign,
-                child: title,
-              ),
-              if (subtitle != null)
-                DefaultTextStyle.merge(
-                  style: const TextStyle(fontSize: 10),
-                  textAlign: textAlign,
-                  child: subtitle,
-                ),
-            ],
-          ),
-        );
+         title: Column(
+           crossAxisAlignment: crossAxisAlignment,
+           mainAxisAlignment: mainAxisAlignment,
+           children: <Widget>[
+             DefaultTextStyle.merge(
+               textAlign: textAlign,
+               child: title,
+             ),
+             if (subtitle != null)
+               DefaultTextStyle.merge(
+                 style: const TextStyle(fontSize: 10),
+                 textAlign: textAlign,
+                 child: subtitle,
+               ),
+           ],
+         ),
+       );
 }

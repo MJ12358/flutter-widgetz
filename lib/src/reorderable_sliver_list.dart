@@ -39,10 +39,10 @@ class CustomReorderableSliverList extends StatelessWidget {
     required List<Widget> children,
     required this.onReorder,
     this.padding = _defaultPadding,
-  })  : itemCount = children.length,
-        itemBuilder = ((_, int index) {
-          return children[index];
-        });
+  }) : itemCount = children.length,
+       itemBuilder = ((_, int index) {
+         return children[index];
+       });
 
   /// Separated inserts a separator between widgets.
   ///
@@ -54,38 +54,38 @@ class CustomReorderableSliverList extends StatelessWidget {
     required IndexedWidgetBuilder separatorBuilder,
     required ReorderCallback onReorder,
     this.padding = _defaultPadding,
-  })  : itemCount = _computeActualChildCount(itemCount),
-        itemBuilder = ((BuildContext context, int index) {
-          if (index.isOdd) {
-            final Widget separator = separatorBuilder.call(context, index);
-            if (separator.key == null) {
-              return KeyedSubtree(
-                key: ValueKey<String>('ReorderableSliverSeparator${index}Key'),
-                child: IgnorePointer(child: separator),
-              );
-            }
-            return separator;
-          }
-          return itemBuilder.call(context, index ~/ 2);
-        }),
-        onReorder = ((int oldIndex, int newIndex) {
-          int oi = oldIndex;
-          int ni = newIndex;
-          if (oi < ni) {
-            ni -= 1;
-          }
-          if (oi.isOdd) {
-            // separator - should never happen
-            return;
-          }
-          if ((oi - ni).abs() == 1) {
-            // moved behind the top/bottom separator
-            return;
-          }
-          ni = oi > ni && ni.isOdd ? (ni + 1) ~/ 2 : ni ~/ 2;
-          oi = oi ~/ 2;
-          onReorder.call(oi, ni);
-        });
+  }) : itemCount = _computeActualChildCount(itemCount),
+       itemBuilder = ((BuildContext context, int index) {
+         if (index.isOdd) {
+           final Widget separator = separatorBuilder.call(context, index);
+           if (separator.key == null) {
+             return KeyedSubtree(
+               key: ValueKey<String>('ReorderableSliverSeparator${index}Key'),
+               child: IgnorePointer(child: separator),
+             );
+           }
+           return separator;
+         }
+         return itemBuilder.call(context, index ~/ 2);
+       }),
+       onReorder = ((int oldIndex, int newIndex) {
+         int oi = oldIndex;
+         int ni = newIndex;
+         if (oi < ni) {
+           ni -= 1;
+         }
+         if (oi.isOdd) {
+           // separator - should never happen
+           return;
+         }
+         if ((oi - ni).abs() == 1) {
+           // moved behind the top/bottom separator
+           return;
+         }
+         ni = oi > ni && ni.isOdd ? (ni + 1) ~/ 2 : ni ~/ 2;
+         oi = oi ~/ 2;
+         onReorder.call(oi, ni);
+       });
 
   // Helper method to compute the actual child count
   // for the separated constructor.

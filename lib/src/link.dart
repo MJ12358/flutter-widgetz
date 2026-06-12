@@ -34,18 +34,18 @@ class Link extends StatelessWidget {
     this.color = _defaultColor,
     this.onTap,
   }) : child = Container(
-          padding: const EdgeInsets.only(
-            bottom: 1.0,
-          ),
-          decoration: BoxDecoration(
-            border: Border(
-              bottom: BorderSide(
-                color: color,
-              ),
-            ),
-          ),
-          child: child,
-        );
+         padding: const EdgeInsets.only(
+           bottom: 1.0,
+         ),
+         decoration: BoxDecoration(
+           border: Border(
+             bottom: BorderSide(
+               color: color,
+             ),
+           ),
+         ),
+         child: child,
+       );
 
   @override
   Widget build(BuildContext context) {
