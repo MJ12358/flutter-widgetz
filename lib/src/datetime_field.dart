@@ -81,10 +81,12 @@ class _DateTimeFieldState extends State<DateTimeField> {
   late final FocusNode _focusNode;
   DateTime? _value;
 
-  DateTime get _defaultInitialDate => DateTime.now();
-  DateTime get _defaultFirstDate => DateTime.fromMillisecondsSinceEpoch(0);
-  DateTime get _defaultLastDate => DateTime(DateTime.now().year + 100);
-  TimeOfDay get _defaultInitialTime => _value != null
+  DateTime get _initialDate => _value ?? DateTime.now();
+  DateTime get _firstDate =>
+      widget.firstDate ?? DateTime.fromMillisecondsSinceEpoch(0);
+  DateTime get _lastDate =>
+      widget.lastDate ?? DateTime(DateTime.now().year + 100);
+  TimeOfDay get _initialTime => _value != null
       ? TimeOfDay(hour: _value!.hour, minute: _value!.minute)
       : TimeOfDay.now();
 
@@ -135,13 +137,16 @@ class _DateTimeFieldState extends State<DateTimeField> {
   }
 
   Future<void> _showPickers(BuildContext context) async {
-    DateTime? dt = _defaultInitialDate;
+    // trigger focus state when clicking on the input field
+    // because the date and time pickers are separate
+    _onFocusChange(true);
+    DateTime? dt = _initialDate;
     if (!widget.skipDateEntry) {
       dt = await showDatePicker(
         context: context,
-        initialDate: _value ?? _defaultInitialDate,
-        firstDate: widget.firstDate ?? _defaultFirstDate,
-        lastDate: widget.lastDate ?? _defaultLastDate,
+        initialDate: _initialDate,
+        firstDate: _firstDate,
+        lastDate: _lastDate,
         initialDatePickerMode: widget.datePickerMode,
         initialEntryMode: widget.dateEntryMode,
       );
@@ -155,7 +160,7 @@ class _DateTimeFieldState extends State<DateTimeField> {
     final TimeOfDay? tod = await showTimePicker(
       context: context,
       initialEntryMode: widget.timeEntryMode,
-      initialTime: _defaultInitialTime,
+      initialTime: _initialTime,
       builder: (BuildContext context, Widget? child) {
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(
@@ -165,12 +170,13 @@ class _DateTimeFieldState extends State<DateTimeField> {
         );
       },
     );
-    if (tod != null) {
-      dt = dt.copyWith(
-        hour: tod.hour,
-        minute: tod.minute,
-      );
+    if (tod == null) {
+      return;
     }
+    dt = dt.copyWith(
+      hour: tod.hour,
+      minute: tod.minute,
+    );
     _onChange(dt);
   }
 
