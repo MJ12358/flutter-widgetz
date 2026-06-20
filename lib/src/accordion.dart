@@ -116,7 +116,7 @@ class _AccordionState extends State<Accordion> with TickerProviderStateMixin {
           ),
         ),
         SizeTransition(
-          axisAlignment: 1.0,
+          alignment: Alignment.topLeft,
           sizeFactor: _animation,
           child: Container(
             padding: widget.childPadding,
