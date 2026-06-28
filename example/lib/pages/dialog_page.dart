@@ -165,26 +165,7 @@ class DialogPage extends StatelessWidget {
   void _showReorderableDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (_) {
-        return CustomDialog(
-          title: const Text('Reorderable'),
-          fadedScroll: true,
-          child: CustomReorderableListView(
-            shrinkWrap: true,
-            onReorder: (int oldIndex, int newIndex) {
-              print('oldIndex: $oldIndex, newIndex: $newIndex');
-            },
-            children: <Widget>[
-              for (int i = 0; i < 25; i++)
-                ListTile(
-                  key: ValueKey<int>(i),
-                  tileColor: i.isOdd ? Colors.grey[200] : null,
-                  title: Text('Index $i'),
-                ),
-            ],
-          ),
-        );
-      },
+      builder: (_) => const ReorderableDialog(),
     );
   }
 
@@ -210,6 +191,42 @@ class DialogPage extends StatelessWidget {
           child: const Text('This is a custom simple dialog.'),
         );
       },
+    );
+  }
+}
+
+class ReorderableDialog extends StatefulWidget {
+  const ReorderableDialog({super.key});
+
+  @override
+  State<ReorderableDialog> createState() => _ReorderableDialogState();
+}
+
+class _ReorderableDialogState extends State<ReorderableDialog> {
+  final List<int> _items = List<int>.generate(25, (int i) => i);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomDialog(
+      title: const Text('Reorderable'),
+      fadedScroll: true,
+      child: ReorderableListView.builder(
+        itemCount: _items.length,
+        itemBuilder: (_, int index) {
+          return ListTile(
+            key: ValueKey<int>(index),
+            tileColor: index.isOdd ? Colors.grey[200] : null,
+            title: Text('Index ${_items[index]}'),
+          );
+        },
+        shrinkWrap: true,
+        onReorderItem: (int oldIndex, int newIndex) {
+          print('oldIndex: $oldIndex, newIndex: $newIndex');
+          final int item = _items.removeAt(oldIndex);
+          _items.insert(newIndex, item);
+          setState(() {});
+        },
+      ),
     );
   }
 }
