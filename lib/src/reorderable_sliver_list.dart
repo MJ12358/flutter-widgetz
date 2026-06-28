@@ -82,7 +82,7 @@ class CustomReorderableSliverList extends StatelessWidget {
   }
 
   /// From:
-  /// reorderable_list.dart "_ReorderableListViewState._itemBuilder"
+  /// reorderable_list.dart `_ReorderableListViewState._itemBuilder`
   Widget _itemBuilder(BuildContext context, int index) {
     final Widget item = itemBuilder(context, index);
     assert(
@@ -141,7 +141,7 @@ class CustomReorderableSliverList extends StatelessWidget {
 }
 
 /// From:
-/// reorderable_list.dart "_ReorderableListViewChildGlobalKey"
+/// reorderable_list.dart `ReorderableListViewChildGlobalKey`
 class _GlobalKey extends GlobalObjectKey {
   const _GlobalKey(this.subKey, this.state) : super(subKey);
 
