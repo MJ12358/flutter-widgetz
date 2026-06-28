@@ -15,9 +15,11 @@ class _SliverListPageState extends State<SliverListPage> {
   void initState() {
     super.initState();
 
-    for (int i = 1; i <= 25; i++) {
+    for (int i = 0; i <= 25; i++) {
       _widgets.add(
-        Text(i.toString()),
+        ListTile(
+          title: Text('Index $i'),
+        ),
       );
     }
   }
@@ -32,9 +34,7 @@ class _SliverListPageState extends State<SliverListPage> {
         CustomSliverList.builder(
           itemCount: _widgets.length,
           itemBuilder: (_, int index) {
-            return ListTile(
-              title: _widgets[index],
-            );
+            return _widgets[index];
           },
         ),
         const SliverToBoxAdapter(
@@ -43,9 +43,7 @@ class _SliverListPageState extends State<SliverListPage> {
         CustomSliverList.separated(
           itemCount: _widgets.length,
           itemBuilder: (_, int index) {
-            return ListTile(
-              title: _widgets[index],
-            );
+            return _widgets[index];
           },
           separatorBuilder: (_, _) {
             return const Divider();
@@ -57,9 +55,9 @@ class _SliverListPageState extends State<SliverListPage> {
         CustomReorderableSliverList.separated(
           itemCount: _widgets.length,
           itemBuilder: (_, int index) {
-            return ListTile(
+            return Material(
               key: ValueKey<int>(index),
-              title: _widgets[index],
+              child: _widgets[index],
             );
           },
           separatorBuilder: (_, _) {
