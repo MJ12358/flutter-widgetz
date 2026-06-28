@@ -45,7 +45,6 @@ class MainState extends State<Main> {
       title: 'Flutter Widgetz Example',
       restorationScopeId: 'root',
       home: CustomScaffold(
-        // TODO: this has an odd effect when using an ExpandableFab
         dynamicFab: true,
         floatingActionButton: ExpandableFab(
           children: <Widget>[

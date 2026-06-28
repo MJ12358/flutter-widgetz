@@ -8,8 +8,6 @@ class AlertPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomSingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
-      // TODO: This is a good example of how "filtered" does/does not
-      // filtered should remove any SizedBox from the column, but does not
       child: SpacedColumn.filtered(
         children: const <Widget>[
           Alert(
