@@ -20,30 +20,6 @@ class CustomReorderableSliverList extends StatelessWidget {
 
   static const EdgeInsets _defaultPadding = EdgeInsets.zero;
 
-  /// Builder uses [itemBuilder] to build widgets.
-  ///
-  /// {@macro flutter_widgetz.CustomReorderableSliverList}
-  const CustomReorderableSliverList.builder({
-    super.key,
-    required this.itemCount,
-    required this.itemBuilder,
-    required this.onReorder,
-    this.padding = _defaultPadding,
-  });
-
-  /// List uses [children] to build widgets.
-  ///
-  /// {@macro flutter_widgetz.CustomReorderableSliverList}
-  CustomReorderableSliverList.list({
-    super.key,
-    required List<Widget> children,
-    required this.onReorder,
-    this.padding = _defaultPadding,
-  }) : itemCount = children.length,
-       itemBuilder = ((_, int index) {
-         return children[index];
-       });
-
   /// Separated inserts a separator between widgets.
   ///
   /// {@macro flutter_widgetz.CustomReorderableSliverList}
@@ -71,19 +47,31 @@ class CustomReorderableSliverList extends StatelessWidget {
        onReorder = ((int oldIndex, int newIndex) {
          int oi = oldIndex;
          int ni = newIndex;
+         // If dragging down, adjust for removal
          if (oi < ni) {
            ni -= 1;
          }
+         // Skip if it's a separator (should never happen)
          if (oi.isOdd) {
-           // separator - should never happen
            return;
          }
+         // Skip if moved behind adjacent separator
          if ((oi - ni).abs() == 1) {
-           // moved behind the top/bottom separator
            return;
          }
-         ni = oi > ni && ni.isOdd ? (ni + 1) ~/ 2 : ni ~/ 2;
+         // Convert visual indices to logical indices
+         // For items at even positions: logical = visual / 2
          oi = oi ~/ 2;
+         // For newIndex, we need to account for
+         // whether we're dropping before or after an item
+         if (ni.isOdd) {
+           // Dropping before a separator means we're
+           // dropping after the previous item
+           ni = (ni - 1) ~/ 2 + 1;
+         } else {
+           // Dropping on an item position
+           ni = ni ~/ 2;
+         }
          onReorder.call(oi, ni);
        });
 
@@ -94,7 +82,7 @@ class CustomReorderableSliverList extends StatelessWidget {
   }
 
   /// From:
-  /// https://api.flutter.dev/flutter/material/ReorderableListView-class.html#material.ReorderableListView.1
+  /// reorderable_list.dart "_ReorderableListViewState._itemBuilder"
   Widget _itemBuilder(BuildContext context, int index) {
     final Widget item = itemBuilder(context, index);
     assert(
@@ -146,14 +134,14 @@ class CustomReorderableSliverList extends StatelessWidget {
       sliver: SliverReorderableList(
         itemBuilder: _itemBuilder,
         itemCount: itemCount,
-        onReorder: onReorder,
+        onReorderItem: onReorder,
       ),
     );
   }
 }
 
 /// From:
-/// https://api.flutter.dev/flutter/material/ReorderableListView-class.html#material.ReorderableListView.1
+/// reorderable_list.dart "_ReorderableListViewChildGlobalKey"
 class _GlobalKey extends GlobalObjectKey {
   const _GlobalKey(this.subKey, this.state) : super(subKey);
 
