@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [16.0.1]
+
+- Fix reorderable list/sliver second-to-last item issue.
+
 ## [16.0.0]
 
 - Update minimum Dart version to 3.12.

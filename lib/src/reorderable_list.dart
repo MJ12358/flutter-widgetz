@@ -56,23 +56,17 @@ void Function(int, int)? _separatorAwareReorderHandler(
   return (int oldIndex, int newIndex) {
     int oi = oldIndex;
     int ni = newIndex;
-    // If dragging down, adjust for removal
+    // If dragging down, adjust for removal (visual-level adjustment)
     if (oi < ni) {
       ni -= 1;
     }
-    // Skip if it's a separator (should never happen)
+    // Skip if it's a separator (visual-level check)
     if (oi.isOdd) {
       return;
     }
-    // Skip if moved behind adjacent separator
-    if ((oi - ni).abs() == 1) {
-      return;
-    }
     // Convert visual indices to logical indices
-    // For items at even positions: logical = visual / 2
     oi = oi ~/ 2;
-    // For newIndex, we need to account for
-    // whether we're dropping before or after an item
+    // Convert newIndex from visual to logical
     if (ni.isOdd) {
       // Dropping before a separator means we're
       // dropping after the previous item
