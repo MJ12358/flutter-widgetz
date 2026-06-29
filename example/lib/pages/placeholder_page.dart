@@ -19,8 +19,8 @@ class PlaceholderPage extends StatelessWidget {
             text: 'Placeholder One (No Image)',
           ),
           CustomPlaceholder.asset(
-            'asset',
-            text: 'Placeholder Two (Asset)',
+            'error',
+            text: 'Placeholder Two (Asset Error)',
           ),
           CustomPlaceholder.network(
             'https://placehold.co/400/png',

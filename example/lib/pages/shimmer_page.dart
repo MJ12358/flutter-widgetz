@@ -35,7 +35,7 @@ class ShimmerPage extends StatelessWidget {
             backgroundColor: Colors.black,
             child: Column(
               children: <Widget>[
-                const Text('Dude Sweet'),
+                const Text('Black'),
                 const SizedBox(height: 8.0),
                 Container(
                   color: Colors.black,
