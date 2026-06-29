@@ -1,5 +1,15 @@
 # Flutter Widgetz
 
+## [16.0.0]
+
+- Update minimum Dart version to 3.12.
+- Update minimum Flutter version to 3.44.
+- Fix lints.
+- Fix deprecated parameters.
+- Fix reorderable list/sliver to account for visual vs logical indices.
+- Remove `CustomReorderableListView` `default` and `builder` constructors, as these were fixed in a Flutter update.
+- Remove `CustomReorderableSliverList` `builder` and `list` constructors.
+
 ## [15.3.0]
 
 - Add `onTap` to `CustomTextField`.
