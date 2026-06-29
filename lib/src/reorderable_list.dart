@@ -25,7 +25,7 @@ class CustomReorderableListView extends ReorderableListView {
     super.proxyDecorator,
     super.shrinkWrap,
   }) : super.builder(
-         itemCount: _computeActualChildCount(itemCount),
+         itemCount: _computeSeparatorChildCount(itemCount),
          itemBuilder: (BuildContext context, int index) {
            if (index.isOdd) {
              final Widget separator = separatorBuilder.call(context, index);
@@ -39,29 +39,48 @@ class CustomReorderableListView extends ReorderableListView {
            }
            return itemBuilder.call(context, index ~/ 2);
          },
-         onReorderItem: (int oldIndex, int newIndex) {
-           int oi = oldIndex;
-           int ni = newIndex;
-           if (oi < ni) {
-             ni -= 1;
-           }
-           if (oi.isOdd) {
-             // separator - should never happen
-             return;
-           }
-           if ((oi - ni).abs() == 1) {
-             // moved behind the top/bottom separator
-             return;
-           }
-           ni = oi > ni && ni.isOdd ? (ni + 1) ~/ 2 : ni ~/ 2;
-           oi = oi ~/ 2;
-           onReorder.call(oi, ni);
-         },
+         onReorderItem: _separatorAwareReorderHandler(onReorder),
        );
+}
 
-  // Helper method to compute the actual child count
-  // for the separated constructor.
-  static int _computeActualChildCount(int itemCount) {
-    return math.max(0, itemCount * 2 - 1);
-  }
+/// Helper method to compute the actual child
+/// count for the separated constructor.
+int _computeSeparatorChildCount(int itemCount) {
+  return math.max(0, itemCount * 2 - 1);
+}
+
+/// Helper method to convert visual indices to logical indices.
+void Function(int, int)? _separatorAwareReorderHandler(
+  ReorderCallback onReorder,
+) {
+  return (int oldIndex, int newIndex) {
+    int oi = oldIndex;
+    int ni = newIndex;
+    // If dragging down, adjust for removal
+    if (oi < ni) {
+      ni -= 1;
+    }
+    // Skip if it's a separator (should never happen)
+    if (oi.isOdd) {
+      return;
+    }
+    // Skip if moved behind adjacent separator
+    if ((oi - ni).abs() == 1) {
+      return;
+    }
+    // Convert visual indices to logical indices
+    // For items at even positions: logical = visual / 2
+    oi = oi ~/ 2;
+    // For newIndex, we need to account for
+    // whether we're dropping before or after an item
+    if (ni.isOdd) {
+      // Dropping before a separator means we're
+      // dropping after the previous item
+      ni = (ni - 1) ~/ 2 + 1;
+    } else {
+      // Dropping on an item position
+      ni = ni ~/ 2;
+    }
+    onReorder.call(oi, ni);
+  };
 }

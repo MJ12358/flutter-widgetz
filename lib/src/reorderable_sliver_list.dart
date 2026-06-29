@@ -30,7 +30,7 @@ class CustomReorderableSliverList extends StatelessWidget {
     required IndexedWidgetBuilder separatorBuilder,
     required ReorderCallback onReorder,
     this.padding = _defaultPadding,
-  }) : itemCount = _computeActualChildCount(itemCount),
+  }) : itemCount = _computeSeparatorChildCount(itemCount),
        itemBuilder = ((BuildContext context, int index) {
          if (index.isOdd) {
            final Widget separator = separatorBuilder.call(context, index);
@@ -45,41 +45,10 @@ class CustomReorderableSliverList extends StatelessWidget {
          return itemBuilder.call(context, index ~/ 2);
        }),
        onReorder = ((int oldIndex, int newIndex) {
-         int oi = oldIndex;
-         int ni = newIndex;
-         // If dragging down, adjust for removal
-         if (oi < ni) {
-           ni -= 1;
-         }
-         // Skip if it's a separator (should never happen)
-         if (oi.isOdd) {
-           return;
-         }
-         // Skip if moved behind adjacent separator
-         if ((oi - ni).abs() == 1) {
-           return;
-         }
-         // Convert visual indices to logical indices
-         // For items at even positions: logical = visual / 2
-         oi = oi ~/ 2;
-         // For newIndex, we need to account for
-         // whether we're dropping before or after an item
-         if (ni.isOdd) {
-           // Dropping before a separator means we're
-           // dropping after the previous item
-           ni = (ni - 1) ~/ 2 + 1;
-         } else {
-           // Dropping on an item position
-           ni = ni ~/ 2;
-         }
-         onReorder.call(oi, ni);
+         return _separatorAwareReorderHandler(
+           onReorder,
+         )?.call(oldIndex, newIndex);
        });
-
-  // Helper method to compute the actual child count
-  // for the separated constructor.
-  static int _computeActualChildCount(int itemCount) {
-    return math.max(0, itemCount * 2 - 1);
-  }
 
   /// From:
   /// reorderable_list.dart `_ReorderableListViewState._itemBuilder`
