@@ -1,6 +1,6 @@
 # Flutter Widgetz
 
-## [17.0.0]
+## [17.0.1]
 
 - Remove `onClear` from `CustomSearchBar` in favor of using `onChanged` with empty string.
 
