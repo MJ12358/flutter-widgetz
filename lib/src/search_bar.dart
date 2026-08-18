@@ -18,7 +18,6 @@ class CustomSearchBar extends StatefulWidget {
     this.isVisible = true,
     this.keyboardType = TextInputType.text,
     this.labelText = 'Search',
-    this.onClear,
     this.padding = EdgeInsets.zero,
     this.prefixIcon = const Icon(Icons.search),
     this.value = '',
@@ -50,9 +49,6 @@ class CustomSearchBar extends StatefulWidget {
 
   /// Optional text that describes the input field.
   final String labelText;
-
-  /// Called when clearing the input.
-  final VoidCallback? onClear;
 
   /// The amount of space by which to inset the child.
   final EdgeInsets padding;
@@ -142,14 +138,12 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
   }
 
   Widget? _getSuffix() {
-    if (widget.onClear == null) {
-      return null;
-    }
     return InkWell(
       child: const Icon(Icons.close),
       onTap: () {
-        widget.onClear?.call();
         _controller.clear();
+        _timer?.cancel();
+        widget.onChanged.call('');
       },
     );
   }

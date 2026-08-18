@@ -30,10 +30,9 @@ class _SearchBarPageState extends State<SearchBarPage> {
             labelText: 'Search Bar',
             onChanged: print,
           ),
-          CustomSearchBar(
+          const CustomSearchBar(
             labelText: 'Search Bar (with onClear)',
             onChanged: print,
-            onClear: () {},
           ),
           CustomElevatedButton(
             child: const Text('Toggle Visibility'),
@@ -42,11 +41,11 @@ class _SearchBarPageState extends State<SearchBarPage> {
             }),
           ),
           CustomSearchBar(
+            autofocus: true, // check autofocus works
             labelText: 'Search Bar Three',
             onChanged: print,
             isVisible: _isVisible,
           ),
-          const Text('Some other widgets....'),
         ],
       ),
     );

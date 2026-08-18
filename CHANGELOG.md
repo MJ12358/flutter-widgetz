@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [17.0.0]
+
+- Remove `onClear` from `CustomSearchBar` in favor of using `onChanged` with empty string.
+
 ## [16.0.1]
 
 - Fix reorderable list/sliver second-to-last item issue.
