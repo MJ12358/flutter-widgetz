@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
+import 'package:material_ui/material_ui.dart';
 
 class MarqueePage extends StatelessWidget {
   const MarqueePage({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
+import 'package:material_ui/material_ui.dart';
 
 class ImagePage extends StatelessWidget {
   const ImagePage({super.key});

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
+import 'package:material_ui/material_ui.dart';
 
 class SearchBarPage extends StatefulWidget {
   const SearchBarPage({super.key});
@@ -30,9 +30,10 @@ class _SearchBarPageState extends State<SearchBarPage> {
             labelText: 'Search Bar',
             onChanged: print,
           ),
-          const CustomSearchBar(
+          CustomSearchBar(
             labelText: 'Search Bar (with onClear)',
             onChanged: print,
+            onClear: () {},
           ),
           CustomElevatedButton(
             child: const Text('Toggle Visibility'),

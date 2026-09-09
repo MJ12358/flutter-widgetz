@@ -1,1 +1,7 @@
+analyzer:
+  exclude:
+    - build/**
+    - android/**
+    - ios/**
+    - web/**
 include: package:dart_lintz/dart_lintz.yaml

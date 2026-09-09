@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
-import 'package:flutter/material.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
+import 'package:material_ui/material_ui.dart';
 
 class OrientationPage extends StatelessWidget {
   const OrientationPage({super.key});

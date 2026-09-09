@@ -1,1 +1,4 @@
+analyzer:
+  exclude:
+    - build/**
 include: package:dart_lintz/dart_lintz.yaml

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_widgetz_example/pages/accordion_page.dart';
 import 'package:flutter_widgetz_example/pages/alert_page.dart';
 import 'package:flutter_widgetz_example/pages/auth_button_page.dart';
@@ -46,6 +45,7 @@ import 'package:flutter_widgetz_example/pages/text_field_page.dart';
 import 'package:flutter_widgetz_example/pages/text_page.dart';
 import 'package:flutter_widgetz_example/pages/time_field_page.dart';
 import 'package:flutter_widgetz_example/pages/welcome_page.dart';
+import 'package:material_ui/material_ui.dart';
 
 class Page {
   const Page(

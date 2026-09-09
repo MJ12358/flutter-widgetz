@@ -5,19 +5,20 @@ publish_to: "none"
 version: 0.0.1+1
 
 environment:
-  sdk: ">=3.12.2 <4.0.0"
+  sdk: ">=3.13.2 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_extensionz: 5.1.7
+  flutter_extensionz: 6.0.0
   # flutter_extensionz:
   #   path: ../../flutter_extensionz
-  flutter_themez: 4.1.0
+  flutter_themez: 5.0.0
   # flutter_themez:
   #   path: ../../flutter_themez
   flutter_widgetz:
     path: ../.
+  material_ui: 1.2.0
 
 dev_dependencies:
   dart_lintz: 2.2.0

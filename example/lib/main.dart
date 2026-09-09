@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart' hide Page;
 import 'package:flutter_themez/flutter_themez.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
 import 'package:flutter_widgetz_example/home.dart';
 import 'package:flutter_widgetz_example/page.dart';
 import 'package:flutter_widgetz_example/settings.dart';
+import 'package:material_ui/material_ui.dart' hide Page;
 
 /// To run the example app, clone/fork the repo!
 

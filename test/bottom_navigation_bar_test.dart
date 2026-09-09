@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_widgetz/flutter_widgetz.dart';
+import 'package:material_ui/material_ui.dart';
 
 void main() {
   const List<BottomNavigationBarItem> items = <BottomNavigationBarItem>[
