@@ -3,7 +3,6 @@ updates:
   # GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
-    target-branch: "dev"
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 5
@@ -14,7 +13,6 @@ updates:
   # Gradle dependencies
   - package-ecosystem: "gradle"
     directory: "/example/android"
-    target-branch: "dev"
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 5
@@ -25,7 +23,6 @@ updates:
   # Dart packages (pub)
   - package-ecosystem: "pub"
     directory: "/"
-    target-branch: "dev"
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 5
