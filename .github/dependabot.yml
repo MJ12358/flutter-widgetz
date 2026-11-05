@@ -22,7 +22,9 @@ updates:
           - "*"
   # Dart packages (pub)
   - package-ecosystem: "pub"
-    directory: "/"
+    directories:
+      - "/"
+      - "/example"
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 5
