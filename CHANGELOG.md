@@ -1,5 +1,9 @@
 # Flutter Widgetz
 
+## [17.0.1]
+
+- Update dependencies.
+
 ## [17.0.0]
 
 - Update Flutter and standalone UI packages.
