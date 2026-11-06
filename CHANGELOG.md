@@ -1,6 +1,6 @@
 # Flutter Widgetz
 
-## [17.0.1]
+## [17.0.2]
 
 - Update dependencies.
 
